@@ -1,62 +1,321 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
-  <title>Natur-Webseite</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMTW 2025</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #e8f5e9;
+            color: #234726;
+        }
+
+        header {
+            background: #66bb6a;
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border-bottom: 4px solid #234726;
+        }
+
+        header img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 1rem;
+            border-radius: 8px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #66bb6a;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: #234726;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #66bb6a;
+            display: inline-block;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 1.5rem;
+            color: #234726;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 1rem;
+            border-radius: 8px;
+        }
+
+        .text-image {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .text-image .text {
+            flex: 1 1 50%;
+            min-width: 300px;
+        }
+
+        .text-image .image {
+            flex: 1 1 40%;
+            min-width: 300px;
+        }
+
+        .cta {
+            text-align: center;
+            background: #66bb6a;
+            padding: 1.5rem 1rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .dropdown {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .dropdown button {
+            background: #66bb6a;
+            color: white;
+            font-size: 1.2rem;
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dropdown button:hover {
+            background: #234726;
+        }
+
+        .dropdown-content {
+            display: none;
+            margin-top: 1rem;
+            background: white;
+            padding: 1.5rem;
+            border: 1px solid #66bb6a;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-content.active {
+            display: block;
+        }
+
+        .dropdown-content form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .dropdown-content form label {
+            font-weight: bold;
+            color: #234726;
+        }
+
+        .dropdown-content form input, .dropdown-content form select, .dropdown-content form button {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #234726;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .dropdown-content form button {
+            background: #66bb6a;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dropdown-content form button:hover {
+            background: #234726;
+        }
+
+        footer {
+            text-align: center;
+            background: #234726;
+            color: white;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        a {
+            color: #388e3c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: #234726;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px #234726;
+        }
+
+        @media (max-width: 768px) {
+            header img {
+                margin-bottom: 1rem;
+            }
+
+            .content {
+                padding: 1rem;
+            }
+
+            .text-image {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <script>
+        function toggleDropdown() {
+            const content = document.querySelector('.dropdown-content');
+            content.classList.toggle('active');
+        }
+    </script>
 </head>
 <body>
-  <header>
-    <div class="banner">
-      <h1>Natur-Webseite</h1>
+    <header>
+        <img src="images/image1.jpg" alt="Einradfahrer" />
+    </header>
+
+    <h1>German Muni and Trial Weekend 2025</h1>
+
+    <div class="container">
+        <div class="content">
+            <div class="section">
+                <p>Das German Muni and Trial Weekend (kurz GMTW) wurde in den Anfangstagen des Einradsports von einer Gruppe leidenschaftlicher Einrad-Pioniere im Dunstkreis von “Municycle.com” ins Leben gerufen.</p>
+                <p>Ihr Ziel: die Begeisterung für den Einradsport immer wieder neu zu entfachen und die Disziplinen Muni (Mountainunicycle) und Trial (Hindernisparcours) in der Natur hervorzuheben und zu fördern.</p>
+                <p>Im Laufe der Zeit hat sich das GMTW weit über ein einfaches Sportevent hinaus entwickelt – es wurde zum Herzstück einer ganzen Szene. Jedes Jahr reisen Teilnehmer aus allen Teilen Deutschlands und sogar darüber hinaus an. Über 90 Fahrer und Fahrerinnen, mit Einrädern unterschiedlichster Art und verschiedenen Könnensstufen, vereint durch die Leidenschaft für ihren Sport: Von Anfängern, die gerade ihre Balance gefunden haben, bis hin zu Profis, die scheinbar die Gesetze der Schwerkraft aushebeln.</p>
+                <p>Der Veranstaltungsort wechselt jedes Jahr und wird traditionell von einem Teilnehmer an den nächsten weitergegeben. Gemeinsam mit der Community entstehen so kleine Einradparadiese. Beispielsweise boten die Thüringer Wälder rund um Oberhof eine ideale Kulisse: Steile Trails, technische Paletten-Trial-Parcours, gestaltet von Axel Kästle, und anspruchsvolle Downhill-Strecken, die selbst erfahrene Mountainbiker herausforderten.</p>
+                <p>Tagsüber stehen Training, Tests und das Ausloten von Grenzen im Mittelpunkt. Abends verwandelt sich das Gelände in einen Ort der Gemeinschaft. Lagerfeuer, geteilte Geschichten vergangener Touren und aufgeregte Gespräche über die Erlebnisse des Tages prägen die Atmosphäre.</p>
+                <p>Selbst in herausfordernden Zeiten, wie während der Pandemie, zeigte die Community ihre Kreativität: 2021 fand das GMTW in Form eines Video-Wettbewerbs statt, bei dem Einradfahrer ihre Beiträge einreichen konnten. Doch auch wenn in den letzten Jahren Wettbewerbselemente hinzugekommen sind, bleibt das GMTW seinem Grundprinzip treu: Es ist kein Wettkampf!</p>
+                <p>Das GMTW ist ein Treffen von Gleichgesinnten, ein Ort des Austauschs ohne Druck – ein Ort des Lernens und der Freude an einem Sport, den viele zunächst belächeln. Hier sind alle willkommen: groß oder klein, jung oder alt, fortgeschritten oder blutiger Anfänger.</p>
+                <p>Kommt vorbei und erlebt die einzigartige Gemeinschaft des GMTW!</p>
+            </div>
+            <div class="section text-image">
+                <div class="text">
+                    <h2>Location 2025:</h2>
+                    <p>Der Campingplatz Hohensyburg in Dortmund bietet eine ideale Basis für das diesjährige German Muni and Trial Weekend (GMTW).</p>
+                    <p><strong>Adresse:</strong><br>Syburger Dorfstraße 69, 44265 Dortmund</p>
+                    <p><strong>Webseite:</strong><br><a href="https://www.camping-hohensyburg.de/" target="_blank">https://www.camping-hohensyburg.de/</a></p>
+
+                    <h3>Informationen für das GMTW</h3>
+                    <h4>Anreise</h4>
+                    <ul>
+                        <li><strong>Auto:</strong> Der Campingplatz liegt in der Syburger Dorfstraße 69, 44265 Dortmund-Hohensyburg. Empfehlung: Von Norden (Dortmund-Syburg) in die Syburger Dorfstraße einfahren, da die Straße von Süden kommend enger ist.</li>
+                        <li><strong>Mit öffentlichen Verkehrsmitteln:</strong> Nächstgelegene Haltestelle: Dortmund-Syburg (fußläufig erreichbar).</li>
+                        <li><strong>Verbindungen:</strong> Bahn: RB52, Bus: 432, 442, 512, E441, E442</li>
+                    </ul>
+
+                    <h4>Verpflegung</h4>
+                    <ul>
+                        <li>Vor Ort: Kleiner Kiosk auf dem Campingplatz.</li>
+                        <li>In der Nähe: Nächster Supermarkt ca. 2 km entfernt.</li>
+                        <li>Gemeinschaftsverpflegung: Gemeinsames Frühstück. Abends wird gegrillt. Sonst allgemein gilt <strong>SELBSTVERPFLEGUNG</strong>.</li>
+                    </ul>
+
+                    <h4>Sanitäranlagen</h4>
+                    <ul>
+                        <li>Duschen: 8 Duschen mit warmem Wasser, auf 2 Duschräume verteilt.</li>
+                    </ul>
+
+                    <h4>Muni (Mountain Unicycle)</h4>
+                    <p>Die Region hat eine aktive Bikerszene, die sich um die lokalen Trails kümmert. Schöne Strecken entlang des Hengsteysees bieten viele Optionen. Ideal für gemeinsames "Muniplay" (Üben und Lernen mit Hilfestellung an technischen Stellen).</p>
+                    <p><strong>Skill?</strong> Hast du ein Muni und kannst 200m frei fahren? Dann ist es genau das Richtige für dich! Es wird verschiedene Touren geben, für Groß und Klein!</p>
+
+                    <h4>Trial</h4>
+                    <p>Vor Ort: Paletten und Spaß am Campingplatz. In der Umgebung: Ein nahegelegener Steinbruch bietet viel Potenzial für spannende Hindernisse.</p>
+                    <p><strong>Skill?</strong> Du hast ein Trial-Einrad und kannst 3-mal auf der Stelle hüpfen? Dann Letz go!</p>
+                </div>
+                <div class="image">
+                    <img src="strecken.jpg" alt="Karte der Umgebung" />
+                </div>
+            </div>
+        </div>
     </div>
-    <nav>
-      <ul>
-        <li>
-          <a href="#">Willkommen</a>
-          <ul>
-            <li><a href="#willkommen-uebersicht">Übersicht</a></li>
-            <li><a href="#willkommen-projekte">Projekte</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="inhalte.html">Inhalte</a>
-          <ul>
-            <li><a href="inhalte.html#inhalte-themen">Themen</a></li>
-            <li><a href="inhalte.html#inhalte-artikel">Artikel</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">Über mich</a>
-          <ul>
-            <li><a href="#ueber-biographie">Biographie</a></li>
-            <li><a href="#ueber-interessen">Interessen</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section id="willkommen-uebersicht">
-      <h2>Willkommen - Übersicht</h2>
-      <p>Willkommen auf der Natur-Webseite!</p>  
-      <p>Hier finden Sie allgemeine Informationen ( zu Kilian dem geilen Typ) über den Waldbestand in Thüringen und interessante Artikel zu verschiedenen Naturthemen.</p>
-      <p>Die Webseite wurde von [Name] erstellt, einem Naturliebhaber mit großem Interesse an Forstwirtschaft und Klimaschutz.</p>
-      <p>Im Bereich "Über mich" finden Sie mehr über mich und meine Interessen.</p>
-    </section>
-    <section id="willkommen-projekte">
-      <h2>Willkommen - Projekte</h2>
-      <h3>Aufforstungsprojekt in Thüringen</h3>
-      <p>In Zusammenarbeit mit dem Thüringer Ministerium für Umwelt, Energie und Naturschutz habe ich an einem Aufforstungsprojekt in Thüringen teilgenommen.</p>
-      <p>Ziel des Projekts war es, den Waldbestand in Thüringen durch Aufforstung und natürliche Verjüngung zu stabilisieren und zu verbessern.</p>
-      <p>Das Projekt war ein voller Erfolg und hat zu einer deutlichen Steigerung des Waldbestands in Thüringen beigetragen. Ich freue mich darauf,</p>
-      <p>in Zukunft weitere Projekte im Bereich Klimaschutz und Natur erfolgreich umzusetzen.</p>
-    </section>
-  </main>
-  <aside>
-    <img src="bild.jpg" alt="Waldbild" style="float: center">
-  </aside>
-  <footer>
-    <p>Copyright [Jahr] [Name]</p>
-  </footer>
+
+    <div class="dropdown">
+        <button onclick="toggleDropdown()">Anmeldung</button>
+        <div class="dropdown-content">
+            <form action="https://formsubmit.co/YOUR_EMAIL" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="age">Alter:</label>
+                <input type="number" id="age" name="age" min="0" required>
+
+                <label for="size">T-Shirt Größe:</label>
+                <select id="size" name="size" required>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+
+                <label for="days">Wie viele Tage:</label>
+                <input type="number" id="days" name="days" min="1" required>
+
+                <label for="vegan">Vegan:</label>
+                <select id="vegan" name="vegan" required>
+                    <option value="Ja">Ja</option>
+                    <option value="Nein">Nein</option>
+                </select>
+
+                <button type="submit">Absenden</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 German Muni and Trial Weekend. Alle Rechte vorbehalten.</p>
+    </footer>
 </body>
 </html>
