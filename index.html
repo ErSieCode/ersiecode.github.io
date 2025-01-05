@@ -56,6 +56,21 @@
             display: inline-block;
         }
 
+        h1 {
+            color: #234726;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px #234726;
+        }
+
+        .read-more {
+            color: #66bb6a;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
         ul {
             list-style-type: square;
             padding-left: 1.5rem;
@@ -84,21 +99,6 @@
         .text-image .image {
             flex: 1 1 40%;
             min-width: 300px;
-        }
-
-        .cta {
-            text-align: center;
-            background: #66bb6a;
-            padding: 1.5rem 1rem;
-            margin: 2rem 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .cta h2 {
-            color: white;
-            font-size: 2rem;
-            margin-bottom: 1rem;
         }
 
         .dropdown {
@@ -177,25 +177,6 @@
             font-size: 0.9rem;
         }
 
-        a {
-            color: #388e3c;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        h1 {
-            color: #234726;
-            text-align: center;
-            font-size: 2.5rem;
-            margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 1px 1px 3px #234726;
-        }
-
         @media (max-width: 768px) {
             header img {
                 margin-bottom: 1rem;
@@ -211,9 +192,22 @@
         }
     </style>
     <script>
+        function toggleReadMore() {
+            const moreText = document.getElementById('more-text');
+            const readMoreBtn = document.getElementById('read-more-btn');
+
+            if (moreText.style.display === 'none' || !moreText.style.display) {
+                moreText.style.display = 'block';
+                readMoreBtn.textContent = 'Weniger lesen';
+            } else {
+                moreText.style.display = 'none';
+                readMoreBtn.textContent = 'Mehr lesen';
+            }
+        }
+
         function toggleDropdown() {
-            const content = document.querySelector('.dropdown-content');
-            content.classList.toggle('active');
+            const dropdownContent = document.querySelector('.dropdown-content');
+            dropdownContent.classList.toggle('active');
         }
     </script>
 </head>
@@ -229,12 +223,15 @@
             <div class="section">
                 <p>Das German Muni and Trial Weekend (kurz GMTW) wurde in den Anfangstagen des Einradsports von einer Gruppe leidenschaftlicher Einrad-Pioniere im Dunstkreis von “Municycle.com” ins Leben gerufen.</p>
                 <p>Ihr Ziel: die Begeisterung für den Einradsport immer wieder neu zu entfachen und die Disziplinen Muni (Mountainunicycle) und Trial (Hindernisparcours) in der Natur hervorzuheben und zu fördern.</p>
-                <p>Im Laufe der Zeit hat sich das GMTW weit über ein einfaches Sportevent hinaus entwickelt – es wurde zum Herzstück einer ganzen Szene. Jedes Jahr reisen Teilnehmer aus allen Teilen Deutschlands und sogar darüber hinaus an. Über 90 Fahrer und Fahrerinnen, mit Einrädern unterschiedlichster Art und verschiedenen Könnensstufen, vereint durch die Leidenschaft für ihren Sport: Von Anfängern, die gerade ihre Balance gefunden haben, bis hin zu Profis, die scheinbar die Gesetze der Schwerkraft aushebeln.</p>
-                <p>Der Veranstaltungsort wechselt jedes Jahr und wird traditionell von einem Teilnehmer an den nächsten weitergegeben. Gemeinsam mit der Community entstehen so kleine Einradparadiese. Beispielsweise boten die Thüringer Wälder rund um Oberhof eine ideale Kulisse: Steile Trails, technische Paletten-Trial-Parcours, gestaltet von Axel Kästle, und anspruchsvolle Downhill-Strecken, die selbst erfahrene Mountainbiker herausforderten.</p>
-                <p>Tagsüber stehen Training, Tests und das Ausloten von Grenzen im Mittelpunkt. Abends verwandelt sich das Gelände in einen Ort der Gemeinschaft. Lagerfeuer, geteilte Geschichten vergangener Touren und aufgeregte Gespräche über die Erlebnisse des Tages prägen die Atmosphäre.</p>
-                <p>Selbst in herausfordernden Zeiten, wie während der Pandemie, zeigte die Community ihre Kreativität: 2021 fand das GMTW in Form eines Video-Wettbewerbs statt, bei dem Einradfahrer ihre Beiträge einreichen konnten. Doch auch wenn in den letzten Jahren Wettbewerbselemente hinzugekommen sind, bleibt das GMTW seinem Grundprinzip treu: Es ist kein Wettkampf!</p>
-                <p>Das GMTW ist ein Treffen von Gleichgesinnten, ein Ort des Austauschs ohne Druck – ein Ort des Lernens und der Freude an einem Sport, den viele zunächst belächeln. Hier sind alle willkommen: groß oder klein, jung oder alt, fortgeschritten oder blutiger Anfänger.</p>
-                <p>Kommt vorbei und erlebt die einzigartige Gemeinschaft des GMTW!</p>
+                <div id="more-text" style="display: none;">
+                    <p>Im Laufe der Zeit hat sich das GMTW weit über ein einfaches Sportevent hinaus entwickelt – es wurde zum Herzstück einer ganzen Szene. Jedes Jahr reisen Teilnehmer aus allen Teilen Deutschlands und sogar darüber hinaus an. Über 90 Fahrer und Fahrerinnen, mit Einrädern unterschiedlichster Art und verschiedenen Könnensstufen, vereint durch die Leidenschaft für ihren Sport: Von Anfängern, die gerade ihre Balance gefunden haben, bis hin zu Profis, die scheinbar die Gesetze der Schwerkraft aushebeln.</p>
+                    <p>Der Veranstaltungsort wechselt jedes Jahr und wird traditionell von einem Teilnehmer an den nächsten weitergegeben. Gemeinsam mit der Community entstehen so kleine Einradparadiese. Beispielsweise boten die Thüringer Wälder rund um Oberhof eine ideale Kulisse: Steile Trails, technische Paletten-Trial-Parcours, gestaltet von Axel Kästle, und anspruchsvolle Downhill-Strecken, die selbst erfahrene Mountainbiker herausforderten.</p>
+                    <p>Tagsüber stehen Training, Tests und das Ausloten von Grenzen im Mittelpunkt. Abends verwandelt sich das Gelände in einen Ort der Gemeinschaft. Lagerfeuer, geteilte Geschichten vergangener Touren und aufgeregte Gespräche über die Erlebnisse des Tages prägen die Atmosphäre.</p>
+                    <p>Selbst in herausfordernden Zeiten, wie während der Pandemie, zeigte die Community ihre Kreativität: 2021 fand das GMTW in Form eines Video-Wettbewerbs statt, bei dem Einradfahrer ihre Beiträge einreichen konnten. Doch auch wenn in den letzten Jahren Wettbewerbselemente hinzugekommen sind, bleibt das GMTW seinem Grundprinzip treu: Es ist kein Wettkampf!</p>
+                    <p>Das GMTW ist ein Treffen von Gleichgesinnten, ein Ort des Austauschs ohne Druck – ein Ort des Lernens und der Freude an einem Sport, den viele zunächst belächeln. Hier sind alle willkommen: groß oder klein, jung oder alt, fortgeschritten oder blutiger Anfänger.</p>
+                    <p>Kommt vorbei und erlebt die einzigartige Gemeinschaft des GMTW!</p>
+                </div>
+                <button id="read-more-btn" class="read-more" onclick="toggleReadMore()">Mehr lesen</button>
             </div>
             <div class="section text-image">
                 <div class="text">
@@ -315,7 +312,8 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 German Muni and Trial Weekend. Alle Rechte vorbehalten.</p>
+        <p>&copy; 2025 German Muni and Trial Weekend. Mir doch egal <3.</p>
     </footer>
 </body>
 </html>
+
