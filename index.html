@@ -299,11 +299,14 @@
       margin-bottom: 1.5rem;
       transition: transform 0.3s ease;
       background-color: white;
-      padding: 0.8rem;
+      padding: 0.8rem 1.2rem 0.8rem 0.8rem; /* Mehr Padding auf der rechten Seite */
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      width: 100%;
+      width: 105%; /* Erhöhte Breite auf 105% */
+      max-width: calc(100% + 15px); /* Etwas mehr Breite als der Elterncontainer */
       box-sizing: border-box;
+      margin-left: -5px; /* Leicht negativer Rand, um die Zentrierung beizubehalten */
+      overflow-x: visible; /* Stellt sicher, dass Inhalte, die über den Container hinausgehen, sichtbar bleiben */
     }
 
     .image-container:hover {
@@ -547,8 +550,11 @@
       }
 
       .image-container {
+        width: 102%; /* Etwas weniger zusätzliche Breite auf mobilen Geräten */
         margin-bottom: 1rem;
-        padding: 0.5rem;
+        padding: 0.5rem 0.9rem 0.5rem 0.5rem; /* Mehr Padding rechts bei kleinerem Padding insgesamt */
+        max-width: calc(100% + 8px);
+        margin-left: -3px;
       }
 
       /* Buttongrößen anpassen */
