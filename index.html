@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
   
   <style>
-    /* Reset-Einstellungen für maximale Kompatibilität */
+    /* Reset und grundlegende Textformatierung */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -30,11 +30,11 @@
       --container-max-width: 1200px;
       --heading-font: 'Montserrat', sans-serif;
       --body-font: 'Open Sans', sans-serif;
-      --section-spacing: 3.5rem;
-      --text-spacing: 1.8rem;
+      --section-spacing: 2.5rem;   /* Reduziert */
+      --text-spacing: 1rem;        /* Reduziert */
     }
     
-    /* UNIVERSELLE TEXTUMBRUCH-REGELN FÜR ALLE ELEMENTE */
+    /* Grundlegende Textumbruch-Regeln */
     html, body, div, p, h1, h2, h3, h4, h5, h6, span, a, li, td, th {
       overflow-wrap: break-word !important;
       word-wrap: break-word !important;
@@ -54,7 +54,7 @@
       background-color: var(--background-color);
       color: var(--text-color);
       width: 100%;
-      /* overflow-x: hidden;  <-- AUSKOMMENTIERT */
+      /* overflow-x: hidden;  <-- nicht aktivieren, um unerwünschtes Abschneiden zu vermeiden */
     }
     
     img {
@@ -104,7 +104,7 @@
       transform: scale(1.02);
     }
     
-    /* Container Struktur */
+    /* Container */
     .container {
       width: var(--container-width);
       max-width: var(--container-max-width);
@@ -112,41 +112,47 @@
       background: white;
       border-radius: 12px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-      /* overflow: hidden;  <-- AUSKOMMENTIERT */
+      /* overflow: hidden;  <-- entfernt */
       border: none;
     }
     
     .content {
-      padding: 3rem;
+      padding: 2rem 3rem; /* Etwas kompakter */
       width: 100%;
       max-width: 100%;
     }
     
-    /* Typographie */
+    /* Typographie und Abstände */
     h1, h2, h3, h4 {
       font-family: var(--heading-font);
       font-weight: 600;
       line-height: 1.3;
       color: var(--primary-dark);
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
     
     h1 {
       text-align: center;
       font-size: 3rem;
-      margin: 1.5rem auto 2.5rem;
+      margin: 1.5rem auto 2rem;
       letter-spacing: -0.02em;
       max-width: 90%;
     }
     
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.7;
+      max-width: 100%;
+    }
+    
+    /* Abschnitte mit logischer Trennung */
     .section {
       margin-bottom: var(--section-spacing);
       position: relative;
-      padding-bottom: 2rem;
+      padding-bottom: 1.5rem;
       width: 100%;
     }
     
-    /* Statt position:absolute -> display:block */
     .section:not(:last-child)::after {
       content: "";
       display: block;
@@ -158,7 +164,7 @@
     
     .section h2 {
       font-size: 2.2rem;
-      margin-bottom: 1.8rem;
+      margin-bottom: 0.8rem;
       border-bottom: 2px solid var(--primary-color);
       display: inline-block;
       padding-bottom: 0.5rem;
@@ -177,8 +183,8 @@
     
     .section h3 {
       font-size: 1.5rem;
-      margin-top: 2.5rem;
-      margin-bottom: 1.2rem;
+      margin-top: 1.8rem;
+      margin-bottom: 0.8rem;
       color: #2e5a2f;
       padding-left: 0.8rem;
       border-left: 3px solid var(--primary-color);
@@ -186,8 +192,8 @@
     
     .section h4 {
       font-size: 1.25rem;
-      margin-top: 1.8rem;
-      margin-bottom: 0.8rem;
+      margin-top: 1.2rem;
+      margin-bottom: 0.6rem;
       color: #3a6e3c;
       display: inline-block;
       padding: 0.3rem 0.6rem;
@@ -195,23 +201,7 @@
       border-radius: 4px;
     }
     
-    p {
-      margin-bottom: 1.2rem;
-      line-height: 1.7;
-      max-width: 100%;
-    }
-    
-    strong, b {
-      font-weight: 700;
-      color: #1b5e20;
-    }
-    
-    .text-accent {
-      color: var(--accent-color);
-      font-weight: 600;
-    }
-    
-    /* Listen – hier nicht mehr verwendet, da wir auf <p> setzen */
+    /* Listen werden in einigen Bereichen durch Absätze ersetzt */
     ul {
       list-style-type: none;
       padding-left: 0.5rem;
@@ -242,7 +232,7 @@
       margin-left: -0.5rem;
     }
     
-    /* Layout-Elemente */
+    /* Layout-Elemente, Buttons, Links */
     .read-more {
       color: var(--primary-color);
       cursor: pointer;
@@ -268,7 +258,7 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      gap: 3rem;
+      gap: 2rem;
       align-items: flex-start;
       width: 100%;
     }
@@ -286,10 +276,10 @@
     }
     
     .image-container {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       transition: transform 0.3s ease;
       background-color: white;
-      padding: 1rem;
+      padding: 0.8rem;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       width: 100%;
@@ -301,7 +291,7 @@
     
     .image-caption {
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       font-weight: 600;
       font-family: var(--heading-font);
       color: var(--primary-dark);
@@ -309,19 +299,17 @@
       background-color: var(--primary-light);
       padding: 0.5rem;
       border-radius: 6px;
-      word-wrap: break-word;
     }
     
-    /* Hervorhebungen */
+    /* Hervorhebungen und wichtige Infos */
     .highlight-box {
       background-color: rgba(102, 187, 106, 0.1);
       border-left: 4px solid var(--primary-color);
-      padding: 1.5rem;
-      margin: 2rem 0;
+      padding: 1.2rem;
+      margin: 1.8rem 0;
       border-radius: 0 8px 8px 0;
       position: relative;
       width: 100%;
-      box-sizing: border-box;
     }
     
     .highlight-box.emphasis {
@@ -345,10 +333,6 @@
       background-color: var(--accent-color);
     }
     
-    .highlight-box p:last-child {
-      margin-bottom: 0;
-    }
-    
     .important-info {
       font-weight: 600;
       color: #e53935;
@@ -356,25 +340,15 @@
       padding: 1rem;
       border-radius: 8px;
       border: 1px dashed #e53935;
-      margin: 1.5rem 0;
+      margin: 1.8rem 0;
       width: 100%;
-      box-sizing: border-box;
     }
     
-    .important-info p:first-child {
-      margin-top: 0;
-    }
-    
-    .important-info p:last-child {
-      margin-bottom: 0;
-    }
-    
-    /* Links */
+    /* Links und CTA-Buttons */
     a {
       color: #38761d;
       text-decoration: underline;
       transition: all 0.3s ease;
-      position: relative;
       font-weight: 600;
       word-break: break-word;
       display: inline-block;
@@ -385,7 +359,6 @@
       color: var(--primary-color);
     }
     
-    /* CTA Buttons */
     .cta-button {
       display: inline-block;
       background: var(--primary-color);
@@ -397,34 +370,25 @@
       transition: all 0.3s ease;
       margin: 1rem 0;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      position: relative;
-      overflow: hidden;
-      width: 100%;
       text-align: center;
-      max-width: 100%;
+      width: 100%;
     }
     
     .cta-button:hover {
       background: var(--primary-dark);
-      color: white !important;
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
     
-    /* Cards */
+    /* Topic-Cards */
     .topic-card {
       background-color: white;
       border-radius: 8px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
+      padding: 1.2rem;
+      margin: 1.8rem 0;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       border-top: 3px solid var(--primary-color);
       width: 100%;
-      box-sizing: border-box;
-    }
-    
-    .topic-card h3:first-child {
-      margin-top: 0;
     }
     
     /* Datum */
@@ -444,7 +408,7 @@
       background: linear-gradient(135deg, #376339, var(--primary-dark));
       color: white;
       padding: 2rem 0;
-      margin-top: 3rem;
+      margin-top: 2rem;
       font-size: 1rem;
       position: relative;
       width: 100%;
@@ -466,41 +430,7 @@
     }
     
     /* RESPONSIVE DESIGN */
-    @media screen and (max-width: 992px) {
-      :root {
-        --section-spacing: 2.8rem;
-        --text-spacing: 1.5rem;
-      }
-      
-      .content {
-        padding: 2.5rem;
-      }
-      
-      h1 {
-        font-size: 2.5rem;
-      }
-      
-      .section h2 {
-        font-size: 1.8rem;
-      }
-      
-      /* WordPress-spezifische Anpassungen */
-      .wp-block-html {
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-      }
-    }
-    
     @media screen and (max-width: 768px) {
-      :root {
-        --section-spacing: 2.5rem;
-        --text-spacing: 1.2rem;
-      }
-      
-      body {
-        line-height: 1.6;
-      }
-      
       .container {
         width: 95%;
         margin: 1.5rem auto;
@@ -508,7 +438,7 @@
       }
       
       .content {
-        padding: 1.8rem;
+        padding: 1.5rem;
       }
       
       .text-image {
@@ -516,98 +446,23 @@
         gap: 1.5rem;
       }
       
-      .text-image .text {
-        order: 1;
-        width: 100%;
-      }
-      
-      .text-image .image {
-        order: 2;
-        width: 100%;
-      }
-      
       h1 {
         font-size: 2.2rem;
-        margin-bottom: 1.5rem;
         margin-top: 1.2rem;
-      }
-      
-      h1, h2, h3, h4 {
-        word-wrap: break-word;
-        hyphens: auto;
+        margin-bottom: 1.2rem;
       }
       
       .section h2 {
         font-size: 1.7rem;
-        margin-bottom: 1.3rem;
       }
       
       .section h3 {
         font-size: 1.4rem;
-        margin-top: 1.8rem;
-        margin-bottom: 1rem;
-      }
-      
-      .section {
-        margin-bottom: 2.5rem;
-      }
-      
-      /* Für lange Texte – hier nicht als Liste, sondern als einzelne Absätze */
-      .topic-card p {
-        margin-bottom: 1rem;
-      }
-      
-      /* Verbesserte Touch-Ziele */
-      .read-more, .cta-button, a {
-        padding: 0.8rem 1.2rem;
-        display: inline-block;
-        margin: 0.5rem 0;
-        min-height: 44px;
-        min-width: 44px;
-        line-height: 1.2;
-      }
-      
-      /* Header */
-      header {
-        padding: 1.5rem 1rem;
-      }
-      
-      /* Bilder */
-      .image-container {
-        margin-bottom: 2rem;
-        padding: 0.75rem;
-      }
-      
-      .image-caption {
-        font-size: 1.1rem;
-        margin-bottom: 0.8rem;
-      }
-      
-      /* Hervorhebungen */
-      .highlight-box {
-        padding: 1.2rem;
-        margin: 1.5rem 0;
-      }
-      
-      .topic-card {
-        padding: 1.2rem;
-        margin: 1rem 0;
-      }
-      
-      /* Fix für lange URLs */
-      a {
-        word-break: break-all;
       }
     }
     
     @media screen and (max-width: 480px) {
-      :root {
-        --section-spacing: 2rem;
-        --text-spacing: 0.8rem;
-      }
-      
       body {
-        line-height: 1.5;
         font-size: 15px;
       }
       
@@ -618,7 +473,7 @@
       }
       
       .content {
-        padding: 1.2rem;
+        padding: 1rem;
       }
       
       h1 {
@@ -629,96 +484,14 @@
       
       .section h2 {
         font-size: 1.5rem;
-        margin-bottom: 1rem;
       }
       
       .section h3 {
         font-size: 1.3rem;
-        margin-top: 1.5rem;
-        margin-bottom: 0.8rem;
-      }
-      
-      .section h4 {
-        font-size: 1.15rem;
-        margin-top: 1.2rem;
-        margin-bottom: 0.6rem;
-      }
-      
-      p, li {
-        font-size: 0.95rem;
-        margin-bottom: 1rem;
-      }
-      
-      .read-more, .cta-button {
-        font-size: 0.95rem;
-        width: 100%;
-        text-align: center;
-        margin: 0.8rem 0;
-      }
-      
-      /* Optimierte Bilder */
-      .image-container img {
-        max-height: 220px;
-        object-fit: cover;
-        width: 100%;
-      }
-      
-      .image-caption {
-        font-size: 1rem;
-      }
-      
-      /* Footer */
-      footer {
-        padding: 1.5rem 0;
-        font-size: 0.9rem;
-      }
-      
-      /* Listen */
-      ul li:before {
-        font-size: 1.3rem;
-        top: -0.2rem;
-      }
-      
-      /* Hervorhebungen */
-      .highlight-box {
-        padding: 1rem;
-        margin: 1.2rem 0;
-      }
-      
-      .topic-card {
-        padding: 1rem;
       }
     }
     
-    /* Extra-kleine Bildschirme */
-    @media screen and (max-width: 320px) {
-      .content {
-        padding: 1rem;
-      }
-      
-      h1 {
-        font-size: 1.6rem;
-      }
-      
-      .section h2 {
-        font-size: 1.3rem;
-      }
-      
-      p, li {
-        font-size: 0.9rem;
-      }
-      
-      .image-container img {
-        max-height: 180px;
-      }
-    }
-    
-    /* WordPress Fallback-Fix */
-    .wp-block-html * {
-      max-width: 100% !important;
-    }
-    
-    /* Fixes für alte Browser */
+    /* Fallback für alte Browser */
     @supports not (display: flex) {
       .text-image {
         display: block;
@@ -731,7 +504,7 @@
       }
     }
     
-    /* Internet Explorer Spezifische Fixes */
+    /* IE-spezifische Fixes */
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
       .text-image {
         display: block;
@@ -746,7 +519,6 @@
       .container,
       .content,
       .section,
-      .highlight-box,
       .topic-card {
         width: 100%;
       }
@@ -760,7 +532,7 @@
 </head>
 <body>
   <header>
-    <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image1.jpg" alt="Einradfahrer" />
+    <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image1.jpg" alt="Einradfahrer">
   </header>
   
   <h1>German Muni and Trial Weekend 2025</h1>
@@ -773,15 +545,10 @@
   
         <div id="more-text" style="display: none;">
           <p>Im Laufe der Zeit hat sich das GMTW weit über ein einfaches Sportevent hinaus entwickelt – es wurde zum <strong>Herzstück einer ganzen Szene</strong>. Jedes Jahr reisen Teilnehmer aus allen Teilen Deutschlands und sogar darüber hinaus an. Über 90 Fahrer und Fahrerinnen, mit Einrädern unterschiedlichster Art und verschiedenen Könnensstufen, vereint durch die Leidenschaft für ihren Sport: Von Anfängern, die gerade ihre Balance gefunden haben, bis hin zu Profis, die scheinbar die Gesetze der Schwerkraft aushebeln.</p>
-  
           <p>Der <strong>Veranstaltungsort wechselt jedes Jahr</strong> und wird traditionell von einem Teilnehmer an den nächsten weitergegeben. Gemeinsam mit der Community entstehen so kleine Einradparadiese. Beispielsweise boten die Thüringer Wälder rund um Oberhof eine ideale Kulisse: Steile Trails, technische Paletten-Trial-Parcours, gestaltet von Axel Kästle, und anspruchsvolle Downhill-Strecken, die selbst erfahrene Mountainbiker herausforderten.</p>
-  
           <p>Tagsüber stehen <strong>Training, Tests und das Ausloten von Grenzen</strong> im Mittelpunkt. Abends verwandelt sich das Gelände in einen Ort der Gemeinschaft. Lagerfeuer, geteilte Geschichten vergangener Touren und aufgeregte Gespräche über die Erlebnisse des Tages prägen die Atmosphäre.</p>
-  
           <p>Selbst in herausfordernden Zeiten, wie während der Pandemie, zeigte die Community ihre Kreativität: 2021 fand das GMTW in Form eines Video-Wettbewerbs statt, bei dem Einradfahrer ihre Beiträge einreichen konnten. Doch auch wenn in den letzten Jahren Wettbewerbselemente hinzugekommen sind, bleibt das GMTW seinem Grundprinzip treu: <strong>Es ist kein Wettkampf!</strong></p>
-  
           <p>Das GMTW ist ein <strong>Treffen von Gleichgesinnten</strong>, ein Ort des Austauschs ohne Druck – ein Ort des Lernens und der Freude an einem Sport, den viele zunächst belächeln. Hier sind alle willkommen: groß oder klein, jung oder alt, fortgeschritten oder blutiger Anfänger.</p>
-  
           <div class="highlight-box emphasis">
             <p>Kommt vorbei und erlebt die <strong>einzigartige Gemeinschaft des GMTW</strong>!</p>
           </div>
@@ -794,7 +561,6 @@
         <div class="text">
           <h2>Location 2025</h2>
           <p>Der <strong>Campingplatz Hohensyburg</strong> in Dortmund bietet uns eine ideale Basis für das diesjährige German Muni and Trial Weekend (GMTW).</p>
-  
           <div class="highlight-box">
             <p><span class="date-display">17. - 21. April 2025</span></p>
             <p><strong>Adresse:</strong> Syburger Dorfstraße 69, 44265 Dortmund</p>
@@ -806,23 +572,18 @@
             <h3>Wichtig: Zeltplätze für Einradfahrer</h3>
             <div class="highlight-box emphasis" style="background-color: rgba(102, 187, 106, 0.2); border-color: #2e7d32;">
               <p>Wir möchten als Gruppe zusammen bleiben! Bitte wählt bei der Buchung die <strong class="text-accent">"Touristenplätze"</strong> auf der <strong class="text-accent">grünen Fläche</strong> (siehe Zeltplatz-Karte rechts). Diese Plätze sind speziell für uns reserviert und ermöglichen uns, als Gemeinschaft zusammen zu sein.</p>
-              <a href="https://camppartner.com/cpoobuchung/hohensyburg" target="_blank" class="cta-button" style="background-color: #2e7d32; display: block; text-align: center; margin-top: 1rem;">Jetzt Anmelden</a>
+              <a href="https://camppartner.com/cpoobuchung/hohensyburg" target="_blank" class="cta-button" style="background-color: #2e7d32;">Jetzt Anmelden</a>
             </div>
-  
-            <div class="important-info" style="margin-top: 1rem;">
+            <div class="important-info">
               <p><strong>⚠️ Wichtige Fristen:</strong></p>
               <p>🚐 Camper und Wohnmobile bitte <strong>frühzeitig anmelden</strong>! Anmeldeschluss für Camper und Wohnmobile ist der <strong class="text-accent">15.03.2025</strong>.</p>
               <p>👕 Allgemeiner Anmeldeschluss ist der <strong class="text-accent">01.04.2025</strong> für die T-Shirts.</p>
-              <!-- Telefonnummer zentriert -->
-              <p style="text-align: center;">
-                📱 Wer ein T-Shirt möchte, bitte Sven per WhatsApp kontaktieren: <strong>0179 7318615</strong>
-              </p>
+              <p style="text-align: center;">📱 Wer ein T-Shirt möchte, bitte Sven per WhatsApp kontaktieren: <strong>0179 7318615</strong></p>
             </div>
           </div>
   
           <div class="topic-card">
             <h3>Übernachtungsmöglichkeiten</h3>
-            <!-- Statt Liste: einzelne Absätze -->
             <p><strong>Erste Wahl für Einradfahrer:</strong> Zelten auf den "Touristenplätzen" (grüne Fläche) – damit wir zusammen bleiben.</p>
             <p>Alternativ: Übernachtung in <a href="https://www.camping-hohensyburg.de/Deutsch/Bauwagen" target="_blank">Bauwagen</a> oder im <a href="https://www.camping-hohensyburg.de/Deutsch/Campingfaessern" target="_blank">gemütlichen Campingfass</a> möglich.</p>
             <p>Alle Details zu Unterkünften und Preisen findet ihr hier: <a href="https://www.camping-hohensyburg.de/Deutsch/Preise" target="_blank">Preisübersicht</a>.</p>
@@ -830,7 +591,6 @@
   
           <div class="topic-card">
             <h3>Verpflegung</h3>
-            <!-- Statt Liste: einzelne Absätze -->
             <p><strong>Eigenversorgung</strong> ist vorgesehen. Frühstück und Abendessen werden wir gemeinsam an der Feuerschale einnehmen (Grilloption vorhanden).</p>
             <p>Auf dem Gelände gibt es einen kleinen Kiosk und ein <a href="https://g.co/kgs/uG33qmB" target="_blank">Natur-Restaurant</a>.</p>
             <p>Der nächste Supermarkt (Lidl) ist ca. 4 km entfernt: <a href="https://maps.app.goo.gl/HEZpXZd5Pgc2YJao9" target="_blank">Route zum Supermarkt</a>.</p>
@@ -848,7 +608,6 @@
             <p>Die Region rund um den Hengsteysee bietet <strong>wunderschöne Trails für alle Könnensstufen</strong>. Ideal für gemeinsames "Muniplay" (Üben und Lernen mit Hilfestellung).</p>
             <p>Hier ein kleiner Vorgeschmack aus der Sicht eines Bikers: <a href="https://g.co/kgs/uG33qmB" target="_blank">Muni Muni Muni! &lt;3</a></p>
             <p><strong>Skill-Level:</strong> Hast du ein Muni und kannst 200m frei fahren? Dann ist es <span class="text-accent">genau das Richtige für dich!</span></p>
-  
             <h4>Trial</h4>
             <p>Vor Ort stehen <strong>Paletten und Hindernisse</strong> auf dem Campingplatzgelände bereit. In der Umgebung bietet ein nahegelegener Steinbruch weiteres Potenzial.</p>
             <p><strong>Skill-Level:</strong> Du hast ein Trial-Einrad und kannst 3-mal auf der Stelle hüpfen? Dann <span class="text-accent">Letz go!</span></p>
@@ -863,25 +622,24 @@
         <div class="image">
           <div class="image-container">
             <h3 class="image-caption">Touristenplätze Anmeldung</h3>
-            <p style="text-align: center; margin-bottom: 0.8rem; color: #2e7d32; font-weight: bold;">Diese Touristenplätze bitte auswählen, um zur speziellen Anmeldung für die Zelte zu kommen!</p>
-            <!-- Bild anklickbar in neuem Tab -->
+            <p style="text-align: center; color: #2e7d32; font-weight: bold;">Diese Touristenplätze bitte auswählen, um zur speziellen Anmeldung für die Zelte zu kommen!</p>
             <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" target="_blank">
-              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" alt="Touristenplätze Anmeldung" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);" />
+              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" alt="Touristenplätze Anmeldung" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);">
             </a>
           </div>
   
           <div class="image-container">
             <h3 class="image-caption">Verfügbare Zeltplätze</h3>
-            <p style="text-align: center; margin-bottom: 0.8rem; color: #2e7d32; font-weight: bold;">Einradfahrer: Bitte "Touristenplätze" auf der grünen Fläche wählen!</p>
+            <p style="text-align: center; color: #2e7d32; font-weight: bold;">Einradfahrer: Bitte "Touristenplätze" auf der grünen Fläche wählen!</p>
             <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" target="_blank">
-              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" alt="Verfügbare Zeltplätze" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);" />
+              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" alt="Verfügbare Zeltplätze" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);">
             </a>
           </div>
   
           <div class="image-container">
             <h3 class="image-caption">Umgebungskarte</h3>
             <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" target="_blank">
-              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" alt="Karte der Umgebung" />
+              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" alt="Karte der Umgebung">
             </a>
           </div>
         </div>
@@ -893,18 +651,15 @@
     <p>&copy; 2025 German Muni and Trial Weekend. Mir doch egal &lt;3</p>
   </footer>
   
-  <!-- Korrigierter JavaScript-Code für den "Mehr lesen"-Button -->
   <script>
     function toggleReadMore() {
       var moreText = document.getElementById('more-text');
       var readMoreBtn = document.getElementById('read-more-btn');
-  
       if (!moreText || !readMoreBtn) {
         console.error('Elemente für "Mehr lesen" nicht gefunden');
         return;
       }
-  
-      if (moreText.style.display === 'none' || !moreText.style.display || moreText.style.display === '') {
+      if (moreText.style.display === 'none' || !moreText.style.display) {
         moreText.style.display = 'block';
         readMoreBtn.textContent = 'Weniger lesen';
       } else {
@@ -915,41 +670,27 @@
   
     document.addEventListener('DOMContentLoaded', function() {
       var moreText = document.getElementById('more-text');
-      if (moreText) {
-        moreText.style.display = 'none';
-      }
-  
+      if (moreText) moreText.style.display = 'none';
       var allLinks = document.getElementsByTagName('a');
       for (var i = 0; i < allLinks.length; i++) {
         if (allLinks[i].offsetWidth < allLinks[i].scrollWidth) {
           allLinks[i].style.wordBreak = 'break-all';
         }
       }
-  
       function isIE() {
         var ua = window.navigator.userAgent;
-        var msie = ua.indexOf("MSIE ");
-        var trident = ua.indexOf('Trident/');
-  
-        if (msie > 0 || trident > 0) {
-          return true;
-        }
-        return false;
+        return (ua.indexOf("MSIE ") > 0 || ua.indexOf('Trident/') > 0);
       }
-  
       if (isIE()) {
         document.body.className += ' ie-browser';
       }
-  
       if (typeof wp !== 'undefined' || document.body.classList.contains('wp-admin') || document.body.classList.contains('wp-core-ui')) {
         document.body.classList.add('wordpress-environment');
-  
         var containers = document.querySelectorAll('.container, .content, .section, .topic-card, .text-image, .image-container');
         for (var j = 0; j < containers.length; j++) {
           containers[j].style.maxWidth = '100%';
           containers[j].style.overflow = 'hidden';
         }
-  
         for (var k = 0; k < allLinks.length; k++) {
           allLinks[k].style.wordBreak = 'break-all';
         }
