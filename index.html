@@ -11,7 +11,913 @@
 
   <style>
     /* Reset und grundlegende Textformatierung */
+    *, *::before, *::after {<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GMTW 2025 17-21.04.25</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset und grundlegende Textformatierung */
     *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      max-width: 100%;
+    }
+
+    body, html {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    :root {
+      --primary-color: #66bb6a;
+      --primary-dark: #234726;
+      --primary-light: #e8f5e9;
+      --accent-color: #ff8f00;
+      --background-color: #f5f7f5;
+      --text-color: #333333;
+      --container-width: 96%;  /* Erhöhte Breite von 92% auf 96% */
+      --container-max-width: 1200px;  /* Erhöhte maximale Breite von 1100px auf 1200px */
+      --heading-font: 'Montserrat', sans-serif;
+      --body-font: 'Open Sans', sans-serif;
+      --section-spacing: 2.5rem;
+      --text-spacing: 1rem;
+
+      /* Viewport-basierte Schriftgrößen als moderne Alternative zu festen Pixelwerten */
+      --base-font-size: calc(15px + 0.1vw);
+      --heading-scale-1: calc(1.8rem + 1vw);
+      --heading-scale-2: calc(1.4rem + 0.5vw);
+      --heading-scale-3: calc(1.2rem + 0.3vw);
+      --heading-scale-4: calc(1.1rem + 0.2vw);
+    }
+
+    /* Grundlegende Textumbruch-Regeln */
+    html, body, div, p, h1, h2, h3, h4, h5, h6, span, a, li, td, th {
+      overflow-wrap: break-word !important;
+      word-wrap: break-word !important;
+      word-break: normal !important;
+      -ms-word-break: normal !important;
+      -ms-hyphens: none !important;
+      -webkit-hyphens: none !important;
+      hyphens: none !important;
+      max-width: 100%;
+    }
+
+    /* Links speziell optimieren - Mit vergrößerten Berührungsflächen für WCAG-Konformität */
+    a {
+      display: inline-block;
+      max-width: 100%;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: normal;
+      -ms-word-break: normal;
+      color: #38761d;
+      text-decoration: underline;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      padding: 0.1rem; /* Minimal padding for larger touch area */
+    }
+
+    /* Verbesserte Darstellung von URLs */
+    a[href^="http"] {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-word;
+      hyphens: none;
+      display: inline-block;
+      max-width: 100%;
+    }
+
+    a:hover {
+      color: var(--primary-color);
+    }
+
+    body {
+      font-family: var(--body-font);
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      width: 100%;
+      font-size: var(--base-font-size); /* Viewport-basierte Größe */
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: white;
+      padding: 2.5rem 1rem;
+      text-align: center;
+      border-bottom: 4px solid var(--primary-dark);
+      margin-bottom: 1rem;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255,255,255,0.1);
+      opacity: 0.3;
+    }
+
+    header img {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem auto 0;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    header img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Container - AKTUALISIERT */
+    .container {
+      width: var(--container-width);
+      max-width: var(--container-max-width);
+      margin: 3rem auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      border: none;
+      box-sizing: border-box;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .content {
+      padding: 2rem 3rem;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    /* Typographie mit viewport-basierten Größen */
+    h1, h2, h3, h4 {
+      font-family: var(--heading-font);
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--primary-dark);
+      margin-bottom: 0.8rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: var(--heading-scale-1);
+      margin: 1.5rem auto 2rem;
+      letter-spacing: -0.02em;
+      max-width: 90%;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.7;
+      max-width: 100%;
+    }
+
+    /* Textbox: Schöne grüne Box - AKTUALISIERT */
+    .textbox {
+      background-color: rgba(102, 187, 106, 0.1);
+      border: 2px solid var(--primary-color);
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-sizing: border-box;
+      width: 100%;
+      min-height: 100px;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    /* Abschnitte */
+    .section {
+      margin-bottom: var(--section-spacing);
+      position: relative;
+      padding-bottom: 1.5rem;
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .section:not(:last-child)::after {
+      content: "";
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+    }
+
+    .section h2 {
+      font-size: var(--heading-scale-2);
+      margin-bottom: 0.8rem;
+      border-bottom: 2px solid var(--primary-color);
+      display: inline-block;
+      padding-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 50%;
+      height: 2px;
+      background-color: var(--accent-color);
+    }
+
+    .section h3 {
+      font-size: var(--heading-scale-3);
+      margin-top: 1.8rem;
+      margin-bottom: 0.8rem;
+      color: #2e5a2f;
+      padding-left: 0.8rem;
+      border-left: 3px solid var(--primary-color);
+    }
+
+    .section h4 {
+      font-size: var(--heading-scale-4);
+      margin-top: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: #3a6e3c;
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      background-color: var(--primary-light);
+      border-radius: 4px;
+    }
+
+    /* Listen */
+    ul {
+      list-style-type: none;
+      padding-left: 0.5rem;
+      margin: 1rem 0 1.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+    }
+
+    ul li:before {
+      content: "•";
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      position: absolute;
+      left: 0;
+      top: -0.25rem;
+    }
+
+    ul li.highlight {
+      background-color: var(--primary-light);
+      padding: 0.5rem 0.5rem 0.5rem 1.8rem;
+      border-radius: 4px;
+      margin-left: -0.5rem;
+    }
+
+    /* Buttons, Links, Layout-Elemente */
+    .read-more {
+      color: var(--primary-color);
+      cursor: pointer;
+      font-weight: 600;
+      background: none;
+      border: 1px solid var(--primary-color);
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 0.5rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      min-height: 44px; /* WCAG-konforme Berührungsfläche */
+    }
+
+    .read-more:hover {
+      background-color: var(--primary-color);
+      color: white;
+      text-decoration: none;
+    }
+
+    .text-image {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: flex-start;
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .text-image .text {
+      flex: 1 1 58%;
+      min-width: 300px;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .text-image .image {
+      flex: 1 1 38%;
+      min-width: 280px;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .image-container {
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s ease;
+      background-color: white;
+      padding: 0.8rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      width: 100%;
+      box-sizing: border-box;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .image-container:hover {
+      transform: translateY(-5px);
+    }
+
+    .image-caption {
+      text-align: center;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      font-family: var(--heading-font);
+      color: var(--primary-dark);
+      font-size: 1.2rem;
+      background-color: var(--primary-light);
+      padding: 0.5rem;
+      border-radius: 6px;
+    }
+
+    /* Highlight-Box - AKTUALISIERT */
+    .highlight-box {
+      background-color: rgba(102, 187, 106, 0.1);
+      border-left: 4px solid var(--primary-color);
+      padding: 1.2rem;
+      margin: 1.8rem 0;
+      border-radius: 0 8px 8px 0;
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .highlight-box.emphasis {
+      background-color: rgba(255, 143, 0, 0.1);
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .highlight-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 20px;
+      height: 20px;
+      background-color: var(--primary-color);
+      opacity: 0.2;
+      border-radius: 0 0 0 8px;
+    }
+
+    .highlight-box.emphasis::before {
+      background-color: var(--accent-color);
+    }
+
+    /* Important-Info - AKTUALISIERT */
+    .important-info {
+      font-weight: 600;
+      color: #e53935;
+      background-color: rgba(229, 57, 53, 0.05);
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px dashed #e53935;
+      margin: 1.8rem 0;
+      width: 100%;
+      box-sizing: border-box;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--primary-color);
+      color: white !important;
+      font-weight: 600;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none !important;
+      transition: all 0.3s ease;
+      margin: 1rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 44px; /* WCAG-konforme Berührungsfläche */
+    }
+
+    .cta-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    /* Topic-Card - AKTUALISIERT */
+    .topic-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 1.2rem;
+      margin: 1.8rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border-top: 3px solid var(--primary-color);
+      width: 100%;
+      box-sizing: border-box;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .date-display {
+      display: inline-block;
+      background-color: var(--primary-dark);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-weight: 600;
+      margin: 0.5rem 0;
+    }
+
+    footer {
+      text-align: center;
+      background: linear-gradient(135deg, #376339, var(--primary-dark));
+      color: white;
+      padding: 2rem 0;
+      margin-top: 2rem;
+      font-size: 1rem;
+      position: relative;
+      width: 100%;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--primary-color));
+    }
+
+    footer p {
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    /* Verbesserte Link-Darstellung in Boxen */
+    .highlight-box a, .topic-card a, .textbox a {
+      display: inline-block;
+      max-width: 100%;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: normal;
+    }
+
+    /* Media Queries - OPTIMIERTE VERSION FÜR MOBILE GERÄTE */
+    @media screen and (max-width: 768px) {
+      .container {
+        width: 95%;
+        margin: 1rem auto;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .content {
+        padding: 1.2rem 2rem;
+        box-sizing: border-box;
+        max-width: 650px;
+        overflow: hidden;
+      }
+
+      h1 {
+        margin: 0.8rem auto 1rem;
+        /* Schriftgröße wird durch CSS-Variablen gesteuert */
+      }
+
+      .section h3 {
+        margin-top: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .topic-card {
+        padding: 0.8rem;
+        margin: 1.2rem 0;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .highlight-box {
+        padding: 0.8rem;
+        margin: 1.2rem 0;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .text-image {
+        flex-direction: column;
+        gap: 1rem;
+        overflow: hidden;
+      }
+
+      .text-image .text,
+      .text-image .image {
+        flex: 1 1 100%;
+        min-width: 100%;
+      }
+
+      /* Zurücksetzen der speziellen Anordnung auf mobilen Geräten */
+      .image-container {
+        margin-top: 0 !important;
+      }
+
+      /* Verbesserte Berührungsflächen für mobile Geräte */
+      a {
+        padding: 0.2rem;
+        min-height: 44px; /* WCAG-konforme Berührungsfläche */
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .topic-card a, .highlight-box a, .textbox a {
+        margin: 0.3rem 0;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      body {
+        line-height: 1.4;
+      }
+
+      .container {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        overflow: hidden;
+      }
+
+      .content {
+        padding: 0.8rem 1.2rem;
+        box-sizing: border-box;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      h1 {
+        margin: 0.5rem auto 0.8rem;
+        padding: 0 0.5rem;
+      }
+
+      /* Ränder für Boxen und Cards reduzieren */
+      .topic-card, .highlight-box, .textbox, .important-info {
+        padding: 0.6rem;
+        margin: 0.6rem 0;
+        border-radius: 4px;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .image-container {
+        width: 100%;
+        margin-bottom: 0.8rem;
+        padding: 0.4rem;
+        max-width: 100%;
+        overflow: hidden;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      /* Buttongrößen anpassen */
+      .cta-button, .read-more {
+        padding: 0.5rem;
+        font-size: 0.95rem;
+        width: 100%;
+      }
+
+      /* Abstand zwischen Sektionen verringern */
+      .section {
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        overflow: hidden;
+      }
+
+      /* Textabstände reduzieren */
+      p {
+        margin-bottom: 0.5rem;
+      }
+
+      /* Bessere Darstellung von Links */
+      .highlight-box a, .topic-card a, .textbox a {
+        font-size: 0.95em;
+      }
+
+      /* Spezielle Behandlung von langen URLs */
+      a[href^="http"] {
+        font-size: 0.92em;
+        padding-right: 0.2rem;
+      }
+
+      /* Texte mit Datum optimieren */
+      .date-display {
+        display: inline-block;
+        padding: 0.3rem 0.6rem;
+        margin: 0.3rem 0;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Spezielles Media Query für sehr kleine Geräte (320px) */
+    @media screen and (max-width: 320px) {
+      body {
+        font-size: 14px;
+      }
+
+      .content {
+        padding: 0.6rem 1rem;
+      }
+
+      h1 {
+        font-size: calc(1.3rem + 0.5vw);
+      }
+
+      .section h2 {
+        font-size: calc(1.2rem + 0.3vw);
+      }
+
+      .section h3 {
+        font-size: calc(1rem + 0.2vw);
+      }
+
+      .section h4 {
+        font-size: calc(0.9rem + 0.1vw);
+      }
+
+      /* Noch kompaktere Darstellung */
+      .topic-card, .highlight-box, .textbox, .important-info {
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+      }
+
+      .image-container {
+        padding: 0.3rem;
+      }
+    }
+
+    /* Fallback für Browser ohne Flexbox */
+    @supports not (display: flex) {
+      .text-image {
+        display: block;
+      }
+
+      .text-image .text,
+      .text-image .image {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+    }
+
+    /* IE-spezifische Fixes */
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      .text-image {
+        display: block;
+      }
+
+      .text-image .text,
+      .text-image .image {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+
+      .container,
+      .content,
+      .section,
+      .topic-card {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image1.jpg" alt="Einradfahrer">
+  </header>
+
+  <h1>German Muni and Trial Weekend 2025</h1>
+
+  <div class="container">
+    <div class="content">
+      <div class="section">
+        <p>Das <strong>German Muni and Trial Weekend</strong> (kurz <strong>GMTW</strong>) wurde in den Anfangstagen (seit 2003) des Einradsports von einer Gruppe leidenschaftlicher Einrad-Pioniere im Dunstkreis von "Municycle.com" an Ostern ins Leben gerufen.</p>
+        <p>Ihr Ziel: die <strong>Begeisterung für den Einradsport</strong> immer wieder neu zu entfachen und die Disziplinen <strong>Muni</strong> (Mountainunicycle) und <strong>Trial</strong> (Hindernisparcours) in der Natur hervorzuheben und zu fördern.</p>
+
+        <div id="more-text" style="display: none;">
+          <p>Im Laufe der Zeit hat sich das GMTW weit über ein einfaches Sportevent hinaus entwickelt – es wurde zum <strong>Herzstück einer ganzen Szene</strong>. Jedes Jahr reisen Teilnehmer aus allen Teilen Deutschlands und sogar darüber hinaus an. Über 90 Fahrer und Fahrerinnen, mit Einrädern unterschiedlichster Art und verschiedenen Könnensstufen, vereint durch die Leidenschaft für ihren Sport: Von Anfängern, die gerade ihre Balance gefunden haben, bis hin zu Profis, die scheinbar die Gesetze der Schwerkraft aushebeln.</p>
+          <p>Der <strong>Veranstaltungsort wechselt jedes Jahr</strong> und wird traditionell von einem Teilnehmer an den nächsten weitergegeben. Gemeinsam mit der Community entstehen so kleine Einradparadiese. Beispielsweise boten die Thüringer Wälder rund um Oberhof eine ideale Kulisse: Steile Trails, technische Paletten-Trial-Parcours, gestaltet von Axel Kästle, und anspruchsvolle Downhill-Strecken, die selbst erfahrene Mountainbiker herausforderten.</p>
+          <p>Tagsüber stehen <strong>Training, Tests und das Ausloten von Grenzen</strong> im Mittelpunkt. Abends verwandelt sich das Gelände in einen Ort der Gemeinschaft. Lagerfeuer, geteilte Geschichten vergangener Touren und aufgeregte Gespräche über die Erlebnisse des Tages prägen die Atmosphäre.</p>
+          <p>Selbst in herausfordernden Zeiten, wie während der Pandemie, zeigte die Community ihre Kreativität: 2021 fand das GMTW in Form eines Video-Wettbewerbs statt, bei dem Einradfahrer ihre Beiträge einreichen konnten. Doch auch wenn in den letzten Jahren Wettbewerbselemente hinzugekommen sind, bleibt das GMTW seinem Grundprinzip treu: <strong>Es ist kein Wettkampf!</strong></p>
+          <p>Das GMTW ist ein <strong>Treffen von Gleichgesinnten</strong>, ein Ort des Austauschs ohne Druck – ein Ort des Lernens und der Freude an einem Sport, den viele zunächst belächeln. Hier sind alle willkommen: groß oder klein, jung oder alt, fortgeschritten oder blutiger Anfänger.</p>
+          <div class="highlight-box emphasis">
+            <p>Kommt vorbei und erlebt die <strong>einzigartige Gemeinschaft des GMTW</strong>!</p>
+          </div>
+        </div>
+
+        <button id="read-more-btn" class="read-more" onclick="toggleReadMore()">Mehr lesen</button>
+      </div>
+
+      <div class="section text-image">
+        <div class="text">
+          <h2>Location 2025</h2>
+          <!-- Der Location-Text in einer eigenen, homogenen grünen Textbox -->
+          <div class="textbox">
+            <p>Der <strong>Campingplatz Hohensyburg</strong> in Dortmund bietet uns eine ideale Basis für das diesjährige German Muni and Trial Weekend (GMTW).</p>
+          </div>
+
+          <div class="highlight-box">
+            <p><span class="date-display">17. - 21. April 2025</span></p>
+            <p><strong>Adresse:</strong> Syburger Dorfstraße 69, 44265 Dortmund</p>
+            <p><strong>Gelände:</strong> <a href="https://www.camping-hohensyburg.de/Deutsch/Unser-Platz/Lageplan-mit-360-Bildern" target="_blank">Lageplan des Campingplatzes</a></p>
+            <p><strong>Webseite:</strong> <a href="https://www.camping-hohensyburg.de/" target="_blank">www.camping-hohensyburg.de</a></p>
+          </div>
+
+          <div class="topic-card">
+            <h3>Wichtig: Zeltplätze für Einradfahrer</h3>
+            <div class="highlight-box emphasis" style="background-color: rgba(102,187,106,0.2); border-color: #2e7d32;">
+              <p>Wir möchten als Gruppe zusammen bleiben! Bitte wählt bei der Buchung die <strong class="text-accent">"Touristenplätze"</strong> auf der <strong class="text-accent">grünen Fläche</strong> (siehe Zeltplatz-Karte rechts). Diese Plätze sind speziell für uns reserviert und ermöglichen uns, als Gemeinschaft zusammen zu sein.</p>
+              <a href="https://camppartner.com/cpoobuchung/hohensyburg" target="_blank" class="cta-button" style="background-color: #2e7d32;">Jetzt Anmelden</a>
+            </div>
+            <div class="important-info">
+              <p><strong>⚠️ Wichtige Fristen:</strong></p>
+              <p>🚐 Camper und Wohnmobile bitte <strong>frühzeitig anmelden</strong>! Anmeldeschluss für Camper und Wohnmobile ist der <strong class="text-accent">15.03.2025</strong>.</p>
+              <p>👕 Allgemeiner Anmeldeschluss ist der <strong class="text-accent">01.04.2025</strong> für die T-Shirts.</p>
+              <p style="text-align: center;">📱 Wer ein T-Shirt möchte, bitte Sven per WhatsApp kontaktieren: <strong>0179 7318615</strong></p>
+            </div>
+          </div>
+
+          <div class="topic-card">
+            <h3>Übernachtungsmöglichkeiten</h3>
+            <p><strong>Erste Wahl für Einradfahrer:</strong> Zelten auf den "Touristenplätzen" (grüne Fläche) – damit wir zusammen bleiben.</p>
+            <p>Alternativ: Übernachtung in <a href="https://www.camping-hohensyburg.de/Deutsch/Bauwagen" target="_blank">Bauwagen</a> oder im <a href="https://www.camping-hohensyburg.de/Deutsch/Campingfaessern" target="_blank">gemütlichen Campingfass</a> möglich.</p>
+            <p>Alle Details zu Unterkünften und Preisen findet ihr hier: <a href="https://www.camping-hohensyburg.de/Deutsch/Preise" target="_blank">Preisübersicht</a>.</p>
+          </div>
+
+          <div class="topic-card">
+            <h3>Verpflegung</h3>
+            <p><strong>Eigenversorgung</strong> ist vorgesehen. Frühstück und Abendessen werden wir gemeinsam an der Feuerschale einnehmen (Grilloption vorhanden).</p>
+            <p>Auf dem Gelände gibt es einen kleinen Kiosk und ein <a href="https://g.co/kgs/uG33qmB" target="_blank">Natur-Restaurant</a>.</p>
+            <p>Der nächste Supermarkt (Lidl) ist ca. 4 km entfernt: <a href="https://maps.app.goo.gl/HEZpXZd5Pgc2YJao9" target="_blank">Route zum Supermarkt</a>.</p>
+            <p>Alternativ gibt es diverse Lieferdienste in der Umgebung.</p>
+          </div>
+
+          <div class="topic-card">
+            <h3>Sanitäranlagen</h3>
+            <p>Der Campingplatz verfügt über <strong>8 Duschen mit warmem Wasser</strong>, aufgeteilt auf zwei Räume.</p>
+          </div>
+
+          <div class="topic-card">
+            <h3>Aktivitäten</h3>
+            <h4>Muni (Mountain Unicycle)</h4>
+            <p>Die Region rund um den Hengsteysee bietet <strong>wunderschöne Trails für alle Könnensstufen</strong>. Ideal für gemeinsames "Muniplay" (Üben und Lernen mit Hilfestellung).</p>
+            <p>Hier ein kleiner Vorgeschmack aus der Sicht eines Bikers: <a href="https://g.co/kgs/uG33qmB" target="_blank">Muni Muni Muni! &lt;3</a></p>
+            <p><strong>Skill-Level:</strong> Hast du ein Muni und kannst 200m frei fahren? Dann ist es <span class="text-accent">genau das Richtige für dich!</span></p>
+            <h4>Trial</h4>
+            <p>Vor Ort stehen <strong>Paletten und Hindernisse</strong> auf dem Campingplatzgelände bereit. In der Umgebung bietet ein nahegelegener Steinbruch weiteres Potenzial.</p>
+            <p><strong>Skill-Level:</strong> Du hast ein Trial-Einrad und kannst 3-mal auf der Stelle hüpfen? Dann <span class="text-accent">Letz go!</span></p>
+          </div>
+
+          <div class="topic-card">
+            <h3>Workshops</h3>
+            <p>Geplant sind verschiedene <strong>Workshops für Muni und Trial</strong>. Weitere Details werden in Kürze bekannt gegeben!</p>
+          </div>
+        </div>
+
+        <div class="image">
+          <div class="image-container">
+            <h3 class="image-caption">Touristenplätze Anmeldung</h3>
+            <p style="text-align: center; color: #2e7d32; font-weight: bold;">Diese Touristenplätze bitte auswählen, um zur speziellen Anmeldung für die Zelte zu kommen!</p>
+            <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" target="_blank">
+              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" alt="Touristenplätze Anmeldung" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
+            </a>
+          </div>
+
+          <div class="image-container">
+            <h3 class="image-caption">Verfügbare Zeltplätze</h3>
+            <p style="text-align: center; color: #2e7d32; font-weight: bold;">Einradfahrer: Bitte "Touristenplätze" auf der grünen Fläche wählen!</p>
+            <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" target="_blank">
+              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" alt="Verfügbare Zeltplätze" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
+            </a>
+          </div>
+
+          <div class="image-container">
+            <h3 class="image-caption">Umgebungskarte</h3>
+            <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" target="_blank">
+              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" alt="Karte der Umgebung">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 German Muni and Trial Weekend. Mir doch egal &lt;3</p>
+  </footer>
+
+  <script>
+    function toggleReadMore() {
+      var moreText = document.getElementById('more-text');
+      var readMoreBtn = document.getElementById('read-more-btn');
+      if (!moreText || !readMoreBtn) {
+        console.error('Elemente für "Mehr lesen" nicht gefunden');
+        return;
+      }
+      if (moreText.style.display === 'none' || !moreText.style.display) {
+        moreText.style.display = 'block';
+        readMoreBtn.textContent = 'Weniger lesen';
+      } else {
+        moreText.style.display = 'none';
+        readMoreBtn.textContent = 'Mehr lesen';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var moreText = document.getElementById('more-text');
+      if (moreText) moreText.style.display = 'none';
+
+      // Entfernung der Funktion, die word-break: break-all für Links setzt
+      // Dies ist nicht mehr notwendig, da die CSS-Rules jetzt verbessert wurden
+
+      function isIE() {
+        var ua = window.navigator.userAgent;
+        return (ua.indexOf("MSIE ") > 0 || ua.indexOf('Trident/') > 0);
+      }
+      if (isIE()) {
+        document.body.className += ' ie-browser';
+      }
+      if (typeof wp !== 'undefined' || document.body.classList.contains('wp-admin') || document.body.classList.contains('wp-core-ui')) {
+        document.body.classList.add('wordpress-environment');
+        var containers = document.querySelectorAll('.container, .content, .section, .topic-card, .text-image, .image-container');
+        for (var j = 0; j < containers.length; j++) {
+          containers[j].style.maxWidth = '100%';
+          containers[j].style.overflow = 'hidden';
+        }
+      }
+    });
+  </script>
+</body>
+</html>
       box-sizing: border-box;
       margin: 0;
       padding: 0;
