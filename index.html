@@ -5,274 +5,334 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GMTW 2025 17-21.04.25</title>
     <link rel="icon" href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --primary-color: #66bb6a;
             --primary-dark: #234726;
-            --background-color: #e8f5e9;
-            --text-color: #234726;
+            --background-color: #f5f7f5;
+            --text-color: #333333;
             --container-width: 90%;
             --container-max-width: 1200px;
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Open Sans', sans-serif;
+            --section-spacing: 3.5rem;
+            --text-spacing: 1.8rem;
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: var(--body-font);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.7;
             background-color: var(--background-color);
             color: var(--text-color);
         }
 
         header {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             color: white;
-            padding: 1.5rem 1rem;
+            padding: 2.5rem 1rem;
             text-align: center;
             border-bottom: 4px solid var(--primary-dark);
+            margin-bottom: 1rem;
         }
 
         header img {
             max-width: 100%;
             height: auto;
             margin-top: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        header img:hover {
+            transform: scale(1.02);
         }
 
         .container {
             width: var(--container-width);
             max-width: var(--container-max-width);
-            margin: 2rem auto;
+            margin: 3rem auto;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             overflow: hidden;
-            border: 1px solid var(--primary-color);
+            border: none;
         }
 
         .content {
-            padding: 2rem;
+            padding: 3rem;
         }
 
         .section {
-            margin-bottom: 2rem;
+            margin-bottom: var(--section-spacing);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--heading-font);
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--primary-dark);
         }
 
         .section h2 {
-            color: var(--primary-dark);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            margin-bottom: 1.8rem;
             border-bottom: 2px solid var(--primary-color);
             display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            color: #2e5a2f;
+        }
+
+        .section h4 {
+            font-size: 1.25rem;
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: #3a6e3c;
         }
 
         h1 {
-            color: var(--primary-dark);
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 1px 1px 3px var(--primary-dark);
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.02em;
+            color: var(--primary-dark);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
         }
 
         .read-more {
             color: var(--primary-color);
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
             background: none;
             border: none;
-            padding: 0.5rem 0;
+            padding: 0.7rem 1.2rem;
             font-size: 1rem;
-            text-decoration: underline;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 1px solid var(--primary-color);
+        }
+
+        .read-more:hover {
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
         }
 
         ul {
-            list-style-type: square;
+            list-style-type: none;
+            padding-left: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        ul li {
+            position: relative;
             padding-left: 1.5rem;
-            color: var(--primary-dark);
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        ul li:before {
+            content: "•";
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -0.25rem;
         }
 
         img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.02);
         }
 
         /* Text-Image Layout Section */
         .text-image {
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 3rem;
             align-items: flex-start;
         }
 
         .text-image .text {
-            flex: 1 1 50%;
+            flex: 1 1 55%;
             min-width: 300px;
         }
 
         .text-image .image {
-            flex: 1 1 40%;
+            flex: 1 1 35%;
             min-width: 300px;
         }
 
         .image-container {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover {
+            transform: translateY(-5px);
         }
 
         .image-caption {
             text-align: center;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            font-family: var(--heading-font);
             color: var(--primary-dark);
-        }
-
-        /* Responsive Image */
-        .responsive-image {
-            width: 100%;
-            margin-bottom: 2rem;
-            overflow: hidden;
-        }
-
-        .responsive-image img {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            margin: 0 auto;
-        }
-
-        /* Dropdown Section */
-        .dropdown {
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .dropdown button {
-            background: var(--primary-color);
-            color: white;
             font-size: 1.2rem;
-            padding: 0.8rem 1.2rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
         }
 
-        .dropdown button:hover {
-            background: var(--primary-dark);
-        }
-
-        .dropdown-content {
-            display: none;
-            margin-top: 1rem;
-            background: white;
+        /* Highlight Boxes */
+        .highlight-box {
+            background-color: rgba(102, 187, 106, 0.1);
+            border-left: 4px solid var(--primary-color);
             padding: 1.5rem;
-            border: 1px solid var(--primary-color);
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
         }
 
-        .dropdown-content.active {
-            display: block;
+        .highlight-box p:last-child {
+            margin-bottom: 0;
         }
 
-        .dropdown-content form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .dropdown-content form label {
-            font-weight: bold;
-            color: var(--primary-dark);
-        }
-
-        .dropdown-content form input,
-        .dropdown-content form select,
-        .dropdown-content form button {
-            padding: 0.5rem;
-            font-size: 1rem;
-            border: 1px solid var(--primary-dark);
-            border-radius: 5px;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        .dropdown-content form button {
-            background: var(--primary-color);
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .dropdown-content form button:hover {
-            background: var(--primary-dark);
+        /* Important Information Styling */
+        .important-info {
+            font-weight: 600;
+            color: #e53935;
         }
 
         /* Links */
         a {
-            color: #3B360C;
+            color: #38761d;
             text-decoration: underline;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
         }
 
         a:hover {
             color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* CTA Buttons */
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         /* Footer */
         footer {
             text-align: center;
-            background: var(--primary-dark);
+            background: linear-gradient(135deg, #376339, var(--primary-dark));
             color: white;
-            padding: 1rem 0;
-            margin-top: 2rem;
-            font-size: 0.9rem;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            font-size: 1rem;
+        }
+
+        footer p {
+            margin: 0;
+            opacity: 0.9;
         }
 
         /* Media Queries for Responsiveness */
         @media (max-width: 992px) {
+            :root {
+                --section-spacing: 2.8rem;
+                --text-spacing: 1.5rem;
+            }
+
             .content {
-                padding: 1.5rem;
+                padding: 2.5rem;
             }
 
             h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .section h2 {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
         }
 
         @media (max-width: 768px) {
+            :root {
+                --section-spacing: 2.5rem;
+                --text-spacing: 1.2rem;
+            }
+
+            body {
+                line-height: 1.6;
+            }
+
             .container {
                 width: 95%;
+                margin: 1.5rem auto;
+                border-radius: 8px;
             }
 
             .content {
-                padding: 1rem;
+                padding: 1.8rem;
             }
 
             .text-image {
                 flex-direction: column;
+                gap: 1.5rem;
             }
 
             .text-image .text {
-                order: 1; /* Text zuerst */
+                order: 1;
             }
 
             .text-image .image {
-                order: 2; /* Bilder danach */
+                order: 2;
             }
 
             h1 {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
+                margin-bottom: 1.5rem;
+                margin-top: 1.2rem;
             }
 
             h1, h2, h3, h4 {
@@ -280,47 +340,168 @@
                 hyphens: auto;
             }
 
-            p, li {
-                word-wrap: break-word;
-                font-size: 0.95rem;
+            .section h2 {
+                font-size: 1.7rem;
+                margin-bottom: 1.3rem;
+            }
+
+            .section h3 {
+                font-size: 1.4rem;
+                margin-top: 1.8rem;
+                margin-bottom: 1rem;
+            }
+
+            .section {
+                margin-bottom: 2.5rem;
+            }
+
+            ul {
+                margin-top: 0.8rem;
+                margin-bottom: 1.2rem;
+            }
+
+            ul li {
+                margin-bottom: 0.7rem;
+                padding-left: 1.3rem;
+            }
+
+            /* Verbesserte Touch-Ziele für mobile Geräte */
+            .read-more, .cta-button, a {
+                padding: 0.8rem 1.2rem;
+                display: inline-block;
+                margin: 0.5rem 0;
+                min-height: 44px;
+                min-width: 44px;
+                line-height: 1.2;
+            }
+
+            /* Header für mobile Geräte */
+            header {
+                padding: 1.5rem 1rem;
+            }
+
+            /* Besseres Bild-Layout für mobile Geräte */
+            .image-container {
+                margin-bottom: 2rem;
+            }
+
+            .image-caption {
+                font-size: 1.1rem;
+                margin-bottom: 0.8rem;
+            }
+
+            /* Highlights für mobile */
+            .highlight-box {
+                padding: 1.2rem;
+                margin: 1.5rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --section-spacing: 2rem;
+                --text-spacing: 0.8rem;
+            }
+
+            body {
+                line-height: 1.5;
+            }
+
+            .container {
+                width: 96%;
+                margin: 1rem auto;
+                border-radius: 6px;
+            }
+
+            .content {
+                padding: 1.2rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+                margin-top: 0.8rem;
+                margin-bottom: 1.2rem;
             }
 
             .section h2 {
                 font-size: 1.5rem;
+                margin-bottom: 1rem;
             }
 
             .section h3 {
                 font-size: 1.3rem;
                 margin-top: 1.5rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .section h4 {
+                font-size: 1.15rem;
+                margin-top: 1.2rem;
+                margin-bottom: 0.6rem;
+            }
+
+            p, li {
+                font-size: 0.95rem;
+                margin-bottom: 1rem;
+            }
+
+            .read-more, .cta-button {
+                font-size: 0.95rem;
+                width: 100%;
+                text-align: center;
+                margin: 0.8rem 0;
+            }
+
+            /* Optimiere Bildgröße für sehr kleine Bildschirme */
+            .image-container img {
+                max-height: 220px;
+                object-fit: cover;
+                width: 100%;
+            }
+
+            .image-caption {
+                font-size: 1rem;
+            }
+
+            /* Footer für kleine Geräte */
+            footer {
+                padding: 1.5rem 0;
+                font-size: 0.9rem;
+            }
+
+            /* Verbesserte Listen */
+            ul li:before {
+                font-size: 1.3rem;
+                top: -0.2rem;
+            }
+
+            /* Verbesserte Highlight-Box */
+            .highlight-box {
+                padding: 1rem;
+                margin: 1.2rem 0;
             }
         }
 
-        @media (max-width: 480px) {
-            .container {
-                width: 98%;
-                margin: 1rem auto;
-            }
-
+        /* Extra-kleine Bildschirme (alte Smartphones) */
+        @media (max-width: 320px) {
             .content {
-                padding: 0.8rem;
+                padding: 1rem;
             }
 
             h1 {
                 font-size: 1.6rem;
-                margin-top: 1rem;
-                margin-bottom: 1rem;
             }
 
             .section h2 {
-                font-size: 1.4rem;
-            }
-
-            .section h3 {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
 
             p, li {
                 font-size: 0.9rem;
+            }
+
+            .image-container img {
+                max-height: 180px;
             }
         }
     </style>
@@ -343,16 +524,25 @@
             dropdownContent.classList.toggle('active');
         }
 
-        // Füge ein Event Listener hinzu, der beim Laden der Seite ausgeführt wird
+        // Event Listener beim Laden der Seite
         document.addEventListener('DOMContentLoaded', function() {
-            // Überprüfe, ob die Seite auf einem mobilen Gerät angezeigt wird
+            // Mobile Anpassungen
             if (window.innerWidth <= 768) {
-                // Passe die Abstände und Größen für mobile Geräte an
                 const content = document.querySelector('.content');
                 if (content) {
-                    content.style.padding = '1rem';
+                    content.style.padding = '1.5rem';
                 }
             }
+
+            // Smooth Scroll für Anker-Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
         });
     </script>
 </head>
@@ -368,14 +558,23 @@
             <div class="section">
                 <p>Das German Muni and Trial Weekend (kurz GMTW) wurde in den Anfangstagen (seit 2003) des Einradsports von einer Gruppe leidenschaftlicher Einrad-Pioniere im Dunstkreis von "Municycle.com" an Ostern ins Leben gerufen.</p>
                 <p>Ihr Ziel: die Begeisterung für den Einradsport immer wieder neu zu entfachen und die Disziplinen Muni (Mountainunicycle) und Trial (Hindernisparcours) in der Natur hervorzuheben und zu fördern.</p>
+
                 <div id="more-text" style="display: none;">
                     <p>Im Laufe der Zeit hat sich das GMTW weit über ein einfaches Sportevent hinaus entwickelt – es wurde zum Herzstück einer ganzen Szene. Jedes Jahr reisen Teilnehmer aus allen Teilen Deutschlands und sogar darüber hinaus an. Über 90 Fahrer und Fahrerinnen, mit Einrädern unterschiedlichster Art und verschiedenen Könnensstufen, vereint durch die Leidenschaft für ihren Sport: Von Anfängern, die gerade ihre Balance gefunden haben, bis hin zu Profis, die scheinbar die Gesetze der Schwerkraft aushebeln.</p>
+
                     <p>Der Veranstaltungsort wechselt jedes Jahr und wird traditionell von einem Teilnehmer an den nächsten weitergegeben. Gemeinsam mit der Community entstehen so kleine Einradparadiese. Beispielsweise boten die Thüringer Wälder rund um Oberhof eine ideale Kulisse: Steile Trails, technische Paletten-Trial-Parcours, gestaltet von Axel Kästle, und anspruchsvolle Downhill-Strecken, die selbst erfahrene Mountainbiker herausforderten.</p>
+
                     <p>Tagsüber stehen Training, Tests und das Ausloten von Grenzen im Mittelpunkt. Abends verwandelt sich das Gelände in einen Ort der Gemeinschaft. Lagerfeuer, geteilte Geschichten vergangener Touren und aufgeregte Gespräche über die Erlebnisse des Tages prägen die Atmosphäre.</p>
+
                     <p>Selbst in herausfordernden Zeiten, wie während der Pandemie, zeigte die Community ihre Kreativität: 2021 fand das GMTW in Form eines Video-Wettbewerbs statt, bei dem Einradfahrer ihre Beiträge einreichen konnten. Doch auch wenn in den letzten Jahren Wettbewerbselemente hinzugekommen sind, bleibt das GMTW seinem Grundprinzip treu: Es ist kein Wettkampf!</p>
+
                     <p>Das GMTW ist ein Treffen von Gleichgesinnten, ein Ort des Austauschs ohne Druck – ein Ort des Lernens und der Freude an einem Sport, den viele zunächst belächeln. Hier sind alle willkommen: groß oder klein, jung oder alt, fortgeschritten oder blutiger Anfänger.</p>
-                    <p>Kommt vorbei und erlebt die einzigartige Gemeinschaft des GMTW!</p>
+
+                    <div class="highlight-box">
+                        <p>Kommt vorbei und erlebt die einzigartige Gemeinschaft des GMTW!</p>
+                    </div>
                 </div>
+
                 <button id="read-more-btn" class="read-more" onclick="toggleReadMore()">Mehr lesen</button>
             </div>
 
@@ -383,54 +582,74 @@
                 <div class="text">
                     <h2>Location 2025</h2>
                     <p>Der Campingplatz Hohensyburg in Dortmund bietet uns eine ideale Basis für das diesjährige German Muni and Trial Weekend (GMTW).</p>
-                    <p><strong>Datum:</strong> 17. - 21. April 2025</p>
-                    <p><strong>Adresse:</strong> Syburger Dorfstraße 69, 44265 Dortmund</p>
-                    <p><strong>Gelände:</strong> <a href="https://www.camping-hohensyburg.de/Deutsch/Unser-Platz/Lageplan-mit-360-Bildern" target="_blank">Lageplan</a></p>
-                    <p><strong>Webseite des Campingplatzes:</strong> <a href="https://www.camping-hohensyburg.de/" target="_blank">www.camping-hohensyburg.de</a></p>
-                    <p>Bitte auf der Webseite des Campingplatzes >>> <a href="https://camppartner.com/cpoobuchung/hohensyburg" target="_blank">ANMELDEN!</a> <<<</p>
-                    <p>Camper und Wohnmobile bitte frühzeitig anmelden! Hier gilt ab dem 15.03.2025 Anmeldeschluss, für Camper und Wohnmobile.</p>
-                    <p><strong>Allgemeiner Anmeldeschluss ist der 01.04.2025 für die T-Shirts.</strong></p>
-                    <p>!!!WICHTIG!!! Wer ein T-Shirt möchte, bitte Sven per Whatsapp Kontaktieren. (0179 7318615)</p>
-                    <h3>Übernachtung</h3>
+
+                    <div class="highlight-box">
+                        <p><strong>Datum:</strong> 17. - 21. April 2025</p>
+                        <p><strong>Adresse:</strong> Syburger Dorfstraße 69, 44265 Dortmund</p>
+                        <p><strong>Gelände:</strong> <a href="https://www.camping-hohensyburg.de/Deutsch/Unser-Platz/Lageplan-mit-360-Bildern" target="_blank">Lageplan des Campingplatzes</a></p>
+                        <p><strong>Webseite:</strong> <a href="https://www.camping-hohensyburg.de/" target="_blank">www.camping-hohensyburg.de</a></p>
+                    </div>
+
+                    <h3>Wichtig: Zeltplätze für Einradfahrer</h3>
+                    <div class="highlight-box" style="background-color: rgba(102, 187, 106, 0.2); border-color: #2e7d32;">
+                        <p>Wir möchten als Gruppe zusammen bleiben! Bitte wählt bei der Buchung die <strong>"Touristenplätze"</strong> auf der <strong>grünen Fläche</strong> (siehe Zeltplatz-Karte unten). Diese Plätze sind speziell für uns reserviert und ermöglichen uns, als Gemeinschaft zusammen zu sein.</p>
+                        <a href="https://camppartner.com/cpoobuchung/hohensyburg" target="_blank" class="cta-button" style="background-color: #2e7d32; display: block; text-align: center; margin-top: 1rem;">Anmeldung</a>
+                    </div>
+
+                    <div class="important-info" style="margin-top: 1rem;">
+                        <p>Camper und Wohnmobile bitte frühzeitig anmelden! Anmeldeschluss für Camper und Wohnmobile ist der 15.03.2025.</p>
+                        <p>Allgemeiner Anmeldeschluss ist der 01.04.2025 für die T-Shirts.</p>
+                        <p>Wer ein T-Shirt möchte, bitte Sven per WhatsApp kontaktieren: 0179 7318615</p>
+                    </div>
+
+                    <h3>Übernachtungsmöglichkeiten</h3>
                     <ul>
-                        <li>in Zelt, Camper, <a href="https://www.camping-hohensyburg.de/Deutsch/Bauwagen" target="_blank">Bauwagen</a> oder im <a href="https://www.camping-hohensyburg.de/Deutsch/Campingfaessern" target="_blank">gemütlichen Campingfass</a> ist es Möglich, die Übernachtungen auf dem Zeltplatz zu buchen.</li>
-                        <li>Preise und Details: <a href="https://www.camping-hohensyburg.de/Deutsch/Preise" target="_blank">Preise im Überblick</a></li>
-                        <li>WICHTIG FÜR EINRADFAHER! Wir haben unsere Zelte bei den "Touristenplätze" auf der grünen Fläche sind einzeln "Unsere" Zeltplätze zu buchen.</li>
+                        <li><strong>Erste Wahl für Einradfahrer:</strong> Zelten auf den "Touristenplätzen" (grüne Fläche) - damit wir zusammen bleiben.</li>
+                        <li>Alternativ: Übernachtung in <a href="https://www.camping-hohensyburg.de/Deutsch/Bauwagen" target="_blank">Bauwagen</a> oder im <a href="https://www.camping-hohensyburg.de/Deutsch/Campingfaessern" target="_blank">gemütlichen Campingfass</a> möglich.</li>
+                        <li>Alle Details zu Unterkünften und Preisen findet ihr hier: <a href="https://www.camping-hohensyburg.de/Deutsch/Preise" target="_blank">Preisübersicht</a>.</li>
                     </ul>
 
                     <h3>Verpflegung</h3>
                     <ul>
-                        <li>Jeder geht selber Jagen. Wir essen aber zum Frühstück und Abends zusammen am der Feuerschale + Grilloption.</li>
-                        <li><strong>Vor Ort:</strong> Kleiner Kiosk und ein <a href="https://g.co/kgs/uG33qmB" target="_blank">Natur-Restaurant</a> auf dem Gelände</li>
-                        <li><strong>In der Nähe:</strong> Nächster Supermarkt ca. 4 km entfernt.
-                    <a href="https://maps.app.goo.gl/HEZpXZd5Pgc2YJao9" target="_blank">(next Lidl)</a>
-                </li>
-                        <li><strong>Alternativ:</strong> Liefermöglichkeiten in der Umgebung</li>
+                        <li>Eigenversorgung ist vorgesehen. Frühstück und Abendessen werden wir gemeinsam an der Feuerschale einnehmen (Grilloption vorhanden).</li>
+                        <li>Auf dem Gelände gibt es einen kleinen Kiosk und ein <a href="https://g.co/kgs/uG33qmB" target="_blank">Natur-Restaurant</a>.</li>
+                        <li>Der nächste Supermarkt (Lidl) ist ca. 4 km entfernt: <a href="https://maps.app.goo.gl/HEZpXZd5Pgc2YJao9" target="_blank">Route zum Supermarkt</a>.</li>
+                        <li>Alternativ gibt es diverse Lieferdienste in der Umgebung.</li>
                     </ul>
 
                     <h3>Sanitäranlagen</h3>
-                    <p>8 Duschen mit warmem Wasser, aufgeteilt auf zwei Räume.</p>
+                    <p>Der Campingplatz verfügt über 8 Duschen mit warmem Wasser, aufgeteilt auf zwei Räume.</p>
 
                     <h3>Aktivitäten</h3>
                     <h4>Muni (Mountain Unicycle)</h4>
-                    <p>Die Region rund um den Hengsteysee bietet wunderschöne Trails für alle Könnensstufen. Ideal für gemeinsames "Muniplay" (Üben und Lernen mit Hilfestellung).<br> Hier ein kleiner Vorgeschmack, aus der Sicht eines Bikers! <a href="https://g.co/kgs/uG33qmB" target="_blank">Muni Muni Muni! &lt;3 </a> <br> <strong>Skill:</strong> Hast du ein Muni und kannst 200m frei fahren? Dann ist es genau das Richtige für dich!</p>
+                    <p>Die Region rund um den Hengsteysee bietet wunderschöne Trails für alle Könnensstufen. Ideal für gemeinsames "Muniplay" (Üben und Lernen mit Hilfestellung).</p>
+                    <p>Hier ein kleiner Vorgeschmack aus der Sicht eines Bikers: <a href="https://g.co/kgs/uG33qmB" target="_blank">Muni Muni Muni! &lt;3</a></p>
+                    <p><strong>Skill-Level:</strong> Hast du ein Muni und kannst 200m frei fahren? Dann ist es genau das Richtige für dich!</p>
 
                     <h4>Trial</h4>
-                    <p>Vor Ort stehen Paletten und Hindernisse auf dem Campingplatzgelände bereit. In der Umgebung bietet ein nahegelegener Steinbruch weiteres Potenzial.<br> <strong>Skill:</strong> Du hast ein Trial-Einrad und kannst 3-mal auf der Stelle hüpfen? Dann Letz go!</p>
+                    <p>Vor Ort stehen Paletten und Hindernisse auf dem Campingplatzgelände bereit. In der Umgebung bietet ein nahegelegener Steinbruch weiteres Potenzial.</p>
+                    <p><strong>Skill-Level:</strong> Du hast ein Trial-Einrad und kannst 3-mal auf der Stelle hüpfen? Dann Letz go!</p>
 
                     <h3>Workshops</h3>
-                    <p>Geplant sind Workshops für Muni und Trial. Weitere Details folgen!</p>
+                    <p>Geplant sind verschiedene Workshops für Muni und Trial. Weitere Details werden in Kürze bekannt gegeben!</p>
                 </div>
 
                 <div class="image">
                     <div class="image-container">
-                        <h3 class="image-caption">Umgebungskarte</h3>
-                        <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" alt="Karte der Umgebung" />
+                        <h3 class="image-caption">Touristenplätze Anmeldung</h3>
+                        <p style="text-align: center; margin-bottom: 0.8rem; color: #2e7d32; font-weight: bold;">Diese Touristenplätze bitte auswählen, um zur speziellen Anmeldung für die Zelte zu kommen!</p>
+                        <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" alt="Touristenplätze Anmeldung" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);" />
                     </div>
 
                     <div class="image-container">
                         <h3 class="image-caption">Verfügbare Zeltplätze</h3>
-                        <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" alt="Verfügbare Zeltplätze" />
+                        <p style="text-align: center; margin-bottom: 0.8rem; color: #2e7d32; font-weight: bold;">Einradfahrer: Bitte "Touristenplätze" auf der grünen Fläche wählen!</p>
+                        <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" alt="Verfügbare Zeltplätze" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);" />
+                    </div>
+
+                    <div class="image-container">
+                        <h3 class="image-caption">Umgebungskarte</h3>
+                        <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" alt="Karte der Umgebung" />
                     </div>
                 </div>
             </div>
