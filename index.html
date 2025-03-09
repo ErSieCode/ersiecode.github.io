@@ -4,24 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GMTW 2025 17-21.04.25</title>
-     <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="icon" href="images/favicon.png" type="image/png">
 
     <style>
+        :root {
+            --primary-color: #66bb6a;
+            --primary-dark: #234726;
+            --background-color: #e8f5e9;
+            --text-color: #234726;
+            --container-width: 90%;
+            --container-max-width: 1200px;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            background-color: #e8f5e9;
-            color: #234726;
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
 
         header {
-            background: #66bb6a;
+            background: var(--primary-color);
             color: white;
             padding: 1.5rem 1rem;
             text-align: center;
-            border-bottom: 4px solid #234726;
+            border-bottom: 4px solid var(--primary-dark);
         }
 
         header img {
@@ -29,17 +38,18 @@
             height: auto;
             margin-top: 1rem;
             border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .container {
-            width: 90%;
-            max-width: 1200px;
+            width: var(--container-width);
+            max-width: var(--container-max-width);
             margin: 2rem auto;
             background: white;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            border: 1px solid #66bb6a;
+            border: 1px solid var(--primary-color);
         }
 
         .content {
@@ -51,41 +61,47 @@
         }
 
         .section h2 {
-            color: #234726;
+            color: var(--primary-dark);
             font-size: 1.8rem;
             margin-bottom: 1rem;
-            border-bottom: 2px solid #66bb6a;
+            border-bottom: 2px solid var(--primary-color);
             display: inline-block;
         }
 
         h1 {
-            color: #234726;
+            color: var(--primary-dark);
             text-align: center;
             font-size: 2.5rem;
             margin-top: 1.5rem;
             margin-bottom: 1.5rem;
-            text-shadow: 1px 1px 3px #234726;
+            text-shadow: 1px 1px 3px var(--primary-dark);
         }
 
         .read-more {
-            color: #66bb6a;
+            color: var(--primary-color);
             cursor: pointer;
             font-weight: bold;
+            background: none;
+            border: none;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            text-decoration: underline;
         }
 
         ul {
             list-style-type: square;
             padding-left: 1.5rem;
-            color: #234726;
+            color: var(--primary-dark);
         }
 
         img {
             max-width: 100%;
             height: auto;
-            margin-top: 1rem;
             border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
+        /* Text-Image Layout Section */
         .text-image {
             display: flex;
             flex-wrap: wrap;
@@ -103,13 +119,39 @@
             min-width: 300px;
         }
 
+        .image-container {
+            margin-bottom: 2rem;
+        }
+
+        .image-caption {
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+        
+        /* Responsive Image */
+        .responsive-image {
+            width: 100%;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .responsive-image img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        /* Dropdown Section */
         .dropdown {
             text-align: center;
             margin: 2rem 0;
         }
 
         .dropdown button {
-            background: #66bb6a;
+            background: var(--primary-color);
             color: white;
             font-size: 1.2rem;
             padding: 0.8rem 1.2rem;
@@ -120,7 +162,7 @@
         }
 
         .dropdown button:hover {
-            background: #234726;
+            background: var(--primary-dark);
         }
 
         .dropdown-content {
@@ -128,7 +170,7 @@
             margin-top: 1rem;
             background: white;
             padding: 1.5rem;
-            border: 1px solid #66bb6a;
+            border: 1px solid var(--primary-color);
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
@@ -146,20 +188,22 @@
 
         .dropdown-content form label {
             font-weight: bold;
-            color: #234726;
+            color: var(--primary-dark);
         }
 
-        .dropdown-content form input, .dropdown-content form select, .dropdown-content form button {
+        .dropdown-content form input, 
+        .dropdown-content form select, 
+        .dropdown-content form button {
             padding: 0.5rem;
             font-size: 1rem;
-            border: 1px solid #234726;
+            border: 1px solid var(--primary-dark);
             border-radius: 5px;
             width: 100%;
             max-width: 400px;
         }
 
         .dropdown-content form button {
-            background: #66bb6a;
+            background: var(--primary-color);
             color: white;
             font-weight: bold;
             cursor: pointer;
@@ -167,29 +211,116 @@
         }
 
         .dropdown-content form button:hover {
-            background: #234726;
+            background: var(--primary-dark);
         }
 
+        /* Links */
+        a {
+            color: #3B360C;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            background: #234726;
+            background: var(--primary-dark);
             color: white;
             padding: 1rem 0;
             margin-top: 2rem;
             font-size: 0.9rem;
         }
 
-        @media (max-width: 768px) {
-            header img {
-                margin-bottom: 1rem;
+        /* Media Queries for Responsiveness */
+        @media (max-width: 992px) {
+            .content {
+                padding: 1.5rem;
             }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section h2 {
+                font-size: 1.6rem;
+            }
+        }
 
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            
             .content {
                 padding: 1rem;
             }
 
             .text-image {
                 flex-direction: column;
+            }
+            
+            .text-image .text {
+                order: 1; /* Text zuerst */
+            }
+            
+            .text-image .image {
+                order: 2; /* Bilder danach */
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h1, h2, h3, h4 {
+                word-wrap: break-word;
+                hyphens: auto;
+            }
+            
+            p, li {
+                word-wrap: break-word;
+                font-size: 0.95rem;
+            }
+            
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section h3 {
+                font-size: 1.3rem;
+                margin-top: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                width: 98%;
+                margin: 1rem auto;
+            }
+            
+            .content {
+                padding: 0.8rem;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .section h2 {
+                font-size: 1.4rem;
+            }
+            
+            .section h3 {
+                font-size: 1.2rem;
+            }
+            
+            p, li {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -211,6 +342,18 @@
             const dropdownContent = document.querySelector('.dropdown-content');
             dropdownContent.classList.toggle('active');
         }
+        
+        // Füge ein Event Listener hinzu, der beim Laden der Seite ausgeführt wird
+        document.addEventListener('DOMContentLoaded', function() {
+            // Überprüfe, ob die Seite auf einem mobilen Gerät angezeigt wird
+            if (window.innerWidth <= 768) {
+                // Passe die Abstände und Größen für mobile Geräte an
+                const content = document.querySelector('.content');
+                if (content) {
+                    content.style.padding = '1rem';
+                }
+            }
+        });
     </script>
 </head>
 <body>
@@ -235,61 +378,67 @@
                 </div>
                 <button id="read-more-btn" class="read-more" onclick="toggleReadMore()">Mehr lesen</button>
             </div>
+            
             <div class="section text-image">
-<div class="text">
-                <h2>Location 2025</h2>
-                <p>Der Campingplatz Hohensyburg in Dortmund bietet uns eine ideale Basis für das diesjährige German Muni and Trial Weekend (GMTW).</p>
-                <p><strong>Datum:</strong> 17. - 21. April 2025</p>
-                <p><strong>Adresse:</strong> Syburger Dorfstraße 69, 44265 Dortmund</p>
-                <p><strong>Gelände:</strong> <a href="https://www.camping-hohensyburg.de/Deutsch/Unser-Platz/Lageplan-mit-360-Bildern" target="_blank" style="color: #3B360C; text-decoration: underline;">Lageplan</a></p>
-                <p><strong>Webseite des Campingplatzes:</strong> <a href="https://www.camping-hohensyburg.de/" target="_blank" style="color: #3B360C; text-decoration: underline;">www.camping-hohensyburg.de</a></p>
-                <p>Bitte auf der Webseite des Campingplatzes >>> <a href="https://camppartner.com/cpoobuchung/hohensyburg" target="_blank" style="color: #3B360C; text-decoration: underline;">ANMELDEN!</a> <<<</p>
-                <p>Camper und Wohnmobile bitte frühzeitig anmelden! Hier gilt ab dem 15.03.2025 Anmeldeschluss, für Camper und Wohnmobile.</p>
-                <p><strong>Allgemeiner Anmeldeschluss ist der 01.04.2025 für die T-Shirts.</strong></p>
-                <p>!!!WICHTIG!!! Wer ein T-Shirt möchte, bitte Sven per Whatsapp Kontaktieren. (0179 7318615)</p>
-                <h3>Übernachtung</h3>
-                <ul>
-                    <li>in Zelt, Camper, <a href="https://www.camping-hohensyburg.de/Deutsch/Bauwagen" target="_blank" style="color: #3B360C; text-decoration: underline;">Bauwagen</a> oder im <a href="https://www.camping-hohensyburg.de/Deutsch/Campingfaessern" target="_blank" style="color: #3B360C; text-decoration: underline;">gemütlichen Campingfass</a> ist es Möglich, die Übernachtungen auf dem Zeltplatz zu buchen.</li>
-                    <li>Preise und Details: <a href="https://www.camping-hohensyburg.de/Deutsch/Preise" target="_blank" style="color: #3B360C; text-decoration: underline;">Preise im Überblick</a></li>
-                    <li>WICHTIG FÜR EINRADFAHER! Wir haben unsere Zelte bei den "Touristenplätze" auf der grünen Fläche sind einzeln "Unsere" Zeltplätze zu buchen.</li>
-                </ul>
+                <div class="text">
+                    <h2>Location 2025</h2>
+                    <p>Der Campingplatz Hohensyburg in Dortmund bietet uns eine ideale Basis für das diesjährige German Muni and Trial Weekend (GMTW).</p>
+                    <p><strong>Datum:</strong> 17. - 21. April 2025</p>
+                    <p><strong>Adresse:</strong> Syburger Dorfstraße 69, 44265 Dortmund</p>
+                    <p><strong>Gelände:</strong> <a href="https://www.camping-hohensyburg.de/Deutsch/Unser-Platz/Lageplan-mit-360-Bildern" target="_blank">Lageplan</a></p>
+                    <p><strong>Webseite des Campingplatzes:</strong> <a href="https://www.camping-hohensyburg.de/" target="_blank">www.camping-hohensyburg.de</a></p>
+                    <p>Bitte auf der Webseite des Campingplatzes >>> <a href="https://camppartner.com/cpoobuchung/hohensyburg" target="_blank">ANMELDEN!</a> <<<</p>
+                    <p>Camper und Wohnmobile bitte frühzeitig anmelden! Hier gilt ab dem 15.03.2025 Anmeldeschluss, für Camper und Wohnmobile.</p>
+                    <p><strong>Allgemeiner Anmeldeschluss ist der 01.04.2025 für die T-Shirts.</strong></p>
+                    <p>!!!WICHTIG!!! Wer ein T-Shirt möchte, bitte Sven per Whatsapp Kontaktieren. (0179 7318615)</p>
+                    <h3>Übernachtung</h3>
+                    <ul>
+                        <li>in Zelt, Camper, <a href="https://www.camping-hohensyburg.de/Deutsch/Bauwagen" target="_blank">Bauwagen</a> oder im <a href="https://www.camping-hohensyburg.de/Deutsch/Campingfaessern" target="_blank">gemütlichen Campingfass</a> ist es Möglich, die Übernachtungen auf dem Zeltplatz zu buchen.</li>
+                        <li>Preise und Details: <a href="https://www.camping-hohensyburg.de/Deutsch/Preise" target="_blank">Preise im Überblick</a></li>
+                        <li>WICHTIG FÜR EINRADFAHER! Wir haben unsere Zelte bei den "Touristenplätze" auf der grünen Fläche sind einzeln "Unsere" Zeltplätze zu buchen.</li>
+                    </ul>
 
-                <h3>Verpflegung</h3>
-                <ul>
-                    <li>Jeder geht selber Jagen. Wir essen aber zum Frühstück und Abends zusammen am der Feuerschale + Grilloption.</li>
-                    <li><strong>Vor Ort:</strong> Kleiner Kiosk und ein <a href="https://g.co/kgs/uG33qmB" target="_blank" style="color: #3B360C; text-decoration: underline;">Natur-Restaurant</a> auf dem Gelände</li>
-                    <li><strong>In der Nähe:</strong> Nächster Supermarkt ca. 4 km entfernt.
-                <a href="https://maps.app.goo.gl/HEZpXZd5Pgc2YJao9" target="_blank" style="color: #3B360C; text-decoration: underline;">(next Lidl)</a>
-            </li>
-                    <li><strong>Alternativ:</strong> Liefermöglichkeiten in der Umgebung</li>
-                </ul>
+                    <h3>Verpflegung</h3>
+                    <ul>
+                        <li>Jeder geht selber Jagen. Wir essen aber zum Frühstück und Abends zusammen am der Feuerschale + Grilloption.</li>
+                        <li><strong>Vor Ort:</strong> Kleiner Kiosk und ein <a href="https://g.co/kgs/uG33qmB" target="_blank">Natur-Restaurant</a> auf dem Gelände</li>
+                        <li><strong>In der Nähe:</strong> Nächster Supermarkt ca. 4 km entfernt.
+                    <a href="https://maps.app.goo.gl/HEZpXZd5Pgc2YJao9" target="_blank">(next Lidl)</a>
+                </li>
+                        <li><strong>Alternativ:</strong> Liefermöglichkeiten in der Umgebung</li>
+                    </ul>
 
-                <h3>Sanitäranlagen</h3>
-                <p>8 Duschen mit warmem Wasser, aufgeteilt auf zwei Räume.</p>
+                    <h3>Sanitäranlagen</h3>
+                    <p>8 Duschen mit warmem Wasser, aufgeteilt auf zwei Räume.</p>
 
-                <h3>Aktivitäten</h3>
-                <h4>Muni (Mountain Unicycle)</h4>
-    <p>Die Region rund um den Hengsteysee bietet wunderschöne Trails für alle Könnensstufen. Ideal für gemeinsames "Muniplay" (Üben und Lernen mit Hilfestellung).<br> Hier ein kleiner Vorgeschmack, aus der Sicht eines Bikers! <a href="https://g.co/kgs/uG33qmB" target="_blank" style="color: #3B360C; text-decoration: underline;">Muni Muni Muni! <3 </a> <br> <strong>Skill:</strong> Hast du ein Muni und kannst 200m frei fahren? Dann ist es genau das Richtige für dich!</p>
+                    <h3>Aktivitäten</h3>
+                    <h4>Muni (Mountain Unicycle)</h4>
+                    <p>Die Region rund um den Hengsteysee bietet wunderschöne Trails für alle Könnensstufen. Ideal für gemeinsames "Muniplay" (Üben und Lernen mit Hilfestellung).<br> Hier ein kleiner Vorgeschmack, aus der Sicht eines Bikers! <a href="https://g.co/kgs/uG33qmB" target="_blank">Muni Muni Muni! &lt;3 </a> <br> <strong>Skill:</strong> Hast du ein Muni und kannst 200m frei fahren? Dann ist es genau das Richtige für dich!</p>
 
-                <h4>Trial</h4>
-                <p>Vor Ort stehen Paletten und Hindernisse auf dem Campingplatzgelände bereit. In der Umgebung bietet ein nahegelegener Steinbruch weiteres Potenzial.<br> <strong>Skill:</strong> Du hast ein Trial-Einrad und kannst 3-mal auf der Stelle hüpfen? Dann Letz go!</p>
+                    <h4>Trial</h4>
+                    <p>Vor Ort stehen Paletten und Hindernisse auf dem Campingplatzgelände bereit. In der Umgebung bietet ein nahegelegener Steinbruch weiteres Potenzial.<br> <strong>Skill:</strong> Du hast ein Trial-Einrad und kannst 3-mal auf der Stelle hüpfen? Dann Letz go!</p>
 
-                <h3>Workshops</h3>
-                <p>Geplant sind Workshops für Muni und Trial. Weitere Details folgen!</p>
-            </div>
+                    <h3>Workshops</h3>
+                    <p>Geplant sind Workshops für Muni und Trial. Weitere Details folgen!</p>
+                </div>
+                
                 <div class="image">
-                    <img src="images/image2.jpg" alt="Karte der Umgebung" />
+                    <div class="image-container">
+                        <h3 class="image-caption">Umgebungskarte</h3>
+                        <img src="images/image2.jpg" alt="Karte der Umgebung" />
+                    </div>
+                    
+                    <div class="image-container">
+                        <h3 class="image-caption">Verfügbare Zeltplätze</h3>
+                        <img src="images/Zeltplatz.jpg" alt="Verfügbare Zeltplätze" />
+                    </div>
                 </div>
             </div>
-            <div class="image">
-                    <img src="images/Zeltplatz.jpg" alt="Verfügbare Zelte" />
-                </div>
         </div>
     </div>
 
-    
     <footer>
-        <p>&copy; 2025 German Muni and Trial Weekend. Mir doch egal <3</p>
+        <p>&copy; 2025 German Muni and Trial Weekend. Mir doch egal &lt;3</p>
     </footer>
 </body>
 </html>
