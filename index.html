@@ -30,8 +30,8 @@
       --container-max-width: 1200px;
       --heading-font: 'Montserrat', sans-serif;
       --body-font: 'Open Sans', sans-serif;
-      --section-spacing: 2.5rem;   /* Reduziert */
-      --text-spacing: 1rem;        /* Reduziert */
+      --section-spacing: 2.5rem;
+      --text-spacing: 1rem;
     }
     
     /* Grundlegende Textumbruch-Regeln */
@@ -54,7 +54,7 @@
       background-color: var(--background-color);
       color: var(--text-color);
       width: 100%;
-      /* overflow-x: hidden;  <-- nicht aktivieren, um unerwünschtes Abschneiden zu vermeiden */
+      /* overflow-x: hidden;  <-- nicht aktiv, damit nichts unerwünscht abgeschnitten wird */
     }
     
     img {
@@ -117,12 +117,12 @@
     }
     
     .content {
-      padding: 2rem 3rem; /* Etwas kompakter */
+      padding: 2rem 3rem;
       width: 100%;
       max-width: 100%;
     }
     
-    /* Typographie und Abstände */
+    /* Typographie */
     h1, h2, h3, h4 {
       font-family: var(--heading-font);
       font-weight: 600;
@@ -145,7 +145,17 @@
       max-width: 100%;
     }
     
-    /* Abschnitte mit logischer Trennung */
+    /* Textbox – alle Textboxen sollen gleich groß sein */
+    .textbox {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-sizing: border-box;
+      width: 100%;
+      min-height: 100px;
+    }
+    
+    /* Abschnitte */
     .section {
       margin-bottom: var(--section-spacing);
       position: relative;
@@ -201,7 +211,7 @@
       border-radius: 4px;
     }
     
-    /* Listen werden in einigen Bereichen durch Absätze ersetzt */
+    /* Listen – in einigen Bereichen ersetzt durch Absätze */
     ul {
       list-style-type: none;
       padding-left: 0.5rem;
@@ -232,7 +242,7 @@
       margin-left: -0.5rem;
     }
     
-    /* Layout-Elemente, Buttons, Links */
+    /* Buttons, Links und Layout-Elemente */
     .read-more {
       color: var(--primary-color);
       cursor: pointer;
@@ -301,7 +311,6 @@
       border-radius: 6px;
     }
     
-    /* Hervorhebungen und wichtige Infos */
     .highlight-box {
       background-color: rgba(102, 187, 106, 0.1);
       border-left: 4px solid var(--primary-color);
@@ -344,7 +353,6 @@
       width: 100%;
     }
     
-    /* Links und CTA-Buttons */
     a {
       color: #38761d;
       text-decoration: underline;
@@ -380,7 +388,6 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
     
-    /* Topic-Cards */
     .topic-card {
       background-color: white;
       border-radius: 8px;
@@ -391,7 +398,6 @@
       width: 100%;
     }
     
-    /* Datum */
     .date-display {
       display: inline-block;
       background-color: var(--primary-dark);
@@ -402,7 +408,6 @@
       margin: 0.5rem 0;
     }
     
-    /* Footer */
     footer {
       text-align: center;
       background: linear-gradient(135deg, #376339, var(--primary-dark));
@@ -429,7 +434,7 @@
       opacity: 0.9;
     }
     
-    /* RESPONSIVE DESIGN */
+    /* Media Queries */
     @media screen and (max-width: 768px) {
       .container {
         width: 95%;
@@ -489,9 +494,15 @@
       .section h3 {
         font-size: 1.3rem;
       }
+      
+      /* Reduziere den linken (und rechten) Rand der Textboxen um die Hälfte */
+      .textbox {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      }
     }
     
-    /* Fallback für alte Browser */
+    /* Fallback für Browser ohne Flexbox */
     @supports not (display: flex) {
       .text-image {
         display: block;
@@ -560,7 +571,11 @@
       <div class="section text-image">
         <div class="text">
           <h2>Location 2025</h2>
-          <p>Der <strong>Campingplatz Hohensyburg</strong> in Dortmund bietet uns eine ideale Basis für das diesjährige German Muni and Trial Weekend (GMTW).</p>
+          <!-- Der Location-Text in einer eigenen Textbox -->
+          <div class="textbox">
+            <p>Der <strong>Campingplatz Hohensyburg</strong> in Dortmund bietet uns eine ideale Basis für das diesjährige German Muni and Trial Weekend (GMTW).</p>
+          </div>
+  
           <div class="highlight-box">
             <p><span class="date-display">17. - 21. April 2025</span></p>
             <p><strong>Adresse:</strong> Syburger Dorfstraße 69, 44265 Dortmund</p>
@@ -624,7 +639,7 @@
             <h3 class="image-caption">Touristenplätze Anmeldung</h3>
             <p style="text-align: center; color: #2e7d32; font-weight: bold;">Diese Touristenplätze bitte auswählen, um zur speziellen Anmeldung für die Zelte zu kommen!</p>
             <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" target="_blank">
-              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" alt="Touristenplätze Anmeldung" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);">
+              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" alt="Touristenplätze Anmeldung" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
             </a>
           </div>
   
@@ -632,7 +647,7 @@
             <h3 class="image-caption">Verfügbare Zeltplätze</h3>
             <p style="text-align: center; color: #2e7d32; font-weight: bold;">Einradfahrer: Bitte "Touristenplätze" auf der grünen Fläche wählen!</p>
             <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" target="_blank">
-              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" alt="Verfügbare Zeltplätze" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);">
+              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" alt="Verfügbare Zeltplätze" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
             </a>
           </div>
   
