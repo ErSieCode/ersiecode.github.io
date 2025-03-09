@@ -54,7 +54,7 @@
             background-color: var(--background-color);
             color: var(--text-color);
             width: 100%;
-            overflow-x: hidden;
+            /* overflow-x: hidden;  <-- AUSKOMMENTIERT, um Abschneiden zu vermeiden */
         }
 
         img {
@@ -112,7 +112,7 @@
             background: white;
             border-radius: 12px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
+            /* overflow: hidden; <-- AUSKOMMENTIERT, um Abschneiden zu vermeiden */
             border: none;
         }
 
@@ -146,12 +146,12 @@
             width: 100%;
         }
 
+        /* STATT position:absolute -> display:block */
         .section:not(:last-child)::after {
             content: "";
-            position: absolute;
-            bottom: 0;
-            left: 10%;
-            right: 10%;
+            display: block; /* Minimale Änderung */
+            width: 80%;
+            margin: 0 auto;
             height: 1px;
             background: linear-gradient(to right, transparent, var(--primary-color), transparent);
         }
@@ -322,7 +322,6 @@
             position: relative;
             width: 100%;
             box-sizing: border-box;
-            overflow: visible;
         }
 
         .highlight-box.emphasis {
@@ -360,14 +359,6 @@
             margin: 1.5rem 0;
             width: 100%;
             box-sizing: border-box;
-            overflow: visible;
-        }
-
-        .important-info p {
-            margin-bottom: 0.8rem;
-            width: 100%;
-            display: block;
-            overflow-wrap: break-word;
         }
 
         .important-info p:first-child {
@@ -430,7 +421,6 @@
             border-top: 3px solid var(--primary-color);
             width: 100%;
             box-sizing: border-box;
-            overflow: visible;
         }
 
         .topic-card h3:first-child {
@@ -529,13 +519,11 @@
             .text-image .text {
                 order: 1;
                 width: 100%;
-                min-width: 0;
             }
 
             .text-image .image {
                 order: 2;
                 width: 100%;
-                min-width: 0;
             }
 
             h1 {
@@ -604,35 +592,16 @@
             .highlight-box {
                 padding: 1.2rem;
                 margin: 1.5rem 0;
-                width: 100%;
-                box-sizing: border-box;
             }
 
             .topic-card {
                 padding: 1.2rem;
                 margin: 1rem 0;
-                width: 100%;
-                box-sizing: border-box;
             }
 
             /* Fix für lange URLs */
             a {
                 word-break: break-all;
-            }
-
-            /* Wichtig: Verbesserte Textdarstellung in Informationsboxen */
-            .important-info {
-                padding: 1rem;
-                width: 100%;
-                overflow: visible;
-                box-sizing: border-box;
-            }
-
-            .important-info p {
-                font-size: 0.95rem;
-                word-break: break-word;
-                width: 100%;
-                overflow-wrap: break-word;
             }
         }
 
@@ -715,35 +684,21 @@
                 top: -0.2rem;
             }
 
-            /* Hervorhebungen für kleine Bildschirme optimiert */
-            .highlight-box, .important-info, .topic-card {
-                padding: 0.8rem;
-                margin: 1rem 0;
-                width: 100%;
-                box-sizing: border-box;
-                overflow: visible;
+            /* Hervorhebungen */
+            .highlight-box {
+                padding: 1rem;
+                margin: 1.2rem 0;
             }
 
-            /* Verhindert Textabschneidungen bei kleinen Bildschirmen */
-            .important-info p, .highlight-box p, .topic-card p {
-                font-size: 0.9rem;
-                line-height: 1.4;
-                overflow-wrap: break-word;
-                word-break: break-word;
-                width: 100%;
-            }
-
-            /* Verbesserte Emoji-Darstellung */
-            .important-info strong {
-                display: inline-block;
-                margin-right: 0.3rem;
+            .topic-card {
+                padding: 1rem;
             }
         }
 
         /* Extra-kleine Bildschirme */
         @media screen and (max-width: 320px) {
             .content {
-                padding: 0.8rem;
+                padding: 1rem;
             }
 
             h1 {
@@ -755,22 +710,11 @@
             }
 
             p, li {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
             }
 
             .image-container img {
                 max-height: 180px;
-            }
-
-            /* Weitere Optimierungen für sehr kleine Bildschirme */
-            .important-info, .highlight-box, .topic-card {
-                padding: 0.7rem;
-                margin: 0.8rem 0;
-            }
-
-            .important-info p, .highlight-box p, .topic-card p {
-                font-size: 0.85rem;
-                margin-bottom: 0.6rem;
             }
         }
 
@@ -816,36 +760,6 @@
                 width: 100%;
                 height: auto;
             }
-        }
-
-        /* Viewport-optimierte Anpassungen für Textboxen */
-        .topic-card, .highlight-box, .important-info {
-            width: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-            overflow: visible;
-            position: relative;
-            display: flow-root;
-        }
-
-        /* Spezifische Fixes für Textüberläufe */
-        .image-container p, .topic-card p, .highlight-box p, .important-info p {
-            max-width: 100%;
-            overflow: visible;
-            word-break: break-word;
-        }
-
-        /* Bessere Container-Erkennung */
-        html, body {
-            max-width: 100vw;
-            overflow-x: hidden;
-        }
-
-        /* Fix für die spezifischen Probleme im Screenshot */
-        .important-info p {
-            display: block;
-            width: 100%;
-            clear: both;
         }
     </style>
 </head>
@@ -904,7 +818,10 @@
                             <p><strong>⚠️ Wichtige Fristen:</strong></p>
                             <p>🚐 Camper und Wohnmobile bitte <strong>frühzeitig anmelden</strong>! Anmeldeschluss für Camper und Wohnmobile ist der <strong class="text-accent">15.03.2025</strong>.</p>
                             <p>👕 Allgemeiner Anmeldeschluss ist der <strong class="text-accent">01.04.2025</strong> für die T-Shirts.</p>
-                            <p>📱 Wer ein T-Shirt möchte, bitte Sven per WhatsApp kontaktieren: <strong>0179 7318615</strong></p>
+                            <!-- Telefonnummer zentriert -->
+                            <p style="text-align: center;">
+                                📱 Wer ein T-Shirt möchte, bitte Sven per WhatsApp kontaktieren: <strong>0179 7318615</strong>
+                            </p>
                         </div>
                     </div>
 
@@ -954,18 +871,25 @@
                     <div class="image-container">
                         <h3 class="image-caption">Touristenplätze Anmeldung</h3>
                         <p style="text-align: center; margin-bottom: 0.8rem; color: #2e7d32; font-weight: bold;">Diese Touristenplätze bitte auswählen, um zur speziellen Anmeldung für die Zelte zu kommen!</p>
-                        <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" alt="Touristenplätze Anmeldung" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);" />
+                        <!-- Bild anklickbar in neuem Tab -->
+                        <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" target="_blank">
+                            <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" alt="Touristenplätze Anmeldung" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);" />
+                        </a>
                     </div>
 
                     <div class="image-container">
                         <h3 class="image-caption">Verfügbare Zeltplätze</h3>
                         <p style="text-align: center; margin-bottom: 0.8rem; color: #2e7d32; font-weight: bold;">Einradfahrer: Bitte "Touristenplätze" auf der grünen Fläche wählen!</p>
-                        <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" alt="Verfügbare Zeltplätze" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);" />
+                        <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" target="_blank">
+                            <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" alt="Verfügbare Zeltplätze" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);" />
+                        </a>
                     </div>
 
                     <div class="image-container">
                         <h3 class="image-caption">Umgebungskarte</h3>
-                        <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" alt="Karte der Umgebung" />
+                        <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" target="_blank">
+                            <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" alt="Karte der Umgebung" />
+                        </a>
                     </div>
                 </div>
             </div>
