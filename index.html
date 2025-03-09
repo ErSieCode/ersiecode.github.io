@@ -113,7 +113,7 @@
       box-shadow: 0 8px 30px rgba(0,0,0,0.08);
       border: none;
       box-sizing: border-box;
-      overflow: visible;
+      overflow: hidden;
       padding: 0;
     }
 
@@ -122,6 +122,7 @@
       width: 100%;
       max-width: 100%;
       box-sizing: border-box;
+      overflow: hidden;
     }
 
     /* Typographie */
@@ -167,6 +168,7 @@
       padding-bottom: 1.5rem;
       width: 100%;
       box-sizing: border-box;
+      overflow: hidden;
     }
 
     .section:not(:last-child)::after {
@@ -279,6 +281,7 @@
       align-items: flex-start;
       width: 100%;
       box-sizing: border-box;
+      overflow: hidden;
     }
 
     .text-image .text {
@@ -286,6 +289,7 @@
       min-width: 300px;
       max-width: 100%;
       box-sizing: border-box;
+      overflow: hidden;
     }
 
     .text-image .image {
@@ -293,20 +297,20 @@
       min-width: 280px;
       max-width: 100%;
       box-sizing: border-box;
+      overflow: hidden;
     }
 
     .image-container {
       margin-bottom: 1.5rem;
       transition: transform 0.3s ease;
       background-color: white;
-      padding: 0.8rem 1.2rem 0.8rem 0.8rem; /* Mehr Padding auf der rechten Seite */
+      padding: 0.8rem;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      width: 105%; /* Erhöhte Breite auf 105% */
-      max-width: calc(100% + 15px); /* Etwas mehr Breite als der Elterncontainer */
+      width: 100%;
       box-sizing: border-box;
-      margin-left: -5px; /* Leicht negativer Rand, um die Zentrierung beizubehalten */
-      overflow-x: visible; /* Stellt sicher, dass Inhalte, die über den Container hinausgehen, sichtbar bleiben */
+      max-width: 100%;
+      overflow: hidden;
     }
 
     .image-container:hover {
@@ -336,6 +340,7 @@
       width: 100%;
       box-sizing: border-box;
       max-width: 100%;
+      overflow: hidden;
     }
 
     .highlight-box.emphasis {
@@ -371,6 +376,7 @@
       width: 100%;
       box-sizing: border-box;
       max-width: 100%;
+      overflow: hidden;
     }
 
     a {
@@ -420,6 +426,7 @@
       width: 100%;
       box-sizing: border-box;
       max-width: 100%;
+      overflow: hidden;
     }
 
     .date-display {
@@ -464,13 +471,14 @@
         width: 95%;
         margin: 1rem auto;
         border-radius: 8px;
-        overflow: visible;
+        overflow: hidden;
       }
 
       .content {
         padding: 1.2rem 2rem;
         box-sizing: border-box;
         max-width: 650px;
+        overflow: hidden;
       }
 
       h1 {
@@ -491,16 +499,21 @@
       .topic-card {
         padding: 0.8rem;
         margin: 1.2rem 0;
+        width: 100%;
+        max-width: 100%;
       }
 
       .highlight-box {
         padding: 0.8rem;
         margin: 1.2rem 0;
+        width: 100%;
+        max-width: 100%;
       }
 
       .text-image {
         flex-direction: column;
         gap: 1rem;
+        overflow: hidden;
       }
     }
 
@@ -510,15 +523,17 @@
       }
 
       .container {
-        width: 100%;
-        margin: 0.5rem auto;
+        width: 98%;
+        margin: 0.25rem auto;
         border-radius: 4px;
-        overflow: visible;
+        overflow: hidden;
       }
 
       .content {
-        padding: 0.7rem 1rem;
+        padding: 0.5rem;
         box-sizing: border-box;
+        width: 100%;
+        overflow: hidden;
       }
 
       h1 {
@@ -546,27 +561,33 @@
         margin: 0.8rem 0;
         border-radius: 4px;
         max-width: 100%;
+        width: 100%;
         box-sizing: border-box;
+        overflow: hidden;
       }
 
       .image-container {
-        width: 102%; /* Etwas weniger zusätzliche Breite auf mobilen Geräten */
+        width: 100%;
         margin-bottom: 1rem;
-        padding: 0.5rem 0.9rem 0.5rem 0.5rem; /* Mehr Padding rechts bei kleinerem Padding insgesamt */
-        max-width: calc(100% + 8px);
-        margin-left: -3px;
+        padding: 0.5rem;
+        max-width: 100%;
+        overflow: hidden;
+        margin-left: 0;
+        margin-right: 0;
       }
 
       /* Buttongrößen anpassen */
       .cta-button, .read-more {
         padding: 0.6rem 1rem;
         font-size: 0.9rem;
+        width: 100%;
       }
 
       /* Abstand zwischen Sektionen verringern */
       .section {
         margin-bottom: 1.5rem;
         padding-bottom: 1rem;
+        overflow: hidden;
       }
 
       /* Textabstände reduzieren */
@@ -577,6 +598,8 @@
       /* Bessere Bildnutzung */
       .text-image .image {
         min-width: 100%;
+        width: 100%;
+        overflow: hidden;
       }
 
       /* Entfernung der seitlichen Ränder für alle Boxen */
@@ -585,6 +608,7 @@
         margin-right: 0;
         width: 100%;
         box-sizing: border-box;
+        overflow: hidden;
       }
     }
 
