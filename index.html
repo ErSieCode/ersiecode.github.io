@@ -1,1732 +1,1038 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GMTW 2025 17-21.04.25</title>
-  <link rel="icon" href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/favicon.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* Reset und grundlegende Textformatierung */
-    *, *::before, *::after {<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GMTW 2025 17-21.04.25</title>
-  <link rel="icon" href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/favicon.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* Reset und grundlegende Textformatierung */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      max-width: 100%;
-    }
-
-    body, html {
-      overflow-x: hidden;
-      width: 100%;
-    }
-
-    :root {
-      --primary-color: #66bb6a;
-      --primary-dark: #234726;
-      --primary-light: #e8f5e9;
-      --accent-color: #ff8f00;
-      --background-color: #f5f7f5;
-      --text-color: #333333;
-      --container-width: 96%;  /* Erhöhte Breite von 92% auf 96% */
-      --container-max-width: 1200px;  /* Erhöhte maximale Breite von 1100px auf 1200px */
-      --heading-font: 'Montserrat', sans-serif;
-      --body-font: 'Open Sans', sans-serif;
-      --section-spacing: 2.5rem;
-      --text-spacing: 1rem;
-
-      /* Viewport-basierte Schriftgrößen als moderne Alternative zu festen Pixelwerten */
-      --base-font-size: calc(15px + 0.1vw);
-      --heading-scale-1: calc(1.8rem + 1vw);
-      --heading-scale-2: calc(1.4rem + 0.5vw);
-      --heading-scale-3: calc(1.2rem + 0.3vw);
-      --heading-scale-4: calc(1.1rem + 0.2vw);
-    }
-
-    /* Grundlegende Textumbruch-Regeln */
-    html, body, div, p, h1, h2, h3, h4, h5, h6, span, a, li, td, th {
-      overflow-wrap: break-word !important;
-      word-wrap: break-word !important;
-      word-break: normal !important;
-      -ms-word-break: normal !important;
-      -ms-hyphens: none !important;
-      -webkit-hyphens: none !important;
-      hyphens: none !important;
-      max-width: 100%;
-    }
-
-    /* Links speziell optimieren - Mit vergrößerten Berührungsflächen für WCAG-Konformität */
-    a {
-      display: inline-block;
-      max-width: 100%;
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-      word-break: normal;
-      -ms-word-break: normal;
-      color: #38761d;
-      text-decoration: underline;
-      transition: all 0.3s ease;
-      font-weight: 600;
-      padding: 0.1rem; /* Minimal padding for larger touch area */
-    }
-
-    /* Verbesserte Darstellung von URLs */
-    a[href^="http"] {
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-      word-break: break-word;
-      hyphens: none;
-      display: inline-block;
-      max-width: 100%;
-    }
-
-    a:hover {
-      color: var(--primary-color);
-    }
-
-    body {
-      font-family: var(--body-font);
-      margin: 0;
-      padding: 0;
-      line-height: 1.7;
-      background-color: var(--background-color);
-      color: var(--text-color);
-      width: 100%;
-      font-size: var(--base-font-size); /* Viewport-basierte Größe */
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
-    }
-
-    /* Header */
-    header {
-      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-      color: white;
-      padding: 2.5rem 1rem;
-      text-align: center;
-      border-bottom: 4px solid var(--primary-dark);
-      margin-bottom: 1rem;
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(255,255,255,0.1);
-      opacity: 0.3;
-    }
-
-    header img {
-      max-width: 100%;
-      height: auto;
-      margin: 1rem auto 0;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
-      position: relative;
-    }
-
-    header img:hover {
-      transform: scale(1.02);
-    }
-
-    /* Container - AKTUALISIERT */
-    .container {
-      width: var(--container-width);
-      max-width: var(--container-max-width);
-      margin: 3rem auto;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      border: none;
-      box-sizing: border-box;
-      overflow: hidden;
-      padding: 0;
-    }
-
-    .content {
-      padding: 2rem 3rem;
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    /* Typographie mit viewport-basierten Größen */
-    h1, h2, h3, h4 {
-      font-family: var(--heading-font);
-      font-weight: 600;
-      line-height: 1.3;
-      color: var(--primary-dark);
-      margin-bottom: 0.8rem;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: var(--heading-scale-1);
-      margin: 1.5rem auto 2rem;
-      letter-spacing: -0.02em;
-      max-width: 90%;
-    }
-
-    p {
-      margin-bottom: 1rem;
-      line-height: 1.7;
-      max-width: 100%;
-    }
-
-    /* Textbox: Schöne grüne Box - AKTUALISIERT */
-    .textbox {
-      background-color: rgba(102, 187, 106, 0.1);
-      border: 2px solid var(--primary-color);
-      border-radius: 8px;
-      padding: 1rem;
-      margin: 1rem 0;
-      box-sizing: border-box;
-      width: 100%;
-      min-height: 100px;
-      max-width: 100%;
-      overflow: hidden;
-    }
-
-    /* Abschnitte */
-    .section {
-      margin-bottom: var(--section-spacing);
-      position: relative;
-      padding-bottom: 1.5rem;
-      width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    .section:not(:last-child)::after {
-      content: "";
-      display: block;
-      width: 80%;
-      margin: 0 auto;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--primary-color), transparent);
-    }
-
-    .section h2 {
-      font-size: var(--heading-scale-2);
-      margin-bottom: 0.8rem;
-      border-bottom: 2px solid var(--primary-color);
-      display: inline-block;
-      padding-bottom: 0.5rem;
-      position: relative;
-    }
-
-    .section h2::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 50%;
-      height: 2px;
-      background-color: var(--accent-color);
-    }
-
-    .section h3 {
-      font-size: var(--heading-scale-3);
-      margin-top: 1.8rem;
-      margin-bottom: 0.8rem;
-      color: #2e5a2f;
-      padding-left: 0.8rem;
-      border-left: 3px solid var(--primary-color);
-    }
-
-    .section h4 {
-      font-size: var(--heading-scale-4);
-      margin-top: 1.2rem;
-      margin-bottom: 0.6rem;
-      color: #3a6e3c;
-      display: inline-block;
-      padding: 0.3rem 0.6rem;
-      background-color: var(--primary-light);
-      border-radius: 4px;
-    }
-
-    /* Listen */
-    ul {
-      list-style-type: none;
-      padding-left: 0.5rem;
-      margin: 1rem 0 1.5rem;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    ul li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.8rem;
-      line-height: 1.6;
-    }
-
-    ul li:before {
-      content: "•";
-      color: var(--primary-color);
-      font-size: 1.5rem;
-      position: absolute;
-      left: 0;
-      top: -0.25rem;
-    }
-
-    ul li.highlight {
-      background-color: var(--primary-light);
-      padding: 0.5rem 0.5rem 0.5rem 1.8rem;
-      border-radius: 4px;
-      margin-left: -0.5rem;
-    }
-
-    /* Buttons, Links, Layout-Elemente */
-    .read-more {
-      color: var(--primary-color);
-      cursor: pointer;
-      font-weight: 600;
-      background: none;
-      border: 1px solid var(--primary-color);
-      padding: 0.7rem 1.2rem;
-      font-size: 1rem;
-      border-radius: 4px;
-      display: inline-block;
-      margin-top: 0.5rem;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      min-height: 44px; /* WCAG-konforme Berührungsfläche */
-    }
-
-    .read-more:hover {
-      background-color: var(--primary-color);
-      color: white;
-      text-decoration: none;
-    }
-
-    .text-image {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      align-items: flex-start;
-      width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .text-image .text {
-      flex: 1 1 58%;
-      min-width: 300px;
-      max-width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    .text-image .image {
-      flex: 1 1 38%;
-      min-width: 280px;
-      max-width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    .image-container {
-      margin-bottom: 1.5rem;
-      transition: transform 0.3s ease;
-      background-color: white;
-      padding: 0.8rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      width: 100%;
-      box-sizing: border-box;
-      max-width: 100%;
-      overflow: hidden;
-    }
-
-    .image-container:hover {
-      transform: translateY(-5px);
-    }
-
-    .image-caption {
-      text-align: center;
-      margin-bottom: 0.8rem;
-      font-weight: 600;
-      font-family: var(--heading-font);
-      color: var(--primary-dark);
-      font-size: 1.2rem;
-      background-color: var(--primary-light);
-      padding: 0.5rem;
-      border-radius: 6px;
-    }
-
-    /* Highlight-Box - AKTUALISIERT */
-    .highlight-box {
-      background-color: rgba(102, 187, 106, 0.1);
-      border-left: 4px solid var(--primary-color);
-      padding: 1.2rem;
-      margin: 1.8rem 0;
-      border-radius: 0 8px 8px 0;
-      position: relative;
-      width: 100%;
-      box-sizing: border-box;
-      max-width: 100%;
-      overflow: hidden;
-    }
-
-    .highlight-box.emphasis {
-      background-color: rgba(255, 143, 0, 0.1);
-      border-left: 4px solid var(--accent-color);
-    }
-
-    .highlight-box::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 20px;
-      height: 20px;
-      background-color: var(--primary-color);
-      opacity: 0.2;
-      border-radius: 0 0 0 8px;
-    }
-
-    .highlight-box.emphasis::before {
-      background-color: var(--accent-color);
-    }
-
-    /* Important-Info - AKTUALISIERT */
-    .important-info {
-      font-weight: 600;
-      color: #e53935;
-      background-color: rgba(229, 57, 53, 0.05);
-      padding: 1rem;
-      border-radius: 8px;
-      border: 1px dashed #e53935;
-      margin: 1.8rem 0;
-      width: 100%;
-      box-sizing: border-box;
-      max-width: 100%;
-      overflow: hidden;
-    }
-
-    .cta-button {
-      display: inline-block;
-      background: var(--primary-color);
-      color: white !important;
-      font-weight: 600;
-      padding: 0.8rem 1.5rem;
-      border-radius: 6px;
-      text-decoration: none !important;
-      transition: all 0.3s ease;
-      margin: 1rem 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      text-align: center;
-      width: 100%;
-      box-sizing: border-box;
-      min-height: 44px; /* WCAG-konforme Berührungsfläche */
-    }
-
-    .cta-button:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    /* Topic-Card - AKTUALISIERT */
-    .topic-card {
-      background-color: white;
-      border-radius: 8px;
-      padding: 1.2rem;
-      margin: 1.8rem 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      border-top: 3px solid var(--primary-color);
-      width: 100%;
-      box-sizing: border-box;
-      max-width: 100%;
-      overflow: hidden;
-    }
-
-    .date-display {
-      display: inline-block;
-      background-color: var(--primary-dark);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      font-weight: 600;
-      margin: 0.5rem 0;
-    }
-
-    footer {
-      text-align: center;
-      background: linear-gradient(135deg, #376339, var(--primary-dark));
-      color: white;
-      padding: 2rem 0;
-      margin-top: 2rem;
-      font-size: 1rem;
-      position: relative;
-      width: 100%;
-    }
-
-    footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 10px;
-      background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--primary-color));
-    }
-
-    footer p {
-      margin: 0;
-      opacity: 0.9;
-    }
-
-    /* Verbesserte Link-Darstellung in Boxen */
-    .highlight-box a, .topic-card a, .textbox a {
-      display: inline-block;
-      max-width: 100%;
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-      word-break: normal;
-    }
-
-    /* Media Queries - OPTIMIERTE VERSION FÜR MOBILE GERÄTE */
-    @media screen and (max-width: 768px) {
-      .container {
-        width: 95%;
-        margin: 1rem auto;
-        border-radius: 8px;
-        overflow: hidden;
-      }
-
-      .content {
-        padding: 1.2rem 2rem;
-        box-sizing: border-box;
-        max-width: 650px;
-        overflow: hidden;
-      }
-
-      h1 {
-        margin: 0.8rem auto 1rem;
-        /* Schriftgröße wird durch CSS-Variablen gesteuert */
-      }
-
-      .section h3 {
-        margin-top: 1.2rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .topic-card {
-        padding: 0.8rem;
-        margin: 1.2rem 0;
-        width: 100%;
-        max-width: 100%;
-      }
-
-      .highlight-box {
-        padding: 0.8rem;
-        margin: 1.2rem 0;
-        width: 100%;
-        max-width: 100%;
-      }
-
-      .text-image {
-        flex-direction: column;
-        gap: 1rem;
-        overflow: hidden;
-      }
-
-      .text-image .text,
-      .text-image .image {
-        flex: 1 1 100%;
-        min-width: 100%;
-      }
-
-      /* Zurücksetzen der speziellen Anordnung auf mobilen Geräten */
-      .image-container {
-        margin-top: 0 !important;
-      }
-
-      /* Verbesserte Berührungsflächen für mobile Geräte */
-      a {
-        padding: 0.2rem;
-        min-height: 44px; /* WCAG-konforme Berührungsfläche */
-        display: inline-flex;
-        align-items: center;
-      }
-
-      .topic-card a, .highlight-box a, .textbox a {
-        margin: 0.3rem 0;
-      }
-    }
-
-    @media screen and (max-width: 480px) {
-      body {
-        line-height: 1.4;
-      }
-
-      .container {
-        width: 100%;
-        margin: 0;
-        border-radius: 0;
-        overflow: hidden;
-      }
-
-      .content {
-        padding: 0.8rem 1.2rem;
-        box-sizing: border-box;
-        width: 100%;
-        overflow: hidden;
-      }
-
-      h1 {
-        margin: 0.5rem auto 0.8rem;
-        padding: 0 0.5rem;
-      }
-
-      /* Ränder für Boxen und Cards reduzieren */
-      .topic-card, .highlight-box, .textbox, .important-info {
-        padding: 0.6rem;
-        margin: 0.6rem 0;
-        border-radius: 4px;
-        max-width: 100%;
-        width: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
-      }
-
-      .image-container {
-        width: 100%;
-        margin-bottom: 0.8rem;
-        padding: 0.4rem;
-        max-width: 100%;
-        overflow: hidden;
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      /* Buttongrößen anpassen */
-      .cta-button, .read-more {
-        padding: 0.5rem;
-        font-size: 0.95rem;
-        width: 100%;
-      }
-
-      /* Abstand zwischen Sektionen verringern */
-      .section {
-        margin-bottom: 1rem;
-        padding-bottom: 0.5rem;
-        overflow: hidden;
-      }
-
-      /* Textabstände reduzieren */
-      p {
-        margin-bottom: 0.5rem;
-      }
-
-      /* Bessere Darstellung von Links */
-      .highlight-box a, .topic-card a, .textbox a {
-        font-size: 0.95em;
-      }
-
-      /* Spezielle Behandlung von langen URLs */
-      a[href^="http"] {
-        font-size: 0.92em;
-        padding-right: 0.2rem;
-      }
-
-      /* Texte mit Datum optimieren */
-      .date-display {
-        display: inline-block;
-        padding: 0.3rem 0.6rem;
-        margin: 0.3rem 0;
-        font-size: 0.9rem;
-      }
-    }
-
-    /* Spezielles Media Query für sehr kleine Geräte (320px) */
-    @media screen and (max-width: 320px) {
-      body {
-        font-size: 14px;
-      }
-
-      .content {
-        padding: 0.6rem 1rem;
-      }
-
-      h1 {
-        font-size: calc(1.3rem + 0.5vw);
-      }
-
-      .section h2 {
-        font-size: calc(1.2rem + 0.3vw);
-      }
-
-      .section h3 {
-        font-size: calc(1rem + 0.2vw);
-      }
-
-      .section h4 {
-        font-size: calc(0.9rem + 0.1vw);
-      }
-
-      /* Noch kompaktere Darstellung */
-      .topic-card, .highlight-box, .textbox, .important-info {
-        padding: 0.5rem;
-        margin: 0.5rem 0;
-      }
-
-      .image-container {
-        padding: 0.3rem;
-      }
-    }
-
-    /* Fallback für Browser ohne Flexbox */
-    @supports not (display: flex) {
-      .text-image {
-        display: block;
-      }
-
-      .text-image .text,
-      .text-image .image {
-        width: 100%;
-        margin-bottom: 2rem;
-      }
-    }
-
-    /* IE-spezifische Fixes */
-    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-      .text-image {
-        display: block;
-      }
-
-      .text-image .text,
-      .text-image .image {
-        width: 100%;
-        margin-bottom: 2rem;
-      }
-
-      .container,
-      .content,
-      .section,
-      .topic-card {
-        width: 100%;
-      }
-
-      img {
-        width: 100%;
-        height: auto;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMTW 2025 – German Muni and Trial Weekend</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/favicon.png">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- jsPDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <style>
+        /* CSS Variablen */
+        :root {
+            --primary-color: #2E7D32;
+            --secondary-color: #689F38;
+            --accent-color: #FFA000;
+            --text-color: #333;
+            --bg-color: #F1F8E9;
+            --card-bg: #ffffff;
+            --border-color: #ccc;
+            --nav-bg-color: #222;
+            --nav-text-color: #f1f1f1;
+            --nav-height: 50px;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-heading: 'Arial Black', Gadget, sans-serif; /* Bleibt Fett */
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --checklist-complete-color: #4CAF50;
+            --link-color: #4CAF50;
+            --link-hover-color: var(--primary-color);
+            --checked-item-color: #666;
+            /* --- NEUE Banner-Textfarbe --- */
+            --header-text-color: #83b219; /* Geändert auf Wunschfarbe */
+            --header-text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Angepasster Schatten für Kontrast */
+        }
+
+        html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+        body { font-family: var(--font-main); color: var(--text-color); background-color: var(--bg-color); margin: 0; line-height: 1.6; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); color: var(--primary-color); }
+        a { color: var(--link-color); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: var(--link-hover-color); text-decoration: underline; }
+        img { max-width: 100%; height: auto; border-radius: var(--border-radius); vertical-align: middle; }
+         figure { margin: 0; }
+
+        .button { display: inline-block; background-color: var(--accent-color); color: #fff !important; padding: 10px 20px; border-radius: var(--border-radius); text-decoration: none; font-weight: bold; transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease; border: none; cursor: pointer; font-size: 1em; text-align: center; margin: 5px; }
+        .button:hover { background-color: #e69500; transform: translateY(-2px); text-decoration: none; }
+        .button:disabled { background-color: #ccc; cursor: not-allowed; transform: none; opacity: 0.7; }
+        .button i { margin-right: 8px; }
+        .button-secondary { background-color: var(--secondary-color); }
+        .button-secondary:hover { background-color: var(--primary-color); }
+
+        nav.main-nav { background-color: var(--nav-bg-color); height: var(--nav-height); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); display: flex; justify-content: center; align-items: center; overflow-x: auto; white-space: nowrap; }
+        nav.main-nav ul { list-style: none; margin: 0; padding: 0 10px; display: flex; gap: 15px; }
+        nav.main-nav li { display: inline-block; }
+        nav.main-nav a { color: var(--nav-text-color); text-decoration: none; padding: 10px 15px; border-radius: 4px; transition: background-color 0.3s ease, color 0.3s ease; font-weight: bold; font-size: 0.9em; }
+        nav.main-nav a:hover, nav.main-nav a:focus { background-color: var(--accent-color); color: white; text-decoration: none; }
+        nav.main-nav a i { margin-right: 5px; }
+
+        .container { max-width: 1000px; margin: 20px auto; padding: 0 20px; }
+        section { background-color: var(--card-bg); padding: 25px; margin-bottom: 25px; border-radius: var(--border-radius); box-shadow: var(--shadow); }
+        section h2 { margin-top: 0; text-align: center; margin-bottom: 25px; }
+
+        /* --- Header mit Banner (Textfarbe & Schatten angepasst) --- */
+        .main-header {
+            padding: 40px 20px; text-align: center;
+            background-image: url('https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Banner.png');
+            background-size: cover; background-position: center 33%;
+            position: relative; color: var(--header-text-color); /* Verwendet die Variable */
+            box-shadow: var(--shadow);
+        }
+        .header-content { position: relative; z-index: 2; }
+        .main-header h1, .main-header h2, .main-header .subtitle {
+            color: var(--header-text-color); /* Verwendet die Variable */
+            font-weight: bold; /* Bleibt Fett */
+            text-shadow: var(--header-text-shadow); /* Verwendet die Variable */
+        }
+        .main-header h1 { margin: 10px 0 5px 0; font-size: 2.5em; }
+        .main-header h2 { font-size: 1.5em; margin-top: 0; margin-bottom: 15px; font-family: var(--font-heading); }
+        .main-header .subtitle { font-size: 1.1em; font-style: italic; opacity: 1; }
+        .main-header .subtitle strong { font-style: normal; }
+
+        /* --- Intro Section (Bild entfernt) --- */
+        .intro-section { display: flex; /* Bleibt flex für Zentrierung, wenn nur Text da */ }
+        .intro-text {
+            flex: 1 1 100%; /* Nimmt die volle Breite ein */
+             max-width: 800px; /* Optional: Maximale Breite für Lesbarkeit */
+             margin: 0 auto; /* Zentriert den Textblock */
+             text-align: left; /* Oder center, je nach Wunsch */
+        }
+        /* .intro-image Div wird im HTML entfernt */
+
+        /* --- Restliche Styles --- */
+        /* Zeitplan Section */
+        #event-uebersicht { padding: 30px 20px; background-color: transparent; box-shadow: none; text-align: center; border-top: 2px dashed var(--secondary-color); margin-top: 30px; margin-bottom: 30px; }
+        #event-uebersicht h2 { margin-bottom: 25px; }
+        #overview-container { position: relative; width: 90%; max-width: 800px; margin: 40px auto 30px auto; height: 80px; }
+        #overview-track { width: 100%; height: 10px; background: linear-gradient(to right, var(--secondary-color), var(--primary-color)); border-radius: 5px; position: absolute; top: 30px; left: 0; }
+        .day-marker { position: absolute; top: 10px; transform: translateX(-50%); width: 40px; height: 40px; background-color: var(--card-bg); border: 3px solid var(--secondary-color); border-radius: 50%; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 0.9em; color: var(--primary-color); z-index: 10; }
+        .day-marker:hover { transform: translateX(-50%) scale(1.1); border-color: var(--accent-color); }
+        .day-marker.active { background-color: var(--accent-color); border-color: var(--accent-color); color: #fff; transform: translateX(-50%) scale(1.1); }
+        .day-marker span { visibility: hidden; width: 120px; background-color: var(--text-color); color: #fff; text-align: center; border-radius: 6px; padding: 5px 8px; position: absolute; z-index: 1; bottom: 125%; left: 50%; margin-left: -60px; opacity: 0; transition: opacity 0.3s; font-size: 0.85em; pointer-events: none; }
+        .day-marker:hover span { visibility: visible; opacity: 1; }
+        #unicyclist-icon { position: absolute; top: 0px; left: 5%; height: 60px; width: auto; transition: left 1s ease-in-out; z-index: 5; transform: translateX(-50%); image-rendering: pixelated; image-rendering: -moz-crisp-edges; image-rendering: crisp-edges; pointer-events: none; border-radius: 0; }
+        #daily-highlights-display { margin: 20px auto; background-color: var(--card-bg); padding: 20px; border-radius: var(--border-radius); box-shadow: var(--shadow); min-height: 100px; width: 90%; max-width: 600px; text-align: left; border-top: 4px solid var(--accent-color); }
+        #daily-highlights-display h3 { margin-top: 0; border-bottom: 2px solid var(--bg-color); padding-bottom: 8px; text-align: center; }
+        #daily-highlights-display ul { list-style: none; padding: 0; margin-top: 15px; }
+        #daily-highlights-display li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-size: 1.05em; }
+        #daily-highlights-display li::before { content: '\f005'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--accent-color); }
+        #play-animation { margin-top: 20px; }
+        #daily-detail-content { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); display: none; }
+        #daily-detail-content.visible { display: block; } /* Korrekte Sichtbarkeit */
+        #daily-detail-content h2 { text-align: center; margin-bottom: 25px; color: var(--primary-color); }
+        .timeline { position: relative; padding-left: 40px; border-left: 4px solid var(--secondary-color); }
+        .timeline-item { margin-bottom: 30px; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -48px; top: 8px; width: 16px; height: 16px; background-color: var(--secondary-color); border-radius: 50%; border: 3px solid var(--bg-color); z-index: 1; }
+        .timeline-item.highlight::before { background-color: var(--accent-color); }
+        .time-tag { font-weight: bold; color: var(--primary-color); background-color: var(--bg-color); padding: 3px 8px; border-radius: 4px; position: absolute; left: -115px; top: 5px; width: 70px; text-align: center; font-size: 0.9em; border: 1px solid #eee; }
+        .content-tile { background-color: var(--card-bg); padding: 20px 25px; border-radius: var(--border-radius); box-shadow: var(--shadow); border-left: 5px solid var(--secondary-color); margin-left: 15px; }
+        .timeline-item.highlight .content-tile { border-left-color: var(--accent-color); background-color: #fffdf5; }
+        .content-tile h3 { margin-top: 0; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; color: var(--secondary-color); font-size: 1.3em; border-bottom: 1px dashed #eee; padding-bottom: 8px; }
+        .timeline-item.highlight .content-tile h3 { color: var(--accent-color); }
+        .content-tile h3 i { color: var(--accent-color); font-size: 1.2em; width: 1.2em; text-align: center; flex-shrink: 0; }
+        .content-tile h3 img.timeline-icon-img { height: 1.4em; width: auto; vertical-align: middle; margin-right: 8px; border-radius: 0; flex-shrink: 0; }
+        .content-tile p, .content-tile ul { margin-bottom: 10px; line-height: 1.5; }
+        .content-tile ul { list-style: disc; padding-left: 25px; }
+        .content-tile ul li { margin-bottom: 5px; }
+        .content-tile p:last-child, .content-tile ul:last-child { margin-bottom: 0; }
+        .content-tile em { font-style: italic; color: var(--text-color); opacity: 0.9; font-size: 0.95em; display: block; margin-top: 5px; }
+        .content-tile strong { color: var(--primary-color); }
+
+        /* Location & Orga Section */
+        .orga-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .orga-card { background-color: var(--bg-color); padding: 20px; border-radius: var(--border-radius); border-left: 5px solid var(--secondary-color); display: flex; flex-direction: column; }
+        .orga-card h3 { margin-top: 0; color: var(--secondary-color); display: flex; align-items: center; gap: 10px; font-size: 1.2em; }
+        .orga-card h3 i { color: var(--accent-color); }
+        .orga-card ul { list-style: none; padding-left: 0; margin-bottom: 10px; flex-grow: 1; }
+        .orga-card li { margin-bottom: 8px; line-height: 1.4; display: flex; align-items: flex-start; gap: 8px; }
+        .orga-card li strong { color: var(--primary-color); }
+        .orga-card li > i:first-child { margin-top: 0.1em; color: var(--accent-color); width: 1.3em; text-align: center; flex-shrink: 0; }
+         .orga-card figure.location-image { margin-top: 10px; text-align: center; }
+         .orga-card figure.location-image a { display: inline-block; border: 1px solid var(--border-color); padding: 3px; border-radius: var(--border-radius); background: #fff; transition: transform 0.2s ease; }
+         .orga-card figure.location-image a:hover { transform: scale(1.03); }
+         .orga-card figure.location-image img { max-width: 100%; height: 150px; object-fit: cover; display: block; }
+         .orga-card figure.location-image figcaption { font-size: 0.8em; color: #666; margin-top: 5px; }
+
+        /* Wichtige Hinweise Section (Startet GESCHLOSSEN) */
+        #wichtige-hinweise .info-container { display: flex; flex-wrap: wrap; gap: 15px; }
+        #wichtige-hinweise details { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--border-radius); margin-bottom: 10px; box-shadow: var(--shadow); flex: 1 1 45%; min-width: 300px; transition: box-shadow 0.3s ease; border-left: 5px solid transparent; }
+        #wichtige-hinweise details:hover { box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); }
+        #wichtige-hinweise details[open] { border-left-color: var(--accent-color); }
+        #wichtige-hinweise summary { padding: 15px; font-weight: bold; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 10px; color: var(--primary-color); }
+        #wichtige-hinweise summary i { color: var(--accent-color); font-size: 1.2em; width: 20px; text-align: center; }
+        #wichtige-hinweise summary::after { content: '\f0da'; font-family: 'Font Awesome 6 Free'; font-weight: 900; margin-left: auto; transition: transform 0.3s ease; color: var(--secondary-color); }
+        #wichtige-hinweise details[open] summary::after { transform: rotate(90deg); }
+        #wichtige-hinweise .details-content { padding: 0 15px 15px 45px; border-top: 1px solid #eee; margin-top: 10px; }
+        #wichtige-hinweise .details-content ul { list-style: disc; padding-left: 20px; margin: 0; }
+
+        /* Event Impressionen Section */
+        .impressionen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .impressionen-card { background-color: var(--bg-color); border-radius: var(--border-radius); overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow); }
+        .impressionen-card a.image-link { display: block; }
+        .impressionen-card img.card-image { width: 100%; height: 200px; object-fit: cover; display: block; transition: transform 0.3s ease; border-radius: 0; }
+        .impressionen-card a.image-link:hover img.card-image { transform: scale(1.05); }
+        .impressionen-card img.logo-image { width: auto; height: 50px; margin: 15px auto; object-fit: contain; display: block; border-radius: 0; }
+        .impressionen-card .card-content { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; }
+        .impressionen-card .card-content h3 { margin-top: 0; margin-bottom: 10px; color: var(--secondary-color); font-size: 1.2em; text-align: center; }
+        .impressionen-card .card-content p { font-size: 0.95em; margin-bottom: 0; flex-grow: 1; }
+        .impressionen-card .card-content p a { color: var(--link-color); }
+        .impressionen-card .card-content p a:hover { color: var(--link-hover-color); }
+        .impressionen-card .card-content .small-icon { font-size: 0.7em; vertical-align: super; }
+        .impressionen-card .mascot-container { display: flex; justify-content: space-around; align-items: center; margin-top: 15px; padding-top: 10px; border-top: 1px dashed var(--border-color); }
+        .impressionen-card .mascot-container img { height: 70px; width: auto; object-fit: contain; border-radius: 0; }
+
+        /* Packliste Checkliste */
+        #packliste-checklist { border: 2px solid var(--border-color); padding: 25px; border-radius: var(--border-radius); transition: border-color 0.5s ease; }
+        #packliste-checklist h2 { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
+        #packliste-checklist h2 span { flex-grow: 1; text-align: left; display: flex; align-items: center; gap: 10px; }
+        #packliste-checklist h2 span img.title-icon-img { width: 1.3em; height: 1.3em; object-fit: contain; border-radius: 0;}
+        #packliste-checklist h2 span i { color: var(--accent-color); font-size: 1.2em; }
+        #packliste-checklist h2 button { margin-left: auto; }
+        #packliste-checklist.checklist-complete { border-color: var(--checklist-complete-color); }
+        .checklist-status { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee; text-align: center; }
+        #checklist-progress-bar-container { width: 100%; background-color: #e0e0e0; border-radius: 5px; height: 15px; overflow: hidden; margin-bottom: 10px; }
+        #checklist-progress-bar { width: 0%; height: 100%; background-color: var(--secondary-color); border-radius: 5px 0 0 5px; transition: width 0.5s ease-out; }
+        #packliste-checklist.checklist-complete #checklist-progress-bar { background-color: var(--checklist-complete-color); border-radius: 5px; }
+        #checklist-progress-text { font-weight: bold; color: var(--primary-color); }
+        #packliste-checklist.checklist-complete #checklist-progress-text { color: var(--checklist-complete-color); }
+        #checklist-categories-container { margin-top: 20px; }
+        .checklist-category-details { border-bottom: 1px solid #eee; margin-bottom: 10px; }
+        .checklist-category-details summary { padding: 12px 5px; font-weight: bold; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 10px; color: var(--secondary-color); font-size: 1.2em; }
+        .checklist-category-details summary .category-icon-img { width: 1.3em; height: 1.3em; object-fit: contain; flex-shrink: 0; margin-right: 8px; border-radius: 0; }
+        .checklist-category-details summary i { color: var(--accent-color); font-size: 1.1em; width: 1.3em; text-align: center; flex-shrink: 0; margin-right: 8px; }
+        .checklist-category-details summary::after { content: '\f0da'; font-family: 'Font Awesome 6 Free'; font-weight: 900; margin-left: auto; transition: transform 0.3s ease; color: var(--border-color); }
+        .checklist-category-details[open] summary::after { transform: rotate(90deg); }
+        .checklist-items-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 5px 15px; padding: 15px 5px 15px 20px; }
+        .check-item { display: flex; align-items: center; gap: 10px; padding: 5px 0; position: relative; }
+        .check-item label { cursor: pointer; flex-grow: 1; transition: color 0.3s ease; }
+        .check-item input[type="checkbox"] { cursor: pointer; width: 1.3em; height: 1.3em; accent-color: var(--secondary-color); flex-shrink: 0; }
+        .check-item input[type="checkbox"]:checked + label { color: var(--checked-item-color); text-decoration: line-through; }
+
+        /* Footer */
+        footer { background-color: var(--text-color); color: #ccc; text-align: center; padding: 20px; margin-top: 40px; font-size: 0.9em; }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            nav.main-nav { justify-content: flex-start; } nav.main-nav a { padding: 10px 12px; font-size: 0.85em;}
+            .main-header { padding: 25px 15px; } .main-header h1 { font-size: 2em; } .main-header h2 { font-size: 1.2em; }
+            .intro-section { flex-direction: column; } .intro-text { text-align: center; /* Text zentrieren, wenn Bild weg ist */}
+            #wichtige-hinweise details { flex-basis: 100%; }
+            .impressionen-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+            .impressionen-card img.card-image { height: 180px; }
+            #overview-container { width: 95%; height: auto; padding-bottom: 30px; } .day-marker { width: 35px; height: 35px; top: 22px; }
+            #unicyclist-icon { top: 5px; height: 50px; } .day-marker span { bottom: 115%; } #daily-highlights-display { width: 95%; margin-top: 100px; }
+            .timeline { padding-left: 20px; border-left-width: 3px; } .timeline-item::before { left: -29px; width: 12px; height: 12px; top: 5px; }
+            .time-tag { position: static; left: auto; top: auto; width: auto; text-align: left; margin-bottom: 8px; background: none; padding: 0; border: none; font-weight: bold; font-size: 1em; color: var(--primary-color); }
+            .content-tile { margin-left: 0; } .checklist-items-grid { grid-template-columns: 1fr; } .orga-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+             nav.main-nav a { padding: 10px 8px; gap: 10px; font-size: 0.8em; } .impressionen-grid { grid-template-columns: 1fr; }
+             .main-header { padding: 15px 10px; } .main-header h1 { font-size: 1.8em; } .main-header h2 { font-size: 1.1em; }
+             body { font-size: 15px; } .container { padding: 0 15px; } section { padding: 20px; }
+            .button { padding: 8px 15px; font-size: 0.9em; } .content-tile { padding: 15px 20px; } .day-marker span { width: 100px; margin-left: -50px; }
+        }
+
+    </style>
 </head>
 <body>
-  <header>
-    <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image1.jpg" alt="Einradfahrer">
-  </header>
+    <!-- Placeholder für Language Switcher -->
+    <!-- <div class="language-switcher" style="position: fixed; top: 60px; right: 10px; z-index: 1001;">
+        <button onclick="switchLanguage('de')">DE</button>
+        <button onclick="switchLanguage('en')">EN</button>
+        <button onclick="switchLanguage('nl')">NL</button>
+    </div> -->
 
-  <h1>German Muni and Trial Weekend 2025</h1>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#intro"><i class="fas fa-info-circle"></i> Intro</a></li>
+            <li><a href="#event-uebersicht"><i class="fas fa-calendar-alt"></i> Zeitplan</a></li>
+            <li><a href="#location-orga"><i class="fas fa-map-marker-alt"></i> Location & Orga</a></li>
+            <li><a href="#wichtige-hinweise"><i class="fas fa-exclamation-triangle"></i> Hinweise</a></li>
+            <li><a href="#event-impressionen"><i class="fas fa-images"></i> Einblicke</a></li>
+            <li><a href="#packliste-checklist"><i class="fas fa-clipboard-list"></i> Packliste</a></li>
+        </ul>
+    </nav>
 
-  <div class="container">
-    <div class="content">
-      <div class="section">
-        <p>Das <strong>German Muni and Trial Weekend</strong> (kurz <strong>GMTW</strong>) wurde in den Anfangstagen (seit 2003) des Einradsports von einer Gruppe leidenschaftlicher Einrad-Pioniere im Dunstkreis von "Municycle.com" an Ostern ins Leben gerufen.</p>
-        <p>Ihr Ziel: die <strong>Begeisterung für den Einradsport</strong> immer wieder neu zu entfachen und die Disziplinen <strong>Muni</strong> (Mountainunicycle) und <strong>Trial</strong> (Hindernisparcours) in der Natur hervorzuheben und zu fördern.</p>
-
-        <div id="more-text" style="display: none;">
-          <p>Im Laufe der Zeit hat sich das GMTW weit über ein einfaches Sportevent hinaus entwickelt – es wurde zum <strong>Herzstück einer ganzen Szene</strong>. Jedes Jahr reisen Teilnehmer aus allen Teilen Deutschlands und sogar darüber hinaus an. Über 90 Fahrer und Fahrerinnen, mit Einrädern unterschiedlichster Art und verschiedenen Könnensstufen, vereint durch die Leidenschaft für ihren Sport: Von Anfängern, die gerade ihre Balance gefunden haben, bis hin zu Profis, die scheinbar die Gesetze der Schwerkraft aushebeln.</p>
-          <p>Der <strong>Veranstaltungsort wechselt jedes Jahr</strong> und wird traditionell von einem Teilnehmer an den nächsten weitergegeben. Gemeinsam mit der Community entstehen so kleine Einradparadiese. Beispielsweise boten die Thüringer Wälder rund um Oberhof eine ideale Kulisse: Steile Trails, technische Paletten-Trial-Parcours, gestaltet von Axel Kästle, und anspruchsvolle Downhill-Strecken, die selbst erfahrene Mountainbiker herausforderten.</p>
-          <p>Tagsüber stehen <strong>Training, Tests und das Ausloten von Grenzen</strong> im Mittelpunkt. Abends verwandelt sich das Gelände in einen Ort der Gemeinschaft. Lagerfeuer, geteilte Geschichten vergangener Touren und aufgeregte Gespräche über die Erlebnisse des Tages prägen die Atmosphäre.</p>
-          <p>Selbst in herausfordernden Zeiten, wie während der Pandemie, zeigte die Community ihre Kreativität: 2021 fand das GMTW in Form eines Video-Wettbewerbs statt, bei dem Einradfahrer ihre Beiträge einreichen konnten. Doch auch wenn in den letzten Jahren Wettbewerbselemente hinzugekommen sind, bleibt das GMTW seinem Grundprinzip treu: <strong>Es ist kein Wettkampf!</strong></p>
-          <p>Das GMTW ist ein <strong>Treffen von Gleichgesinnten</strong>, ein Ort des Austauschs ohne Druck – ein Ort des Lernens und der Freude an einem Sport, den viele zunächst belächeln. Hier sind alle willkommen: groß oder klein, jung oder alt, fortgeschritten oder blutiger Anfänger.</p>
-          <div class="highlight-box emphasis">
-            <p>Kommt vorbei und erlebt die <strong>einzigartige Gemeinschaft des GMTW</strong>!</p>
-          </div>
+    <header class="main-header">
+        <div class="header-content">
+            <h1>GMTW 2025</h1>
+            <h2>German Muni and Trial Weekend</h2>
+            <p class="subtitle">Dein ultimatives Einrad-Abenteuer!<br>
+                <strong>Datum:</strong> 17. – 21. April 2025 | <strong>Ort:</strong> Hengsteysee / Camping Hohensyburg | <strong>Motto:</strong> Spiel, Spaß & Sport auf einem Rad!
+            </p>
         </div>
+    </header>
 
-        <button id="read-more-btn" class="read-more" onclick="toggleReadMore()">Mehr lesen</button>
-      </div>
-
-      <div class="section text-image">
-        <div class="text">
-          <h2>Location 2025</h2>
-          <!-- Der Location-Text in einer eigenen, homogenen grünen Textbox -->
-          <div class="textbox">
-            <p>Der <strong>Campingplatz Hohensyburg</strong> in Dortmund bietet uns eine ideale Basis für das diesjährige German Muni and Trial Weekend (GMTW).</p>
-          </div>
-
-          <div class="highlight-box">
-            <p><span class="date-display">17. - 21. April 2025</span></p>
-            <p><strong>Adresse:</strong> Syburger Dorfstraße 69, 44265 Dortmund</p>
-            <p><strong>Gelände:</strong> <a href="https://www.camping-hohensyburg.de/Deutsch/Unser-Platz/Lageplan-mit-360-Bildern" target="_blank">Lageplan des Campingplatzes</a></p>
-            <p><strong>Webseite:</strong> <a href="https://www.camping-hohensyburg.de/" target="_blank">www.camping-hohensyburg.de</a></p>
-          </div>
-
-          <div class="topic-card">
-            <h3>Wichtig: Zeltplätze für Einradfahrer</h3>
-            <div class="highlight-box emphasis" style="background-color: rgba(102,187,106,0.2); border-color: #2e7d32;">
-              <p>Wir möchten als Gruppe zusammen bleiben! Bitte wählt bei der Buchung die <strong class="text-accent">"Touristenplätze"</strong> auf der <strong class="text-accent">grünen Fläche</strong> (siehe Zeltplatz-Karte rechts). Diese Plätze sind speziell für uns reserviert und ermöglichen uns, als Gemeinschaft zusammen zu sein.</p>
-              <a href="https://camppartner.com/cpoobuchung/hohensyburg" target="_blank" class="cta-button" style="background-color: #2e7d32;">Jetzt Anmelden</a>
+    <div class="container">
+        <section id="intro" class="intro-section">
+            <div class="intro-text">
+                <h2 style="text-align: left;"><i class="fas fa-info-circle" style="color: var(--accent-color);"></i> Die Seele des GMTW</h2>
+                <p>Das German Muni and Trial Weekend (GMTW) wurde <strong>seit 2003</strong> von leidenschaftlichen Einrad-Pionieren ins Leben gerufen. Ihr Ziel: die Begeisterung für <strong>Mountain Unicycling (Muni)</strong> und <strong>Trial</strong> in der Natur zu entfachen und die Gemeinschaft zu stärken.</p>
+                <p>Heute ist das GMTW das Herzstück der Szene. Jedes Jahr treffen sich über 90 Fahrer\*innen aus Deutschland und darüber hinaus – <strong>Anfänger bis Profis, Groß und Klein</strong> – vereint durch die Liebe zum Einradsport.</p>
+                <p>Der Ort wechselt, die Gemeinschaft bleibt. Tagsüber geht es um Training, Trails und das Testen von Grenzen. Abends prägen <strong>Lagerfeuer, Geschichten und Gemeinschaft</strong> die einzigartige Atmosphäre. Auch wenn Wettbewerbselemente hinzugekommen sind: Das GMTW ist <strong>kein Wettkampf</strong>, sondern ein Treffen Gleichgesinnter zum Lernen, Austauschen und Spaßhaben.</p>
+                <p><strong>Komm vorbei und erlebe die einzigartige Gemeinschaft des GMTW!</strong></p>
             </div>
-            <div class="important-info">
-              <p><strong>⚠️ Wichtige Fristen:</strong></p>
-              <p>🚐 Camper und Wohnmobile bitte <strong>frühzeitig anmelden</strong>! Anmeldeschluss für Camper und Wohnmobile ist der <strong class="text-accent">15.03.2025</strong>.</p>
-              <p>👕 Allgemeiner Anmeldeschluss ist der <strong class="text-accent">01.04.2025</strong> für die T-Shirts.</p>
-              <p style="text-align: center;">📱 Wer ein T-Shirt möchte, bitte Sven per WhatsApp kontaktieren: <strong>0179 7318615</strong></p>
+        </section>
+
+        <section id="event-uebersicht">
+            <h2>Der Zeitplan: 5 Tage voller Action!</h2>
+            <p>Wähle einen Tag auf der Timeline oder starte die Animation, um die Highlights zu sehen und den detaillierten Plan zu laden.</p>
+            <div id="overview-container">
+                <div id="overview-track"></div>
+                <img id="unicyclist-icon" src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/waschbär_einrad.png" alt="Einradfahrender Waschbär Animation">
             </div>
-          </div>
-
-          <div class="topic-card">
-            <h3>Übernachtungsmöglichkeiten</h3>
-            <p><strong>Erste Wahl für Einradfahrer:</strong> Zelten auf den "Touristenplätzen" (grüne Fläche) – damit wir zusammen bleiben.</p>
-            <p>Alternativ: Übernachtung in <a href="https://www.camping-hohensyburg.de/Deutsch/Bauwagen" target="_blank">Bauwagen</a> oder im <a href="https://www.camping-hohensyburg.de/Deutsch/Campingfaessern" target="_blank">gemütlichen Campingfass</a> möglich.</p>
-            <p>Alle Details zu Unterkünften und Preisen findet ihr hier: <a href="https://www.camping-hohensyburg.de/Deutsch/Preise" target="_blank">Preisübersicht</a>.</p>
-          </div>
-
-          <div class="topic-card">
-            <h3>Verpflegung</h3>
-            <p><strong>Eigenversorgung</strong> ist vorgesehen. Frühstück und Abendessen werden wir gemeinsam an der Feuerschale einnehmen (Grilloption vorhanden).</p>
-            <p>Auf dem Gelände gibt es einen kleinen Kiosk und ein <a href="https://g.co/kgs/uG33qmB" target="_blank">Natur-Restaurant</a>.</p>
-            <p>Der nächste Supermarkt (Lidl) ist ca. 4 km entfernt: <a href="https://maps.app.goo.gl/HEZpXZd5Pgc2YJao9" target="_blank">Route zum Supermarkt</a>.</p>
-            <p>Alternativ gibt es diverse Lieferdienste in der Umgebung.</p>
-          </div>
-
-          <div class="topic-card">
-            <h3>Sanitäranlagen</h3>
-            <p>Der Campingplatz verfügt über <strong>8 Duschen mit warmem Wasser</strong>, aufgeteilt auf zwei Räume.</p>
-          </div>
-
-          <div class="topic-card">
-            <h3>Aktivitäten</h3>
-            <h4>Muni (Mountain Unicycle)</h4>
-            <p>Die Region rund um den Hengsteysee bietet <strong>wunderschöne Trails für alle Könnensstufen</strong>. Ideal für gemeinsames "Muniplay" (Üben und Lernen mit Hilfestellung).</p>
-            <p>Hier ein kleiner Vorgeschmack aus der Sicht eines Bikers: <a href="https://g.co/kgs/uG33qmB" target="_blank">Muni Muni Muni! &lt;3</a></p>
-            <p><strong>Skill-Level:</strong> Hast du ein Muni und kannst 200m frei fahren? Dann ist es <span class="text-accent">genau das Richtige für dich!</span></p>
-            <h4>Trial</h4>
-            <p>Vor Ort stehen <strong>Paletten und Hindernisse</strong> auf dem Campingplatzgelände bereit. In der Umgebung bietet ein nahegelegener Steinbruch weiteres Potenzial.</p>
-            <p><strong>Skill-Level:</strong> Du hast ein Trial-Einrad und kannst 3-mal auf der Stelle hüpfen? Dann <span class="text-accent">Letz go!</span></p>
-          </div>
-
-          <div class="topic-card">
-            <h3>Workshops</h3>
-            <p>Geplant sind verschiedene <strong>Workshops für Muni und Trial</strong>. Weitere Details werden in Kürze bekannt gegeben!</p>
-          </div>
-        </div>
-
-        <div class="image">
-          <div class="image-container">
-            <h3 class="image-caption">Touristenplätze Anmeldung</h3>
-            <p style="text-align: center; color: #2e7d32; font-weight: bold;">Diese Touristenplätze bitte auswählen, um zur speziellen Anmeldung für die Zelte zu kommen!</p>
-            <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" target="_blank">
-              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" alt="Touristenplätze Anmeldung" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
-            </a>
-          </div>
-
-          <div class="image-container">
-            <h3 class="image-caption">Verfügbare Zeltplätze</h3>
-            <p style="text-align: center; color: #2e7d32; font-weight: bold;">Einradfahrer: Bitte "Touristenplätze" auf der grünen Fläche wählen!</p>
-            <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" target="_blank">
-              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" alt="Verfügbare Zeltplätze" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
-            </a>
-          </div>
-
-          <div class="image-container">
-            <h3 class="image-caption">Umgebungskarte</h3>
-            <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" target="_blank">
-              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" alt="Karte der Umgebung">
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 German Muni and Trial Weekend. Mir doch egal &lt;3</p>
-  </footer>
-
-  <script>
-    function toggleReadMore() {
-      var moreText = document.getElementById('more-text');
-      var readMoreBtn = document.getElementById('read-more-btn');
-      if (!moreText || !readMoreBtn) {
-        console.error('Elemente für "Mehr lesen" nicht gefunden');
-        return;
-      }
-      if (moreText.style.display === 'none' || !moreText.style.display) {
-        moreText.style.display = 'block';
-        readMoreBtn.textContent = 'Weniger lesen';
-      } else {
-        moreText.style.display = 'none';
-        readMoreBtn.textContent = 'Mehr lesen';
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      var moreText = document.getElementById('more-text');
-      if (moreText) moreText.style.display = 'none';
-
-      // Entfernung der Funktion, die word-break: break-all für Links setzt
-      // Dies ist nicht mehr notwendig, da die CSS-Rules jetzt verbessert wurden
-
-      function isIE() {
-        var ua = window.navigator.userAgent;
-        return (ua.indexOf("MSIE ") > 0 || ua.indexOf('Trident/') > 0);
-      }
-      if (isIE()) {
-        document.body.className += ' ie-browser';
-      }
-      if (typeof wp !== 'undefined' || document.body.classList.contains('wp-admin') || document.body.classList.contains('wp-core-ui')) {
-        document.body.classList.add('wordpress-environment');
-        var containers = document.querySelectorAll('.container, .content, .section, .topic-card, .text-image, .image-container');
-        for (var j = 0; j < containers.length; j++) {
-          containers[j].style.maxWidth = '100%';
-          containers[j].style.overflow = 'hidden';
-        }
-      }
-    });
-  </script>
-</body>
-</html>
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    :root {
-      --primary-color: #66bb6a;
-      --primary-dark: #234726;
-      --primary-light: #e8f5e9;
-      --accent-color: #ff8f00;
-      --background-color: #f5f7f5;
-      --text-color: #333333;
-      --container-width: 92%;
-      --container-max-width: 1100px;
-      --heading-font: 'Montserrat', sans-serif;
-      --body-font: 'Open Sans', sans-serif;
-      --section-spacing: 2.5rem;
-      --text-spacing: 1rem;
-    }
-
-    /* Grundlegende Textumbruch-Regeln */
-    html, body, div, p, h1, h2, h3, h4, h5, h6, span, a, li, td, th {
-      overflow-wrap: break-word !important;
-      word-wrap: break-word !important;
-      -ms-word-break: break-word !important;
-      word-break: break-word !important;
-      -ms-hyphens: auto !important;
-      -webkit-hyphens: auto !important;
-      hyphens: auto !important;
-      max-width: 100%;
-    }
-
-    body {
-      font-family: var(--body-font);
-      margin: 0;
-      padding: 0;
-      line-height: 1.7;
-      background-color: var(--background-color);
-      color: var(--text-color);
-      width: 100%;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
-    }
-
-    /* Header */
-    header {
-      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-      color: white;
-      padding: 2.5rem 1rem;
-      text-align: center;
-      border-bottom: 4px solid var(--primary-dark);
-      margin-bottom: 1rem;
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(255,255,255,0.1);
-      opacity: 0.3;
-    }
-
-    header img {
-      max-width: 100%;
-      height: auto;
-      margin: 1rem auto 0;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
-      position: relative;
-    }
-
-    header img:hover {
-      transform: scale(1.02);
-    }
-
-    /* Container - AKTUALISIERT */
-    .container {
-      width: var(--container-width);
-      max-width: var(--container-max-width);
-      margin: 3rem auto;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      border: none;
-      box-sizing: border-box;
-      overflow: hidden;
-      padding: 0;
-    }
-
-    .content {
-      padding: 2rem 3rem;
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    /* Typographie */
-    h1, h2, h3, h4 {
-      font-family: var(--heading-font);
-      font-weight: 600;
-      line-height: 1.3;
-      color: var(--primary-dark);
-      margin-bottom: 0.8rem;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 3rem;
-      margin: 1.5rem auto 2rem;
-      letter-spacing: -0.02em;
-      max-width: 90%;
-    }
-
-    p {
-      margin-bottom: 1rem;
-      line-height: 1.7;
-      max-width: 100%;
-    }
-
-    /* Textbox: Schöne grüne Box - AKTUALISIERT */
-    .textbox {
-      background-color: rgba(102, 187, 106, 0.1);
-      border: 2px solid var(--primary-color);
-      border-radius: 8px;
-      padding: 1rem;
-      margin: 1rem 0;
-      box-sizing: border-box;
-      width: 100%;
-      min-height: 100px;
-      max-width: 100%;
-    }
-
-    /* Abschnitte */
-    .section {
-      margin-bottom: var(--section-spacing);
-      position: relative;
-      padding-bottom: 1.5rem;
-      width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    .section:not(:last-child)::after {
-      content: "";
-      display: block;
-      width: 80%;
-      margin: 0 auto;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--primary-color), transparent);
-    }
-
-    .section h2 {
-      font-size: 2.2rem;
-      margin-bottom: 0.8rem;
-      border-bottom: 2px solid var(--primary-color);
-      display: inline-block;
-      padding-bottom: 0.5rem;
-      position: relative;
-    }
-
-    .section h2::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 50%;
-      height: 2px;
-      background-color: var(--accent-color);
-    }
-
-    .section h3 {
-      font-size: 1.5rem;
-      margin-top: 1.8rem;
-      margin-bottom: 0.8rem;
-      color: #2e5a2f;
-      padding-left: 0.8rem;
-      border-left: 3px solid var(--primary-color);
-    }
-
-    .section h4 {
-      font-size: 1.25rem;
-      margin-top: 1.2rem;
-      margin-bottom: 0.6rem;
-      color: #3a6e3c;
-      display: inline-block;
-      padding: 0.3rem 0.6rem;
-      background-color: var(--primary-light);
-      border-radius: 4px;
-    }
-
-    /* Listen */
-    ul {
-      list-style-type: none;
-      padding-left: 0.5rem;
-      margin: 1rem 0 1.5rem;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    ul li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.8rem;
-      line-height: 1.6;
-    }
-
-    ul li:before {
-      content: "•";
-      color: var(--primary-color);
-      font-size: 1.5rem;
-      position: absolute;
-      left: 0;
-      top: -0.25rem;
-    }
-
-    ul li.highlight {
-      background-color: var(--primary-light);
-      padding: 0.5rem 0.5rem 0.5rem 1.8rem;
-      border-radius: 4px;
-      margin-left: -0.5rem;
-    }
-
-    /* Buttons, Links, Layout-Elemente */
-    .read-more {
-      color: var(--primary-color);
-      cursor: pointer;
-      font-weight: 600;
-      background: none;
-      border: 1px solid var(--primary-color);
-      padding: 0.7rem 1.2rem;
-      font-size: 1rem;
-      border-radius: 4px;
-      display: inline-block;
-      margin-top: 0.5rem;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-
-    .read-more:hover {
-      background-color: var(--primary-color);
-      color: white;
-      text-decoration: none;
-    }
-
-    .text-image {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      align-items: flex-start;
-      width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    .text-image .text {
-      flex: 1 1 58%;
-      min-width: 300px;
-      max-width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    .text-image .image {
-      flex: 1 1 38%;
-      min-width: 280px;
-      max-width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    .image-container {
-      margin-bottom: 1.5rem;
-      transition: transform 0.3s ease;
-      background-color: white;
-      padding: 0.8rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      width: 100%;
-      box-sizing: border-box;
-      max-width: 100%;
-      overflow: hidden;
-    }
-
-    .image-container:hover {
-      transform: translateY(-5px);
-    }
-
-    .image-caption {
-      text-align: center;
-      margin-bottom: 0.8rem;
-      font-weight: 600;
-      font-family: var(--heading-font);
-      color: var(--primary-dark);
-      font-size: 1.2rem;
-      background-color: var(--primary-light);
-      padding: 0.5rem;
-      border-radius: 6px;
-    }
-
-    /* Highlight-Box - AKTUALISIERT */
-    .highlight-box {
-      background-color: rgba(102, 187, 106, 0.1);
-      border-left: 4px solid var(--primary-color);
-      padding: 1.2rem;
-      margin: 1.8rem 0;
-      border-radius: 0 8px 8px 0;
-      position: relative;
-      width: 100%;
-      box-sizing: border-box;
-      max-width: 100%;
-      overflow: hidden;
-    }
-
-    .highlight-box.emphasis {
-      background-color: rgba(255, 143, 0, 0.1);
-      border-left: 4px solid var(--accent-color);
-    }
-
-    .highlight-box::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 20px;
-      height: 20px;
-      background-color: var(--primary-color);
-      opacity: 0.2;
-      border-radius: 0 0 0 8px;
-    }
-
-    .highlight-box.emphasis::before {
-      background-color: var(--accent-color);
-    }
-
-    /* Important-Info - AKTUALISIERT */
-    .important-info {
-      font-weight: 600;
-      color: #e53935;
-      background-color: rgba(229, 57, 53, 0.05);
-      padding: 1rem;
-      border-radius: 8px;
-      border: 1px dashed #e53935;
-      margin: 1.8rem 0;
-      width: 100%;
-      box-sizing: border-box;
-      max-width: 100%;
-      overflow: hidden;
-    }
-
-    a {
-      color: #38761d;
-      text-decoration: underline;
-      transition: all 0.3s ease;
-      font-weight: 600;
-      word-break: break-word;
-      display: inline-block;
-      max-width: 100%;
-    }
-
-    a:hover {
-      color: var(--primary-color);
-    }
-
-    .cta-button {
-      display: inline-block;
-      background: var(--primary-color);
-      color: white !important;
-      font-weight: 600;
-      padding: 0.8rem 1.5rem;
-      border-radius: 6px;
-      text-decoration: none !important;
-      transition: all 0.3s ease;
-      margin: 1rem 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      text-align: center;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .cta-button:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    /* Topic-Card - AKTUALISIERT */
-    .topic-card {
-      background-color: white;
-      border-radius: 8px;
-      padding: 1.2rem;
-      margin: 1.8rem 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      border-top: 3px solid var(--primary-color);
-      width: 100%;
-      box-sizing: border-box;
-      max-width: 100%;
-      overflow: hidden;
-    }
-
-    .date-display {
-      display: inline-block;
-      background-color: var(--primary-dark);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      font-weight: 600;
-      margin: 0.5rem 0;
-    }
-
-    footer {
-      text-align: center;
-      background: linear-gradient(135deg, #376339, var(--primary-dark));
-      color: white;
-      padding: 2rem 0;
-      margin-top: 2rem;
-      font-size: 1rem;
-      position: relative;
-      width: 100%;
-    }
-
-    footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 10px;
-      background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--primary-color));
-    }
-
-    footer p {
-      margin: 0;
-      opacity: 0.9;
-    }
-
-    /* Media Queries - OPTIMIERTE VERSION FÜR MOBILE GERÄTE */
-    @media screen and (max-width: 768px) {
-      .container {
-        width: 95%;
-        margin: 1rem auto;
-        border-radius: 8px;
-        overflow: hidden;
-      }
-
-      .content {
-        padding: 1.2rem 2rem;
-        box-sizing: border-box;
-        max-width: 650px;
-        overflow: hidden;
-      }
-
-      h1 {
-        font-size: 2rem;
-        margin: 0.8rem auto 1rem;
-      }
-
-      .section h2 {
-        font-size: 1.6rem;
-      }
-
-      .section h3 {
-        font-size: 1.3rem;
-        margin-top: 1.2rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .topic-card {
-        padding: 0.8rem;
-        margin: 1.2rem 0;
-        width: 100%;
-        max-width: 100%;
-      }
-
-      .highlight-box {
-        padding: 0.8rem;
-        margin: 1.2rem 0;
-        width: 100%;
-        max-width: 100%;
-      }
-
-      .text-image {
-        flex-direction: column;
-        gap: 1rem;
-        overflow: hidden;
-      }
-    }
-
-    @media screen and (max-width: 480px) {
-      body {
-        font-size: 14px;
-      }
-
-      .container {
-        width: 98%;
-        margin: 0.25rem auto;
-        border-radius: 4px;
-        overflow: hidden;
-      }
-
-      .content {
-        padding: 0.5rem;
-        box-sizing: border-box;
-        width: 100%;
-        overflow: hidden;
-      }
-
-      h1 {
-        font-size: 1.7rem;
-        margin: 0.6rem auto 0.8rem;
-        padding: 0 0.5rem;
-      }
-
-      .section h2 {
-        font-size: 1.4rem;
-      }
-
-      .section h3 {
-        font-size: 1.2rem;
-        padding-left: 0.5rem;
-      }
-
-      .section h4 {
-        font-size: 1.1rem;
-      }
-
-      /* Ränder für Boxen und Cards reduzieren */
-      .topic-card, .highlight-box, .textbox {
-        padding: 0.6rem;
-        margin: 0.8rem 0;
-        border-radius: 4px;
-        max-width: 100%;
-        width: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
-      }
-
-      .image-container {
-        width: 100%;
-        margin-bottom: 1rem;
-        padding: 0.5rem;
-        max-width: 100%;
-        overflow: hidden;
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      /* Buttongrößen anpassen */
-      .cta-button, .read-more {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
-        width: 100%;
-      }
-
-      /* Abstand zwischen Sektionen verringern */
-      .section {
-        margin-bottom: 1.5rem;
-        padding-bottom: 1rem;
-        overflow: hidden;
-      }
-
-      /* Textabstände reduzieren */
-      p {
-        margin-bottom: 0.7rem;
-      }
-
-      /* Bessere Bildnutzung */
-      .text-image .image {
-        min-width: 100%;
-        width: 100%;
-        overflow: hidden;
-      }
-
-      /* Entfernung der seitlichen Ränder für alle Boxen */
-      .textbox, .highlight-box, .topic-card, .important-info {
-        margin-left: 0;
-        margin-right: 0;
-        width: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
-      }
-    }
-
-    /* Fallback für Browser ohne Flexbox */
-    @supports not (display: flex) {
-      .text-image {
-        display: block;
-      }
-
-      .text-image .text,
-      .text-image .image {
-        width: 100%;
-        margin-bottom: 2rem;
-      }
-    }
-
-    /* IE-spezifische Fixes */
-    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-      .text-image {
-        display: block;
-      }
-
-      .text-image .text,
-      .text-image .image {
-        width: 100%;
-        margin-bottom: 2rem;
-      }
-
-      .container,
-      .content,
-      .section,
-      .topic-card {
-        width: 100%;
-      }
-
-      img {
-        width: 100%;
-        height: auto;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image1.jpg" alt="Einradfahrer">
-  </header>
-
-  <h1>German Muni and Trial Weekend 2025</h1>
-
-  <div class="container">
-    <div class="content">
-      <div class="section">
-        <p>Das <strong>German Muni and Trial Weekend</strong> (kurz <strong>GMTW</strong>) wurde in den Anfangstagen (seit 2003) des Einradsports von einer Gruppe leidenschaftlicher Einrad-Pioniere im Dunstkreis von "Municycle.com" an Ostern ins Leben gerufen.</p>
-        <p>Ihr Ziel: die <strong>Begeisterung für den Einradsport</strong> immer wieder neu zu entfachen und die Disziplinen <strong>Muni</strong> (Mountainunicycle) und <strong>Trial</strong> (Hindernisparcours) in der Natur hervorzuheben und zu fördern.</p>
-
-        <div id="more-text" style="display: none;">
-          <p>Im Laufe der Zeit hat sich das GMTW weit über ein einfaches Sportevent hinaus entwickelt – es wurde zum <strong>Herzstück einer ganzen Szene</strong>. Jedes Jahr reisen Teilnehmer aus allen Teilen Deutschlands und sogar darüber hinaus an. Über 90 Fahrer und Fahrerinnen, mit Einrädern unterschiedlichster Art und verschiedenen Könnensstufen, vereint durch die Leidenschaft für ihren Sport: Von Anfängern, die gerade ihre Balance gefunden haben, bis hin zu Profis, die scheinbar die Gesetze der Schwerkraft aushebeln.</p>
-          <p>Der <strong>Veranstaltungsort wechselt jedes Jahr</strong> und wird traditionell von einem Teilnehmer an den nächsten weitergegeben. Gemeinsam mit der Community entstehen so kleine Einradparadiese. Beispielsweise boten die Thüringer Wälder rund um Oberhof eine ideale Kulisse: Steile Trails, technische Paletten-Trial-Parcours, gestaltet von Axel Kästle, und anspruchsvolle Downhill-Strecken, die selbst erfahrene Mountainbiker herausforderten.</p>
-          <p>Tagsüber stehen <strong>Training, Tests und das Ausloten von Grenzen</strong> im Mittelpunkt. Abends verwandelt sich das Gelände in einen Ort der Gemeinschaft. Lagerfeuer, geteilte Geschichten vergangener Touren und aufgeregte Gespräche über die Erlebnisse des Tages prägen die Atmosphäre.</p>
-          <p>Selbst in herausfordernden Zeiten, wie während der Pandemie, zeigte die Community ihre Kreativität: 2021 fand das GMTW in Form eines Video-Wettbewerbs statt, bei dem Einradfahrer ihre Beiträge einreichen konnten. Doch auch wenn in den letzten Jahren Wettbewerbselemente hinzugekommen sind, bleibt das GMTW seinem Grundprinzip treu: <strong>Es ist kein Wettkampf!</strong></p>
-          <p>Das GMTW ist ein <strong>Treffen von Gleichgesinnten</strong>, ein Ort des Austauschs ohne Druck – ein Ort des Lernens und der Freude an einem Sport, den viele zunächst belächeln. Hier sind alle willkommen: groß oder klein, jung oder alt, fortgeschritten oder blutiger Anfänger.</p>
-          <div class="highlight-box emphasis">
-            <p>Kommt vorbei und erlebt die <strong>einzigartige Gemeinschaft des GMTW</strong>!</p>
-          </div>
-        </div>
-
-        <button id="read-more-btn" class="read-more" onclick="toggleReadMore()">Mehr lesen</button>
-      </div>
-
-      <div class="section text-image">
-        <div class="text">
-          <h2>Location 2025</h2>
-          <!-- Der Location-Text in einer eigenen, homogenen grünen Textbox -->
-          <div class="textbox">
-            <p>Der <strong>Campingplatz Hohensyburg</strong> in Dortmund bietet uns eine ideale Basis für das diesjährige German Muni and Trial Weekend (GMTW).</p>
-          </div>
-
-          <div class="highlight-box">
-            <p><span class="date-display">17. - 21. April 2025</span></p>
-            <p><strong>Adresse:</strong> Syburger Dorfstraße 69, 44265 Dortmund</p>
-            <p><strong>Gelände:</strong> <a href="https://www.camping-hohensyburg.de/Deutsch/Unser-Platz/Lageplan-mit-360-Bildern" target="_blank">Lageplan des Campingplatzes</a></p>
-            <p><strong>Webseite:</strong> <a href="https://www.camping-hohensyburg.de/" target="_blank">www.camping-hohensyburg.de</a></p>
-          </div>
-
-          <div class="topic-card">
-            <h3>Wichtig: Zeltplätze für Einradfahrer</h3>
-            <div class="highlight-box emphasis" style="background-color: rgba(102,187,106,0.2); border-color: #2e7d32;">
-              <p>Wir möchten als Gruppe zusammen bleiben! Bitte wählt bei der Buchung die <strong class="text-accent">"Touristenplätze"</strong> auf der <strong class="text-accent">grünen Fläche</strong> (siehe Zeltplatz-Karte rechts). Diese Plätze sind speziell für uns reserviert und ermöglichen uns, als Gemeinschaft zusammen zu sein.</p>
-              <a href="https://camppartner.com/cpoobuchung/hohensyburg" target="_blank" class="cta-button" style="background-color: #2e7d32;">Jetzt Anmelden</a>
+            <div id="daily-highlights-display">
+                <h3 id="highlight-day">Tag wählen</h3>
+                <ul id="highlight-list"><li>Klicke auf einen Tag oder starte die Animation!</li></ul>
             </div>
-            <div class="important-info">
-              <p><strong>⚠️ Wichtige Fristen:</strong></p>
-              <p>🚐 Camper und Wohnmobile bitte <strong>frühzeitig anmelden</strong>! Anmeldeschluss für Camper und Wohnmobile ist der <strong class="text-accent">15.03.2025</strong>.</p>
-              <p>👕 Allgemeiner Anmeldeschluss ist der <strong class="text-accent">01.04.2025</strong> für die T-Shirts.</p>
-              <p style="text-align: center;">📱 Wer ein T-Shirt möchte, bitte Sven per WhatsApp kontaktieren: <strong>0179 7318615</strong></p>
+            <button id="play-animation" class="button"><i class="fas fa-play"></i> Animations-Tour starten</button>
+            <div id="daily-detail-content"> <!-- Detaillierter Plan hier --> </div>
+        </section>
+
+        <section id="location-orga">
+            <h2>Location & Organisation 2025</h2>
+            <div class="orga-grid">
+                <div class="orga-card"> <h3><i class="fas fa-map-marker-alt"></i> Veranstaltungsort</h3> <ul> <li><i class="fas fa-campground"></i><strong>Campingplatz Hohensyburg</strong></li> <li><i class="fas fa-road"></i>Adresse: Syburger Dorfstraße 69, 44265 Dortmund</li> <li><i class="fas fa-link"></i>Webseite: <a href="http://www.camping-hohensyburg.de" target="_blank" rel="noopener noreferrer">www.camping-hohensyburg.de</a></li> </ul> <figure class="location-image"> <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" target="_blank" title="Touristenplätze (vergrößern)"> <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" alt="Touristenplätze"> </a> <figcaption><i class="fas fa-info-circle"></i> Wichtig: Bei Buchung <strong>"Touristenplätze"</strong> wählen!</figcaption> </figure> </div>
+                <div class="orga-card"> <h3><i class="fas fa-calendar-check"></i> Anmeldung & Fristen</h3> <ul> <li><i class="fas fa-caravan"></i><strong>Camper/WoMo:</strong> Anmeldeschluss <strong>15.03.2025</strong></li> <li><i class="fas fa-tshirt"></i><strong>T-Shirt Bestellung:</strong> bis <strong>01.04.2025</strong></li> <li><i class="fab fa-whatsapp"></i><strong>T-Shirt Anfrage:</strong> Sven via WhatsApp: <a href="https://wa.me/491797318615" target="_blank">0179 7318615</a></li> </ul> </div>
+                <div class="orga-card"> <h3><i class="fas fa-bed"></i> Übernachtung</h3> <ul> <li><i class="fas fa-tent"></i><strong>Zelten:</strong> Auf den "Touristenplätzen".</li> <li><i class="fas fa-home"></i><strong>Alternativen:</strong> Bauwagen oder Campingfass.</li> <li><i class="fas fa-euro-sign"></i><strong>Preise:</strong> <a href="http://www.camping-hohensyburg.de/preise/" target="_blank" rel="noopener noreferrer">Preisübersicht Campingplatz</a>.</li> </ul> </div>
+                <div class="orga-card"> <h3><i class="fas fa-utensils"></i> Verpflegung</h3> <ul> <li><i class="fas fa-exclamation-circle"></i><strong>Prinzip: Selbstversorgung!</strong></li> <li><i class="fas fa-fire"></i>Gemeinsames Kochen/Essen möglich.</li> <li><i class="fas fa-store-alt"></i>Kiosk & Restaurant vor Ort.</li> <li><i class="fas fa-shopping-cart"></i>Lidl (ca. 4 km): <a href="https://www.google.com/maps/dir/Campingplatz+Hohensyburg,+Syburger+Dorfstraße+69,+44265+Dortmund/Lidl+Dortmund+Hacheney,+Hacheneyer+Str.+160/" target="_blank" rel="noopener noreferrer">Route</a></li> <li><i class="fas fa-motorcycle"></i>Lieferdienste verfügbar.</li> </ul> </div>
+                <div class="orga-card"> <h3><i class="fas fa-shower"></i> Sanitäranlagen</h3> <ul> <li><i class="fas fa-hot-tub"></i>8 Duschen mit Warmwasser.</li> <li><i class="fas fa-restroom"></i>Zwei Sanitärräume.</li> </ul> </div>
+                <div class="orga-card"> <h3><i class="fas fa-running"></i> Aktivitäten Kern</h3> <ul> <li><i class="fas fa-mountain"></i><strong>Muni:</strong> Trails am See (Skill: ≥200m frei).</li> <li><i class="fas fa-cubes"></i><strong>Trial:</strong> Park/Steinbruch (Skill: ≥3 Hops).</li> <li><i class="fas fa-chalkboard-teacher"></i><strong>Workshops:</strong> Geplant (Details folgen).</li> </ul> </div>
             </div>
-          </div>
+        </section>
 
-          <div class="topic-card">
-            <h3>Übernachtungsmöglichkeiten</h3>
-            <p><strong>Erste Wahl für Einradfahrer:</strong> Zelten auf den "Touristenplätzen" (grüne Fläche) – damit wir zusammen bleiben.</p>
-            <p>Alternativ: Übernachtung in <a href="https://www.camping-hohensyburg.de/Deutsch/Bauwagen" target="_blank">Bauwagen</a> oder im <a href="https://www.camping-hohensyburg.de/Deutsch/Campingfaessern" target="_blank">gemütlichen Campingfass</a> möglich.</p>
-            <p>Alle Details zu Unterkünften und Preisen findet ihr hier: <a href="https://www.camping-hohensyburg.de/Deutsch/Preise" target="_blank">Preisübersicht</a>.</p>
-          </div>
+        <section id="wichtige-hinweise">
+            <h2>Wichtige Hinweise</h2>
+            <p style="text-align: center; margin-top: -15px; margin-bottom: 20px;">Bitte aufklappen und lesen!</p>
+            <div class="info-container">
+                <details> <summary><i class="fas fa-shield-alt"></i> Sicherheit geht vor!</summary> <div class="details-content"> <ul> <li><strong>Helmpflicht:</strong> ABSOLUTE PFLICHT bei allen Fahraktivitäten! Keine Ausnahmen!</li> <li><strong>Schutzausrüstung:</strong> Knie-/Ellbogenschoner & Handschuhe dringend empfohlen (MUNI/Trial).</li> <li><strong>Fahrweise:</strong> Fahre stets im Rahmen deiner Fähigkeiten und nimm Rücksicht auf andere und die Natur.</li> <li><strong>Anweisungen:</strong> Beachte Hinweise von Orga & Guides. Halte dich an Camp-Regeln (z.B. Nachtruhe).</li> </ul> </div> </details>
+                <details> <summary><i class="fas fa-exclamation-triangle"></i> Organisation & Co.</summary> <div class="details-content"> <ul> <li><strong>Selbstverpflegung:</strong> Plane Essen & Kochutensilien! Kein Verkauf durch Orga.</li> <li><strong>Werkzeug:</strong> Bring Basis-Werkzeug & Ersatzschlauch mit. Hilfe zur Selbsthilfe.</li> <li><strong>Sauberkeit:</strong> Halte alles sauber, nutze Mülleimer, trenne Müll. "Leave No Trace"!</li> <li><strong>Wetter:</strong> April = Alles möglich! Packe für Sonne, Regen & Kälte.</li> <li><strong>Gemeinschaft:</strong> Sei offen, hilfsbereit, bring dich ein!</li> <li><strong>Check-in:</strong> Melde dich bei Ankunft am Info-Punkt.</li> </ul> </div> </details>
+            </div>
+        </section>
 
-          <div class="topic-card">
-            <h3>Verpflegung</h3>
-            <p><strong>Eigenversorgung</strong> ist vorgesehen. Frühstück und Abendessen werden wir gemeinsam an der Feuerschale einnehmen (Grilloption vorhanden).</p>
-            <p>Auf dem Gelände gibt es einen kleinen Kiosk und ein <a href="https://g.co/kgs/uG33qmB" target="_blank">Natur-Restaurant</a>.</p>
-            <p>Der nächste Supermarkt (Lidl) ist ca. 4 km entfernt: <a href="https://maps.app.goo.gl/HEZpXZd5Pgc2YJao9" target="_blank">Route zum Supermarkt</a>.</p>
-            <p>Alternativ gibt es diverse Lieferdienste in der Umgebung.</p>
-          </div>
+        <section id="event-impressionen">
+             <h2>Einblicke & Atmosphäre</h2>
+             <div class="impressionen-grid">
+                 <div class="impressionen-card"> <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" target="_blank" class="image-link" title="Muni Impression (vergrößern)"> <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" alt="Einrad im Wald" class="card-image"> </a> <div class="card-content"> <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.png" alt="Muni Logo" class="logo-image"> <h3>Mountain Unicycling (Muni)</h3> <p>Erkunde die wunderschönen Trails rund um den Hengsteysee. Für alle Könnensstufen ist etwas dabei – perfekt zum Üben und gemeinsamen Lernen.</p> </div> </div>
+                 <div class="impressionen-card"> <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Fuchs_einrad_L.png" target="_blank" class="image-link" title="Trial Impression (vergrößern)"> <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Fuchs_einrad_L.png" alt="Fuchs auf Einrad" class="card-image"> </a> <div class="card-content"> <h3>Trial</h3> <p>Zeige deine Geschicklichkeit! Paletten und Hindernisse im Camp und im nahen Steinbruch warten darauf, bezwungen zu werden.</p> </div> </div>
+                 <div class="impressionen-card"> <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" target="_blank" class="image-link" title="Camp Impression (vergrößern)"> <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" alt="Zelte" class="card-image"> </a> <div class="card-content"> <h3>Das Camp-Leben</h3> <p>Unsere Basis: Die "Touristenplätze" auf dem Campingplatz (<a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" target="_blank" title="Detailansicht (vergrößern)">siehe Detail <i class="fas fa-external-link-alt small-icon"></i></a>). Hier schlagen wir unsere Zelte auf, kochen gemeinsam und genießen die Abende.</p> </div> </div>
+                 <div class="impressionen-card"> <div class="card-content"> <h3>Gemeinschaft & Spaß</h3> <p>Das GMTW lebt vom Miteinander! Egal ob Anfänger oder Profi, hier sind alle willkommen. Lerne neue Leute kennen, tausche dich aus und hab Spaß.</p> <div class="mascot-container"> <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/waschbär_einrad.png" target="_blank" title="GMTW Waschbär (vergrößern)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Waschbär.png" alt="Waschbär"></a> <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Fuchs_einrad.png" target="_blank" title="GMTW Fuchs (vergrößern)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Fuchs.png" alt="Fuchs"></a> </div> </div> </div>
+             </div>
+        </section>
 
-          <div class="topic-card">
-            <h3>Sanitäranlagen</h3>
-            <p>Der Campingplatz verfügt über <strong>8 Duschen mit warmem Wasser</strong>, aufgeteilt auf zwei Räume.</p>
-          </div>
+        <section id="packliste-checklist">
+            <h2>
+                <span>
+                    <!-- Icon wird durch JS ersetzt oder bleibt als Fallback -->
+                    <i class="fas fa-clipboard-list" style="color: var(--accent-color);" id="checklist-title-icon-placeholder"></i>
+                    Deine Pack-Checkliste
+                </span>
+                <button id="pdf-download-button" class="button button-secondary" disabled>
+                    <i class="fas fa-spinner fa-spin"></i> Lade PDF Lib...
+                </button>
+            </h2>
+            <p style="text-align: center; margin-top: -15px;">Kategorie anklicken zum Ausklappen, dann Items abhaken. Dein Fortschritt wird gespeichert.</p>
+            <div class="checklist-status">
+                <div id="checklist-progress-bar-container"><div id="checklist-progress-bar"></div></div>
+                <span id="checklist-progress-text">0 von X gepackt</span>
+            </div>
+            <div id="checklist-categories-container">
+                <!-- Inhalt per JS -->
+            </div>
 
-          <div class="topic-card">
-            <h3>Aktivitäten</h3>
-            <h4>Muni (Mountain Unicycle)</h4>
-            <p>Die Region rund um den Hengsteysee bietet <strong>wunderschöne Trails für alle Könnensstufen</strong>. Ideal für gemeinsames "Muniplay" (Üben und Lernen mit Hilfestellung).</p>
-            <p>Hier ein kleiner Vorgeschmack aus der Sicht eines Bikers: <a href="https://g.co/kgs/uG33qmB" target="_blank">Muni Muni Muni! &lt;3</a></p>
-            <p><strong>Skill-Level:</strong> Hast du ein Muni und kannst 200m frei fahren? Dann ist es <span class="text-accent">genau das Richtige für dich!</span></p>
-            <h4>Trial</h4>
-            <p>Vor Ort stehen <strong>Paletten und Hindernisse</strong> auf dem Campingplatzgelände bereit. In der Umgebung bietet ein nahegelegener Steinbruch weiteres Potenzial.</p>
-            <p><strong>Skill-Level:</strong> Du hast ein Trial-Einrad und kannst 3-mal auf der Stelle hüpfen? Dann <span class="text-accent">Letz go!</span></p>
-          </div>
+            <!-- ======================= -->
+            <!-- NEUER BUTTON HIER       -->
+            <!-- ======================= -->
+            <div style="text-align: center; margin-top: 20px;">
+                <button id="game-button" class="button button-secondary" style="display: none;"> <!-- Initial versteckt -->
+                    <i class="fas fa-gamepad"></i> Einradspiel Laden
+                </button>
+            </div>
+            <!-- ======================= -->
+            <!-- ENDE NEUER BUTTON     -->
+            <!-- ======================= -->
 
-          <div class="topic-card">
-            <h3>Workshops</h3>
-            <p>Geplant sind verschiedene <strong>Workshops für Muni und Trial</strong>. Weitere Details werden in Kürze bekannt gegeben!</p>
-          </div>
-        </div>
+        </section>
+    </div> <!-- Ende .container -->
 
-        <div class="image">
-          <div class="image-container">
-            <h3 class="image-caption">Touristenplätze Anmeldung</h3>
-            <p style="text-align: center; color: #2e7d32; font-weight: bold;">Diese Touristenplätze bitte auswählen, um zur speziellen Anmeldung für die Zelte zu kommen!</p>
-            <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" target="_blank">
-              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" alt="Touristenplätze Anmeldung" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
-            </a>
-          </div>
+    <footer>
+        <p>© 2024 GMTW Orga-Team | Dein Einrad-Abenteuer am Hengsteysee</p>
+    </footer>
 
-          <div class="image-container">
-            <h3 class="image-caption">Verfügbare Zeltplätze</h3>
-            <p style="text-align: center; color: #2e7d32; font-weight: bold;">Einradfahrer: Bitte "Touristenplätze" auf der grünen Fläche wählen!</p>
-            <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" target="_blank">
-              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" alt="Verfügbare Zeltplätze" style="border: 3px solid #66bb6a; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
-            </a>
-          </div>
+    <script>
+        // Konstanten und Variablen globaler machen für einfachen Zugriff
+        const { jsPDF } = window.jspdf;
+        let lastUnicyclistPosPercent = 0;
+        let isJsPDFReady = false;
+        let checklistDB;
+        let totalItems = 0;
+        let dayMarkers = [];
+        let currentDayIndex = -1;
+        let animationTimeout;
+        const unicycleImgRight = "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/waschbär_einrad.png";
+        const unicycleImgLeft = "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Waschbär_einrad_L.png";
 
-          <div class="image-container">
-            <h3 class="image-caption">Umgebungskarte</h3>
-            <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" target="_blank">
-              <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" alt="Karte der Umgebung">
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        // Datenobjekte für Zeitplan und Packliste
+        const daysData = [ { day: 'Do', name: 'Donnerstag, 17. April', title: 'Ankunft & Erste Trails', highlights: ['Ankunft & Camp Aufbau', 'Willkommens-Briefing', 'Erste Workshops & Lagerfeuer'], schedule: [ { time: '14:00 - 17:00', icon: 'fa-campground', title: 'Anreise & Dein Platz im Camp', content: `<ul><li><strong>Check-in:</strong> Info-Punkt (Bändchen & Infos).</li><li><strong>Platzwahl:</strong> Bei Registration selbst zuweisen.</li><li><strong>Camp aufbauen:</strong> Zelt aufschlagen, einrichten, Leute treffen.</li></ul>`, highlight: false }, { time: '17:00 - 18:00', icon: 'fa-bullhorn', title: 'Offizieller Startschuss – Willkommens-Kreis & Briefing', content: `<ul><li>Offizielle Begrüßung.</li><li>Programmübersicht, Highlights.</li><li>Wichtige Sicherheitshinweise (Helmpflicht!), Camp-Regeln.</li><li>Infrastruktur-Infos (WC, Duschen...), Notfallplan, Fragen.</li></ul>`, highlight: true }, { time: '18:00 - 19:00', icon: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.png', isImageIcon: true, title: 'Erste Fahr-Action – Spaß-Workshops & Freies Fahren', content: `<p><strong>Workshop 1 „Sicher im Gelände":</strong> Für MUNI-Einsteiger (Balance, kleine Hindernisse...).</p><p><strong>Workshop 2 „Hopfen & Malz“ (Hopp & Drop):</strong> Für erste Sprünge & Kanten.</p><p><strong>Freies Fahren:</strong> Übungsgelände nutzen.</p>`, highlight: true }, { time: 'Ab 19:00', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung!)', content: `<p>Campingkocher raus! Eigenes Essen, Geschirr etc. mitbringen. Kocht/esst gemeinsam.</p>`, highlight: false }, { time: 'Ab 20:30', icon: 'fa-fire', title: 'Lagerfeuer-Magie – Der erste Abend', content: `<p>Gemütlicher Ausklang am zentralen Lagerfeuer (wetterabhängig). Kennenlernen, Austausch.</p>`, highlight: true } ] }, { day: 'Fr', name: 'Freitag, 18. April', title: 'MUNI-Touren & Technik-Feinschliff', highlights: ['MUNI-Touren starten', 'Technik-Workshops im Camp', 'Trial-Park Aufbau'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück & Startklar (Selbstversorgung)', content: `<p>Energie für den Tag.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-running', title: 'Morgenspiel „Schwänzchen Fangen"', content: `<p>Spielerisches Warm-Up auf abgesteckter Fläche.</p>`, highlight: false }, { time: '09:45 - 10:15', icon: 'fa-users', title: 'MUNI-Touren-Treffpunkt & Gruppeneinteilung', content: `<p>Vorstellung der Touren (Level, Länge...). Gruppenfindung nach Können/Wunsch.</p>`, highlight: true }, { time: 'Ab 10:15', icon: 'fa-mountain', title: 'Start der MUNI-Touren', content: `<p>Abenteuer rund um den Hengsteysee. Rückkehr meist zur Mittagszeit (ca. 13:00).</p>`, highlight: true }, { time: '10:15 - 16:00', icon: 'fa-cogs', title: 'Workshops & Freies Training im Camp (Parallel)', content: `<p><strong>Balance ist alles:</strong> Fahrtechnik im Gelände.</p><p><strong>Werkstatt:</strong> Reifen, Bremsen, Pflege.</p><p><strong>Sprungtechniken F.:</strong> Höher, weiter, präziser.</p>`, highlight: true }, { time: 'Ab 15:00', icon: 'fa-tools', title: 'Aufbau Trial-Park (Teil 1)', content: `<p>Gemeinsam Sektionen bauen (Paletten etc.). Helfer willkommen!</p>`, highlight: true }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Abendessen (Selbstversorgung) & Ausklang', content: `<p>Kochen, essen, Erlebnisse teilen.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-fire', title: 'Lagerfeuer & Fachsimpeln', content: `<p>Tag Revue passieren lassen.</p>`, highlight: false } ] }, { day: 'Sa', name: 'Samstag, 19. April', title: 'Trial-Tag: Geschicklichkeit & Balance', highlights: ['Trial-Challenge (2 Wellen)', 'Freies Trial-Fahren & Spot-Workshops', 'Gemeinsames Bauen'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück (Selbstversorgung)', content: `<p>Power für den Parcours!</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-puzzle-piece', title: 'Morgenspiel „Mini-Fun-Parcours"', content: `<p>Warm-Up für Koordination & Balance.</p>`, highlight: false }, { time: '09:30 - 10:30', icon: 'fa-check-double', title: 'Finale Vorbereitungen Trial-Park & Safety Check', content: `<p>Gemeinsam fertigstellen. Sicherheitscheck durch Orga/Erfahrene.</p>`, highlight: true }, { time: '10:30 - 11:00', icon: 'fa-shoe-prints', title: 'Warm-Up im Trial-Park', content: `<p>Sektionen checken, Linien testen, kennenlernen.</p>`, highlight: false }, { time: '11:30 - 12:00', icon: 'fa-stopwatch', title: 'Trial-Challenge – Welle 1 (Freiwillig)', content: `<p>30 Min. Spaß-Durchlauf (Easy/Med/Hard). Möglichst viele Lines schaffen. Helfer zum Schiedsen willkommen!</p><p><em>Nur 1 Teilnahme (Welle 1 ODER 2).</em></p>`, highlight: true }, { time: '12:00 - 13:00', icon: 'fa-pause-circle', title: 'Mittagspause & Energietanken', content: `<p>Stärkung (Selbstvers.) & Austausch.</p>`, highlight: false }, { time: '13:00 - 13:30', icon: 'fa-stopwatch', title: 'Trial-Challenge – Welle 2 (Freiwillig)', content: `<p>Gleicher Ablauf wie Welle 1. Helfer willkommen!</p>`, highlight: true }, { time: '13:30 - 16:30', icon: 'fa-cubes', title: 'Freies Trial-Fahren & Spot-Workshops', content: `<p>Park offen für alle! Spontane Mini-Workshops an Sektionen (Sprünge, Balance, Drops).</p>`, highlight: true }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung)', content: `<p>Trial-Helden-Dinner: Erfolge feiern.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-fire', title: 'Lagerfeuer & Geschichten', content: `<p>Gemütlicher Ausklang.</p>`, highlight: false } ] }, { day: 'So', name: 'Sonntag, 20. April', title: 'Großer MUNI-Tag & Downhill-Spaß', highlights: ['Gemeinsamer MUNI-Start', 'MUNI-Spezialabfahrt (Downhill)', 'Großer Abschlussabend'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück (Selbstversorgung)', content: `<p>Basis für den Berg! Snack einpacken.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-train', title: 'Morgenspiel „Einrad-Polonaise"', content: `<p>Gemeinsam hintereinander fahren, Aufgaben lösen.</p>`, highlight: false }, { time: '09:45 - 10:15', icon: 'fa-map-signs', title: 'MUNI-Treffpunkt & Tagesplanung', content: `<p>Routen-Vorstellung (evtl. länger/technischer). Gruppenfindung.</p>`, highlight: true }, { time: '10:15', icon: 'fa-users-cog', title: 'MUNI-Play – Der gemeinsame Start', content: `<p>Alle Gruppen starten gemeinsam/kurz nacheinander.</p>`, highlight: true }, { time: '11:30', icon: 'fa-angle-double-down', title: 'MUNI-Spezialabfahrt (Downhill)', content: `<p>Jeder fährt Strecke einzeln (1 Min. Abstand). Anfeuern!</p>`, highlight: true }, { time: '13:00 - 13:30', icon: 'fa-apple-alt', title: 'Mittagspause (im Grünen/Camp)', content: `<p>Picknick (selbstvers.) oder im Camp.</p>`, highlight: false }, { time: '14:00', icon: 'fa-redo-alt', title: 'Weitere Abfahrten (Downhill)', content: `<p>Fortsetzung bis alle durch sind.</p>`, highlight: true }, { time: '16:30', icon: 'fa-directions', title: 'Freie Sessions & Trails', content: `<ul><li>Weitere Trails mit Gruppe.</li><li>Downhill weiter?</li><li>Bekannte Trails auf eigene Faust (Absprache!).</li></ul>`, highlight: false }, { time: '18:30', icon: 'fa-shower', title: 'Ausrollen & Entspannen im Camp', content: `<p>Lockeres Fahren, Materialpflege, Duschen.</p>`, highlight: false }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung)', content: `<p>Letzte gemeinsame Camp-Mahlzeit.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-glass-cheers', title: 'Großer Abschlussabend am Lagerfeuer', content: `<p>GMTW ausklingen lassen! Momente teilen, Geschichten erzählen.</p>`, highlight: true } ] }, { day: 'Mo', name: 'Montag, 21. April', title: 'Spiele, Ehrungen & Abschied', highlights: ['Morgenspiel: Langsamfahren & Kreisel', 'Gemeinsames Aufräumen & Abbau', 'Abschlusskreis & Ehrungen'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-box-open', title: 'Gemütliches Frühstück & Pack-Start (Selbst.)', content: `<p>Letzte gemeinsame Mahlzeit, langsam packen beginnen.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-gamepad', title: 'Gemeinsames Morgenspiel für ALLE', content: `<p><strong>"Langsamfahr-Rennen & Kreisel-Spaß":</strong> Wer fährt am langsamsten? Wer dreht sich am längsten?</p>`, highlight: true }, { time: '09:30 - 10:30', icon: 'fa-broom', title: 'Gemeinsames Aufräumen & Abbau', content: `<p><strong>Teamwork: Alle packen mit an!</strong> Trial-Park abbauen, Müll sammeln, Platz sauber hinterlassen (Leave No Trace).</p>`, highlight: true }, { time: '10:30 - 11:30', icon: 'fa-trophy', title: 'Spaß-Olympiade & Kleine Einrad-Spiele', content: `<p>Lockerer Ausklang mit Spiel-Stationen (Einrad-Limbo, Parcours, Pendel-Challenge etc.). Spaß im Vordergrund.</p>`, highlight: false }, { time: '11:30 - 12:00', icon: 'fa-users', title: 'Abschlusskreis & Ehrungen "Helden des WE"', content: `<p>Letztes Mal zusammen. Dank an Helfer/Teilnehmer. Kleine, humorvolle Anerkennungen (jüngste/r, Kampfgeist etc.).</p>`, highlight: true }, { time: '12:00 - 14:00', icon: 'fa-car-side', title: 'Letztes Packen & individuelle Abreise', content: `<p>Abschied von Freunden, Kontakte tauschen, letzte Sachen verladen.</p>`, highlight: false }, { time: 'Ab 14:00', icon: 'fa-door-open', title: 'Offizielles Ende des GMTW 2025', content: `<p>Bis zum nächsten Mal!</p>`, highlight: false } ] } ];
+        const packlistData = { "Einrad & Schutz": { icon: "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.png", isImage: true, items: ["Dein/e Einrad/räder (MUNI, Trial – gut gewartet!)", "Helm (ABSOLUTE PFLICHT!)", "Knieschoner (dringend empfohlen)", "Ellbogenschoner (empfohlen)", "Fahrradhandschuhe (Langfinger empfohlen)", "Feste Schuhe (gute Sohle!)", "Kleiner Touren-Rucksack", "Trinkflasche(n) / Trinkblase"] }, "Werkzeug & Ersatzteile": { icon: "fa-tools", items: ["Passende Inbusschlüssel", "Reifenheber", "Luftpumpe", "Flickzeug", "Ersatzschlauch(schläuche)", "Optional: Multitool", "Optional: Kettenöl", "Optional: Mini-Erste-Hilfe"] }, "Campingausrüstung": { icon: "fa-campground", items: ["Zelt (wetterfest!)", "Schlafsack (April-tauglich!)", "Isomatte / Luftmatratze", "Stirn-/Taschenlampe (+ Batterien)", "Campingstuhl (sehr gemütlich!)", "Kulturbeutel & Hygieneartikel"] }, "Kleidung": { icon: "fa-tshirt", items: ["Funktionelle Sportkleidung (mehrere Sets)", "Regenjacke (wasserdicht!)", "Regenhose", "Winddichte Jacke/Weste", "Warme Kleidung (Abend/Nacht)", "Ausreichend Socken", "Unterwäsche", "Bequeme Camp-Kleidung", "Badesachen (Dusche)"] }, "Verpflegung (Selbst!)": { icon: "fa-utensils", items: ["Campingkocher & Brennstoff/Gas", "Topf/Pfanne", "Essgeschirr (Teller, Becher)", "Besteck", "Scharfes Messer", "Schneidebrettchen", "Spülmittel, Schwamm, Tuch", "Müllsäcke", "Lebensmittel für 5 Tage", "Getränke (Grundstock)"] }, "Sonstiges": { icon: "fa-ellipsis-h", items: ["Personalausweis", "Krankenversicherungskarte", "Bargeld", "Handy & Powerbank", "Sonnenschutz (Creme, Brille, Kappe)", "Insektenschutzmittel", "Persönliche Medikamente", "Ohropax", "Spiele für's Camp", "Gute Laune & Offenheit!"] } };
 
-  <footer>
-    <p>&copy; 2025 German Muni and Trial Weekend. Mir doch egal &lt;3</p>
-  </footer>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Element-Referenzen holen
+            const pdfButton = document.getElementById('pdf-download-button');
+            const overviewContainer = document.getElementById('overview-container');
+            const track = document.getElementById('overview-track');
+            const unicyclist = document.getElementById('unicyclist-icon');
+            const highlightsDisplay = document.getElementById('daily-highlights-display');
+            const highlightDay = document.getElementById('highlight-day');
+            const highlightList = document.getElementById('highlight-list');
+            const playButton = document.getElementById('play-animation');
+            const dailyDetailContainer = document.getElementById('daily-detail-content');
+            const checklistContainer = document.getElementById('packliste-checklist'); // Referenz zum Section-Element
+            const checklistCategoriesContainer = document.getElementById('checklist-categories-container');
+            const progressBar = document.getElementById('checklist-progress-bar');
+            const progressText = document.getElementById('checklist-progress-text');
+            const checklistTitleIconPlaceholder = document.getElementById('checklist-title-icon-placeholder');
+            const gameButton = document.getElementById('game-button'); // !!! NEUE Referenz für den Spiel-Button !!!
 
-  <script>
-    function toggleReadMore() {
-      var moreText = document.getElementById('more-text');
-      var readMoreBtn = document.getElementById('read-more-btn');
-      if (!moreText || !readMoreBtn) {
-        console.error('Elemente für "Mehr lesen" nicht gefunden');
-        return;
-      }
-      if (moreText.style.display === 'none' || !moreText.style.display) {
-        moreText.style.display = 'block';
-        readMoreBtn.textContent = 'Weniger lesen';
-      } else {
-        moreText.style.display = 'none';
-        readMoreBtn.textContent = 'Mehr lesen';
-      }
-    }
+            isJsPDFReady = typeof jsPDF !== 'undefined'; // Prüfen ob jsPDF geladen ist
 
-    document.addEventListener('DOMContentLoaded', function() {
-      var moreText = document.getElementById('more-text');
-      if (moreText) moreText.style.display = 'none';
-      var allLinks = document.getElementsByTagName('a');
-      for (var i = 0; i < allLinks.length; i++) {
-        if (allLinks[i].offsetWidth < allLinks[i].scrollWidth) {
-          allLinks[i].style.wordBreak = 'break-all';
-        }
-      }
-      function isIE() {
-        var ua = window.navigator.userAgent;
-        return (ua.indexOf("MSIE ") > 0 || ua.indexOf('Trident/') > 0);
-      }
-      if (isIE()) {
-        document.body.className += ' ie-browser';
-      }
-      if (typeof wp !== 'undefined' || document.body.classList.contains('wp-admin') || document.body.classList.contains('wp-core-ui')) {
-        document.body.classList.add('wordpress-environment');
-        var containers = document.querySelectorAll('.container, .content, .section, .topic-card, .text-image, .image-container');
-        for (var j = 0; j < containers.length; j++) {
-          containers[j].style.maxWidth = '100%';
-          containers[j].style.overflow = 'hidden';
-        }
-        for (var k = 0; k < allLinks.length; k++) {
-          allLinks[k].style.wordBreak = 'break-all';
-        }
-      }
-    });
-  </script>
+            // --- FUNKTIONEN ---
+
+            // PDF Button Zustand setzen
+            function initializePdfButtonState() {
+                if (pdfButton) {
+                    if (isJsPDFReady) {
+                        pdfButton.disabled = false;
+                        pdfButton.innerHTML = '<i class="fas fa-file-pdf"></i> Alle Infos als PDF';
+                        if (!pdfButton.hasAttribute('data-listener-added')) {
+                            pdfButton.addEventListener('click', generateAndDownloadPDF);
+                            pdfButton.setAttribute('data-listener-added', 'true');
+                        }
+                    } else {
+                        pdfButton.disabled = true;
+                        pdfButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Lade PDF Lib...';
+                        // Optional: Timeout oder Interval um erneut zu prüfen
+                    }
+                }
+            }
+
+             // Timeline: Marker für Tage erstellen
+             function createDayMarkers() {
+                 if (!track) return;
+                 const trackWidth = track.offsetWidth;
+                 if (trackWidth === 0) { setTimeout(createDayMarkers, 100); return; } // Warten bis Breite verfügbar
+
+                 track.innerHTML = ''; // Alte Marker entfernen
+                 dayMarkers = []; // Array leeren
+                 daysData.forEach((day, index) => {
+                     const marker = document.createElement('div');
+                     marker.classList.add('day-marker');
+                     marker.dataset.index = index;
+                     marker.textContent = day.day;
+
+                     const tooltip = document.createElement('span');
+                     tooltip.textContent = day.name;
+                     marker.appendChild(tooltip);
+
+                     // Position berechnen (10% bis 90% des Tracks)
+                     const positionPercent = 10 + (daysData.length > 1 ? (index * (80 / (daysData.length - 1))) : 40); // Single day at 50%? Let's keep it centered if only one.
+                     marker.style.left = `${positionPercent}%`;
+
+                     marker.addEventListener('click', () => {
+                         clearTimeout(animationTimeout); // Evtl. laufende Animation stoppen
+                         stopAnimationVisuals();
+                         navigateToDay(index);
+                     });
+                     track.appendChild(marker);
+                     dayMarkers.push(marker);
+                 });
+             }
+
+             // Timeline: Highlights für einen Tag anzeigen
+             function showHighlights(dayIndex) {
+                if (!highlightDay || !highlightList) return;
+                 if (dayIndex < 0 || dayIndex >= daysData.length) {
+                     // Standardtext anzeigen
+                     highlightDay.textContent = "Tag wählen";
+                     highlightList.innerHTML = '<li>Klicke auf einen Tag oder starte die Animation!</li>';
+                     if (dayMarkers) dayMarkers.forEach(marker => marker.classList.remove('active')); // Alle deselektieren
+                 } else {
+                     const day = daysData[dayIndex];
+                     highlightDay.textContent = `Highlights ${day.name}`;
+                     highlightList.innerHTML = day.highlights.map(item => `<li>${item}</li>`).join('');
+                     if (dayMarkers) dayMarkers.forEach((marker, index) => marker.classList.toggle('active', index === dayIndex)); // Aktiven hervorheben
+                 }
+                 currentDayIndex = dayIndex; // Aktuellen Index speichern
+             }
+
+             // Timeline: Detaillierten Zeitplan für einen Tag anzeigen
+             function displayDayDetails(dayIndex) {
+                 if (!dailyDetailContainer) return;
+                 dailyDetailContainer.innerHTML = ''; // Alten Inhalt leeren
+                 dailyDetailContainer.classList.remove('visible'); // Sichtbarkeit entfernen
+
+                 if (dayIndex < 0 || dayIndex >= daysData.length) return; // Nichts anzeigen
+
+                 const day = daysData[dayIndex];
+                 const header = document.createElement('h2');
+                 header.innerHTML = `<i class="fas fa-calendar-day"></i> ${day.name}: ${day.title}`;
+                 dailyDetailContainer.appendChild(header);
+
+                 const timelineDiv = document.createElement('div');
+                 timelineDiv.classList.add('timeline');
+
+                 day.schedule.forEach(item => {
+                     const itemDiv = document.createElement('div');
+                     itemDiv.classList.add('timeline-item');
+                     if (item.highlight) {
+                         itemDiv.classList.add('highlight');
+                     }
+
+                     const timeTag = document.createElement('div');
+                     timeTag.classList.add('time-tag');
+                     timeTag.textContent = item.time;
+                     itemDiv.appendChild(timeTag);
+
+                     const contentTile = document.createElement('div');
+                     contentTile.classList.add('content-tile');
+
+                     const itemHeader = document.createElement('h3');
+                     if (item.isImageIcon) {
+                         const imgIcon = document.createElement('img');
+                         imgIcon.src = item.icon;
+                         imgIcon.alt = `${item.title} Icon`;
+                         imgIcon.classList.add('timeline-icon-img');
+                         itemHeader.appendChild(imgIcon);
+                         itemHeader.append(` ${item.title}`); // Text nach dem Bild
+                     } else {
+                        const iconClass = item.icon ? item.icon : 'fa-info-circle'; // Default icon
+                         itemHeader.innerHTML = `<i class="fas ${iconClass}"></i> ${item.title}`;
+                     }
+                     contentTile.appendChild(itemHeader);
+
+                     const itemContent = document.createElement('div');
+                     itemContent.innerHTML = item.content; // Erlaubt HTML im Content
+                     contentTile.appendChild(itemContent);
+
+                     itemDiv.appendChild(contentTile);
+                     timelineDiv.appendChild(itemDiv);
+                 });
+
+                 dailyDetailContainer.appendChild(timelineDiv);
+
+                 // Sichtbarkeit hinzufügen, nachdem das Element im DOM ist (für CSS Transition)
+                 requestAnimationFrame(() => {
+                    dailyDetailContainer.classList.add('visible');
+                 });
+             }
+
+             // Timeline: Einrad-Icon bewegen
+             function moveUnicyclist(dayIndex) {
+                if (!unicyclist) return;
+                 // Zielposition vom Marker holen oder Standardposition
+                 let targetPercent = 5; // Startposition
+                 if (dayIndex >= 0 && dayIndex < daysData.length && dayMarkers && dayMarkers.length > 0) {
+                     targetPercent = parseFloat(dayMarkers[dayIndex].style.left);
+                 }
+
+                 // Bildrichtung anpassen
+                 if (targetPercent > lastUnicyclistPosPercent && unicyclist.src !== unicycleImgRight) {
+                     unicyclist.src = unicycleImgRight;
+                 } else if (targetPercent < lastUnicyclistPosPercent && unicyclist.src !== unicycleImgLeft) {
+                     unicyclist.src = unicycleImgLeft;
+                 } else if (dayIndex < 0 && unicyclist.src !== unicycleImgRight) { // Zurück zum Start
+                    unicyclist.src = unicycleImgRight;
+                 }
+
+
+                 // Position via CSS animieren lassen
+                 requestAnimationFrame(() => { // Für smoother Animation
+                    unicyclist.style.left = `${targetPercent}%`;
+                 });
+                 lastUnicyclistPosPercent = targetPercent; // Aktuelle Position merken
+                  if(dayIndex < 0) lastUnicyclistPosPercent = 0; // Reset for next animation start
+             }
+
+             // Timeline: Zu einem Tag navigieren (Icon bewegen, Highlights, Details)
+             function navigateToDay(dayIndex) {
+                 moveUnicyclist(dayIndex);
+                 showHighlights(dayIndex);
+                 // Details leicht verzögert laden, damit Icon-Bewegung startet
+                 setTimeout(() => {
+                    displayDayDetails(dayIndex);
+                 }, 150); // Kleine Verzögerung
+             }
+
+            // Timeline: Visuelle Effekte der Animation stoppen (Button reaktivieren)
+            function stopAnimationVisuals() {
+                if (!playButton) return;
+                playButton.disabled = false;
+                playButton.innerHTML = '<i class="fas fa-play"></i> Animations-Tour starten';
+            }
+
+             // Timeline: Animations-Tour starten
+             function startAnimation() {
+                 if (!playButton || playButton.disabled) return; // Verhindern von Mehrfachstarts
+                 playButton.disabled = true;
+                 playButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Tour läuft...';
+                 let currentStep = 0;
+
+                 function nextStep() {
+                     if (currentStep >= daysData.length) {
+                         // Animation beendet, zurücksetzen
+                         animationTimeout = setTimeout(() => {
+                            navigateToDay(-1); // Zurück zum Startzustand
+                            stopAnimationVisuals();
+                         }, 2500); // Wartezeit nach dem letzten Tag
+                         return;
+                     }
+                     navigateToDay(currentStep);
+                     currentStep++;
+                     animationTimeout = setTimeout(nextStep, 3500); // Zeit pro Tag
+                 }
+                 navigateToDay(-1); // Start vom Anfang
+                 animationTimeout = setTimeout(nextStep, 500); // Kurze Pause vor dem ersten Tag
+             }
+
+            // Checklist: HTML für die Checkliste generieren
+            function generateChecklistHTML() {
+                if (!checklistCategoriesContainer || !checklistTitleIconPlaceholder) return;
+                checklistCategoriesContainer.innerHTML = ''; // Alten Inhalt leeren
+                totalItems = 0; // Zähler zurücksetzen
+                let uniqueIdCounter = 0;
+                const titleIconParent = checklistTitleIconPlaceholder.parentNode;
+                let titleIconReplaced = false;
+
+                for (const categoryName in packlistData) {
+                    const categoryData = packlistData[categoryName];
+                    const detailsElement = document.createElement('details');
+                    detailsElement.classList.add('checklist-category-details');
+                    // Optional: Erste Kategorie offen starten
+                    // if (Object.keys(packlistData).indexOf(categoryName) === 0) {
+                    //     detailsElement.open = true;
+                    // }
+
+                    const summaryElement = document.createElement('summary');
+                    let iconElement;
+
+                    if (categoryData.isImage) {
+                        iconElement = document.createElement('img');
+                        iconElement.src = categoryData.icon;
+                        iconElement.alt = `${categoryName} Icon`;
+                        iconElement.classList.add('category-icon-img');
+                        summaryElement.appendChild(iconElement);
+                        summaryElement.append(` ${categoryName}`); // Text nach dem Bild
+
+                        // Spezielles Titel-Icon ersetzen, wenn Kategorie passt UND noch nicht ersetzt
+                        if (categoryName === "Einrad & Schutz" && titleIconParent && !titleIconReplaced) {
+                            const titleIconClone = iconElement.cloneNode(); // Klonen, um Original nicht zu ändern
+                            titleIconClone.classList.add('title-icon-img'); // Ggf. andere Klasse für Titel
+                            titleIconParent.replaceChild(titleIconClone, checklistTitleIconPlaceholder);
+                            titleIconReplaced = true; // Merken, dass ersetzt wurde
+                        }
+                    } else {
+                        iconElement = document.createElement('i');
+                        iconElement.className = `fas ${categoryData.icon}`;
+                        summaryElement.appendChild(iconElement);
+                        summaryElement.append(` ${categoryName}`); // Text nach dem Icon
+                    }
+
+                    detailsElement.appendChild(summaryElement);
+
+                    const itemsGrid = document.createElement('div');
+                    itemsGrid.classList.add('checklist-items-grid');
+
+                    categoryData.items.forEach(itemText => {
+                        totalItems++; // Gesamtzahl erhöhen
+                        uniqueIdCounter++;
+                        const checkItemDiv = document.createElement('div');
+                        checkItemDiv.classList.add('check-item');
+
+                        const checkbox = document.createElement('input');
+                        checkbox.type = 'checkbox';
+                        const checkboxId = `check-item-${uniqueIdCounter}`;
+                        checkbox.id = checkboxId;
+                        // Eindeutiger Schlüssel für DB generieren (aus Text, klein, ohne Sonderzeichen)
+                        checkbox.dataset.itemkey = itemText.toLowerCase().replace(/[^a-z0-9]/g, '-').substring(0, 50);
+
+                        const label = document.createElement('label');
+                        label.htmlFor = checkboxId;
+                        label.textContent = itemText;
+
+                        checkItemDiv.appendChild(checkbox);
+                        checkItemDiv.appendChild(label);
+                        itemsGrid.appendChild(checkItemDiv);
+
+                        // Event Listener direkt hier hinzufügen
+                        checkbox.addEventListener('change', handleCheckboxChange);
+                    });
+
+                    detailsElement.appendChild(itemsGrid);
+                    checklistCategoriesContainer.appendChild(detailsElement);
+                }
+                 // Falls das spezielle Icon nicht gefunden/ersetzt wurde, Standard-Icon sicherstellen
+                 if (!titleIconReplaced && titleIconParent && checklistTitleIconPlaceholder) {
+                     const defaultIcon = document.createElement("i");
+                     defaultIcon.className = "fas fa-clipboard-list";
+                     defaultIcon.style.color = "var(--accent-color)";
+                     try { // Sicherstellen, dass Placeholder noch existiert
+                        titleIconParent.replaceChild(defaultIcon, checklistTitleIconPlaceholder);
+                     } catch (e) { console.warn("Could not replace title icon placeholder.");}
+                 }
+                 // Nach dem Aufbau der Liste den Status aktualisieren
+                 updateChecklistProgress();
+            }
+
+            // Checklist: IndexedDB initialisieren
+            function initChecklistDB() {
+                const request = indexedDB.open("gmtwChecklistDB", 1);
+
+                request.onerror = (event) => {
+                    console.error("IndexedDB error:", event.target.errorCode);
+                };
+
+                request.onupgradeneeded = (event) => {
+                    checklistDB = event.target.result;
+                    if (!checklistDB.objectStoreNames.contains("checklistItems")) {
+                        checklistDB.createObjectStore("checklistItems", { keyPath: "id" });
+                        console.log("Checklist DB object store created.");
+                    }
+                };
+
+                request.onsuccess = (event) => {
+                    checklistDB = event.target.result;
+                    console.log("Checklist DB initialized successfully.");
+                    // Jetzt die Checkliste generieren und den gespeicherten Zustand laden
+                    generateChecklistHTML(); // Generiert HTML und zählt totalItems
+                    loadChecklistState();   // Lädt Haken und ruft updateProgress auf
+                    initializePdfButtonState(); // PDF Button aktivieren (falls jsPDF bereit)
+                };
+            }
+
+            // Checklist: Zustand einer Checkbox speichern
+            function saveChecklistState(itemId, isChecked) {
+                if (!checklistDB) return;
+                const transaction = checklistDB.transaction(["checklistItems"], "readwrite");
+                const store = transaction.objectStore("checklistItems");
+                store.put({ id: itemId, checked: isChecked });
+
+                transaction.oncomplete = () => {
+                    //console.log(`Item ${itemId} state saved: ${isChecked}`);
+                    updateChecklistProgress(); // Fortschritt aktualisieren NACH erfolgreichem Speichern
+                };
+                transaction.onerror = (event) => {
+                    console.error("Save transaction error:", event.target.error);
+                };
+            }
+
+            // Checklist: Gespeicherten Zustand laden und Checkboxen setzen
+            function loadChecklistState() {
+                if (!checklistDB || totalItems === 0) {
+                    // Wenn DB nicht bereit oder Liste leer, nur Fortschritt aktualisieren
+                    updateChecklistProgress();
+                    return;
+                 }
+
+                const transaction = checklistDB.transaction(["checklistItems"], "readonly");
+                const store = transaction.objectStore("checklistItems");
+                const getAllRequest = store.getAll();
+
+                getAllRequest.onsuccess = (event) => {
+                    const savedStates = {};
+                    event.target.result.forEach(item => {
+                        savedStates[item.id] = item.checked;
+                    });
+
+                    // Alle Checkboxen im DOM durchgehen
+                    const allCheckboxes = checklistCategoriesContainer.querySelectorAll('input[type="checkbox"]');
+                    allCheckboxes.forEach(checkbox => {
+                        const itemKey = checkbox.dataset.itemkey;
+                        // Haken setzen, falls im Speicherstand vorhanden, sonst false
+                        checkbox.checked = savedStates[itemKey] !== undefined ? savedStates[itemKey] : false;
+                    });
+                    // Nach dem Laden den Fortschrittsbalken aktualisieren
+                    updateChecklistProgress();
+                };
+
+                getAllRequest.onerror = (event) => {
+                    console.error("Load transaction error:", event.target.error);
+                    updateChecklistProgress(); // Auch bei Fehler Fortschritt initialisieren
+                };
+            }
+
+            // Checklist: Event Handler für Checkbox-Änderungen
+            function handleCheckboxChange(event) {
+                const checkbox = event.target;
+                const itemId = checkbox.dataset.itemkey;
+                saveChecklistState(itemId, checkbox.checked);
+            }
+
+            // Checklist: Fortschrittsanzeige aktualisieren und Spiel-Button ein-/ausblenden
+             function updateChecklistProgress() {
+                 // Sicherstellen, dass die Elemente vorhanden sind
+                 if (!checklistCategoriesContainer || !progressBar || !progressText) {
+                     console.warn("Checklist progress elements not found.");
+                     return;
+                 }
+
+                 // Wenn totalItems noch 0 ist (Liste nicht geladen), Standard anzeigen
+                 if (totalItems === 0) {
+                     progressBar.style.width = '0%';
+                     progressText.textContent = "Packliste wird geladen...";
+                     if (gameButton) gameButton.style.display = 'none'; // Spiel-Button ausblenden
+                     return;
+                 }
+
+                 const checkedItems = checklistCategoriesContainer.querySelectorAll('input[type="checkbox"]:checked').length;
+                 const percentage = (checkedItems / totalItems) * 100;
+
+                 progressBar.style.width = `${percentage}%`;
+                 progressText.textContent = `${checkedItems} von ${totalItems} gepackt`;
+
+                 // Visuelles Feedback für abgeschlossene Liste
+                 if (checklistContainer) { // Prüfen ob Section-Element existiert
+                     if (checkedItems === totalItems) {
+                         checklistContainer.classList.add("checklist-complete");
+                         progressText.textContent += " - Fertig!";
+                     } else {
+                         checklistContainer.classList.remove("checklist-complete");
+                     }
+                 }
+
+                 // !!! Logik für den Spiel-Button !!!
+                 if (gameButton) { // Prüfen ob Button-Element existiert
+                     if (checkedItems === totalItems && totalItems > 0) {
+                         gameButton.style.display = 'inline-block'; // Button anzeigen
+                         if(progressText) progressText.textContent = `${checkedItems} von ${totalItems} gepackt - Spiel bereit!`; // Optional Text anpassen
+                     } else {
+                         gameButton.style.display = 'none'; // Button verstecken
+                     }
+                 }
+             }
+
+
+            // PDF Generierung
+            async function generateAndDownloadPDF() {
+                if (!isJsPDFReady) return alert("PDF-Bibliothek ist noch nicht bereit.");
+                if (!pdfButton) return;
+
+                pdfButton.disabled = true;
+                pdfButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generiere PDF...';
+
+                try {
+                    const doc = new jsPDF({ orientation: "p", unit: "mm", format: "a4" });
+                    const pageHeight = doc.internal.pageSize.height;
+                    const pageWidth = doc.internal.pageSize.width;
+                    const margin = 15;
+                    let currentY = margin;
+                    const headlineHeight = 7;
+                    const textHeight = 4.5;
+                    const checkSize = textHeight * 0.8;
+
+                    // Hilfsfunktion für Seitenumbruch
+                    function checkAddPage(neededHeight = headlineHeight * 2) {
+                        if (currentY + neededHeight > pageHeight - margin) {
+                            doc.addPage();
+                            currentY = margin;
+                        }
+                    }
+
+                    // --- Titelseite ---
+                    doc.setFontSize(18); doc.setFont("helvetica", "bold");
+                    doc.text("GMTW 2025 - German Muni and Trial Weekend", pageWidth / 2, currentY, { align: "center" });
+                    currentY += headlineHeight * 1.5;
+                    doc.setFontSize(12); doc.setFont("helvetica", "italic");
+                    doc.text("Dein ultimatives Einrad-Abenteuer!", pageWidth / 2, currentY, { align: "center" });
+                    currentY += headlineHeight;
+                    doc.text("17. - 21. April 2025 | Camping Hohensyburg", pageWidth / 2, currentY, { align: "center" });
+                    currentY += headlineHeight * 2;
+
+                    // --- Intro ---
+                    checkAddPage();
+                    doc.setFontSize(14); doc.setFont("helvetica", "bold");
+                    doc.text("Was ist das GMTW?", margin, currentY);
+                    currentY += headlineHeight * 1.5;
+                    doc.setFontSize(10); doc.setFont("helvetica", "normal");
+                    const introText = "Das German Muni and Trial Weekend (seit 2003) ist DER Treffpunkt für Einrad-Begeisterte. Ziel: Muni & Trial fördern, Gemeinschaft stärken. Über 90 Fahrer*innen (Anfänger bis Profis) treffen sich jährlich an wechselnden Orten. Tagsüber Training & Trails, abends Lagerfeuer & Austausch. Kein Wettkampf, sondern Lernen, Spaß & Gemeinschaft.";
+                    const introLines = doc.splitTextToSize(introText, pageWidth - 2 * margin);
+                    doc.text(introLines, margin, currentY);
+                    currentY += introLines.length * textHeight + headlineHeight;
+
+                    // --- Location & Orga ---
+                    checkAddPage();
+                    doc.setFontSize(14); doc.setFont("helvetica", "bold");
+                    doc.text("Location & Organisation 2025", margin, currentY);
+                    currentY += headlineHeight * 1.5;
+                    doc.setFontSize(9); doc.setFont("helvetica", "normal");
+                    const orgaDetails = [
+                        "Ort: Campingplatz Hohensyburg, Syburger Dorfstraße 69, 44265 Dortmund",
+                        "Web: www.camping-hohensyburg.de",
+                        "Wichtig: 'Touristenplätze' (grüne Fläche) für Zelte buchen!",
+                        "Anmeldung Camper/WoMo bis 15.03.25",
+                        "T-Shirt Bestellung bis 01.04.25 (Anfrage: Sven via WhatsApp 01797318615)",
+                        "Übernachtung: Zelten, Bauwagen, Fass (siehe Website)",
+                        "Verpflegung: Selbstversorgung! Kiosk/Restaurant vor Ort. Lidl ca. 4km.",
+                        "Sanitär: 8 warme Duschen.",
+                        "Aktivitäten: Muni (ab 200m frei), Trial (ab 3 Hops), Workshops."
+                    ];
+                    orgaDetails.forEach(line => {
+                        checkAddPage(textHeight);
+                        doc.text(`• ${line}`, margin + 5, currentY);
+                        currentY += textHeight;
+                    });
+                    currentY += headlineHeight;
+
+                    // --- Wichtige Hinweise ---
+                    checkAddPage();
+                    doc.setFontSize(14); doc.setFont("helvetica", "bold");
+                    doc.text("Wichtige Hinweise", margin, currentY);
+                    currentY += headlineHeight * 1.5;
+                    doc.setFontSize(9); doc.setFont("helvetica", "normal");
+                    const safetyDetails = [
+                        "Helmpflicht! IMMER beim Fahren.",
+                        "Weitere Schutzausrüstung (Knie etc.) dringend empfohlen.",
+                        "Fahre im Rahmen deiner Fähigkeiten, nimm Rücksicht.",
+                        "Beachte Orga-Anweisungen & Camp-Regeln.",
+                        "Selbstverpflegung: Bring Essen & Kochzeug mit!",
+                        "Werkzeug/Ersatzschlauch mitbringen.",
+                        "Halte den Platz sauber! (Leave No Trace)",
+                        "April-Wetter: Auf alles vorbereitet sein!",
+                        "Bring dich ein - Gemeinschaft lebt vom Mitmachen!"
+                    ];
+                    safetyDetails.forEach(line => {
+                        checkAddPage(textHeight);
+                        doc.text(`• ${line}`, margin + 5, currentY);
+                        currentY += textHeight;
+                    });
+                    currentY += headlineHeight;
+
+                    // --- Packliste ---
+                    checkAddPage(headlineHeight * 3); // Extra Platz vor der Liste
+                    doc.setFontSize(14); doc.setFont("helvetica", "bold");
+                    doc.text("Packliste", margin, currentY);
+                    currentY += headlineHeight * 1.5;
+                    doc.setFontSize(9); doc.setFont("helvetica", "normal");
+                    let itemIdCounter = 0;
+                    for (const categoryName in packlistData) {
+                        checkAddPage(headlineHeight); // Platz für Kategorie-Überschrift
+                        doc.setFont("helvetica", "bold");
+                        doc.text(categoryName, margin, currentY);
+                        currentY += textHeight;
+                        doc.setFont("helvetica", "normal");
+                        packlistData[categoryName].items.forEach(itemText => {
+                             itemIdCounter++;
+                             const checkboxId = `check-item-${itemIdCounter}`; // Muss mit ID aus generateChecklistHTML übereinstimmen
+                             const checkboxElement = document.getElementById(checkboxId);
+                             const isChecked = checkboxElement ? checkboxElement.checked : false;
+                             const checkMark = isChecked ? "\u2611" : "\u2610"; // Checked / Unchecked Box unicode
+
+                             checkAddPage(textHeight);
+                             doc.text(`${checkMark} ${itemText}`, margin + 5, currentY);
+                             currentY += textHeight;
+                        });
+                        currentY += textHeight * 0.4; // Kleiner Abstand nach Kategorie
+                    }
+                    currentY += headlineHeight; // Größerer Abstand nach der Liste
+
+                    // --- Zeitplan ---
+                    doc.setFontSize(14); doc.setFont("helvetica", "bold");
+                    checkAddPage(headlineHeight * 2);
+                    doc.text("Zeitplan", margin, currentY);
+                    currentY += headlineHeight * 1.5;
+
+                    daysData.forEach(day => {
+                        checkAddPage(headlineHeight * 2); // Platz für Tagesüberschrift
+                        doc.setFontSize(11); doc.setFont("helvetica", "bold");
+                        doc.text(`${day.name}: ${day.title}`, margin, currentY);
+                        currentY += textHeight * 1.2;
+
+                        doc.setFontSize(8.5); doc.setFont("helvetica", "normal");
+                        day.schedule.forEach(item => {
+                            checkAddPage(textHeight * 1.5); // Mindesthöhe für Zeit+Titel
+                            doc.setFont("helvetica", "bold");
+                            doc.text(`${item.time}: ${item.title}`, margin + 5, currentY);
+                            currentY += textHeight * 0.9;
+
+                            doc.setFont("helvetica", "normal");
+                             // Content extrahieren und vereinfachen (HTML entfernen)
+                             const tempDiv = document.createElement("div");
+                             tempDiv.innerHTML = item.content;
+                             let plainText = tempDiv.textContent || tempDiv.innerText || "";
+                             plainText = plainText.replace(/•/g, '-').replace(/\s+/g, ' ').trim().substring(0, 150); // Nur Anfang
+                             const contentLines = doc.splitTextToSize(plainText, pageWidth - 2*margin - 15); // Textumbruch
+
+                            checkAddPage(contentLines.length * textHeight * 0.9); // Platz für den Content
+                            doc.setFont("helvetica", "italic"); // Kursiv für Beschreibung
+                            doc.text(contentLines, margin + 10, currentY);
+                            currentY += contentLines.length * textHeight * 0.9;
+                            doc.setFont("helvetica", "normal"); // Zurück zu normal
+
+                            currentY += textHeight * 0.3; // Kleiner Abstand zwischen Items
+                        });
+                        currentY += headlineHeight; // Abstand zwischen Tagen
+                    });
+
+                    // --- PDF Speichern ---
+                    doc.save('gmtw2025-infos.pdf');
+                    console.log("PDF generation finished.");
+
+                } catch (error) {
+                    console.error("Fehler bei PDF-Generierung:", error);
+                    alert("PDF konnte nicht erstellt werden.");
+                } finally {
+                     initializePdfButtonState(); // Button Zustand wiederherstellen
+                }
+            }
+
+
+            // --- INITIALISIERUNGSAUFRUFE ---
+
+            initChecklistDB(); // Startet DB, generiert Liste, lädt Status -> ruft updateProgress auf
+
+            // Timeline initialisieren (wenn vorhanden)
+            if (overviewContainer) {
+                createDayMarkers();
+                showHighlights(-1); // Startzustand ohne Auswahl
+                displayDayDetails(-1); // Startzustand ohne Details
+                if (playButton) {
+                    playButton.addEventListener('click', () => {
+                        clearTimeout(animationTimeout); // Alte Animation stoppen
+                        startAnimation();
+                    });
+                }
+                // Bei Fenstergrößenänderung Marker neu positionieren
+                let resizeTimer;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(() => {
+                        createDayMarkers(); // Marker neu erstellen (berechnet Positionen neu)
+                        // Icon auf aktuellen Tag positionieren (falls einer gewählt war)
+                        if (currentDayIndex !== -1) {
+                            moveUnicyclist(currentDayIndex);
+                            showHighlights(currentDayIndex); // Aktiven Marker neu setzen
+                        } else {
+                             moveUnicyclist(-1); // Zurück zur Startposition
+                        }
+                    }, 250); // Kurze Verzögerung um Dauer-Resizing zu vermeiden
+                });
+            } else {
+                // Wenn keine Timeline da ist, PDF Button trotzdem initialisieren
+                initializePdfButtonState();
+            }
+
+             // --- Event Listener für den NEUEN Spiel-Button ---
+             if (gameButton) {
+                 gameButton.addEventListener('click', () => {
+                     const gameUrl = 'https://htmlpreview.github.io/?https://github.com/ErSieCode/1Rad/blob/main/Einrad_mini_game.html';
+                     // Alternativen, falls obige URL nur Code zeigt:
+                     // const gameUrl = 'https://raw.githack.com/ErSieCode/1Rad/main/Einrad_mini_game.html'; // Besser für Rendering
+                     // const gameUrl = 'https://ersiecode.github.io/1Rad/Einrad_mini_game.html'; // Ideal wenn GitHub Pages aktiv ist
+
+                     console.log("Öffne Spiel:", gameUrl);
+                     window.open(gameUrl, '_blank'); // Öffnet Link in neuem Tab/Fenster
+                 });
+             }
+
+            // Optional: Sicherstellen, dass der Fortschritt initial korrekt ist,
+            // auch wenn DB leer oder Laden fehlschlägt.
+            // Wird aber durch initChecklistDB -> generate -> load -> update abgedeckt.
+            // updateChecklistProgress();
+
+        }); // Ende DOMContentLoaded
+    </script>
+
 </body>
 </html>
