@@ -91,20 +91,25 @@
              text-align: left; /* Oder center, je nach Wunsch */
              position: relative; /* Wichtig für absolute Positionierung des Modals */
         }
-        /* --- NEU: Style für die Audio-Figur --- */
-        .audio-figur {
-            float: right; /* Rechts neben dem Text */
-            width: 110px;  /* Größe anpassen nach Bedarf */
-            height: auto;
-            margin-left: 20px; /* Abstand zum Text */
-            margin-bottom: 10px; /* Abstand zum unteren Text */
-            cursor: pointer;
-            transition: transform 0.2s ease-in-out; /* Für den Hop-Effekt */
-            border-radius: 50%; /* Rund machen? Oder behalten? var(--border-radius); */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .audio-figur:hover {
-            transform: translateY(-5px); /* Der "Hop"-Effekt */
+        /* --- NEU: Style für die Audio-Figur (angepasst) --- */
+.audio-figur {
+    float: right;
+    width: 121px;
+    height: 121px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    object-fit: contain;
+    background-color: #fff;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.audio-figur:hover {
+    transform: scale(1.1);
+}
         }
         /* --- NEU: Styles für das Audio-Modal --- */
         .audio-modal-backdrop {
