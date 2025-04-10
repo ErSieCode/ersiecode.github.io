@@ -29,7 +29,7 @@
             --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             --border-radius: 8px;
             --checklist-complete-color: #4CAF50;
-            --link-color: #4CAF50;
+            --link-color: #980308;
             --link-hover-color: var(--primary-color);
             --checked-item-color: #666;
             /* --- NEUE Banner-Textfarbe --- */
@@ -274,7 +274,7 @@
           /* Neue Styles für Galerie-Funktionalität */
         .gallery-preview {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr); /* Behält 2 Spalten */
             gap: 5px;
             margin-top: 15px;
         }
@@ -282,7 +282,7 @@
         .gallery-preview a {
             position: relative;
             display: block;
-            height: 80px;
+            height: 80px; /* Höhe beibehalten */
             overflow: hidden;
             border: 1px solid var(--border-color);
             border-radius: 4px;
@@ -425,9 +425,7 @@
 
         /* Responsive Anpassungen */
         @media (max-width: 768px) {
-            .gallery-preview {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            /* .gallery-preview behält 2 Spalten, Anpassung nicht nötig */
             .gallery-container { height: 60vh; }
             .gallery-nav { width: 35px; height: 35px; }
             /* --- NEU: Responsive Anpassung für Audio-Figur --- */
@@ -653,9 +651,9 @@
                      </div>
                  </div>
 
-                 <!-- T-Shirt Galerie mit aktualisiertem Hauptbild -->
+                 <!-- === AKTUALISIERTE T-Shirt Galerie Kachel === -->
                  <div class="impressionen-card">
-                     <a href="javascript:openGallery('tshirt-gallery')" class="image-link" title="Event T-Shirts ansehen">
+                     <a href="javascript:openGallery('tshirt-gallery', 4)" class="image-link" title="Event T-Shirts ansehen">
                          <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude_left.jpg" alt="Event T-Shirts" class="card-image">
                      </a>
                      <div class="card-content">
@@ -663,16 +661,18 @@
                          <p>Sichere dir ein Erinnerungsstück! Unsere Event-Shirts sind bis zum 01.04.2025 bestellbar. Verschiedene Ausführungen und Größen verfügbar.</p>
 
                          <div class="gallery-preview">
-                             <a href="javascript:openGallery('tshirt-gallery', 3)">
-                                 <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude_left.jpg" alt="T-Shirt Seitenansicht">
+                             <a href="javascript:openGallery('tshirt-gallery', 4)">
+                                 <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front4.jpg" alt="T-Shirt Seitenansicht Vorschau">
                              </a>
-                             <a href="javascript:openGallery('tshirt-gallery', 0)">
-                                 <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front1.jpg" alt="T-Shirt Vorderseite">
-                                 <span class="more-photos">+3</span>
+                             <a href="javascript:openGallery('tshirt-gallery', 3)">
+                                 <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front.jpg" alt="T-Shirt Person Vorderansicht Vorschau">
+                                 <span class="more-photos">+6</span> <!-- Aktualisiert: 8 Bilder total - 2 in Vorschau = 6 -->
                              </a>
                          </div>
                      </div>
                  </div>
+                 <!-- === ENDE AKTUALISIERTE T-Shirt Kachel === -->
+
              </div>
          </section>
 
@@ -710,7 +710,7 @@
              <div id="gallery-prev" class="gallery-nav gallery-prev"><i class="fas fa-chevron-left"></i></div>
              <div id="gallery-next" class="gallery-nav gallery-next"><i class="fas fa-chevron-right"></i></div>
          </div>
-         <div id="gallery-counter" class="gallery-counter">Bild 1 von 5</div>
+         <div id="gallery-counter" class="gallery-counter">Bild 1 von X</div>
          <div id="gallery-thumbs" class="gallery-thumbs">
              <!-- Thumbnails werden per JS eingefügt -->
          </div>
@@ -739,13 +739,18 @@
                  { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff4.jpg', alt: 'Trial Ausstattung 4' },
                  { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trialbaum.jpg', alt: 'Trialbaum' }
              ],
+             // === AKTUALISIERTE T-Shirt Galerie Daten ===
              'tshirt-gallery': [
                  { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front1.jpg', alt: 'T-Shirt Vorderseite 1' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front4.jpg', alt: 'T-Shirt Vorderseite 4' },
                  { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front.jpg', alt: 'T-Shirt Person Vorderansicht' },
                  { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front1.jpg', alt: 'T-Shirt Person Vorderansicht 2' },
                  { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude_left.jpg', alt: 'T-Shirt Person Seitenansicht' },
-                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front2.jpg', alt: 'T-Shirt Vorderseite 2' }
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front2.jpg', alt: 'T-Shirt Vorderseite 2' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front3.jpg', alt: 'T-Shirt Vorderseite 3' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front5.jpg', alt: 'T-Shirt Vorderseite 5' }
              ]
+             // === ENDE AKTUALISIERTE T-Shirt Galerie Daten ===
          };
 
          let currentGallery = '';
@@ -758,23 +763,35 @@
              const counter = document.getElementById('gallery-counter');
              const thumbsContainer = document.getElementById('gallery-thumbs');
 
-             if (!galleries[galleryId]) return;
+             if (!galleries[galleryId] || !galleries[galleryId].length) {
+                 console.error(`Galerie "${galleryId}" nicht gefunden oder leer.`);
+                 return;
+             }
+
+             const galleryData = galleries[galleryId];
+             const numImages = galleryData.length;
+
+             // Sicherstellen, dass der startIndex gültig ist
+             if (startIndex < 0 || startIndex >= numImages) {
+                 console.warn(`Ungültiger startIndex ${startIndex} für Galerie "${galleryId}". Setze auf 0.`);
+                 startIndex = 0;
+             }
 
              currentGallery = galleryId;
              currentIndex = startIndex;
 
              if (currentImage) {
-                 currentImage.src = galleries[galleryId][startIndex].src;
-                 currentImage.alt = galleries[galleryId][startIndex].alt;
-             }
+                 currentImage.src = galleryData[startIndex].src;
+                 currentImage.alt = galleryData[startIndex].alt;
+             } else { console.error("Element 'gallery-current-image' nicht gefunden."); }
 
              if (counter) {
-                 counter.textContent = `Bild ${startIndex + 1} von ${galleries[galleryId].length}`;
-             }
+                 counter.textContent = `Bild ${startIndex + 1} von ${numImages}`;
+             } else { console.error("Element 'gallery-counter' nicht gefunden."); }
 
              if (thumbsContainer) {
-                 thumbsContainer.innerHTML = '';
-                 galleries[galleryId].forEach((img, idx) => {
+                 thumbsContainer.innerHTML = ''; // Alte Thumbnails entfernen
+                 galleryData.forEach((img, idx) => {
                      const thumb = document.createElement('img');
                      thumb.src = img.src;
                      thumb.alt = `Thumbnail ${idx + 1}`;
@@ -784,20 +801,30 @@
                      thumb.addEventListener('click', function() {
                          currentIndex = idx;
                          updateGalleryView();
+                         // Optional: Scrollt aktiven Thumb in die Mitte (wenn viele Thumbs da sind)
+                         thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                      });
 
                      thumbsContainer.appendChild(thumb);
                  });
-             }
+                 // Zum Start-Thumbnail scrollen
+                 const activeThumb = thumbsContainer.querySelector('.gallery-thumb.active');
+                 if (activeThumb) {
+                     activeThumb.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'center' });
+                 }
+             } else { console.error("Element 'gallery-thumbs' nicht gefunden."); }
 
-             if (overlay) overlay.classList.add('active');
-             document.body.style.overflow = 'hidden';
+             if (overlay) {
+                 overlay.classList.add('active');
+                 document.body.style.overflow = 'hidden'; // Scrollen verhindern
+             } else { console.error("Element 'gallery-overlay' nicht gefunden."); }
          }
+
 
          function closeGallery() {
              const overlay = document.getElementById('gallery-overlay');
              if (overlay) overlay.classList.remove('active');
-             document.body.style.overflow = '';
+             document.body.style.overflow = ''; // Scrollen wieder erlauben
          }
 
          function prevImage() {
@@ -817,24 +844,45 @@
          function updateGalleryView() {
              if (!currentGallery || !galleries[currentGallery]) return;
 
+             const galleryData = galleries[currentGallery];
+             const numImages = galleryData.length;
              const currentImage = document.getElementById('gallery-current-image');
              const counter = document.getElementById('gallery-counter');
-             const thumbs = document.querySelectorAll('.gallery-thumb');
+             const thumbs = document.querySelectorAll(`#gallery-thumbs .gallery-thumb`); // Genauer selektieren
+
+             // Sicherstellen, dass currentIndex im gültigen Bereich ist
+             if (currentIndex < 0 || currentIndex >= numImages) {
+                console.error("Ungültiger currentIndex in updateGalleryView:", currentIndex);
+                currentIndex = 0; // Zurücksetzen auf 0 als Fallback
+             }
+
 
              if (currentImage) {
-                 currentImage.src = galleries[currentGallery][currentIndex].src;
-                 currentImage.alt = galleries[currentGallery][currentIndex].alt;
-             }
+                 currentImage.src = galleryData[currentIndex].src;
+                 currentImage.alt = galleryData[currentIndex].alt;
+             } else { console.error("Element 'gallery-current-image' nicht gefunden in updateGalleryView."); }
 
              if (counter) {
-                 counter.textContent = `Bild ${currentIndex + 1} von ${galleries[currentGallery].length}`;
-             }
+                 counter.textContent = `Bild ${currentIndex + 1} von ${numImages}`;
+             } else { console.error("Element 'gallery-counter' nicht gefunden in updateGalleryView."); }
 
-             if (thumbs) {
+             if (thumbs && thumbs.length > 0) {
+                 let activeThumbElement = null;
                  thumbs.forEach((thumb, idx) => {
-                     thumb.classList.toggle('active', idx === currentIndex);
+                     const isActive = idx === currentIndex;
+                     thumb.classList.toggle('active', isActive);
+                     if (isActive) {
+                         activeThumbElement = thumb;
+                     }
                  });
+                 // Scroll active thumb into view if needed
+                 if (activeThumbElement) {
+                     activeThumbElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                 }
+             } else if (thumbs === null) {
+                 console.error("Element 'gallery-thumbs' nicht gefunden für Thumb-Updates.");
              }
+             // Wenn keine Thumbs da sind (z.B. auf Mobile), ist das okay.
          }
 
          function initGalleries() {
@@ -843,14 +891,16 @@
              const prevBtn = document.getElementById('gallery-prev');
              const nextBtn = document.getElementById('gallery-next');
 
-             if (closeBtn) closeBtn.addEventListener('click', closeGallery);
-             if (prevBtn) prevBtn.addEventListener('click', prevImage);
-             if (nextBtn) nextBtn.addEventListener('click', nextImage);
+             if (closeBtn) closeBtn.addEventListener('click', closeGallery); else console.error("Galerie Schließen-Button nicht gefunden.");
+             if (prevBtn) prevBtn.addEventListener('click', prevImage); else console.error("Galerie Zurück-Button nicht gefunden.");
+             if (nextBtn) nextBtn.addEventListener('click', nextImage); else console.error("Galerie Weiter-Button nicht gefunden.");
 
+             // Tastatursteuerung
              document.addEventListener('keydown', function(e) {
-                 if (!overlay || !overlay.classList.contains('active')) return;
+                 const galleryOverlay = document.getElementById('gallery-overlay'); // Neu abfragen
+                 if (!galleryOverlay || !galleryOverlay.classList.contains('active')) return;
 
-                 if (e.key === 'Escape') closeGallery();
+                 if (e.key === 'Escape' || e.key === 'Esc') closeGallery(); // Esc = Escape
                  if (e.key === 'ArrowLeft') prevImage();
                  if (e.key === 'ArrowRight') nextImage();
              });
@@ -1302,7 +1352,7 @@
 
                   // Visuelles Feedback für abgeschlossene Liste
                   if (checklistContainer) { // Prüfen ob Section-Element existiert
-                      if (checkedItems === totalItems) {
+                      if (checkedItems === totalItems && totalItems > 0) { // Check hinzugefügt, dass totalItems > 0
                           checklistContainer.classList.add("checklist-complete");
                           progressText.textContent += " - Fertig!";
                       } else {
