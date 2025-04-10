@@ -82,15 +82,85 @@
         .main-header .subtitle { font-size: 1.1em; font-style: italic; opacity: 1; }
         .main-header .subtitle strong { font-style: normal; }
 
-        /* --- Intro Section (Bild entfernt) --- */
+        /* --- Intro Section (Bild entfernt, stattdessen Audio-Figur) --- */
         .intro-section { display: flex; /* Bleibt flex für Zentrierung, wenn nur Text da */ }
         .intro-text {
             flex: 1 1 100%; /* Nimmt die volle Breite ein */
              max-width: 800px; /* Optional: Maximale Breite für Lesbarkeit */
              margin: 0 auto; /* Zentriert den Textblock */
              text-align: left; /* Oder center, je nach Wunsch */
+             position: relative; /* Wichtig für absolute Positionierung des Modals */
         }
-        /* .intro-image Div wird im HTML entfernt */
+        /* --- NEU: Style für die Audio-Figur --- */
+        .audio-figur {
+            float: right; /* Rechts neben dem Text */
+            width: 90px;  /* Größe anpassen nach Bedarf */
+            height: auto;
+            margin-left: 20px; /* Abstand zum Text */
+            margin-bottom: 10px; /* Abstand zum unteren Text */
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out; /* Für den Hop-Effekt */
+            border-radius: 50%; /* Rund machen? Oder behalten? var(--border-radius); */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .audio-figur:hover {
+            transform: translateY(-5px); /* Der "Hop"-Effekt */
+        }
+        /* --- NEU: Styles für das Audio-Modal --- */
+        .audio-modal-backdrop {
+            display: none; /* Standardmäßig versteckt */
+            position: fixed; /* Über alles legen */
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Dunkler Hintergrund */
+            z-index: 1040; /* Unter dem Modal, über dem Rest */
+        }
+        .audio-modal {
+            display: none; /* Standardmäßig versteckt */
+            position: fixed; /* Zentriert im Viewport */
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1050; /* Über dem Backdrop */
+            text-align: center;
+            min-width: 300px;
+            max-width: 90%;
+        }
+        .audio-modal p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        .audio-modal .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .audio-modal .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: var(--text-color);
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+        .audio-modal .close-btn:hover {
+            opacity: 1;
+        }
+        #gmtw-audio-player-container {
+            margin-top: 20px;
+            display: none; /* Wird bei Play angezeigt */
+        }
+        #gmtw-audio-player {
+             width: 100%;
+        }
 
         /* --- Restliche Styles --- */
         /* Zeitplan Section */
@@ -358,35 +428,30 @@
             .gallery-preview {
                 grid-template-columns: repeat(2, 1fr);
             }
-
-            .gallery-container {
-                height: 60vh;
-            }
-
-            .gallery-nav {
-                width: 35px;
-                height: 35px;
-            }
+            .gallery-container { height: 60vh; }
+            .gallery-nav { width: 35px; height: 35px; }
+            /* --- NEU: Responsive Anpassung für Audio-Figur --- */
+            .audio-figur { float: none; display: block; margin: 10px auto 15px auto; width: 80px; }
+            .intro-text { text-align: center; } /* Zentriert Text wenn Figur oben/unten ist */
+             /* --- ENDE NEU --- */
         }
-
         @media (max-width: 480px) {
-            .gallery-thumbs {
-                display: none; /* Auf sehr kleinen Geräten ausblenden */
-            }
-
-            .gallery-container {
-                height: 50vh;
-            }
+            .gallery-thumbs { display: none; }
+            .gallery-container { height: 50vh; }
+            /* --- NEU: Responsive Anpassung für Audio-Figur (klein) --- */
+             .audio-figur { width: 70px; }
+            /* --- ENDE NEU --- */
         }
 
         /* Footer */
         footer { background-color: var(--text-color); color: #ccc; text-align: center; padding: 20px; margin-top: 40px; font-size: 0.9em; }
 
-        /* Responsiveness */
+        /* Responsiveness (Fortsetzung) */
         @media (max-width: 768px) {
             nav.main-nav { justify-content: flex-start; } nav.main-nav a { padding: 10px 12px; font-size: 0.85em;}
             .main-header { padding: 25px 15px; } .main-header h1 { font-size: 2em; } .main-header h2 { font-size: 1.2em; }
-            .intro-section { flex-direction: column; } .intro-text { text-align: center; /* Text zentrieren, wenn Bild weg ist */}
+            /* .intro-section { flex-direction: column; } */ /* Wird nicht mehr gebraucht, da Figur innen ist */
+            /* .intro-text { text-align: center; } */ /* Oben bereits angepasst */
             #wichtige-hinweise details { flex-basis: 100%; }
             .impressionen-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
             .impressionen-card img.card-image { height: 180px; }
@@ -437,6 +502,14 @@
     <div class="container">
         <section id="intro" class="intro-section">
             <div class="intro-text">
+                <!-- === NEUE AUDIO-FIGUR === -->
+                <img src="https://raw.githubusercontent.com/ErSieCode/1Rad/main/GMTW25_Audio_grafik.png"
+                     alt="Klicke hier für Audio-Optionen"
+                     class="audio-figur"
+                     id="audio-figur-trigger"
+                     title="Audio anhören oder herunterladen">
+                <!-- === ENDE AUDIO-FIGUR === -->
+
                 <h2 style="text-align: left;"><i class="fas fa-info-circle" style="color: var(--accent-color);"></i> Die Seele des GMTW</h2>
                 <p>Das German Muni and Trial Weekend (GMTW) wurde <strong>seit 2003</strong> von leidenschaftlichen Einrad-Pionieren ins Leben gerufen. Ihr Ziel: die Begeisterung für <strong>Mountain Unicycling (Muni)</strong> und <strong>Trial</strong> in der Natur zu entfachen und die Gemeinschaft zu stärken.</p>
                 <p>Heute ist das GMTW das Herzstück der Szene. Jedes Jahr treffen sich über 60 Fahrer\*innen aus Deutschland und darüber hinaus – <strong>Anfänger bis Profis, Groß und Klein</strong> – vereint durch die Liebe zum Einradsport.</p>
@@ -445,1015 +518,1084 @@
             </div>
         </section>
 
+        <!-- === NEUES AUDIO-MODAL & BACKDROP (kann irgendwo im body stehen, Ende ist gut) === -->
+        <div class="audio-modal-backdrop" id="audio-modal-backdrop"></div>
+        <div class="audio-modal" id="audio-options-modal">
+            <button class="close-btn" id="close-audio-modal-btn" title="Schließen">&times;</button>
+            <p>Möchtest du die Audio-Infos anhören oder lieber herunterladen?</p>
+            <div class="button-group">
+                <button class="button" id="play-gmtw-audio-btn"><i class="fas fa-play"></i> Anhören</button>
+                <button class="button button-secondary" id="download-gmtw-audio-btn"><i class="fas fa-download"></i> Herunterladen</button>
+            </div>
+            <div id="gmtw-audio-player-container">
+                <audio id="gmtw-audio-player" controls>
+                    Dein Browser unterstützt das Audio-Element nicht.
+                    <source src="https://raw.githubusercontent.com/ErSieCode/1Rad/main/GMTW25_LineUP_Audio.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+        <!-- === ENDE AUDIO-MODAL === -->
+
+
         <section id="event-uebersicht">
-            <h2>Der Zeitplan: 5 Tage voller Action!</h2>
-            <p>Wähle einen Tag auf der Timeline oder starte die Animation, um die Highlights zu sehen und den detaillierten Plan zu laden.</p>
-            <div id="overview-container">
-                <div id="overview-track"></div>
-                <img id="unicyclist-icon" src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/waschbär_einrad.png" alt="Einradfahrender Waschbär Animation">
-            </div>
-            <div id="daily-highlights-display">
-                <h3 id="highlight-day">Tag wählen</h3>
-                <ul id="highlight-list"><li>Klicke auf einen Tag oder starte die Animation!</li></ul>
-            </div>
-            <button id="play-animation" class="button"><i class="fas fa-play"></i> Animations-Tour starten</button>
-            <div id="daily-detail-content"> <!-- Detaillierter Plan hier --> </div>
-        </section>
+             <h2>Der Zeitplan: 5 Tage voller Action!</h2>
+             <p>Wähle einen Tag auf der Timeline oder starte die Animation, um die Highlights zu sehen und den detaillierten Plan zu laden.</p>
+             <div id="overview-container">
+                 <div id="overview-track"></div>
+                 <img id="unicyclist-icon" src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/waschbär_einrad.png" alt="Einradfahrender Waschbär Animation">
+             </div>
+             <div id="daily-highlights-display">
+                 <h3 id="highlight-day">Tag wählen</h3>
+                 <ul id="highlight-list"><li>Klicke auf einen Tag oder starte die Animation!</li></ul>
+             </div>
+             <button id="play-animation" class="button"><i class="fas fa-play"></i> Animations-Tour starten</button>
+             <div id="daily-detail-content"> <!-- Detaillierter Plan hier --> </div>
+         </section>
 
-        <section id="location-orga">
-            <h2>Location & Organisation 2025</h2>
-            <div class="orga-grid">
-                <div class="orga-card"> <h3><i class="fas fa-map-marker-alt"></i> Veranstaltungsort</h3> <ul> <li><i class="fas fa-campground"></i><strong>Campingplatz Hohensyburg</strong></li> <li><i class="fas fa-road"></i>Adresse: Syburger Dorfstraße 69, 44265 Dortmund</li> <li><i class="fas fa-link"></i>Webseite: <a href="http://www.camping-hohensyburg.de" target="_blank" rel="noopener noreferrer">www.camping-hohensyburg.de</a></li> </ul> <figure class="location-image"> <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" target="_blank" title="Touristenplätze (vergrößern)"> <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" alt="Touristenplätze"> </a> <figcaption><i class="fas fa-info-circle"></i> Wichtig: Bei Buchung <strong>"Touristenplätze"</strong> wählen!</figcaption> </figure> </div>
-                <div class="orga-card"> <h3><i class="fas fa-calendar-check"></i> Anmeldung & Fristen</h3> <ul> <li><i class="fas fa-caravan"></i><strong>Camper/WoMo:</strong> Anmeldeschluss <strong>15.03.2025</strong></li> <li><i class="fas fa-tshirt"></i><strong>T-Shirt Bestellung:</strong> bis <strong>01.04.2025</strong></li> <li><i class="fab fa-whatsapp"></i><strong>T-Shirt Anfrage:</strong> Sven via WhatsApp: <a href="https://wa.me/491797318615" target="_blank">0179 7318615</a></li> </ul> </div>
-                <div class="orga-card"> <h3><i class="fas fa-bed"></i> Übernachtung</h3> <ul> <li><i class="fas fa-tent"></i><strong>Zelten:</strong> Auf den "Touristenplätzen".</li> <li><i class="fas fa-home"></i><strong>Alternativen:</strong> Bauwagen oder Campingfass.</li> <li><i class="fas fa-euro-sign"></i><strong>Preise:</strong> <a href="http://www.camping-hohensyburg.de/preise/" target="_blank" rel="noopener noreferrer">Preisübersicht Campingplatz</a>.</li> </ul> </div>
-                <div class="orga-card"> <h3><i class="fas fa-utensils"></i> Verpflegung</h3> <ul> <li><i class="fas fa-exclamation-circle"></i><strong>Prinzip: Selbstversorgung!</strong></li> <li><i class="fas fa-fire"></i>Gemeinsames Kochen/Essen möglich.</li> <li><i class="fas fa-store-alt"></i>Kiosk & Restaurant vor Ort.</li> <li><i class="fas fa-shopping-cart"></i>Lidl (ca. 4 km): <a href="https://www.google.com/maps/dir/Campingplatz+Hohensyburg,+Syburger+Dorfstraße+69,+44265+Dortmund/Lidl+Dortmund+Hacheney,+Hacheneyer+Str.+160/" target="_blank" rel="noopener noreferrer">Route</a></li> <li><i class="fas fa-motorcycle"></i>Lieferdienste verfügbar.</li> </ul> </div>
-                <div class="orga-card"> <h3><i class="fas fa-shower"></i> Sanitäranlagen</h3> <ul> <li><i class="fas fa-hot-tub"></i>8 Duschen mit Warmwasser.</li> <li><i class="fas fa-restroom"></i>Zwei Sanitärräume.</li> </ul> </div>
-                <div class="orga-card"> <h3><i class="fas fa-running"></i> Aktivitäten Kern</h3> <ul> <li><i class="fas fa-mountain"></i><strong>Muni:</strong> Trails am See (Skill: ≥200m frei).</li> <li><i class="fas fa-cubes"></i><strong>Trial:</strong> Park/Steinbruch (Skill: ≥3 Hops).</li> <li><i class="fas fa-chalkboard-teacher"></i><strong>Workshops:</strong> Geplant (Details folgen).</li> </ul> </div>
-            </div>
-        </section>
+         <section id="location-orga">
+             <h2>Location & Organisation 2025</h2>
+             <div class="orga-grid">
+                 <div class="orga-card"> <h3><i class="fas fa-map-marker-alt"></i> Veranstaltungsort</h3> <ul> <li><i class="fas fa-campground"></i><strong>Campingplatz Hohensyburg</strong></li> <li><i class="fas fa-road"></i>Adresse: Syburger Dorfstraße 69, 44265 Dortmund</li> <li><i class="fas fa-link"></i>Webseite: <a href="http://www.camping-hohensyburg.de" target="_blank" rel="noopener noreferrer">www.camping-hohensyburg.de</a></li> </ul> <figure class="location-image"> <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" target="_blank" title="Touristenplätze (vergrößern)"> <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" alt="Touristenplätze"> </a> <figcaption><i class="fas fa-info-circle"></i> Wichtig: Bei Buchung <strong>"Touristenplätze"</strong> wählen!</figcaption> </figure> </div>
+                 <div class="orga-card"> <h3><i class="fas fa-calendar-check"></i> Anmeldung & Fristen</h3> <ul> <li><i class="fas fa-caravan"></i><strong>Camper/WoMo:</strong> Anmeldeschluss <strong>15.03.2025</strong></li> <li><i class="fas fa-tshirt"></i><strong>T-Shirt Bestellung:</strong> bis <strong>01.04.2025</strong></li> <li><i class="fab fa-whatsapp"></i><strong>T-Shirt Anfrage:</strong> Sven via WhatsApp: <a href="https://wa.me/491797318615" target="_blank">0179 7318615</a></li> </ul> </div>
+                 <div class="orga-card"> <h3><i class="fas fa-bed"></i> Übernachtung</h3> <ul> <li><i class="fas fa-tent"></i><strong>Zelten:</strong> Auf den "Touristenplätzen".</li> <li><i class="fas fa-home"></i><strong>Alternativen:</strong> Bauwagen oder Campingfass.</li> <li><i class="fas fa-euro-sign"></i><strong>Preise:</strong> <a href="http://www.camping-hohensyburg.de/preise/" target="_blank" rel="noopener noreferrer">Preisübersicht Campingplatz</a>.</li> </ul> </div>
+                 <div class="orga-card"> <h3><i class="fas fa-utensils"></i> Verpflegung</h3> <ul> <li><i class="fas fa-exclamation-circle"></i><strong>Prinzip: Selbstversorgung!</strong></li> <li><i class="fas fa-fire"></i>Gemeinsames Kochen/Essen möglich.</li> <li><i class="fas fa-store-alt"></i>Kiosk & Restaurant vor Ort.</li> <li><i class="fas fa-shopping-cart"></i>Lidl (ca. 4 km): <a href="https://www.google.com/maps/dir/Campingplatz+Hohensyburg,+Syburger+Dorfstraße+69,+44265+Dortmund/Lidl+Dortmund+Hacheney,+Hacheneyer+Str.+160/" target="_blank" rel="noopener noreferrer">Route</a></li> <li><i class="fas fa-motorcycle"></i>Lieferdienste verfügbar.</li> </ul> </div>
+                 <div class="orga-card"> <h3><i class="fas fa-shower"></i> Sanitäranlagen</h3> <ul> <li><i class="fas fa-hot-tub"></i>8 Duschen mit Warmwasser.</li> <li><i class="fas fa-restroom"></i>Zwei Sanitärräume.</li> </ul> </div>
+                 <div class="orga-card"> <h3><i class="fas fa-running"></i> Aktivitäten Kern</h3> <ul> <li><i class="fas fa-mountain"></i><strong>Muni:</strong> Trails am See (Skill: ≥200m frei).</li> <li><i class="fas fa-cubes"></i><strong>Trial:</strong> Park/Steinbruch (Skill: ≥3 Hops).</li> <li><i class="fas fa-chalkboard-teacher"></i><strong>Workshops:</strong> Geplant (Details folgen).</li> </ul> </div>
+             </div>
+         </section>
 
-        <section id="wichtige-hinweise">
-            <h2>Wichtige Hinweise</h2>
-            <p style="text-align: center; margin-top: -15px; margin-bottom: 20px;">Bitte aufklappen und lesen!</p>
-            <div class="info-container">
-                <details> <summary><i class="fas fa-shield-alt"></i> Sicherheit geht vor!</summary> <div class="details-content"> <ul> <li><strong>Helmpflicht:</strong> ABSOLUTE PFLICHT bei allen Fahraktivitäten! Keine Ausnahmen!</li> <li><strong>Schutzausrüstung:</strong> Knie-/Ellbogenschoner & Handschuhe dringend empfohlen (MUNI/Trial).</li> <li><strong>Fahrweise:</strong> Fahre stets im Rahmen deiner Fähigkeiten und nimm Rücksicht auf andere und die Natur.</li> <li><strong>Anweisungen:</strong> Beachte Hinweise von Orga & Guides. Halte dich an Camp-Regeln (z.B. Nachtruhe).</li> </ul> </div> </details>
-                <details> <summary><i class="fas fa-exclamation-triangle"></i> Organisation & Co.</summary> <div class="details-content"> <ul> <li><strong>Selbstverpflegung:</strong> Plane Essen & Kochutensilien! Kein Verkauf durch Orga.</li> <li><strong>Werkzeug:</strong> Bring Basis-Werkzeug & Ersatzschlauch mit. Hilfe zur Selbsthilfe.</li> <li><strong>Sauberkeit:</strong> Halte alles sauber, nutze Mülleimer, trenne Müll. "Leave No Trace"!</li> <li><strong>Wetter:</strong> April = Alles möglich! Packe für Sonne, Regen & Kälte.</li> <li><strong>Gemeinschaft:</strong> Sei offen, hilfsbereit, bring dich ein!</li> <li><strong>Check-in:</strong> Melde dich bei Ankunft am Info-Punkt.</li> </ul> </div> </details>
-            </div>
-        </section>
+         <section id="wichtige-hinweise">
+             <h2>Wichtige Hinweise</h2>
+             <p style="text-align: center; margin-top: -15px; margin-bottom: 20px;">Bitte aufklappen und lesen!</p>
+             <div class="info-container">
+                 <details> <summary><i class="fas fa-shield-alt"></i> Sicherheit geht vor!</summary> <div class="details-content"> <ul> <li><strong>Helmpflicht:</strong> ABSOLUTE PFLICHT bei allen Fahraktivitäten! Keine Ausnahmen!</li> <li><strong>Schutzausrüstung:</strong> Knie-/Ellbogenschoner & Handschuhe dringend empfohlen (MUNI/Trial).</li> <li><strong>Fahrweise:</strong> Fahre stets im Rahmen deiner Fähigkeiten und nimm Rücksicht auf andere und die Natur.</li> <li><strong>Anweisungen:</strong> Beachte Hinweise von Orga & Guides. Halte dich an Camp-Regeln (z.B. Nachtruhe).</li> </ul> </div> </details>
+                 <details> <summary><i class="fas fa-exclamation-triangle"></i> Organisation & Co.</summary> <div class="details-content"> <ul> <li><strong>Selbstverpflegung:</strong> Plane Essen & Kochutensilien! Kein Verkauf durch Orga.</li> <li><strong>Werkzeug:</strong> Bring Basis-Werkzeug & Ersatzschlauch mit. Hilfe zur Selbsthilfe.</li> <li><strong>Sauberkeit:</strong> Halte alles sauber, nutze Mülleimer, trenne Müll. "Leave No Trace"!</li> <li><strong>Wetter:</strong> April = Alles möglich! Packe für Sonne, Regen & Kälte.</li> <li><strong>Gemeinschaft:</strong> Sei offen, hilfsbereit, bring dich ein!</li> <li><strong>Check-in:</strong> Melde dich bei Ankunft am Info-Punkt.</li> </ul> </div> </details>
+             </div>
+         </section>
 
-        <section id="event-impressionen">
-            <h2>Einblicke & Atmosphäre</h2>
-            <div class="impressionen-grid">
-                <!-- Bestehende Kachel: Muni -->
-                <div class="impressionen-card">
-                    <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" target="_blank" class="image-link" title="Muni Impression (vergrößern)">
-                        <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" alt="Einrad im Wald" class="card-image">
-                    </a>
-                    <div class="card-content">
-                        <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.png" alt="Muni Logo" class="logo-image">
-                        <h3>Mountain Unicycling (Muni)</h3>
-                        <p>Erkunde die wunderschönen Trails rund um den Hengsteysee. Für alle Könnensstufen ist etwas dabei – perfekt zum Üben und gemeinsamen Lernen.</p>
-                    </div>
-                </div>
+         <section id="event-impressionen">
+             <h2>Einblicke & Atmosphäre</h2>
+             <div class="impressionen-grid">
+                 <!-- Bestehende Kachel: Muni -->
+                 <div class="impressionen-card">
+                     <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" target="_blank" class="image-link" title="Muni Impression (vergrößern)">
+                         <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" alt="Einrad im Wald" class="card-image">
+                     </a>
+                     <div class="card-content">
+                         <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.png" alt="Muni Logo" class="logo-image">
+                         <h3>Mountain Unicycling (Muni)</h3>
+                         <p>Erkunde die wunderschönen Trails rund um den Hengsteysee. Für alle Könnensstufen ist etwas dabei – perfekt zum Üben und gemeinsamen Lernen.</p>
+                     </div>
+                 </div>
 
-                <!-- KOMBINIERTE KACHEL: Trial stuff (vormals Trial + Trial-Ausstattung) -->
-                <div class="impressionen-card">
-                    <a href="javascript:openGallery('trial-gallery')" class="image-link" title="Trial Ansehen">
-                        <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff3.jpg" alt="Trial-Ausstattung" class="card-image">
-                    </a>
-                    <div class="card-content">
-                        <h3>Trial stuff</h3>
-                        <p>Zeige deine Geschicklichkeit! Unsere vielfältigen Trial-Aufbauten und Hindernisse im Camp und im nahen Steinbruch garantieren Spaß und Herausforderung für jedes Können.</p>
+                 <!-- KOMBINIERTE KACHEL: Trial stuff (vormals Trial + Trial-Ausstattung) -->
+                 <div class="impressionen-card">
+                     <a href="javascript:openGallery('trial-gallery')" class="image-link" title="Trial Ansehen">
+                         <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff3.jpg" alt="Trial-Ausstattung" class="card-image">
+                     </a>
+                     <div class="card-content">
+                         <h3>Trial stuff</h3>
+                         <p>Zeige deine Geschicklichkeit! Unsere vielfältigen Trial-Aufbauten und Hindernisse im Camp und im nahen Steinbruch garantieren Spaß und Herausforderung für jedes Können.</p>
 
-                        <div class="gallery-preview">
-                            <a href="javascript:openGallery('trial-gallery', 0)">
-                                <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff.jpg" alt="Trial Aufbau 1">
-                            </a>
-                            <a href="javascript:openGallery('trial-gallery', 1)">
-                                <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff2.jpg" alt="Trial Aufbau 2">
-                                <span class="more-photos">+3</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                         <div class="gallery-preview">
+                             <a href="javascript:openGallery('trial-gallery', 0)">
+                                 <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff.jpg" alt="Trial Aufbau 1">
+                             </a>
+                             <a href="javascript:openGallery('trial-gallery', 1)">
+                                 <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff2.jpg" alt="Trial Aufbau 2">
+                                 <span class="more-photos">+3</span>
+                             </a>
+                         </div>
+                     </div>
+                 </div>
 
-                <!-- Bestehende Kachel: Camp-Leben -->
-                <div class="impressionen-card">
-                    <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" target="_blank" class="image-link" title="Camp Impression (vergrößern)">
-                        <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" alt="Zelte" class="card-image">
-                    </a>
-                    <div class="card-content">
-                        <h3>Das Camp-Leben</h3>
-                        <p>Unsere Basis: Die "Touristenplätze" auf dem Campingplatz (<a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" target="_blank" title="Detailansicht (vergrößern)">siehe Detail <i class="fas fa-external-link-alt small-icon"></i></a>). Hier schlagen wir unsere Zelte auf, kochen gemeinsam und genießen die Abende.</p>
-                    </div>
-                </div>
+                 <!-- Bestehende Kachel: Camp-Leben -->
+                 <div class="impressionen-card">
+                     <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" target="_blank" class="image-link" title="Camp Impression (vergrößern)">
+                         <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" alt="Zelte" class="card-image">
+                     </a>
+                     <div class="card-content">
+                         <h3>Das Camp-Leben</h3>
+                         <p>Unsere Basis: Die "Touristenplätze" auf dem Campingplatz (<a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" target="_blank" title="Detailansicht (vergrößern)">siehe Detail <i class="fas fa-external-link-alt small-icon"></i></a>). Hier schlagen wir unsere Zelte auf, kochen gemeinsam und genießen die Abende.</p>
+                     </div>
+                 </div>
 
-                <!-- Bestehende Kachel: Gemeinschaft & Spaß -->
-                <div class="impressionen-card">
-                    <div class="card-content">
-                        <h3>Gemeinschaft & Spaß</h3>
-                        <p>Das GMTW lebt vom Miteinander! Egal ob Anfänger oder Profi, hier sind alle willkommen. Lerne neue Leute kennen, tausche dich aus und hab Spaß.</p>
-                        <div class="mascot-container">
-                            <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/waschbär_einrad.png" target="_blank" title="GMTW Waschbär (vergrößern)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Waschbär.png" alt="Waschbär"></a>
-                            <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Fuchs_einrad.png" target="_blank" title="GMTW Fuchs (vergrößern)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Fuchs.png" alt="Fuchs"></a>
-                        </div>
-                    </div>
-                </div>
+                 <!-- Bestehende Kachel: Gemeinschaft & Spaß -->
+                 <div class="impressionen-card">
+                     <div class="card-content">
+                         <h3>Gemeinschaft & Spaß</h3>
+                         <p>Das GMTW lebt vom Miteinander! Egal ob Anfänger oder Profi, hier sind alle willkommen. Lerne neue Leute kennen, tausche dich aus und hab Spaß.</p>
+                         <div class="mascot-container">
+                             <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/waschbär_einrad.png" target="_blank" title="GMTW Waschbär (vergrößern)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Waschbär.png" alt="Waschbär"></a>
+                             <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Fuchs_einrad.png" target="_blank" title="GMTW Fuchs (vergrößern)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Fuchs.png" alt="Fuchs"></a>
+                         </div>
+                     </div>
+                 </div>
 
-                <!-- Geländebilder Galerie -->
-                <div class="impressionen-card">
-                    <a href="javascript:openGallery('location-gallery')" class="image-link" title="Geländebilder ansehen">
-                        <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Im_Wald.jpg" alt="Geländebilder" class="card-image">
-                    </a>
-                    <div class="card-content">
-                        <h3>Unsere Geländeansichten</h3>
-                        <p>Entdecke das herrliche Gelände, in dem wir unser diesjähriges GMTW veranstalten. Perfekte Bedingungen für Muni & Trial!</p>
+                 <!-- Geländebilder Galerie -->
+                 <div class="impressionen-card">
+                     <a href="javascript:openGallery('location-gallery')" class="image-link" title="Geländebilder ansehen">
+                         <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Im_Wald.jpg" alt="Geländebilder" class="card-image">
+                     </a>
+                     <div class="card-content">
+                         <h3>Unsere Geländeansichten</h3>
+                         <p>Entdecke das herrliche Gelände, in dem wir unser diesjähriges GMTW veranstalten. Perfekte Bedingungen für Muni & Trial!</p>
 
-                        <div class="gallery-preview">
-                            <a href="javascript:openGallery('location-gallery', 0)">
-                                <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Gelaendesicht.jpg" alt="Geländeansicht">
-                            </a>
-                            <a href="javascript:openGallery('location-gallery', 1)">
-                                <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Im_Wald.jpg" alt="Im Wald">
-                                <span class="more-photos">+2</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                         <div class="gallery-preview">
+                             <a href="javascript:openGallery('location-gallery', 0)">
+                                 <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Gelaendesicht.jpg" alt="Geländeansicht">
+                             </a>
+                             <a href="javascript:openGallery('location-gallery', 1)">
+                                 <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Im_Wald.jpg" alt="Im Wald">
+                                 <span class="more-photos">+2</span>
+                             </a>
+                         </div>
+                     </div>
+                 </div>
 
-                <!-- T-Shirt Galerie mit aktualisiertem Hauptbild -->
-                <div class="impressionen-card">
-                    <a href="javascript:openGallery('tshirt-gallery')" class="image-link" title="Event T-Shirts ansehen">
-                        <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude_left.jpg" alt="Event T-Shirts" class="card-image">
-                    </a>
-                    <div class="card-content">
-                        <h3>GMTW 2025 T-Shirts</h3>
-                        <p>Sichere dir ein Erinnerungsstück! Unsere Event-Shirts sind bis zum 01.04.2025 bestellbar. Verschiedene Ausführungen und Größen verfügbar.</p>
+                 <!-- T-Shirt Galerie mit aktualisiertem Hauptbild -->
+                 <div class="impressionen-card">
+                     <a href="javascript:openGallery('tshirt-gallery')" class="image-link" title="Event T-Shirts ansehen">
+                         <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude_left.jpg" alt="Event T-Shirts" class="card-image">
+                     </a>
+                     <div class="card-content">
+                         <h3>GMTW 2025 T-Shirts</h3>
+                         <p>Sichere dir ein Erinnerungsstück! Unsere Event-Shirts sind bis zum 01.04.2025 bestellbar. Verschiedene Ausführungen und Größen verfügbar.</p>
 
-                        <div class="gallery-preview">
-                            <a href="javascript:openGallery('tshirt-gallery', 3)">
-                                <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude_left.jpg" alt="T-Shirt Seitenansicht">
-                            </a>
-                            <a href="javascript:openGallery('tshirt-gallery', 0)">
-                                <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front1.jpg" alt="T-Shirt Vorderseite">
-                                <span class="more-photos">+3</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                         <div class="gallery-preview">
+                             <a href="javascript:openGallery('tshirt-gallery', 3)">
+                                 <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude_left.jpg" alt="T-Shirt Seitenansicht">
+                             </a>
+                             <a href="javascript:openGallery('tshirt-gallery', 0)">
+                                 <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front1.jpg" alt="T-Shirt Vorderseite">
+                                 <span class="more-photos">+3</span>
+                             </a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </section>
 
-        <section id="packliste-checklist">
-            <h2>
-                <span>
-                    <!-- Icon wird durch JS ersetzt oder bleibt als Fallback -->
-                    <i class="fas fa-clipboard-list" style="color: var(--accent-color);" id="checklist-title-icon-placeholder"></i>
-                    Deine Pack-Checkliste
-                </span>
-                <button id="pdf-download-button" class="button button-secondary" disabled>
-                    <i class="fas fa-spinner fa-spin"></i> Lade PDF Lib...
-                </button>
-            </h2>
-            <p style="text-align: center; margin-top: -15px;">Kategorie anklicken zum Ausklappen, dann Items abhaken. Dein Fortschritt wird gespeichert.</p>
-            <div class="checklist-status">
-                <div id="checklist-progress-bar-container"><div id="checklist-progress-bar"></div></div>
-                <span id="checklist-progress-text">0 von X gepackt</span>
-            </div>
-            <div id="checklist-categories-container">
-                <!-- Inhalt per JS -->
-            </div>
+         <section id="packliste-checklist">
+             <h2>
+                 <span>
+                     <!-- Icon wird durch JS ersetzt oder bleibt als Fallback -->
+                     <i class="fas fa-clipboard-list" style="color: var(--accent-color);" id="checklist-title-icon-placeholder"></i>
+                     Deine Pack-Checkliste
+                 </span>
+                 <button id="pdf-download-button" class="button button-secondary" disabled>
+                     <i class="fas fa-spinner fa-spin"></i> Lade PDF Lib...
+                 </button>
+             </h2>
+             <p style="text-align: center; margin-top: -15px;">Kategorie anklicken zum Ausklappen, dann Items abhaken. Dein Fortschritt wird gespeichert.</p>
+             <div class="checklist-status">
+                 <div id="checklist-progress-bar-container"><div id="checklist-progress-bar"></div></div>
+                 <span id="checklist-progress-text">0 von X gepackt</span>
+             </div>
+             <div id="checklist-categories-container">
+                 <!-- Inhalt per JS -->
+             </div>
 
-            <!-- ======================= -->
-            <!-- NEUER BUTTON HIER       -->
-            <!-- ======================= -->
-            <div style="text-align: center; margin-top: 20px;">
-                <button id="game-button" class="button button-secondary" style="display: none;"> <!-- Initial versteckt -->
-                    <i class="fas fa-gamepad"></i> Einradspiel Laden
-                </button>
-            </div>
-            <!-- ======================= -->
-            <!-- ENDE NEUER BUTTON     -->
-            <!-- ======================= -->
+             <div style="text-align: center; margin-top: 20px;">
+                 <button id="game-button" class="button button-secondary" style="display: none;"> <!-- Initial versteckt -->
+                     <i class="fas fa-gamepad"></i> Einradspiel Laden
+                 </button>
+             </div>
+         </section>
 
-        </section>
+         <div id="gallery-overlay" class="gallery-overlay">
+         <div id="gallery-close" class="gallery-close"><i class="fas fa-times"></i></div>
+         <div class="gallery-container">
+             <img id="gallery-current-image" class="gallery-image" src="" alt="Galeriebild">
+             <div id="gallery-prev" class="gallery-nav gallery-prev"><i class="fas fa-chevron-left"></i></div>
+             <div id="gallery-next" class="gallery-nav gallery-next"><i class="fas fa-chevron-right"></i></div>
+         </div>
+         <div id="gallery-counter" class="gallery-counter">Bild 1 von 5</div>
+         <div id="gallery-thumbs" class="gallery-thumbs">
+             <!-- Thumbnails werden per JS eingefügt -->
+         </div>
+     </div>
 
-        <div id="gallery-overlay" class="gallery-overlay">
-        <div id="gallery-close" class="gallery-close"><i class="fas fa-times"></i></div>
-        <div class="gallery-container">
-            <img id="gallery-current-image" class="gallery-image" src="" alt="Galeriebild">
-            <div id="gallery-prev" class="gallery-nav gallery-prev"><i class="fas fa-chevron-left"></i></div>
-            <div id="gallery-next" class="gallery-nav gallery-next"><i class="fas fa-chevron-right"></i></div>
-        </div>
-        <div id="gallery-counter" class="gallery-counter">Bild 1 von 5</div>
-        <div id="gallery-thumbs" class="gallery-thumbs">
-            <!-- Thumbnails werden per JS eingefügt -->
-        </div>
-    </div>
+     </div> <!-- Ende .container -->
 
-    </div> <!-- Ende .container -->
+     <footer>
+         <p>© 2024 GMTW Orga-Team | Dein Einrad-Abenteuer am Hengsteysee</p>
+     </footer>
 
-    <footer>
-        <p>© 2024 GMTW Orga-Team | Dein Einrad-Abenteuer am Hengsteysee</p>
-    </footer>
+     <script>
+         // WICHTIG: Globale Definitionen für die Galerie vor DOMContentLoaded
+         // Gallerie-Definitionen
+         const galleries = {
+             'location-gallery': [
+                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Gelaendesicht.jpg', alt: 'Geländeansicht' },
+                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Im_Wald.jpg', alt: 'Im Wald' },
+                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Kueche.jpg', alt: 'Küche' },
+                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial%2BZeltplatz.jpg', alt: 'Trial und Zeltplatz' }
+             ],
+             'trial-gallery': [
+                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff.jpg', alt: 'Trial Ausstattung 1' },
+                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff2.jpg', alt: 'Trial Ausstattung 2' },
+                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff3.jpg', alt: 'Trial Ausstattung 3' },
+                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff4.jpg', alt: 'Trial Ausstattung 4' },
+                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trialbaum.jpg', alt: 'Trialbaum' }
+             ],
+             'tshirt-gallery': [
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front1.jpg', alt: 'T-Shirt Vorderseite 1' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front.jpg', alt: 'T-Shirt Person Vorderansicht' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front1.jpg', alt: 'T-Shirt Person Vorderansicht 2' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude_left.jpg', alt: 'T-Shirt Person Seitenansicht' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front2.jpg', alt: 'T-Shirt Vorderseite 2' }
+             ]
+         };
 
-    <script>
-        // WICHTIG: Globale Definitionen für die Galerie vor DOMContentLoaded
-        // Gallerie-Definitionen
-        const galleries = {
-            'location-gallery': [
-                { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Gelaendesicht.jpg', alt: 'Geländeansicht' },
-                { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Im_Wald.jpg', alt: 'Im Wald' },
-                { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Kueche.jpg', alt: 'Küche' },
-                { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial%2BZeltplatz.jpg', alt: 'Trial und Zeltplatz' }
-            ],
-            'trial-gallery': [
-                { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff.jpg', alt: 'Trial Ausstattung 1' },
-                { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff2.jpg', alt: 'Trial Ausstattung 2' },
-                { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff3.jpg', alt: 'Trial Ausstattung 3' },
-                { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff4.jpg', alt: 'Trial Ausstattung 4' },
-                { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trialbaum.jpg', alt: 'Trialbaum' }
-            ],
-            'tshirt-gallery': [
-                { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front1.jpg', alt: 'T-Shirt Vorderseite 1' },
-                { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front.jpg', alt: 'T-Shirt Person Vorderansicht' },
-                { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front1.jpg', alt: 'T-Shirt Person Vorderansicht 2' },
-                { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude_left.jpg', alt: 'T-Shirt Person Seitenansicht' },
-                { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front2.jpg', alt: 'T-Shirt Vorderseite 2' }
-            ]
-        };
+         let currentGallery = '';
+         let currentIndex = 0;
 
-        let currentGallery = '';
-        let currentIndex = 0;
+         // Diese Funktionen müssen im globalen Scope sein, damit sie über javascript:Funktionsname() aufgerufen werden können
+         function openGallery(galleryId, startIndex = 0) {
+             const overlay = document.getElementById('gallery-overlay');
+             const currentImage = document.getElementById('gallery-current-image');
+             const counter = document.getElementById('gallery-counter');
+             const thumbsContainer = document.getElementById('gallery-thumbs');
 
-        // Diese Funktionen müssen im globalen Scope sein, damit sie über javascript:Funktionsname() aufgerufen werden können
-        function openGallery(galleryId, startIndex = 0) {
-            const overlay = document.getElementById('gallery-overlay');
-            const currentImage = document.getElementById('gallery-current-image');
-            const counter = document.getElementById('gallery-counter');
-            const thumbsContainer = document.getElementById('gallery-thumbs');
+             if (!galleries[galleryId]) return;
 
-            if (!galleries[galleryId]) return;
+             currentGallery = galleryId;
+             currentIndex = startIndex;
 
-            currentGallery = galleryId;
-            currentIndex = startIndex;
+             if (currentImage) {
+                 currentImage.src = galleries[galleryId][startIndex].src;
+                 currentImage.alt = galleries[galleryId][startIndex].alt;
+             }
 
-            if (currentImage) {
-                currentImage.src = galleries[galleryId][startIndex].src;
-                currentImage.alt = galleries[galleryId][startIndex].alt;
-            }
+             if (counter) {
+                 counter.textContent = `Bild ${startIndex + 1} von ${galleries[galleryId].length}`;
+             }
 
-            if (counter) {
-                counter.textContent = `Bild ${startIndex + 1} von ${galleries[galleryId].length}`;
-            }
+             if (thumbsContainer) {
+                 thumbsContainer.innerHTML = '';
+                 galleries[galleryId].forEach((img, idx) => {
+                     const thumb = document.createElement('img');
+                     thumb.src = img.src;
+                     thumb.alt = `Thumbnail ${idx + 1}`;
+                     thumb.classList.add('gallery-thumb');
+                     if (idx === startIndex) thumb.classList.add('active');
 
-            if (thumbsContainer) {
-                thumbsContainer.innerHTML = '';
-                galleries[galleryId].forEach((img, idx) => {
-                    const thumb = document.createElement('img');
-                    thumb.src = img.src;
-                    thumb.alt = `Thumbnail ${idx + 1}`;
-                    thumb.classList.add('gallery-thumb');
-                    if (idx === startIndex) thumb.classList.add('active');
-
-                    thumb.addEventListener('click', function() {
-                        currentIndex = idx;
-                        updateGalleryView();
-                    });
-
-                    thumbsContainer.appendChild(thumb);
-                });
-            }
-
-            if (overlay) overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeGallery() {
-            const overlay = document.getElementById('gallery-overlay');
-            if (overlay) overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function prevImage() {
-            if (!currentGallery || !galleries[currentGallery]) return;
-            currentIndex--;
-            if (currentIndex < 0) currentIndex = galleries[currentGallery].length - 1;
-            updateGalleryView();
-        }
-
-        function nextImage() {
-            if (!currentGallery || !galleries[currentGallery]) return;
-            currentIndex++;
-            if (currentIndex >= galleries[currentGallery].length) currentIndex = 0;
-            updateGalleryView();
-        }
-
-        function updateGalleryView() {
-            if (!currentGallery || !galleries[currentGallery]) return;
-
-            const currentImage = document.getElementById('gallery-current-image');
-            const counter = document.getElementById('gallery-counter');
-            const thumbs = document.querySelectorAll('.gallery-thumb');
-
-            if (currentImage) {
-                currentImage.src = galleries[currentGallery][currentIndex].src;
-                currentImage.alt = galleries[currentGallery][currentIndex].alt;
-            }
-
-            if (counter) {
-                counter.textContent = `Bild ${currentIndex + 1} von ${galleries[currentGallery].length}`;
-            }
-
-            if (thumbs) {
-                thumbs.forEach((thumb, idx) => {
-                    thumb.classList.toggle('active', idx === currentIndex);
-                });
-            }
-        }
-
-        function initGalleries() {
-            const overlay = document.getElementById('gallery-overlay');
-            const closeBtn = document.getElementById('gallery-close');
-            const prevBtn = document.getElementById('gallery-prev');
-            const nextBtn = document.getElementById('gallery-next');
-
-            if (closeBtn) closeBtn.addEventListener('click', closeGallery);
-            if (prevBtn) prevBtn.addEventListener('click', prevImage);
-            if (nextBtn) nextBtn.addEventListener('click', nextImage);
-
-            document.addEventListener('keydown', function(e) {
-                if (!overlay || !overlay.classList.contains('active')) return;
-
-                if (e.key === 'Escape') closeGallery();
-                if (e.key === 'ArrowLeft') prevImage();
-                if (e.key === 'ArrowRight') nextImage();
-            });
-        }
-
-        // Konstanten und Variablen globaler machen für einfachen Zugriff
-        const { jsPDF } = window.jspdf;
-        let lastUnicyclistPosPercent = 0;
-        let isJsPDFReady = false;
-        let checklistDB;
-        let totalItems = 0;
-        let dayMarkers = [];
-        let currentDayIndex = -1;
-        let animationTimeout;
-        const unicycleImgRight = "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/waschbär_einrad.png";
-        const unicycleImgLeft = "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Waschbär_einrad_L.png";
-
-        // Datenobjekte für Zeitplan und Packliste
-        const daysData = [ { day: 'Do', name: 'Donnerstag, 17. April', title: 'Ankunft & Erste Trails', highlights: ['Ankunft & Camp Aufbau', 'Willkommens-Briefing', 'Erste Workshops & Lagerfeuer'], schedule: [ { time: '14:00 - 17:00', icon: 'fa-campground', title: 'Anreise & Dein Platz im Camp', content: `<ul><li><strong>Check-in:</strong> Info-Punkt (Bändchen & Infos).</li><li><strong>Platzwahl:</strong> Bei Registration selbst zuweisen.</li><li><strong>Camp aufbauen:</strong> Zelt aufschlagen, einrichten, Leute treffen.</li></ul>`, highlight: false }, { time: '17:00 - 18:00', icon: 'fa-bullhorn', title: 'Offizieller Startschuss – Willkommens-Kreis & Briefing', content: `<ul><li>Offizielle Begrüßung.</li><li>Programmübersicht, Highlights.</li><li>Wichtige Sicherheitshinweise (Helmpflicht!), Camp-Regeln.</li><li>Infrastruktur-Infos (WC, Duschen...), Notfallplan, Fragen.</li></ul>`, highlight: true }, { time: '18:00 - 19:00', icon: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.png', isImageIcon: true, title: 'Erste Fahr-Action – Spaß-Workshops & Freies Fahren', content: `<p><strong>Workshop 1 „Sicher im Gelände":</strong> Für MUNI-Einsteiger (Balance, kleine Hindernisse...).</p><p><strong>Workshop 2 „Hopfen & Malz" (Hopp & Drop):</strong> Für erste Sprünge & Kanten.</p><p><strong>Freies Fahren:</strong> Übungsgelände nutzen.</p>`, highlight: true }, { time: 'Ab 19:00', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung!)', content: `<p>Campingkocher raus! Eigenes Essen, Geschirr etc. mitbringen. Kocht/esst gemeinsam.</p>`, highlight: false }, { time: 'Ab 20:30', icon: 'fa-fire', title: 'Lagerfeuer-Magie – Der erste Abend', content: `<p>Gemütlicher Ausklang am zentralen Lagerfeuer (wetterabhängig). Kennenlernen, Austausch.</p>`, highlight: true } ] }, { day: 'Fr', name: 'Freitag, 18. April', title: 'MUNI-Touren & Technik-Feinschliff', highlights: ['MUNI-Touren starten', 'Technik-Workshops im Camp', 'Trial-Park Aufbau'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück & Startklar (Selbstversorgung)', content: `<p>Energie für den Tag.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-running', title: 'Morgenspiel „Schwänzchen Fangen"', content: `<p>Spielerisches Warm-Up auf abgesteckter Fläche.</p>`, highlight: false }, { time: '09:45 - 10:15', icon: 'fa-users', title: 'MUNI-Touren-Treffpunkt & Gruppeneinteilung', content: `<p>Vorstellung der Touren (Level, Länge...). Gruppenfindung nach Können/Wunsch.</p>`, highlight: true }, { time: 'Ab 10:15', icon: 'fa-mountain', title: 'Start der MUNI-Touren', content: `<p>Abenteuer rund um den Hengsteysee. Rückkehr meist zur Mittagszeit (ca. 13:00).</p>`, highlight: true }, { time: '10:15 - 16:00', icon: 'fa-cogs', title: 'Workshops & Freies Training im Camp (Parallel)', content: `<p><strong>Balance ist alles:</strong> Fahrtechnik im Gelände.</p><p><strong>Werkstatt:</strong> Reifen, Bremsen, Pflege.</p><p><strong>Sprungtechniken F.:</strong> Höher, weiter, präziser.</p>`, highlight: true }, { time: 'Ab 15:00', icon: 'fa-tools', title: 'Aufbau Trial-Park (Teil 1)', content: `<p>Gemeinsam Sektionen bauen (Paletten etc.). Helfer willkommen!</p>`, highlight: true }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Abendessen (Selbstversorgung) & Ausklang', content: `<p>Kochen, essen, Erlebnisse teilen.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-fire', title: 'Lagerfeuer & Fachsimpeln', content: `<p>Tag Revue passieren lassen.</p>`, highlight: false } ] }, { day: 'Sa', name: 'Samstag, 19. April', title: 'Trial-Tag: Geschicklichkeit & Balance', highlights: ['Trial-Challenge (2 Wellen)', 'Freies Trial-Fahren & Spot-Workshops', 'Gemeinsames Bauen'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück (Selbstversorgung)', content: `<p>Power für den Parcours!</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-puzzle-piece', title: 'Morgenspiel „Mini-Fun-Parcours"', content: `<p>Warm-Up für Koordination & Balance.</p>`, highlight: false }, { time: '09:30 - 10:30', icon: 'fa-check-double', title: 'Finale Vorbereitungen Trial-Park & Safety Check', content: `<p>Gemeinsam fertigstellen. Sicherheitscheck durch Orga/Erfahrene.</p>`, highlight: true }, { time: '10:30 - 11:00', icon: 'fa-shoe-prints', title: 'Warm-Up im Trial-Park', content: `<p>Sektionen checken, Linien testen, kennenlernen.</p>`, highlight: false }, { time: '11:30 - 12:00', icon: 'fa-stopwatch', title: 'Trial-Challenge – Welle 1 (Freiwillig)', content: `<p>30 Min. Spaß-Durchlauf (Easy/Med/Hard). Möglichst viele Lines schaffen. Helfer zum Schiedsen willkommen!</p><p><em>Nur 1 Teilnahme (Welle 1 ODER 2).</em></p>`, highlight: true }, { time: '12:00 - 13:00', icon: 'fa-pause-circle', title: 'Mittagspause & Energietanken', content: `<p>Stärkung (Selbstvers.) & Austausch.</p>`, highlight: false }, { time: '13:00 - 13:30', icon: 'fa-stopwatch', title: 'Trial-Challenge – Welle 2 (Freiwillig)', content: `<p>Gleicher Ablauf wie Welle 1. Helfer willkommen!</p>`, highlight: true }, { time: '13:30 - 16:30', icon: 'fa-cubes', title: 'Freies Trial-Fahren & Spot-Workshops', content: `<p>Park offen für alle! Spontane Mini-Workshops an Sektionen (Sprünge, Balance, Drops).</p>`, highlight: true }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung)', content: `<p>Trial-Helden-Dinner: Erfolge feiern.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-fire', title: 'Lagerfeuer & Geschichten', content: `<p>Gemütlicher Ausklang.</p>`, highlight: false } ] }, { day: 'So', name: 'Sonntag, 20. April', title: 'Großer MUNI-Tag & Downhill-Spaß', highlights: ['Gemeinsamer MUNI-Start', 'MUNI-Spezialabfahrt (Downhill)', 'Großer Abschlussabend'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück (Selbstversorgung)', content: `<p>Basis für den Berg! Snack einpacken.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-train', title: 'Morgenspiel „Einrad-Polonaise"', content: `<p>Gemeinsam hintereinander fahren, Aufgaben lösen.</p>`, highlight: false }, { time: '09:45 - 10:15', icon: 'fa-map-signs', title: 'MUNI-Treffpunkt & Tagesplanung', content: `<p>Routen-Vorstellung (evtl. länger/technischer). Gruppenfindung.</p>`, highlight: true }, { time: '10:15', icon: 'fa-users-cog', title: 'MUNI-Play – Der gemeinsame Start', content: `<p>Alle Gruppen starten gemeinsam/kurz nacheinander.</p>`, highlight: true }, { time: '11:30', icon: 'fa-angle-double-down', title: 'MUNI-Spezialabfahrt (Downhill)', content: `<p>Jeder fährt Strecke einzeln (1 Min. Abstand). Anfeuern!</p>`, highlight: true }, { time: '13:00 - 13:30', icon: 'fa-apple-alt', title: 'Mittagspause (im Grünen/Camp)', content: `<p>Picknick (selbstvers.) oder im Camp.</p>`, highlight: false }, { time: '14:00', icon: 'fa-redo-alt', title: 'Weitere Abfahrten (Downhill)', content: `<p>Fortsetzung bis alle durch sind.</p>`, highlight: true }, { time: '16:30', icon: 'fa-directions', title: 'Freie Sessions & Trails', content: `<ul><li>Weitere Trails mit Gruppe.</li><li>Downhill weiter?</li><li>Bekannte Trails auf eigene Faust (Absprache!).</li></ul>`, highlight: false }, { time: '18:30', icon: 'fa-shower', title: 'Ausrollen & Entspannen im Camp', content: `<p>Lockeres Fahren, Materialpflege, Duschen.</p>`, highlight: false }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung)', content: `<p>Letzte gemeinsame Camp-Mahlzeit.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-glass-cheers', title: 'Großer Abschlussabend am Lagerfeuer', content: `<p>GMTW ausklingen lassen! Momente teilen, Geschichten erzählen.</p>`, highlight: true } ] }, { day: 'Mo', name: 'Montag, 21. April', title: 'Spiele, Ehrungen & Abschied', highlights: ['Morgenspiel: Langsamfahren & Kreisel', 'Gemeinsames Aufräumen & Abbau', 'Abschlusskreis & Ehrungen'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-box-open', title: 'Gemütliches Frühstück & Pack-Start (Selbst.)', content: `<p>Letzte gemeinsame Mahlzeit, langsam packen beginnen.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-gamepad', title: 'Gemeinsames Morgenspiel für ALLE', content: `<p><strong>"Langsamfahr-Rennen & Kreisel-Spaß":</strong> Wer fährt am langsamsten? Wer dreht sich am längsten?</p>`, highlight: true }, { time: '09:30 - 10:30', icon: 'fa-broom', title: 'Gemeinsames Aufräumen & Abbau', content: `<p><strong>Teamwork: Alle packen mit an!</strong> Trial-Park abbauen, Müll sammeln, Platz sauber hinterlassen (Leave No Trace).</p>`, highlight: true }, { time: '10:30 - 11:30', icon: 'fa-trophy', title: 'Spaß-Olympiade & Kleine Einrad-Spiele', content: `<p>Lockerer Ausklang mit Spiel-Stationen (Einrad-Limbo, Parcours, Pendel-Challenge etc.). Spaß im Vordergrund.</p>`, highlight: false }, { time: '11:30 - 12:00', icon: 'fa-users', title: 'Abschlusskreis & Ehrungen "Helden des WE"', content: `<p>Letztes Mal zusammen. Dank an Helfer/Teilnehmer. Kleine, humorvolle Anerkennungen (jüngste/r, Kampfgeist etc.).</p>`, highlight: true }, { time: '12:00 - 14:00', icon: 'fa-car-side', title: 'Letztes Packen & individuelle Abreise', content: `<p>Abschied von Freunden, Kontakte tauschen, letzte Sachen verladen.</p>`, highlight: false }, { time: 'Ab 14:00', icon: 'fa-door-open', title: 'Offizielles Ende des GMTW 2025', content: `<p>Bis zum nächsten Mal!</p>`, highlight: false } ] } ];
-        const packlistData = { "Einrad & Schutz": { icon: "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.png", isImage: true, items: ["Dein/e Einrad/räder (MUNI, Trial – gut gewartet!)", "Helm (ABSOLUTE PFLICHT!)", "Knieschoner (dringend empfohlen)", "Ellbogenschoner (empfohlen)", "Fahrradhandschuhe (Langfinger empfohlen)", "Feste Schuhe (gute Sohle!)", "Kleiner Touren-Rucksack", "Trinkflasche(n) / Trinkblase"] }, "Werkzeug & Ersatzteile": { icon: "fa-tools", items: ["Passende Inbusschlüssel", "Reifenheber", "Luftpumpe", "Flickzeug", "Ersatzschlauch(schläuche)", "Optional: Multitool", "Optional: Kettenöl", "Optional: Mini-Erste-Hilfe"] }, "Campingausrüstung": { icon: "fa-campground", items: ["Zelt (wetterfest!)", "Schlafsack (April-tauglich!)", "Isomatte / Luftmatratze", "Stirn-/Taschenlampe (+ Batterien)", "Campingstuhl (sehr gemütlich!)", "Kulturbeutel & Hygieneartikel"] }, "Kleidung": { icon: "fa-tshirt", items: ["Funktionelle Sportkleidung (mehrere Sets)", "Regenjacke (wasserdicht!)", "Regenhose", "Winddichte Jacke/Weste", "Warme Kleidung (Abend/Nacht)", "Ausreichend Socken", "Unterwäsche", "Bequeme Camp-Kleidung", "Badesachen (Dusche)"] }, "Verpflegung (Selbst!)": { icon: "fa-utensils", items: ["Campingkocher & Brennstoff/Gas", "Topf/Pfanne", "Essgeschirr (Teller, Becher)", "Besteck", "Scharfes Messer", "Schneidebrettchen", "Spülmittel, Schwamm, Tuch", "Müllsäcke", "Lebensmittel für 5 Tage", "Getränke (Grundstock)"] }, "Sonstiges": { icon: "fa-ellipsis-h", items: ["Personalausweis", "Krankenversicherungskarte", "Bargeld", "Handy & Powerbank", "Sonnenschutz (Creme, Brille, Kappe)", "Insektenschutzmittel", "Persönliche Medikamente", "Ohropax", "Spiele für's Camp", "Gute Laune & Offenheit!"] } };
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Galerie gleich initialisieren
-            initGalleries();
-
-            // Element-Referenzen holen
-            const pdfButton = document.getElementById('pdf-download-button');
-            const overviewContainer = document.getElementById('overview-container');
-            const track = document.getElementById('overview-track');
-            const unicyclist = document.getElementById('unicyclist-icon');
-            const highlightsDisplay = document.getElementById('daily-highlights-display');
-            const highlightDay = document.getElementById('highlight-day');
-            const highlightList = document.getElementById('highlight-list');
-            const playButton = document.getElementById('play-animation');
-            const dailyDetailContainer = document.getElementById('daily-detail-content');
-            const checklistContainer = document.getElementById('packliste-checklist'); // Referenz zum Section-Element
-            const checklistCategoriesContainer = document.getElementById('checklist-categories-container');
-            const progressBar = document.getElementById('checklist-progress-bar');
-            const progressText = document.getElementById('checklist-progress-text');
-            const checklistTitleIconPlaceholder = document.getElementById('checklist-title-icon-placeholder');
-            const gameButton = document.getElementById('game-button'); // !!! NEUE Referenz für den Spiel-Button !!!
-
-            isJsPDFReady = typeof jsPDF !== 'undefined'; // Prüfen ob jsPDF geladen ist
-
-            // --- FUNKTIONEN ---
-
-            // PDF Button Zustand setzen
-            function initializePdfButtonState() {
-                if (pdfButton) {
-                    if (isJsPDFReady) {
-                        pdfButton.disabled = false;
-                        pdfButton.innerHTML = '<i class="fas fa-file-pdf"></i> Alle Infos als PDF';
-                        if (!pdfButton.hasAttribute('data-listener-added')) {
-                            pdfButton.addEventListener('click', generateAndDownloadPDF);
-                            pdfButton.setAttribute('data-listener-added', 'true');
-                        }
-                    } else {
-                        pdfButton.disabled = true;
-                        pdfButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Lade PDF Lib...';
-                        // Optional: Timeout oder Interval um erneut zu prüfen
-                    }
-                }
-            }
-
-             // Timeline: Marker für Tage erstellen
-             function createDayMarkers() {
-                 if (!track) return;
-                 const trackWidth = track.offsetWidth;
-                 if (trackWidth === 0) { setTimeout(createDayMarkers, 100); return; } // Warten bis Breite verfügbar
-
-                 track.innerHTML = ''; // Alte Marker entfernen
-                 dayMarkers = []; // Array leeren
-                 daysData.forEach((day, index) => {
-                     const marker = document.createElement('div');
-                     marker.classList.add('day-marker');
-                     marker.dataset.index = index;
-                     marker.textContent = day.day;
-
-                     const tooltip = document.createElement('span');
-                     tooltip.textContent = day.name;
-                     marker.appendChild(tooltip);
-
-                     // Position berechnen (10% bis 90% des Tracks)
-                     const positionPercent = 10 + (daysData.length > 1 ? (index * (80 / (daysData.length - 1))) : 40); // Single day at 50%? Let's keep it centered if only one.
-                     marker.style.left = `${positionPercent}%`;
-
-                     marker.addEventListener('click', () => {
-                         clearTimeout(animationTimeout); // Evtl. laufende Animation stoppen
-                         stopAnimationVisuals();
-                         navigateToDay(index);
+                     thumb.addEventListener('click', function() {
+                         currentIndex = idx;
+                         updateGalleryView();
                      });
-                     track.appendChild(marker);
-                     dayMarkers.push(marker);
+
+                     thumbsContainer.appendChild(thumb);
                  });
              }
 
-             // Timeline: Highlights für einen Tag anzeigen
-             function showHighlights(dayIndex) {
-                if (!highlightDay || !highlightList) return;
-                 if (dayIndex < 0 || dayIndex >= daysData.length) {
-                     // Standardtext anzeigen
-                     highlightDay.textContent = "Tag wählen";
-                     highlightList.innerHTML = '<li>Klicke auf einen Tag oder starte die Animation!</li>';
-                     if (dayMarkers) dayMarkers.forEach(marker => marker.classList.remove('active')); // Alle deselektieren
-                 } else {
-                     const day = daysData[dayIndex];
-                     highlightDay.textContent = `Highlights ${day.name}`;
-                     highlightList.innerHTML = day.highlights.map(item => `<li>${item}</li>`).join('');
-                     if (dayMarkers) dayMarkers.forEach((marker, index) => marker.classList.toggle('active', index === dayIndex)); // Aktiven hervorheben
-                 }
-                 currentDayIndex = dayIndex; // Aktuellen Index speichern
+             if (overlay) overlay.classList.add('active');
+             document.body.style.overflow = 'hidden';
+         }
+
+         function closeGallery() {
+             const overlay = document.getElementById('gallery-overlay');
+             if (overlay) overlay.classList.remove('active');
+             document.body.style.overflow = '';
+         }
+
+         function prevImage() {
+             if (!currentGallery || !galleries[currentGallery]) return;
+             currentIndex--;
+             if (currentIndex < 0) currentIndex = galleries[currentGallery].length - 1;
+             updateGalleryView();
+         }
+
+         function nextImage() {
+             if (!currentGallery || !galleries[currentGallery]) return;
+             currentIndex++;
+             if (currentIndex >= galleries[currentGallery].length) currentIndex = 0;
+             updateGalleryView();
+         }
+
+         function updateGalleryView() {
+             if (!currentGallery || !galleries[currentGallery]) return;
+
+             const currentImage = document.getElementById('gallery-current-image');
+             const counter = document.getElementById('gallery-counter');
+             const thumbs = document.querySelectorAll('.gallery-thumb');
+
+             if (currentImage) {
+                 currentImage.src = galleries[currentGallery][currentIndex].src;
+                 currentImage.alt = galleries[currentGallery][currentIndex].alt;
              }
 
-             // Timeline: Detaillierten Zeitplan für einen Tag anzeigen
-             function displayDayDetails(dayIndex) {
-                 if (!dailyDetailContainer) return;
-                 dailyDetailContainer.innerHTML = ''; // Alten Inhalt leeren
-                 dailyDetailContainer.classList.remove('visible'); // Sichtbarkeit entfernen
+             if (counter) {
+                 counter.textContent = `Bild ${currentIndex + 1} von ${galleries[currentGallery].length}`;
+             }
 
-                 if (dayIndex < 0 || dayIndex >= daysData.length) return; // Nichts anzeigen
+             if (thumbs) {
+                 thumbs.forEach((thumb, idx) => {
+                     thumb.classList.toggle('active', idx === currentIndex);
+                 });
+             }
+         }
 
-                 const day = daysData[dayIndex];
-                 const header = document.createElement('h2');
-                 header.innerHTML = `<i class="fas fa-calendar-day"></i> ${day.name}: ${day.title}`;
-                 dailyDetailContainer.appendChild(header);
+         function initGalleries() {
+             const overlay = document.getElementById('gallery-overlay');
+             const closeBtn = document.getElementById('gallery-close');
+             const prevBtn = document.getElementById('gallery-prev');
+             const nextBtn = document.getElementById('gallery-next');
 
-                 const timelineDiv = document.createElement('div');
-                 timelineDiv.classList.add('timeline');
+             if (closeBtn) closeBtn.addEventListener('click', closeGallery);
+             if (prevBtn) prevBtn.addEventListener('click', prevImage);
+             if (nextBtn) nextBtn.addEventListener('click', nextImage);
 
-                 day.schedule.forEach(item => {
-                     const itemDiv = document.createElement('div');
-                     itemDiv.classList.add('timeline-item');
-                     if (item.highlight) {
-                         itemDiv.classList.add('highlight');
-                     }
+             document.addEventListener('keydown', function(e) {
+                 if (!overlay || !overlay.classList.contains('active')) return;
 
-                     const timeTag = document.createElement('div');
-                     timeTag.classList.add('time-tag');
-                     timeTag.textContent = item.time;
-                     itemDiv.appendChild(timeTag);
+                 if (e.key === 'Escape') closeGallery();
+                 if (e.key === 'ArrowLeft') prevImage();
+                 if (e.key === 'ArrowRight') nextImage();
+             });
+         }
 
-                     const contentTile = document.createElement('div');
-                     contentTile.classList.add('content-tile');
+         // Konstanten und Variablen globaler machen für einfachen Zugriff
+         const { jsPDF } = window.jspdf;
+         let lastUnicyclistPosPercent = 0;
+         let isJsPDFReady = false;
+         let checklistDB;
+         let totalItems = 0;
+         let dayMarkers = [];
+         let currentDayIndex = -1;
+         let animationTimeout;
+         const unicycleImgRight = "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/waschbär_einrad.png";
+         const unicycleImgLeft = "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Waschbär_einrad_L.png";
 
-                     const itemHeader = document.createElement('h3');
-                     if (item.isImageIcon) {
-                         const imgIcon = document.createElement('img');
-                         imgIcon.src = item.icon;
-                         imgIcon.alt = `${item.title} Icon`;
-                         imgIcon.classList.add('timeline-icon-img');
-                         itemHeader.appendChild(imgIcon);
-                         itemHeader.append(` ${item.title}`); // Text nach dem Bild
+         // Datenobjekte für Zeitplan und Packliste
+         const daysData = [ { day: 'Do', name: 'Donnerstag, 17. April', title: 'Ankunft & Erste Trails', highlights: ['Ankunft & Camp Aufbau', 'Willkommens-Briefing', 'Erste Workshops & Lagerfeuer'], schedule: [ { time: '14:00 - 17:00', icon: 'fa-campground', title: 'Anreise & Dein Platz im Camp', content: `<ul><li><strong>Check-in:</strong> Info-Punkt (Bändchen & Infos).</li><li><strong>Platzwahl:</strong> Bei Registration selbst zuweisen.</li><li><strong>Camp aufbauen:</strong> Zelt aufschlagen, einrichten, Leute treffen.</li></ul>`, highlight: false }, { time: '17:00 - 18:00', icon: 'fa-bullhorn', title: 'Offizieller Startschuss – Willkommens-Kreis & Briefing', content: `<ul><li>Offizielle Begrüßung.</li><li>Programmübersicht, Highlights.</li><li>Wichtige Sicherheitshinweise (Helmpflicht!), Camp-Regeln.</li><li>Infrastruktur-Infos (WC, Duschen...), Notfallplan, Fragen.</li></ul>`, highlight: true }, { time: '18:00 - 19:00', icon: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.png', isImageIcon: true, title: 'Erste Fahr-Action – Spaß-Workshops & Freies Fahren', content: `<p><strong>Workshop 1 „Sicher im Gelände":</strong> Für MUNI-Einsteiger (Balance, kleine Hindernisse...).</p><p><strong>Workshop 2 „Hopfen & Malz" (Hopp & Drop):</strong> Für erste Sprünge & Kanten.</p><p><strong>Freies Fahren:</strong> Übungsgelände nutzen.</p>`, highlight: true }, { time: 'Ab 19:00', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung!)', content: `<p>Campingkocher raus! Eigenes Essen, Geschirr etc. mitbringen. Kocht/esst gemeinsam.</p>`, highlight: false }, { time: 'Ab 20:30', icon: 'fa-fire', title: 'Lagerfeuer-Magie – Der erste Abend', content: `<p>Gemütlicher Ausklang am zentralen Lagerfeuer (wetterabhängig). Kennenlernen, Austausch.</p>`, highlight: true } ] }, { day: 'Fr', name: 'Freitag, 18. April', title: 'MUNI-Touren & Technik-Feinschliff', highlights: ['MUNI-Touren starten', 'Technik-Workshops im Camp', 'Trial-Park Aufbau'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück & Startklar (Selbstversorgung)', content: `<p>Energie für den Tag.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-running', title: 'Morgenspiel „Schwänzchen Fangen"', content: `<p>Spielerisches Warm-Up auf abgesteckter Fläche.</p>`, highlight: false }, { time: '09:45 - 10:15', icon: 'fa-users', title: 'MUNI-Touren-Treffpunkt & Gruppeneinteilung', content: `<p>Vorstellung der Touren (Level, Länge...). Gruppenfindung nach Können/Wunsch.</p>`, highlight: true }, { time: 'Ab 10:15', icon: 'fa-mountain', title: 'Start der MUNI-Touren', content: `<p>Abenteuer rund um den Hengsteysee. Rückkehr meist zur Mittagszeit (ca. 13:00).</p>`, highlight: true }, { time: '10:15 - 16:00', icon: 'fa-cogs', title: 'Workshops & Freies Training im Camp (Parallel)', content: `<p><strong>Balance ist alles:</strong> Fahrtechnik im Gelände.</p><p><strong>Werkstatt:</strong> Reifen, Bremsen, Pflege.</p><p><strong>Sprungtechniken F.:</strong> Höher, weiter, präziser.</p>`, highlight: true }, { time: 'Ab 15:00', icon: 'fa-tools', title: 'Aufbau Trial-Park (Teil 1)', content: `<p>Gemeinsam Sektionen bauen (Paletten etc.). Helfer willkommen!</p>`, highlight: true }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Abendessen (Selbstversorgung) & Ausklang', content: `<p>Kochen, essen, Erlebnisse teilen.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-fire', title: 'Lagerfeuer & Fachsimpeln', content: `<p>Tag Revue passieren lassen.</p>`, highlight: false } ] }, { day: 'Sa', name: 'Samstag, 19. April', title: 'Trial-Tag: Geschicklichkeit & Balance', highlights: ['Trial-Challenge (2 Wellen)', 'Freies Trial-Fahren & Spot-Workshops', 'Gemeinsames Bauen'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück (Selbstversorgung)', content: `<p>Power für den Parcours!</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-puzzle-piece', title: 'Morgenspiel „Mini-Fun-Parcours"', content: `<p>Warm-Up für Koordination & Balance.</p>`, highlight: false }, { time: '09:30 - 10:30', icon: 'fa-check-double', title: 'Finale Vorbereitungen Trial-Park & Safety Check', content: `<p>Gemeinsam fertigstellen. Sicherheitscheck durch Orga/Erfahrene.</p>`, highlight: true }, { time: '10:30 - 11:00', icon: 'fa-shoe-prints', title: 'Warm-Up im Trial-Park', content: `<p>Sektionen checken, Linien testen, kennenlernen.</p>`, highlight: false }, { time: '11:30 - 12:00', icon: 'fa-stopwatch', title: 'Trial-Challenge – Welle 1 (Freiwillig)', content: `<p>30 Min. Spaß-Durchlauf (Easy/Med/Hard). Möglichst viele Lines schaffen. Helfer zum Schiedsen willkommen!</p><p><em>Nur 1 Teilnahme (Welle 1 ODER 2).</em></p>`, highlight: true }, { time: '12:00 - 13:00', icon: 'fa-pause-circle', title: 'Mittagspause & Energietanken', content: `<p>Stärkung (Selbstvers.) & Austausch.</p>`, highlight: false }, { time: '13:00 - 13:30', icon: 'fa-stopwatch', title: 'Trial-Challenge – Welle 2 (Freiwillig)', content: `<p>Gleicher Ablauf wie Welle 1. Helfer willkommen!</p>`, highlight: true }, { time: '13:30 - 16:30', icon: 'fa-cubes', title: 'Freies Trial-Fahren & Spot-Workshops', content: `<p>Park offen für alle! Spontane Mini-Workshops an Sektionen (Sprünge, Balance, Drops).</p>`, highlight: true }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung)', content: `<p>Trial-Helden-Dinner: Erfolge feiern.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-fire', title: 'Lagerfeuer & Geschichten', content: `<p>Gemütlicher Ausklang.</p>`, highlight: false } ] }, { day: 'So', name: 'Sonntag, 20. April', title: 'Großer MUNI-Tag & Downhill-Spaß', highlights: ['Gemeinsamer MUNI-Start', 'MUNI-Spezialabfahrt (Downhill)', 'Großer Abschlussabend'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück (Selbstversorgung)', content: `<p>Basis für den Berg! Snack einpacken.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-train', title: 'Morgenspiel „Einrad-Polonaise"', content: `<p>Gemeinsam hintereinander fahren, Aufgaben lösen.</p>`, highlight: false }, { time: '09:45 - 10:15', icon: 'fa-map-signs', title: 'MUNI-Treffpunkt & Tagesplanung', content: `<p>Routen-Vorstellung (evtl. länger/technischer). Gruppenfindung.</p>`, highlight: true }, { time: '10:15', icon: 'fa-users-cog', title: 'MUNI-Play – Der gemeinsame Start', content: `<p>Alle Gruppen starten gemeinsam/kurz nacheinander.</p>`, highlight: true }, { time: '11:30', icon: 'fa-angle-double-down', title: 'MUNI-Spezialabfahrt (Downhill)', content: `<p>Jeder fährt Strecke einzeln (1 Min. Abstand). Anfeuern!</p>`, highlight: true }, { time: '13:00 - 13:30', icon: 'fa-apple-alt', title: 'Mittagspause (im Grünen/Camp)', content: `<p>Picknick (selbstvers.) oder im Camp.</p>`, highlight: false }, { time: '14:00', icon: 'fa-redo-alt', title: 'Weitere Abfahrten (Downhill)', content: `<p>Fortsetzung bis alle durch sind.</p>`, highlight: true }, { time: '16:30', icon: 'fa-directions', title: 'Freie Sessions & Trails', content: `<ul><li>Weitere Trails mit Gruppe.</li><li>Downhill weiter?</li><li>Bekannte Trails auf eigene Faust (Absprache!).</li></ul>`, highlight: false }, { time: '18:30', icon: 'fa-shower', title: 'Ausrollen & Entspannen im Camp', content: `<p>Lockeres Fahren, Materialpflege, Duschen.</p>`, highlight: false }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung)', content: `<p>Letzte gemeinsame Camp-Mahlzeit.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-glass-cheers', title: 'Großer Abschlussabend am Lagerfeuer', content: `<p>GMTW ausklingen lassen! Momente teilen, Geschichten erzählen.</p>`, highlight: true } ] }, { day: 'Mo', name: 'Montag, 21. April', title: 'Spiele, Ehrungen & Abschied', highlights: ['Morgenspiel: Langsamfahren & Kreisel', 'Gemeinsames Aufräumen & Abbau', 'Abschlusskreis & Ehrungen'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-box-open', title: 'Gemütliches Frühstück & Pack-Start (Selbst.)', content: `<p>Letzte gemeinsame Mahlzeit, langsam packen beginnen.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-gamepad', title: 'Gemeinsames Morgenspiel für ALLE', content: `<p><strong>"Langsamfahr-Rennen & Kreisel-Spaß":</strong> Wer fährt am langsamsten? Wer dreht sich am längsten?</p>`, highlight: true }, { time: '09:30 - 10:30', icon: 'fa-broom', title: 'Gemeinsames Aufräumen & Abbau', content: `<p><strong>Teamwork: Alle packen mit an!</strong> Trial-Park abbauen, Müll sammeln, Platz sauber hinterlassen (Leave No Trace).</p>`, highlight: true }, { time: '10:30 - 11:30', icon: 'fa-trophy', title: 'Spaß-Olympiade & Kleine Einrad-Spiele', content: `<p>Lockerer Ausklang mit Spiel-Stationen (Einrad-Limbo, Parcours, Pendel-Challenge etc.). Spaß im Vordergrund.</p>`, highlight: false }, { time: '11:30 - 12:00', icon: 'fa-users', title: 'Abschlusskreis & Ehrungen "Helden des WE"', content: `<p>Letztes Mal zusammen. Dank an Helfer/Teilnehmer. Kleine, humorvolle Anerkennungen (jüngste/r, Kampfgeist etc.).</p>`, highlight: true }, { time: '12:00 - 14:00', icon: 'fa-car-side', title: 'Letztes Packen & individuelle Abreise', content: `<p>Abschied von Freunden, Kontakte tauschen, letzte Sachen verladen.</p>`, highlight: false }, { time: 'Ab 14:00', icon: 'fa-door-open', title: 'Offizielles Ende des GMTW 2025', content: `<p>Bis zum nächsten Mal!</p>`, highlight: false } ] } ];
+         const packlistData = { "Einrad & Schutz": { icon: "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.png", isImage: true, items: ["Dein/e Einrad/räder (MUNI, Trial – gut gewartet!)", "Helm (ABSOLUTE PFLICHT!)", "Knieschoner (dringend empfohlen)", "Ellbogenschoner (empfohlen)", "Fahrradhandschuhe (Langfinger empfohlen)", "Feste Schuhe (gute Sohle!)", "Kleiner Touren-Rucksack", "Trinkflasche(n) / Trinkblase"] }, "Werkzeug & Ersatzteile": { icon: "fa-tools", items: ["Passende Inbusschlüssel", "Reifenheber", "Luftpumpe", "Flickzeug", "Ersatzschlauch(schläuche)", "Optional: Multitool", "Optional: Kettenöl", "Optional: Mini-Erste-Hilfe"] }, "Campingausrüstung": { icon: "fa-campground", items: ["Zelt (wetterfest!)", "Schlafsack (April-tauglich!)", "Isomatte / Luftmatratze", "Stirn-/Taschenlampe (+ Batterien)", "Campingstuhl (sehr gemütlich!)", "Kulturbeutel & Hygieneartikel"] }, "Kleidung": { icon: "fa-tshirt", items: ["Funktionelle Sportkleidung (mehrere Sets)", "Regenjacke (wasserdicht!)", "Regenhose", "Winddichte Jacke/Weste", "Warme Kleidung (Abend/Nacht)", "Ausreichend Socken", "Unterwäsche", "Bequeme Camp-Kleidung", "Badesachen (Dusche)"] }, "Verpflegung (Selbst!)": { icon: "fa-utensils", items: ["Campingkocher & Brennstoff/Gas", "Topf/Pfanne", "Essgeschirr (Teller, Becher)", "Besteck", "Scharfes Messer", "Schneidebrettchen", "Spülmittel, Schwamm, Tuch", "Müllsäcke", "Lebensmittel für 5 Tage", "Getränke (Grundstock)"] }, "Sonstiges": { icon: "fa-ellipsis-h", items: ["Personalausweis", "Krankenversicherungskarte", "Bargeld", "Handy & Powerbank", "Sonnenschutz (Creme, Brille, Kappe)", "Insektenschutzmittel", "Persönliche Medikamente", "Ohropax", "Spiele für's Camp", "Gute Laune & Offenheit!"] } };
+
+         document.addEventListener('DOMContentLoaded', () => {
+             // Galerie gleich initialisieren
+             initGalleries();
+
+             // Element-Referenzen holen
+             const pdfButton = document.getElementById('pdf-download-button');
+             const overviewContainer = document.getElementById('overview-container');
+             const track = document.getElementById('overview-track');
+             const unicyclist = document.getElementById('unicyclist-icon');
+             const highlightsDisplay = document.getElementById('daily-highlights-display');
+             const highlightDay = document.getElementById('highlight-day');
+             const highlightList = document.getElementById('highlight-list');
+             const playButton = document.getElementById('play-animation');
+             const dailyDetailContainer = document.getElementById('daily-detail-content');
+             const checklistContainer = document.getElementById('packliste-checklist'); // Referenz zum Section-Element
+             const checklistCategoriesContainer = document.getElementById('checklist-categories-container');
+             const progressBar = document.getElementById('checklist-progress-bar');
+             const progressText = document.getElementById('checklist-progress-text');
+             const checklistTitleIconPlaceholder = document.getElementById('checklist-title-icon-placeholder');
+             const gameButton = document.getElementById('game-button');
+
+             // --- NEU: Referenzen für Audio-Modal ---
+             const audioFigurTrigger = document.getElementById('audio-figur-trigger');
+             const audioModal = document.getElementById('audio-options-modal');
+             const audioBackdrop = document.getElementById('audio-modal-backdrop');
+             const closeAudioModalBtn = document.getElementById('close-audio-modal-btn');
+             const playAudioBtn = document.getElementById('play-gmtw-audio-btn');
+             const downloadAudioBtn = document.getElementById('download-gmtw-audio-btn');
+             const audioPlayerContainer = document.getElementById('gmtw-audio-player-container');
+             const audioPlayer = document.getElementById('gmtw-audio-player');
+             const gmtwAudioUrl = 'https://raw.githubusercontent.com/ErSieCode/1Rad/main/GMTW25_LineUP_Audio.mp3';
+             // --- ENDE NEU ---
+
+             isJsPDFReady = typeof jsPDF !== 'undefined'; // Prüfen ob jsPDF geladen ist
+
+             // --- FUNKTIONEN ---
+
+             // PDF Button Zustand setzen
+             function initializePdfButtonState() {
+                 if (pdfButton) {
+                     if (isJsPDFReady) {
+                         pdfButton.disabled = false;
+                         pdfButton.innerHTML = '<i class="fas fa-file-pdf"></i> Alle Infos als PDF';
+                         if (!pdfButton.hasAttribute('data-listener-added')) {
+                             pdfButton.addEventListener('click', generateAndDownloadPDF);
+                             pdfButton.setAttribute('data-listener-added', 'true');
+                         }
                      } else {
-                        const iconClass = item.icon ? item.icon : 'fa-info-circle'; // Default icon
-                         itemHeader.innerHTML = `<i class="fas ${iconClass}"></i> ${item.title}`;
+                         pdfButton.disabled = true;
+                         pdfButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Lade PDF Lib...';
+                         // Optional: Timeout oder Interval um erneut zu prüfen
                      }
-                     contentTile.appendChild(itemHeader);
-
-                     const itemContent = document.createElement('div');
-                     itemContent.innerHTML = item.content; // Erlaubt HTML im Content
-                     contentTile.appendChild(itemContent);
-
-                     itemDiv.appendChild(contentTile);
-                     timelineDiv.appendChild(itemDiv);
-                 });
-
-                 dailyDetailContainer.appendChild(timelineDiv);
-
-                 // Sichtbarkeit hinzufügen, nachdem das Element im DOM ist (für CSS Transition)
-                 requestAnimationFrame(() => {
-                    dailyDetailContainer.classList.add('visible');
-                 });
+                 }
              }
 
-             // Timeline: Einrad-Icon bewegen
-             function moveUnicyclist(dayIndex) {
-                if (!unicyclist) return;
-                 // Zielposition vom Marker holen oder Standardposition
-                 let targetPercent = 5; // Startposition
-                 if (dayIndex >= 0 && dayIndex < daysData.length && dayMarkers && dayMarkers.length > 0) {
-                     targetPercent = parseFloat(dayMarkers[dayIndex].style.left);
-                 }
+              // Timeline: Marker für Tage erstellen
+              function createDayMarkers() {
+                  if (!track) return;
+                  const trackWidth = track.offsetWidth;
+                  if (trackWidth === 0) { setTimeout(createDayMarkers, 100); return; } // Warten bis Breite verfügbar
 
-                 // Bildrichtung anpassen
-                 if (targetPercent > lastUnicyclistPosPercent && unicyclist.src !== unicycleImgRight) {
+                  track.innerHTML = ''; // Alte Marker entfernen
+                  dayMarkers = []; // Array leeren
+                  daysData.forEach((day, index) => {
+                      const marker = document.createElement('div');
+                      marker.classList.add('day-marker');
+                      marker.dataset.index = index;
+                      marker.textContent = day.day;
+
+                      const tooltip = document.createElement('span');
+                      tooltip.textContent = day.name;
+                      marker.appendChild(tooltip);
+
+                      // Position berechnen (10% bis 90% des Tracks)
+                      const positionPercent = 10 + (daysData.length > 1 ? (index * (80 / (daysData.length - 1))) : 40); // Single day at 50%? Let's keep it centered if only one.
+                      marker.style.left = `${positionPercent}%`;
+
+                      marker.addEventListener('click', () => {
+                          clearTimeout(animationTimeout); // Evtl. laufende Animation stoppen
+                          stopAnimationVisuals();
+                          navigateToDay(index);
+                      });
+                      track.appendChild(marker);
+                      dayMarkers.push(marker);
+                  });
+              }
+
+              // Timeline: Highlights für einen Tag anzeigen
+              function showHighlights(dayIndex) {
+                 if (!highlightDay || !highlightList) return;
+                  if (dayIndex < 0 || dayIndex >= daysData.length) {
+                      // Standardtext anzeigen
+                      highlightDay.textContent = "Tag wählen";
+                      highlightList.innerHTML = '<li>Klicke auf einen Tag oder starte die Animation!</li>';
+                      if (dayMarkers) dayMarkers.forEach(marker => marker.classList.remove('active')); // Alle deselektieren
+                  } else {
+                      const day = daysData[dayIndex];
+                      highlightDay.textContent = `Highlights ${day.name}`;
+                      highlightList.innerHTML = day.highlights.map(item => `<li>${item}</li>`).join('');
+                      if (dayMarkers) dayMarkers.forEach((marker, index) => marker.classList.toggle('active', index === dayIndex)); // Aktiven hervorheben
+                  }
+                  currentDayIndex = dayIndex; // Aktuellen Index speichern
+              }
+
+              // Timeline: Detaillierten Zeitplan für einen Tag anzeigen
+              function displayDayDetails(dayIndex) {
+                  if (!dailyDetailContainer) return;
+                  dailyDetailContainer.innerHTML = ''; // Alten Inhalt leeren
+                  dailyDetailContainer.classList.remove('visible'); // Sichtbarkeit entfernen
+
+                  if (dayIndex < 0 || dayIndex >= daysData.length) return; // Nichts anzeigen
+
+                  const day = daysData[dayIndex];
+                  const header = document.createElement('h2');
+                  header.innerHTML = `<i class="fas fa-calendar-day"></i> ${day.name}: ${day.title}`;
+                  dailyDetailContainer.appendChild(header);
+
+                  const timelineDiv = document.createElement('div');
+                  timelineDiv.classList.add('timeline');
+
+                  day.schedule.forEach(item => {
+                      const itemDiv = document.createElement('div');
+                      itemDiv.classList.add('timeline-item');
+                      if (item.highlight) {
+                          itemDiv.classList.add('highlight');
+                      }
+
+                      const timeTag = document.createElement('div');
+                      timeTag.classList.add('time-tag');
+                      timeTag.textContent = item.time;
+                      itemDiv.appendChild(timeTag);
+
+                      const contentTile = document.createElement('div');
+                      contentTile.classList.add('content-tile');
+
+                      const itemHeader = document.createElement('h3');
+                      if (item.isImageIcon) {
+                          const imgIcon = document.createElement('img');
+                          imgIcon.src = item.icon;
+                          imgIcon.alt = `${item.title} Icon`;
+                          imgIcon.classList.add('timeline-icon-img');
+                          itemHeader.appendChild(imgIcon);
+                          itemHeader.append(` ${item.title}`); // Text nach dem Bild
+                      } else {
+                         const iconClass = item.icon ? item.icon : 'fa-info-circle'; // Default icon
+                          itemHeader.innerHTML = `<i class="fas ${iconClass}"></i> ${item.title}`;
+                      }
+                      contentTile.appendChild(itemHeader);
+
+                      const itemContent = document.createElement('div');
+                      itemContent.innerHTML = item.content; // Erlaubt HTML im Content
+                      contentTile.appendChild(itemContent);
+
+                      itemDiv.appendChild(contentTile);
+                      timelineDiv.appendChild(itemDiv);
+                  });
+
+                  dailyDetailContainer.appendChild(timelineDiv);
+
+                  // Sichtbarkeit hinzufügen, nachdem das Element im DOM ist (für CSS Transition)
+                  requestAnimationFrame(() => {
+                     dailyDetailContainer.classList.add('visible');
+                  });
+              }
+
+              // Timeline: Einrad-Icon bewegen
+              function moveUnicyclist(dayIndex) {
+                 if (!unicyclist) return;
+                  // Zielposition vom Marker holen oder Standardposition
+                  let targetPercent = 5; // Startposition
+                  if (dayIndex >= 0 && dayIndex < daysData.length && dayMarkers && dayMarkers.length > 0) {
+                      targetPercent = parseFloat(dayMarkers[dayIndex].style.left);
+                  }
+
+                  // Bildrichtung anpassen
+                  if (targetPercent > lastUnicyclistPosPercent && unicyclist.src !== unicycleImgRight) {
+                      unicyclist.src = unicycleImgRight;
+                  } else if (targetPercent < lastUnicyclistPosPercent && unicyclist.src !== unicycleImgLeft) {
+                      unicyclist.src = unicycleImgLeft;
+                  } else if (dayIndex < 0 && unicyclist.src !== unicycleImgRight) { // Zurück zum Start
                      unicyclist.src = unicycleImgRight;
-                 } else if (targetPercent < lastUnicyclistPosPercent && unicyclist.src !== unicycleImgLeft) {
-                     unicyclist.src = unicycleImgLeft;
-                 } else if (dayIndex < 0 && unicyclist.src !== unicycleImgRight) { // Zurück zum Start
-                    unicyclist.src = unicycleImgRight;
+                  }
+
+
+                  // Position via CSS animieren lassen
+                  requestAnimationFrame(() => { // Für smoother Animation
+                     unicyclist.style.left = `${targetPercent}%`;
+                  });
+                  lastUnicyclistPosPercent = targetPercent; // Aktuelle Position merken
+                   if(dayIndex < 0) lastUnicyclistPosPercent = 0; // Reset for next animation start
+              }
+
+              // Timeline: Zu einem Tag navigieren (Icon bewegen, Highlights, Details)
+              function navigateToDay(dayIndex) {
+                  moveUnicyclist(dayIndex);
+                  showHighlights(dayIndex);
+                  // Details leicht verzögert laden, damit Icon-Bewegung startet
+                  setTimeout(() => {
+                     displayDayDetails(dayIndex);
+                  }, 150); // Kleine Verzögerung
+              }
+
+             // Timeline: Visuelle Effekte der Animation stoppen (Button reaktivieren)
+             function stopAnimationVisuals() {
+                 if (!playButton) return;
+                 playButton.disabled = false;
+                 playButton.innerHTML = '<i class="fas fa-play"></i> Animations-Tour starten';
+             }
+
+              // Timeline: Animations-Tour starten
+              function startAnimation() {
+                  if (!playButton || playButton.disabled) return; // Verhindern von Mehrfachstarts
+                  playButton.disabled = true;
+                  playButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Tour läuft...';
+                  let currentStep = 0;
+
+                  function nextStep() {
+                      if (currentStep >= daysData.length) {
+                          // Animation beendet, zurücksetzen
+                          animationTimeout = setTimeout(() => {
+                             navigateToDay(-1); // Zurück zum Startzustand
+                             stopAnimationVisuals();
+                          }, 2500); // Wartezeit nach dem letzten Tag
+                          return;
+                      }
+                      navigateToDay(currentStep);
+                      currentStep++;
+                      animationTimeout = setTimeout(nextStep, 3500); // Zeit pro Tag
+                  }
+                  navigateToDay(-1); // Start vom Anfang
+                  animationTimeout = setTimeout(nextStep, 500); // Kurze Pause vor dem ersten Tag
+              }
+
+             // Checklist: HTML für die Checkliste generieren
+             function generateChecklistHTML() {
+                 if (!checklistCategoriesContainer || !checklistTitleIconPlaceholder) return;
+                 checklistCategoriesContainer.innerHTML = ''; // Alten Inhalt leeren
+                 totalItems = 0; // Zähler zurücksetzen
+                 let uniqueIdCounter = 0;
+                 const titleIconParent = checklistTitleIconPlaceholder.parentNode;
+                 let titleIconReplaced = false;
+
+                 for (const categoryName in packlistData) {
+                     const categoryData = packlistData[categoryName];
+                     const detailsElement = document.createElement('details');
+                     detailsElement.classList.add('checklist-category-details');
+                     // Optional: Erste Kategorie offen starten
+                     // if (Object.keys(packlistData).indexOf(categoryName) === 0) {
+                     //     detailsElement.open = true;
+                     // }
+
+                     const summaryElement = document.createElement('summary');
+                     let iconElement;
+
+                     if (categoryData.isImage) {
+                         iconElement = document.createElement('img');
+                         iconElement.src = categoryData.icon;
+                         iconElement.alt = `${categoryName} Icon`;
+                         iconElement.classList.add('category-icon-img');
+                         summaryElement.appendChild(iconElement);
+                         summaryElement.append(` ${categoryName}`); // Text nach dem Bild
+
+                         // Spezielles Titel-Icon ersetzen, wenn Kategorie passt UND noch nicht ersetzt
+                         if (categoryName === "Einrad & Schutz" && titleIconParent && !titleIconReplaced) {
+                             const titleIconClone = iconElement.cloneNode(); // Klonen, um Original nicht zu ändern
+                             titleIconClone.classList.add('title-icon-img'); // Ggf. andere Klasse für Titel
+                             titleIconParent.replaceChild(titleIconClone, checklistTitleIconPlaceholder);
+                             titleIconReplaced = true; // Merken, dass ersetzt wurde
+                         }
+                     } else {
+                         iconElement = document.createElement('i');
+                         iconElement.className = `fas ${categoryData.icon}`;
+                         summaryElement.appendChild(iconElement);
+                         summaryElement.append(` ${categoryName}`); // Text nach dem Icon
+                     }
+
+                     detailsElement.appendChild(summaryElement);
+
+                     const itemsGrid = document.createElement('div');
+                     itemsGrid.classList.add('checklist-items-grid');
+
+                     categoryData.items.forEach(itemText => {
+                         totalItems++; // Gesamtzahl erhöhen
+                         uniqueIdCounter++;
+                         const checkItemDiv = document.createElement('div');
+                         checkItemDiv.classList.add('check-item');
+
+                         const checkbox = document.createElement('input');
+                         checkbox.type = 'checkbox';
+                         const checkboxId = `check-item-${uniqueIdCounter}`;
+                         checkbox.id = checkboxId;
+                         // Eindeutiger Schlüssel für DB generieren (aus Text, klein, ohne Sonderzeichen)
+                         checkbox.dataset.itemkey = itemText.toLowerCase().replace(/[^a-z0-9]/g, '-').substring(0, 50);
+
+                         const label = document.createElement('label');
+                         label.htmlFor = checkboxId;
+                         label.textContent = itemText;
+
+                         checkItemDiv.appendChild(checkbox);
+                         checkItemDiv.appendChild(label);
+                         itemsGrid.appendChild(checkItemDiv);
+
+                         // Event Listener direkt hier hinzufügen
+                         checkbox.addEventListener('change', handleCheckboxChange);
+                     });
+
+                     detailsElement.appendChild(itemsGrid);
+                     checklistCategoriesContainer.appendChild(detailsElement);
                  }
+                  // Falls das spezielle Icon nicht gefunden/ersetzt wurde, Standard-Icon sicherstellen
+                  if (!titleIconReplaced && titleIconParent && checklistTitleIconPlaceholder) {
+                      const defaultIcon = document.createElement("i");
+                      defaultIcon.className = "fas fa-clipboard-list";
+                      defaultIcon.style.color = "var(--accent-color)";
+                      try { // Sicherstellen, dass Placeholder noch existiert
+                         titleIconParent.replaceChild(defaultIcon, checklistTitleIconPlaceholder);
+                      } catch (e) { console.warn("Could not replace title icon placeholder.");}
+                  }
+                  // Nach dem Aufbau der Liste den Status aktualisieren
+                  updateChecklistProgress();
+             }
+
+             // Checklist: IndexedDB initialisieren
+             function initChecklistDB() {
+                 const request = indexedDB.open("gmtwChecklistDB", 1);
+
+                 request.onerror = (event) => {
+                     console.error("IndexedDB error:", event.target.errorCode);
+                 };
+
+                 request.onupgradeneeded = (event) => {
+                     checklistDB = event.target.result;
+                     if (!checklistDB.objectStoreNames.contains("checklistItems")) {
+                         checklistDB.createObjectStore("checklistItems", { keyPath: "id" });
+                         console.log("Checklist DB object store created.");
+                     }
+                 };
+
+                 request.onsuccess = (event) => {
+                     checklistDB = event.target.result;
+                     console.log("Checklist DB initialized successfully.");
+                     // Jetzt die Checkliste generieren und den gespeicherten Zustand laden
+                     generateChecklistHTML(); // Generiert HTML und zählt totalItems
+                     loadChecklistState();   // Lädt Haken und ruft updateProgress auf
+                     initializePdfButtonState(); // PDF Button aktivieren (falls jsPDF bereit)
+                 };
+             }
+
+             // Checklist: Zustand einer Checkbox speichern
+             function saveChecklistState(itemId, isChecked) {
+                 if (!checklistDB) return;
+                 const transaction = checklistDB.transaction(["checklistItems"], "readwrite");
+                 const store = transaction.objectStore("checklistItems");
+                 store.put({ id: itemId, checked: isChecked });
+
+                 transaction.oncomplete = () => {
+                     //console.log(`Item ${itemId} state saved: ${isChecked}`);
+                     updateChecklistProgress(); // Fortschritt aktualisieren NACH erfolgreichem Speichern
+                 };
+                 transaction.onerror = (event) => {
+                     console.error("Save transaction error:", event.target.error);
+                 };
+             }
+
+             // Checklist: Gespeicherten Zustand laden und Checkboxen setzen
+             function loadChecklistState() {
+                 if (!checklistDB || totalItems === 0) {
+                     // Wenn DB nicht bereit oder Liste leer, nur Fortschritt aktualisieren
+                     updateChecklistProgress();
+                     return;
+                  }
+
+                 const transaction = checklistDB.transaction(["checklistItems"], "readonly");
+                 const store = transaction.objectStore("checklistItems");
+                 const getAllRequest = store.getAll();
+
+                 getAllRequest.onsuccess = (event) => {
+                     const savedStates = {};
+                     event.target.result.forEach(item => {
+                         savedStates[item.id] = item.checked;
+                     });
+
+                     // Alle Checkboxen im DOM durchgehen
+                     const allCheckboxes = checklistCategoriesContainer.querySelectorAll('input[type="checkbox"]');
+                     allCheckboxes.forEach(checkbox => {
+                         const itemKey = checkbox.dataset.itemkey;
+                         // Haken setzen, falls im Speicherstand vorhanden, sonst false
+                         checkbox.checked = savedStates[itemKey] !== undefined ? savedStates[itemKey] : false;
+                     });
+                     // Nach dem Laden den Fortschrittsbalken aktualisieren
+                     updateChecklistProgress();
+                 };
+
+                 getAllRequest.onerror = (event) => {
+                     console.error("Load transaction error:", event.target.error);
+                     updateChecklistProgress(); // Auch bei Fehler Fortschritt initialisieren
+                 };
+             }
+
+             // Checklist: Event Handler für Checkbox-Änderungen
+             function handleCheckboxChange(event) {
+                 const checkbox = event.target;
+                 const itemId = checkbox.dataset.itemkey;
+                 saveChecklistState(itemId, checkbox.checked);
+             }
+
+             // Checklist: Fortschrittsanzeige aktualisieren und Spiel-Button ein-/ausblenden
+              function updateChecklistProgress() {
+                  // Sicherstellen, dass die Elemente vorhanden sind
+                  if (!checklistCategoriesContainer || !progressBar || !progressText) {
+                      console.warn("Checklist progress elements not found.");
+                      return;
+                  }
+
+                  // Wenn totalItems noch 0 ist (Liste nicht geladen), Standard anzeigen
+                  if (totalItems === 0) {
+                      progressBar.style.width = '0%';
+                      progressText.textContent = "Packliste wird geladen...";
+                      if (gameButton) gameButton.style.display = 'none'; // Spiel-Button ausblenden
+                      return;
+                  }
+
+                  const checkedItems = checklistCategoriesContainer.querySelectorAll('input[type="checkbox"]:checked').length;
+                  const percentage = (checkedItems / totalItems) * 100;
+
+                  progressBar.style.width = `${percentage}%`;
+                  progressText.textContent = `${checkedItems} von ${totalItems} gepackt`;
+
+                  // Visuelles Feedback für abgeschlossene Liste
+                  if (checklistContainer) { // Prüfen ob Section-Element existiert
+                      if (checkedItems === totalItems) {
+                          checklistContainer.classList.add("checklist-complete");
+                          progressText.textContent += " - Fertig!";
+                      } else {
+                          checklistContainer.classList.remove("checklist-complete");
+                      }
+                  }
+
+                  // !!! Logik für den Spiel-Button !!!
+                  if (gameButton) { // Prüfen ob Button-Element existiert
+                      if (checkedItems === totalItems && totalItems > 0) {
+                          gameButton.style.display = 'inline-block'; // Button anzeigen
+                          if(progressText) progressText.textContent = `${checkedItems} von ${totalItems} gepackt - Spiel bereit!`; // Optional Text anpassen
+                      } else {
+                          gameButton.style.display = 'none'; // Button verstecken
+                      }
+                  }
+              }
 
 
-                 // Position via CSS animieren lassen
-                 requestAnimationFrame(() => { // Für smoother Animation
-                    unicyclist.style.left = `${targetPercent}%`;
+             // PDF Generierung
+             async function generateAndDownloadPDF() {
+                 if (!isJsPDFReady) return alert("PDF-Bibliothek ist noch nicht bereit.");
+                 if (!pdfButton) return;
+
+                 pdfButton.disabled = true;
+                 pdfButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generiere PDF...';
+
+                 try {
+                     const doc = new jsPDF({ orientation: "p", unit: "mm", format: "a4" });
+                     const pageHeight = doc.internal.pageSize.height;
+                     const pageWidth = doc.internal.pageSize.width;
+                     const margin = 15;
+                     let currentY = margin;
+                     const headlineHeight = 7;
+                     const textHeight = 4.5;
+                     const checkSize = textHeight * 0.8;
+
+                     // Hilfsfunktion für Seitenumbruch
+                     function checkAddPage(neededHeight = headlineHeight * 2) {
+                         if (currentY + neededHeight > pageHeight - margin) {
+                             doc.addPage();
+                             currentY = margin;
+                         }
+                     }
+
+                     // --- Titelseite ---
+                     doc.setFontSize(18); doc.setFont("helvetica", "bold");
+                     doc.text("GMTW 2025 - German Muni and Trial Weekend", pageWidth / 2, currentY, { align: "center" });
+                     currentY += headlineHeight * 1.5;
+                     doc.setFontSize(12); doc.setFont("helvetica", "italic");
+                     doc.text("Dein ultimatives Einrad-Abenteuer!", pageWidth / 2, currentY, { align: "center" });
+                     currentY += headlineHeight;
+                     doc.text("17. - 21. April 2025 | Camping Hohensyburg", pageWidth / 2, currentY, { align: "center" });
+                     currentY += headlineHeight * 2;
+
+                     // --- Intro ---
+                     checkAddPage();
+                     doc.setFontSize(14); doc.setFont("helvetica", "bold");
+                     doc.text("Was ist das GMTW?", margin, currentY);
+                     currentY += headlineHeight * 1.5;
+                     doc.setFontSize(10); doc.setFont("helvetica", "normal");
+                     const introText = "Das German Muni and Trial Weekend (seit 2003) ist DER Treffpunkt für Einrad-Begeisterte. Ziel: Muni & Trial fördern, Gemeinschaft stärken. Über 60 Fahrer*innen (Anfänger bis Profis) treffen sich jährlich an wechselnden Orten. Tagsüber Training & Trails, abends Lagerfeuer & Austausch. Kein Wettkampf, sondern Lernen, Spaß & Gemeinschaft."; // >60 geändert
+                     const introLines = doc.splitTextToSize(introText, pageWidth - 2 * margin);
+                     doc.text(introLines, margin, currentY);
+                     currentY += introLines.length * textHeight + headlineHeight;
+
+                     // --- Location & Orga ---
+                     checkAddPage();
+                     doc.setFontSize(14); doc.setFont("helvetica", "bold");
+                     doc.text("Location & Organisation 2025", margin, currentY);
+                     currentY += headlineHeight * 1.5;
+                     doc.setFontSize(9); doc.setFont("helvetica", "normal");
+                     const orgaDetails = [
+                         "Ort: Campingplatz Hohensyburg, Syburger Dorfstraße 69, 44265 Dortmund",
+                         "Web: www.camping-hohensyburg.de",
+                         "Wichtig: 'Touristenplätze' (grüne Fläche) für Zelte buchen!",
+                         "Anmeldung Camper/WoMo bis 15.03.25",
+                         "T-Shirt Bestellung bis 01.04.25 (Anfrage: Sven via WhatsApp 01797318615)",
+                         "Übernachtung: Zelten, Bauwagen, Fass (siehe Website)",
+                         "Verpflegung: Selbstversorgung! Kiosk/Restaurant vor Ort. Lidl ca. 4km.",
+                         "Sanitär: 8 warme Duschen.",
+                         "Aktivitäten: Muni (ab 200m frei), Trial (ab 3 Hops), Workshops."
+                     ];
+                     orgaDetails.forEach(line => {
+                         checkAddPage(textHeight);
+                         doc.text(`• ${line}`, margin + 5, currentY);
+                         currentY += textHeight;
+                     });
+                     currentY += headlineHeight;
+
+                     // --- Wichtige Hinweise ---
+                     checkAddPage();
+                     doc.setFontSize(14); doc.setFont("helvetica", "bold");
+                     doc.text("Wichtige Hinweise", margin, currentY);
+                     currentY += headlineHeight * 1.5;
+                     doc.setFontSize(9); doc.setFont("helvetica", "normal");
+                     const safetyDetails = [
+                         "Helmpflicht! IMMER beim Fahren.",
+                         "Weitere Schutzausrüstung (Knie etc.) dringend empfohlen.",
+                         "Fahre im Rahmen deiner Fähigkeiten, nimm Rücksicht.",
+                         "Beachte Orga-Anweisungen & Camp-Regeln.",
+                         "Selbstverpflegung: Bring Essen & Kochzeug mit!",
+                         "Werkzeug/Ersatzschlauch mitbringen.",
+                         "Halte den Platz sauber! (Leave No Trace)",
+                         "April-Wetter: Auf alles vorbereitet sein!",
+                         "Bring dich ein - Gemeinschaft lebt vom Mitmachen!"
+                     ];
+                     safetyDetails.forEach(line => {
+                         checkAddPage(textHeight);
+                         doc.text(`• ${line}`, margin + 5, currentY);
+                         currentY += textHeight;
+                     });
+                     currentY += headlineHeight;
+
+                     // --- Packliste ---
+                     checkAddPage(headlineHeight * 3); // Extra Platz vor der Liste
+                     doc.setFontSize(14); doc.setFont("helvetica", "bold");
+                     doc.text("Packliste", margin, currentY);
+                     currentY += headlineHeight * 1.5;
+                     doc.setFontSize(9); doc.setFont("helvetica", "normal");
+                     let itemIdCounter = 0;
+                     for (const categoryName in packlistData) {
+                         checkAddPage(headlineHeight); // Platz für Kategorie-Überschrift
+                         doc.setFont("helvetica", "bold");
+                         doc.text(categoryName, margin, currentY);
+                         currentY += textHeight;
+                         doc.setFont("helvetica", "normal");
+                         packlistData[categoryName].items.forEach(itemText => {
+                              itemIdCounter++;
+                              // Eindeutigen Schlüssel generieren, um Checkbox im DOM zu finden
+                              const itemKey = itemText.toLowerCase().replace(/[^a-z0-9]/g, '-').substring(0, 50);
+                              // Checkbox im DOM suchen über data-itemkey
+                              const checkboxElement = document.querySelector(`input[type="checkbox"][data-itemkey="${itemKey}"]`);
+                              const isChecked = checkboxElement ? checkboxElement.checked : false;
+                              const checkMark = isChecked ? "\u2611" : "\u2610"; // Checked / Unchecked Box unicode
+
+                              checkAddPage(textHeight);
+                              doc.text(`${checkMark} ${itemText}`, margin + 5, currentY);
+                              currentY += textHeight;
+                         });
+                         currentY += textHeight * 0.4; // Kleiner Abstand nach Kategorie
+                     }
+                     currentY += headlineHeight; // Größerer Abstand nach der Liste
+
+                     // --- Zeitplan ---
+                     doc.setFontSize(14); doc.setFont("helvetica", "bold");
+                     checkAddPage(headlineHeight * 2);
+                     doc.text("Zeitplan", margin, currentY);
+                     currentY += headlineHeight * 1.5;
+
+                     daysData.forEach(day => {
+                         checkAddPage(headlineHeight * 2); // Platz für Tagesüberschrift
+                         doc.setFontSize(11); doc.setFont("helvetica", "bold");
+                         doc.text(`${day.name}: ${day.title}`, margin, currentY);
+                         currentY += textHeight * 1.2;
+
+                         doc.setFontSize(8.5); doc.setFont("helvetica", "normal");
+                         day.schedule.forEach(item => {
+                             checkAddPage(textHeight * 1.5); // Mindesthöhe für Zeit+Titel
+                             doc.setFont("helvetica", "bold");
+                             doc.text(`${item.time}: ${item.title}`, margin + 5, currentY);
+                             currentY += textHeight * 0.9;
+
+                             doc.setFont("helvetica", "normal");
+                              // Content extrahieren und vereinfachen (HTML entfernen)
+                              const tempDiv = document.createElement("div");
+                              tempDiv.innerHTML = item.content;
+                              let plainText = tempDiv.textContent || tempDiv.innerText || "";
+                              plainText = plainText.replace(/•/g, '-').replace(/\s+/g, ' ').trim().substring(0, 250); // Mehr Text zulassen
+                              const contentLines = doc.splitTextToSize(plainText, pageWidth - 2*margin - 15); // Textumbruch
+
+                             checkAddPage(contentLines.length * textHeight * 0.9); // Platz für den Content
+                             doc.setFont("helvetica", "italic"); // Kursiv für Beschreibung
+                             doc.text(contentLines, margin + 10, currentY);
+                             currentY += contentLines.length * textHeight * 0.9;
+                             doc.setFont("helvetica", "normal"); // Zurück zu normal
+
+                             currentY += textHeight * 0.3; // Kleiner Abstand zwischen Items
+                         });
+                         currentY += headlineHeight; // Abstand zwischen Tagen
+                     });
+
+                     // --- PDF Speichern ---
+                     doc.save('gmtw2025-infos.pdf');
+                     console.log("PDF generation finished.");
+
+                 } catch (error) {
+                     console.error("Fehler bei PDF-Generierung:", error);
+                     alert("PDF konnte nicht erstellt werden.");
+                 } finally {
+                      initializePdfButtonState(); // Button Zustand wiederherstellen
+                 }
+             }
+
+             // --- NEU: Funktionen für das Audio-Modal ---
+             function openAudioModal() {
+                if (audioModal) audioModal.style.display = 'block';
+                if (audioBackdrop) audioBackdrop.style.display = 'block';
+                if (audioPlayerContainer) audioPlayerContainer.style.display = 'none'; // Player beim Öffnen ausblenden
+                if (audioPlayer) {
+                    audioPlayer.pause(); // Audio anhalten, falls es lief
+                    audioPlayer.currentTime = 0; // Zurück zum Anfang
+                }
+             }
+
+             function closeAudioModal() {
+                if (audioModal) audioModal.style.display = 'none';
+                if (audioBackdrop) audioBackdrop.style.display = 'none';
+                if (audioPlayer) {
+                    audioPlayer.pause(); // Audio stoppen beim Schließen
+                }
+             }
+             // --- ENDE NEU ---
+
+
+             // --- INITIALISIERUNGSAUFRUFE ---
+
+             initChecklistDB(); // Startet DB, generiert Liste, lädt Status -> ruft updateProgress auf
+
+             // Timeline initialisieren (wenn vorhanden)
+             if (overviewContainer) {
+                 createDayMarkers();
+                 showHighlights(-1); // Startzustand ohne Auswahl
+                 displayDayDetails(-1); // Startzustand ohne Details
+                 if (playButton) {
+                     playButton.addEventListener('click', () => {
+                         clearTimeout(animationTimeout); // Alte Animation stoppen
+                         startAnimation();
+                     });
+                 }
+                 // Bei Fenstergrößenänderung Marker neu positionieren
+                 let resizeTimer;
+                 window.addEventListener('resize', () => {
+                     clearTimeout(resizeTimer);
+                     resizeTimer = setTimeout(() => {
+                         createDayMarkers(); // Marker neu erstellen (berechnet Positionen neu)
+                         // Icon auf aktuellen Tag positionieren (falls einer gewählt war)
+                         if (currentDayIndex !== -1) {
+                             moveUnicyclist(currentDayIndex);
+                             showHighlights(currentDayIndex); // Aktiven Marker neu setzen
+                         } else {
+                              moveUnicyclist(-1); // Zurück zur Startposition
+                         }
+                     }, 250); // Kurze Verzögerung um Dauer-Resizing zu vermeiden
                  });
-                 lastUnicyclistPosPercent = targetPercent; // Aktuelle Position merken
-                  if(dayIndex < 0) lastUnicyclistPosPercent = 0; // Reset for next animation start
+             } else {
+                 // Wenn keine Timeline da ist, PDF Button trotzdem initialisieren
+                 initializePdfButtonState();
              }
 
-             // Timeline: Zu einem Tag navigieren (Icon bewegen, Highlights, Details)
-             function navigateToDay(dayIndex) {
-                 moveUnicyclist(dayIndex);
-                 showHighlights(dayIndex);
-                 // Details leicht verzögert laden, damit Icon-Bewegung startet
-                 setTimeout(() => {
-                    displayDayDetails(dayIndex);
-                 }, 150); // Kleine Verzögerung
+             // --- NEU: Event Listener für Audio-Modal ---
+             if (audioFigurTrigger) {
+                audioFigurTrigger.addEventListener('click', openAudioModal);
              }
-
-            // Timeline: Visuelle Effekte der Animation stoppen (Button reaktivieren)
-            function stopAnimationVisuals() {
-                if (!playButton) return;
-                playButton.disabled = false;
-                playButton.innerHTML = '<i class="fas fa-play"></i> Animations-Tour starten';
-            }
-
-             // Timeline: Animations-Tour starten
-             function startAnimation() {
-                 if (!playButton || playButton.disabled) return; // Verhindern von Mehrfachstarts
-                 playButton.disabled = true;
-                 playButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Tour läuft...';
-                 let currentStep = 0;
-
-                 function nextStep() {
-                     if (currentStep >= daysData.length) {
-                         // Animation beendet, zurücksetzen
-                         animationTimeout = setTimeout(() => {
-                            navigateToDay(-1); // Zurück zum Startzustand
-                            stopAnimationVisuals();
-                         }, 2500); // Wartezeit nach dem letzten Tag
-                         return;
-                     }
-                     navigateToDay(currentStep);
-                     currentStep++;
-                     animationTimeout = setTimeout(nextStep, 3500); // Zeit pro Tag
-                 }
-                 navigateToDay(-1); // Start vom Anfang
-                 animationTimeout = setTimeout(nextStep, 500); // Kurze Pause vor dem ersten Tag
+             if (closeAudioModalBtn) {
+                closeAudioModalBtn.addEventListener('click', closeAudioModal);
              }
-
-            // Checklist: HTML für die Checkliste generieren
-            function generateChecklistHTML() {
-                if (!checklistCategoriesContainer || !checklistTitleIconPlaceholder) return;
-                checklistCategoriesContainer.innerHTML = ''; // Alten Inhalt leeren
-                totalItems = 0; // Zähler zurücksetzen
-                let uniqueIdCounter = 0;
-                const titleIconParent = checklistTitleIconPlaceholder.parentNode;
-                let titleIconReplaced = false;
-
-                for (const categoryName in packlistData) {
-                    const categoryData = packlistData[categoryName];
-                    const detailsElement = document.createElement('details');
-                    detailsElement.classList.add('checklist-category-details');
-                    // Optional: Erste Kategorie offen starten
-                    // if (Object.keys(packlistData).indexOf(categoryName) === 0) {
-                    //     detailsElement.open = true;
-                    // }
-
-                    const summaryElement = document.createElement('summary');
-                    let iconElement;
-
-                    if (categoryData.isImage) {
-                        iconElement = document.createElement('img');
-                        iconElement.src = categoryData.icon;
-                        iconElement.alt = `${categoryName} Icon`;
-                        iconElement.classList.add('category-icon-img');
-                        summaryElement.appendChild(iconElement);
-                        summaryElement.append(` ${categoryName}`); // Text nach dem Bild
-
-                        // Spezielles Titel-Icon ersetzen, wenn Kategorie passt UND noch nicht ersetzt
-                        if (categoryName === "Einrad & Schutz" && titleIconParent && !titleIconReplaced) {
-                            const titleIconClone = iconElement.cloneNode(); // Klonen, um Original nicht zu ändern
-                            titleIconClone.classList.add('title-icon-img'); // Ggf. andere Klasse für Titel
-                            titleIconParent.replaceChild(titleIconClone, checklistTitleIconPlaceholder);
-                            titleIconReplaced = true; // Merken, dass ersetzt wurde
-                        }
-                    } else {
-                        iconElement = document.createElement('i');
-                        iconElement.className = `fas ${categoryData.icon}`;
-                        summaryElement.appendChild(iconElement);
-                        summaryElement.append(` ${categoryName}`); // Text nach dem Icon
-                    }
-
-                    detailsElement.appendChild(summaryElement);
-
-                    const itemsGrid = document.createElement('div');
-                    itemsGrid.classList.add('checklist-items-grid');
-
-                    categoryData.items.forEach(itemText => {
-                        totalItems++; // Gesamtzahl erhöhen
-                        uniqueIdCounter++;
-                        const checkItemDiv = document.createElement('div');
-                        checkItemDiv.classList.add('check-item');
-
-                        const checkbox = document.createElement('input');
-                        checkbox.type = 'checkbox';
-                        const checkboxId = `check-item-${uniqueIdCounter}`;
-                        checkbox.id = checkboxId;
-                        // Eindeutiger Schlüssel für DB generieren (aus Text, klein, ohne Sonderzeichen)
-                        checkbox.dataset.itemkey = itemText.toLowerCase().replace(/[^a-z0-9]/g, '-').substring(0, 50);
-
-                        const label = document.createElement('label');
-                        label.htmlFor = checkboxId;
-                        label.textContent = itemText;
-
-                        checkItemDiv.appendChild(checkbox);
-                        checkItemDiv.appendChild(label);
-                        itemsGrid.appendChild(checkItemDiv);
-
-                        // Event Listener direkt hier hinzufügen
-                        checkbox.addEventListener('change', handleCheckboxChange);
-                    });
-
-                    detailsElement.appendChild(itemsGrid);
-                    checklistCategoriesContainer.appendChild(detailsElement);
-                }
-                 // Falls das spezielle Icon nicht gefunden/ersetzt wurde, Standard-Icon sicherstellen
-                 if (!titleIconReplaced && titleIconParent && checklistTitleIconPlaceholder) {
-                     const defaultIcon = document.createElement("i");
-                     defaultIcon.className = "fas fa-clipboard-list";
-                     defaultIcon.style.color = "var(--accent-color)";
-                     try { // Sicherstellen, dass Placeholder noch existiert
-                        titleIconParent.replaceChild(defaultIcon, checklistTitleIconPlaceholder);
-                     } catch (e) { console.warn("Could not replace title icon placeholder.");}
-                 }
-                 // Nach dem Aufbau der Liste den Status aktualisieren
-                 updateChecklistProgress();
-            }
-
-            // Checklist: IndexedDB initialisieren
-            function initChecklistDB() {
-                const request = indexedDB.open("gmtwChecklistDB", 1);
-
-                request.onerror = (event) => {
-                    console.error("IndexedDB error:", event.target.errorCode);
-                };
-
-                request.onupgradeneeded = (event) => {
-                    checklistDB = event.target.result;
-                    if (!checklistDB.objectStoreNames.contains("checklistItems")) {
-                        checklistDB.createObjectStore("checklistItems", { keyPath: "id" });
-                        console.log("Checklist DB object store created.");
-                    }
-                };
-
-                request.onsuccess = (event) => {
-                    checklistDB = event.target.result;
-                    console.log("Checklist DB initialized successfully.");
-                    // Jetzt die Checkliste generieren und den gespeicherten Zustand laden
-                    generateChecklistHTML(); // Generiert HTML und zählt totalItems
-                    loadChecklistState();   // Lädt Haken und ruft updateProgress auf
-                    initializePdfButtonState(); // PDF Button aktivieren (falls jsPDF bereit)
-                };
-            }
-
-            // Checklist: Zustand einer Checkbox speichern
-            function saveChecklistState(itemId, isChecked) {
-                if (!checklistDB) return;
-                const transaction = checklistDB.transaction(["checklistItems"], "readwrite");
-                const store = transaction.objectStore("checklistItems");
-                store.put({ id: itemId, checked: isChecked });
-
-                transaction.oncomplete = () => {
-                    //console.log(`Item ${itemId} state saved: ${isChecked}`);
-                    updateChecklistProgress(); // Fortschritt aktualisieren NACH erfolgreichem Speichern
-                };
-                transaction.onerror = (event) => {
-                    console.error("Save transaction error:", event.target.error);
-                };
-            }
-
-            // Checklist: Gespeicherten Zustand laden und Checkboxen setzen
-            function loadChecklistState() {
-                if (!checklistDB || totalItems === 0) {
-                    // Wenn DB nicht bereit oder Liste leer, nur Fortschritt aktualisieren
-                    updateChecklistProgress();
-                    return;
-                 }
-
-                const transaction = checklistDB.transaction(["checklistItems"], "readonly");
-                const store = transaction.objectStore("checklistItems");
-                const getAllRequest = store.getAll();
-
-                getAllRequest.onsuccess = (event) => {
-                    const savedStates = {};
-                    event.target.result.forEach(item => {
-                        savedStates[item.id] = item.checked;
-                    });
-
-                    // Alle Checkboxen im DOM durchgehen
-                    const allCheckboxes = checklistCategoriesContainer.querySelectorAll('input[type="checkbox"]');
-                    allCheckboxes.forEach(checkbox => {
-                        const itemKey = checkbox.dataset.itemkey;
-                        // Haken setzen, falls im Speicherstand vorhanden, sonst false
-                        checkbox.checked = savedStates[itemKey] !== undefined ? savedStates[itemKey] : false;
-                    });
-                    // Nach dem Laden den Fortschrittsbalken aktualisieren
-                    updateChecklistProgress();
-                };
-
-                getAllRequest.onerror = (event) => {
-                    console.error("Load transaction error:", event.target.error);
-                    updateChecklistProgress(); // Auch bei Fehler Fortschritt initialisieren
-                };
-            }
-
-            // Checklist: Event Handler für Checkbox-Änderungen
-            function handleCheckboxChange(event) {
-                const checkbox = event.target;
-                const itemId = checkbox.dataset.itemkey;
-                saveChecklistState(itemId, checkbox.checked);
-            }
-
-            // Checklist: Fortschrittsanzeige aktualisieren und Spiel-Button ein-/ausblenden
-             function updateChecklistProgress() {
-                 // Sicherstellen, dass die Elemente vorhanden sind
-                 if (!checklistCategoriesContainer || !progressBar || !progressText) {
-                     console.warn("Checklist progress elements not found.");
-                     return;
-                 }
-
-                 // Wenn totalItems noch 0 ist (Liste nicht geladen), Standard anzeigen
-                 if (totalItems === 0) {
-                     progressBar.style.width = '0%';
-                     progressText.textContent = "Packliste wird geladen...";
-                     if (gameButton) gameButton.style.display = 'none'; // Spiel-Button ausblenden
-                     return;
-                 }
-
-                 const checkedItems = checklistCategoriesContainer.querySelectorAll('input[type="checkbox"]:checked').length;
-                 const percentage = (checkedItems / totalItems) * 100;
-
-                 progressBar.style.width = `${percentage}%`;
-                 progressText.textContent = `${checkedItems} von ${totalItems} gepackt`;
-
-                 // Visuelles Feedback für abgeschlossene Liste
-                 if (checklistContainer) { // Prüfen ob Section-Element existiert
-                     if (checkedItems === totalItems) {
-                         checklistContainer.classList.add("checklist-complete");
-                         progressText.textContent += " - Fertig!";
-                     } else {
-                         checklistContainer.classList.remove("checklist-complete");
-                     }
-                 }
-
-                 // !!! Logik für den Spiel-Button !!!
-                 if (gameButton) { // Prüfen ob Button-Element existiert
-                     if (checkedItems === totalItems && totalItems > 0) {
-                         gameButton.style.display = 'inline-block'; // Button anzeigen
-                         if(progressText) progressText.textContent = `${checkedItems} von ${totalItems} gepackt - Spiel bereit!`; // Optional Text anpassen
-                     } else {
-                         gameButton.style.display = 'none'; // Button verstecken
-                     }
-                 }
+             if (audioBackdrop) {
+                audioBackdrop.addEventListener('click', closeAudioModal); // Klick auf Hintergrund schließt auch
              }
-
-
-            // PDF Generierung
-            async function generateAndDownloadPDF() {
-                if (!isJsPDFReady) return alert("PDF-Bibliothek ist noch nicht bereit.");
-                if (!pdfButton) return;
-
-                pdfButton.disabled = true;
-                pdfButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generiere PDF...';
-
-                try {
-                    const doc = new jsPDF({ orientation: "p", unit: "mm", format: "a4" });
-                    const pageHeight = doc.internal.pageSize.height;
-                    const pageWidth = doc.internal.pageSize.width;
-                    const margin = 15;
-                    let currentY = margin;
-                    const headlineHeight = 7;
-                    const textHeight = 4.5;
-                    const checkSize = textHeight * 0.8;
-
-                    // Hilfsfunktion für Seitenumbruch
-                    function checkAddPage(neededHeight = headlineHeight * 2) {
-                        if (currentY + neededHeight > pageHeight - margin) {
-                            doc.addPage();
-                            currentY = margin;
-                        }
-                    }
-
-                    // --- Titelseite ---
-                    doc.setFontSize(18); doc.setFont("helvetica", "bold");
-                    doc.text("GMTW 2025 - German Muni and Trial Weekend", pageWidth / 2, currentY, { align: "center" });
-                    currentY += headlineHeight * 1.5;
-                    doc.setFontSize(12); doc.setFont("helvetica", "italic");
-                    doc.text("Dein ultimatives Einrad-Abenteuer!", pageWidth / 2, currentY, { align: "center" });
-                    currentY += headlineHeight;
-                    doc.text("17. - 21. April 2025 | Camping Hohensyburg", pageWidth / 2, currentY, { align: "center" });
-                    currentY += headlineHeight * 2;
-
-                    // --- Intro ---
-                    checkAddPage();
-                    doc.setFontSize(14); doc.setFont("helvetica", "bold");
-                    doc.text("Was ist das GMTW?", margin, currentY);
-                    currentY += headlineHeight * 1.5;
-                    doc.setFontSize(10); doc.setFont("helvetica", "normal");
-                    const introText = "Das German Muni and Trial Weekend (seit 2003) ist DER Treffpunkt für Einrad-Begeisterte. Ziel: Muni & Trial fördern, Gemeinschaft stärken. Über 90 Fahrer*innen (Anfänger bis Profis) treffen sich jährlich an wechselnden Orten. Tagsüber Training & Trails, abends Lagerfeuer & Austausch. Kein Wettkampf, sondern Lernen, Spaß & Gemeinschaft.";
-                    const introLines = doc.splitTextToSize(introText, pageWidth - 2 * margin);
-                    doc.text(introLines, margin, currentY);
-                    currentY += introLines.length * textHeight + headlineHeight;
-
-                    // --- Location & Orga ---
-                    checkAddPage();
-                    doc.setFontSize(14); doc.setFont("helvetica", "bold");
-                    doc.text("Location & Organisation 2025", margin, currentY);
-                    currentY += headlineHeight * 1.5;
-                    doc.setFontSize(9); doc.setFont("helvetica", "normal");
-                    const orgaDetails = [
-                        "Ort: Campingplatz Hohensyburg, Syburger Dorfstraße 69, 44265 Dortmund",
-                        "Web: www.camping-hohensyburg.de",
-                        "Wichtig: 'Touristenplätze' (grüne Fläche) für Zelte buchen!",
-                        "Anmeldung Camper/WoMo bis 15.03.25",
-                        "T-Shirt Bestellung bis 01.04.25 (Anfrage: Sven via WhatsApp 01797318615)",
-                        "Übernachtung: Zelten, Bauwagen, Fass (siehe Website)",
-                        "Verpflegung: Selbstversorgung! Kiosk/Restaurant vor Ort. Lidl ca. 4km.",
-                        "Sanitär: 8 warme Duschen.",
-                        "Aktivitäten: Muni (ab 200m frei), Trial (ab 3 Hops), Workshops."
-                    ];
-                    orgaDetails.forEach(line => {
-                        checkAddPage(textHeight);
-                        doc.text(`• ${line}`, margin + 5, currentY);
-                        currentY += textHeight;
-                    });
-                    currentY += headlineHeight;
-
-                    // --- Wichtige Hinweise ---
-                    checkAddPage();
-                    doc.setFontSize(14); doc.setFont("helvetica", "bold");
-                    doc.text("Wichtige Hinweise", margin, currentY);
-                    currentY += headlineHeight * 1.5;
-                    doc.setFontSize(9); doc.setFont("helvetica", "normal");
-                    const safetyDetails = [
-                        "Helmpflicht! IMMER beim Fahren.",
-                        "Weitere Schutzausrüstung (Knie etc.) dringend empfohlen.",
-                        "Fahre im Rahmen deiner Fähigkeiten, nimm Rücksicht.",
-                        "Beachte Orga-Anweisungen & Camp-Regeln.",
-                        "Selbstverpflegung: Bring Essen & Kochzeug mit!",
-                        "Werkzeug/Ersatzschlauch mitbringen.",
-                        "Halte den Platz sauber! (Leave No Trace)",
-                        "April-Wetter: Auf alles vorbereitet sein!",
-                        "Bring dich ein - Gemeinschaft lebt vom Mitmachen!"
-                    ];
-                    safetyDetails.forEach(line => {
-                        checkAddPage(textHeight);
-                        doc.text(`• ${line}`, margin + 5, currentY);
-                        currentY += textHeight;
-                    });
-                    currentY += headlineHeight;
-
-                    // --- Packliste ---
-                    checkAddPage(headlineHeight * 3); // Extra Platz vor der Liste
-                    doc.setFontSize(14); doc.setFont("helvetica", "bold");
-                    doc.text("Packliste", margin, currentY);
-                    currentY += headlineHeight * 1.5;
-                    doc.setFontSize(9); doc.setFont("helvetica", "normal");
-                    let itemIdCounter = 0;
-                    for (const categoryName in packlistData) {
-                        checkAddPage(headlineHeight); // Platz für Kategorie-Überschrift
-                        doc.setFont("helvetica", "bold");
-                        doc.text(categoryName, margin, currentY);
-                        currentY += textHeight;
-                        doc.setFont("helvetica", "normal");
-                        packlistData[categoryName].items.forEach(itemText => {
-                             itemIdCounter++;
-                             const checkboxId = `check-item-${itemIdCounter}`; // Muss mit ID aus generateChecklistHTML übereinstimmen
-                             const checkboxElement = document.getElementById(checkboxId);
-                             const isChecked = checkboxElement ? checkboxElement.checked : false;
-                             const checkMark = isChecked ? "\u2611" : "\u2610"; // Checked / Unchecked Box unicode
-
-                             checkAddPage(textHeight);
-                             doc.text(`${checkMark} ${itemText}`, margin + 5, currentY);
-                             currentY += textHeight;
-                        });
-                        currentY += textHeight * 0.4; // Kleiner Abstand nach Kategorie
-                    }
-                    currentY += headlineHeight; // Größerer Abstand nach der Liste
-
-                    // --- Zeitplan ---
-                    doc.setFontSize(14); doc.setFont("helvetica", "bold");
-                    checkAddPage(headlineHeight * 2);
-                    doc.text("Zeitplan", margin, currentY);
-                    currentY += headlineHeight * 1.5;
-
-                    daysData.forEach(day => {
-                        checkAddPage(headlineHeight * 2); // Platz für Tagesüberschrift
-                        doc.setFontSize(11); doc.setFont("helvetica", "bold");
-                        doc.text(`${day.name}: ${day.title}`, margin, currentY);
-                        currentY += textHeight * 1.2;
-
-                        doc.setFontSize(8.5); doc.setFont("helvetica", "normal");
-                        day.schedule.forEach(item => {
-                            checkAddPage(textHeight * 1.5); // Mindesthöhe für Zeit+Titel
-                            doc.setFont("helvetica", "bold");
-                            doc.text(`${item.time}: ${item.title}`, margin + 5, currentY);
-                            currentY += textHeight * 0.9;
-
-                            doc.setFont("helvetica", "normal");
-                             // Content extrahieren und vereinfachen (HTML entfernen)
-                             const tempDiv = document.createElement("div");
-                             tempDiv.innerHTML = item.content;
-                             let plainText = tempDiv.textContent || tempDiv.innerText || "";
-                             plainText = plainText.replace(/•/g, '-').replace(/\s+/g, ' ').trim().substring(0, 150); // Nur Anfang
-                             const contentLines = doc.splitTextToSize(plainText, pageWidth - 2*margin - 15); // Textumbruch
-
-                            checkAddPage(contentLines.length * textHeight * 0.9); // Platz für den Content
-                            doc.setFont("helvetica", "italic"); // Kursiv für Beschreibung
-                            doc.text(contentLines, margin + 10, currentY);
-                            currentY += contentLines.length * textHeight * 0.9;
-                            doc.setFont("helvetica", "normal"); // Zurück zu normal
-
-                            currentY += textHeight * 0.3; // Kleiner Abstand zwischen Items
-                        });
-                        currentY += headlineHeight; // Abstand zwischen Tagen
-                    });
-
-                    // --- PDF Speichern ---
-                    doc.save('gmtw2025-infos.pdf');
-                    console.log("PDF generation finished.");
-
-                } catch (error) {
-                    console.error("Fehler bei PDF-Generierung:", error);
-                    alert("PDF konnte nicht erstellt werden.");
-                } finally {
-                     initializePdfButtonState(); // Button Zustand wiederherstellen
-                }
-            }
-
-            // --- INITIALISIERUNGSAUFRUFE ---
-
-            initChecklistDB(); // Startet DB, generiert Liste, lädt Status -> ruft updateProgress auf
-
-            // Timeline initialisieren (wenn vorhanden)
-            if (overviewContainer) {
-                createDayMarkers();
-                showHighlights(-1); // Startzustand ohne Auswahl
-                displayDayDetails(-1); // Startzustand ohne Details
-                if (playButton) {
-                    playButton.addEventListener('click', () => {
-                        clearTimeout(animationTimeout); // Alte Animation stoppen
-                        startAnimation();
-                    });
-                }
-                // Bei Fenstergrößenänderung Marker neu positionieren
-                let resizeTimer;
-                window.addEventListener('resize', () => {
-                    clearTimeout(resizeTimer);
-                    resizeTimer = setTimeout(() => {
-                        createDayMarkers(); // Marker neu erstellen (berechnet Positionen neu)
-                        // Icon auf aktuellen Tag positionieren (falls einer gewählt war)
-                        if (currentDayIndex !== -1) {
-                            moveUnicyclist(currentDayIndex);
-                            showHighlights(currentDayIndex); // Aktiven Marker neu setzen
-                        } else {
-                             moveUnicyclist(-1); // Zurück zur Startposition
-                        }
-                    }, 250); // Kurze Verzögerung um Dauer-Resizing zu vermeiden
+             if (playAudioBtn && audioPlayer && audioPlayerContainer) {
+                playAudioBtn.addEventListener('click', () => {
+                    audioPlayer.src = gmtwAudioUrl; // Sicherstellen, dass Quelle gesetzt ist
+                    audioPlayerContainer.style.display = 'block'; // Player anzeigen
+                    audioPlayer.play();
+                    // Optional: Buttons nach Klick ausblenden oder Text ändern
                 });
-            } else {
-                // Wenn keine Timeline da ist, PDF Button trotzdem initialisieren
-                initializePdfButtonState();
-            }
-
-             // --- Event Listener für den NEUEN Spiel-Button ---
-             if (gameButton) {
-                 gameButton.addEventListener('click', () => {
-                     const gameUrl = 'https://htmlpreview.github.io/?https://github.com/ErSieCode/1Rad/blob/main/Einrad_mini_game.html';
-                     // Alternativen, falls obige URL nur Code zeigt:
-                     // const gameUrl = 'https://raw.githack.com/ErSieCode/1Rad/main/Einrad_mini_game.html'; // Besser für Rendering
-                     // const gameUrl = 'https://ersiecode.github.io/1Rad/Einrad_mini_game.html'; // Ideal wenn GitHub Pages aktiv ist
-
-                     console.log("Öffne Spiel:", gameUrl);
-                     window.open(gameUrl, '_blank'); // Öffnet Link in neuem Tab/Fenster
-                 });
              }
+             if (downloadAudioBtn) {
+                downloadAudioBtn.addEventListener('click', () => {
+                    const link = document.createElement('a');
+                    link.href = gmtwAudioUrl;
+                    link.download = 'GMTW25_LineUP_Audio.mp3'; // Gewünschter Dateiname
+                    document.body.appendChild(link); // Notwendig für Firefox
+                    link.click();
+                    document.body.removeChild(link);
+                    closeAudioModal(); // Modal nach Download schließen
+                });
+             }
+             // --- ENDE NEU ---
 
-            // Optional: Sicherstellen, dass der Fortschritt initial korrekt ist,
-            // auch wenn DB leer oder Laden fehlschlägt.
-            // Wird aber durch initChecklistDB -> generate -> load -> update abgedeckt.
-            // updateChecklistProgress();
 
-        }); // Ende DOMContentLoaded
-    </script>
+             // Event Listener für den Spiel-Button
+             if (gameButton) {
+                  gameButton.addEventListener('click', () => {
+                      const gameUrl = 'https://raw.githack.com/ErSieCode/1Rad/main/Einrad_mini_game.html'; // raw.githack ist oft besser für HTML-Preview
+                      console.log("Öffne Spiel:", gameUrl);
+                      window.open(gameUrl, '_blank');
+                  });
+              }
 
-</body>
-</html>
-                    
+         }); // Ende DOMContentLoaded
+     </script>
+
+ </body>
+ </html>
