@@ -16,7 +16,7 @@
         :root {
             --primary-color: #2E7D32;
             --secondary-color: #689F38;
-            --accent-color: #FFA000;
+            --accent-color: #FFA000; /* Orange für die Wellen */
             --text-color: #333;
             --bg-color: #F1F8E9;
             --card-bg: #ffffff;
@@ -25,18 +25,19 @@
             --nav-text-color: #f1f1f1;
             --nav-height: 50px;
             --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            --font-heading: 'Arial Black', Gadget, sans-serif; /* Bleibt Fett */
+            --font-heading: 'Arial Black', Gadget, sans-serif;
             --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             --border-radius: 8px;
             --checklist-complete-color: #4CAF50;
             --link-color: #980308;
             --link-hover-color: var(--primary-color);
             --checked-item-color: #666;
-            /* --- NEUE Banner-Textfarbe --- */
-            --header-text-color: #83b219; /* Geändert auf Wunschfarbe */
-            --header-text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Angepasster Schatten für Kontrast */
+            --header-text-color: #83b219;
+            --header-text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+            --audio-button-width: 110px;
         }
 
+        /* Basis-Styles */
         html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
         body { font-family: var(--font-main); color: var(--text-color); background-color: var(--bg-color); margin: 0; line-height: 1.6; }
         h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); color: var(--primary-color); }
@@ -44,126 +45,82 @@
         a:hover { color: var(--link-hover-color); text-decoration: underline; }
         img { max-width: 100%; height: auto; border-radius: var(--border-radius); vertical-align: middle; }
          figure { margin: 0; }
-
         .button { display: inline-block; background-color: var(--accent-color); color: #fff !important; padding: 10px 20px; border-radius: var(--border-radius); text-decoration: none; font-weight: bold; transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease; border: none; cursor: pointer; font-size: 1em; text-align: center; margin: 5px; }
         .button:hover { background-color: #e69500; transform: translateY(-2px); text-decoration: none; }
         .button:disabled { background-color: #ccc; cursor: not-allowed; transform: none; opacity: 0.7; }
         .button i { margin-right: 8px; }
         .button-secondary { background-color: var(--secondary-color); }
         .button-secondary:hover { background-color: var(--primary-color); }
-
         nav.main-nav { background-color: var(--nav-bg-color); height: var(--nav-height); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); display: flex; justify-content: center; align-items: center; overflow-x: auto; white-space: nowrap; }
         nav.main-nav ul { list-style: none; margin: 0; padding: 0 10px; display: flex; gap: 15px; }
         nav.main-nav li { display: inline-block; }
         nav.main-nav a { color: var(--nav-text-color); text-decoration: none; padding: 10px 15px; border-radius: 4px; transition: background-color 0.3s ease, color 0.3s ease; font-weight: bold; font-size: 0.9em; }
         nav.main-nav a:hover, nav.main-nav a:focus { background-color: var(--accent-color); color: white; text-decoration: none; }
         nav.main-nav a i { margin-right: 5px; }
-
         .container { max-width: 1000px; margin: 20px auto; padding: 0 20px; }
         section { background-color: var(--card-bg); padding: 25px; margin-bottom: 25px; border-radius: var(--border-radius); box-shadow: var(--shadow); }
         section h2 { margin-top: 0; text-align: center; margin-bottom: 25px; }
-
-        /* --- Header mit Banner (Textfarbe & Schatten angepasst) --- */
-        .main-header {
-            padding: 40px 20px; text-align: center;
-            background-image: url('https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Banner.png');
-            background-size: cover; background-position: center 33%;
-            position: relative; color: var(--header-text-color); /* Verwendet die Variable */
-            box-shadow: var(--shadow);
-        }
+        .main-header { padding: 40px 20px; text-align: center; background-image: url('https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Banner.png'); background-size: cover; background-position: center 33%; position: relative; color: var(--header-text-color); box-shadow: var(--shadow); }
         .header-content { position: relative; z-index: 2; }
-        .main-header h1, .main-header h2, .main-header .subtitle {
-            color: var(--header-text-color); /* Verwendet die Variable */
-            font-weight: bold; /* Bleibt Fett */
-            text-shadow: var(--header-text-shadow); /* Verwendet die Variable */
-        }
+        .main-header h1, .main-header h2, .main-header .subtitle { color: var(--header-text-color); font-weight: bold; text-shadow: var(--header-text-shadow); }
         .main-header h1 { margin: 10px 0 5px 0; font-size: 2.5em; }
         .main-header h2 { font-size: 1.5em; margin-top: 0; margin-bottom: 15px; font-family: var(--font-heading); }
         .main-header .subtitle { font-size: 1.1em; font-style: italic; opacity: 1; }
         .main-header .subtitle strong { font-style: normal; }
+        .intro-section { display: flex; }
+        .intro-text { flex: 1 1 100%; max-width: 800px; margin: 0 auto; text-align: left; position: relative; }
 
-        /* --- Intro Section (Bild entfernt, stattdessen Audio-Figur) --- */
-        .intro-section { display: flex; /* Bleibt flex für Zentrierung, wenn nur Text da */ }
-        .intro-text {
-            flex: 1 1 100%; /* Nimmt die volle Breite ein */
-             max-width: 800px; /* Optional: Maximale Breite für Lesbarkeit */
-             margin: 0 auto; /* Zentriert den Textblock */
-             text-align: left; /* Oder center, je nach Wunsch */
-             position: relative; /* Wichtig für absolute Positionierung des Modals */
-        }
-        /* --- NEU: Style für die Audio-Figur --- */
-        .audio-figur {
-            float: right; /* Rechts neben dem Text */
-            width: 99px;  /* Größe anpassen nach Bedarf */
-            height: auto;
-            margin-left: 20px; /* Abstand zum Text */
-            margin-bottom: 15px; /* Abstand zum unteren Text */
-            cursor: pointer;
-            transition: transform 0.2s ease-in-out; /* Für den Hop-Effekt */
-            border-radius: 50%; /* Rund machen? Oder behalten? var(--border-radius); */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .audio-figur:hover {
-            transform: translateY(-5px); /* Der "Hop"-Effekt */
-        }
-        /* --- NEU: Styles für das Audio-Modal --- */
-        .audio-modal-backdrop {
-            display: none; /* Standardmäßig versteckt */
-            position: fixed; /* Über alles legen */
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* Dunkler Hintergrund */
-            z-index: 1040; /* Unter dem Modal, über dem Rest */
-        }
-        .audio-modal {
-            display: none; /* Standardmäßig versteckt */
-            position: fixed; /* Zentriert im Viewport */
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 1050; /* Über dem Backdrop */
-            text-align: center;
-            min-width: 300px;
-            max-width: 90%;
-        }
-        .audio-modal p {
-            margin-bottom: 30px;
-            font-size: 1.1em;
-        }
-        .audio-modal .button-group {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-        .audio-modal .close-btn {
+        /* --- Audio Button & Schallwellen CSS --- */
+        .audio-center-container { text-align: center; margin: 0 auto 30px auto; width: 100%; display: flex; flex-direction: column; align-items: center; }
+        .audio-button-wrapper { position: relative; width: var(--audio-button-width); height: auto; display: inline-block; margin: 20px; }
+        .audio-button { position: relative; width: 100%; cursor: pointer; transition: transform 0.2s ease-in-out; z-index: 10; }
+        .audio-button:hover { transform: translateY(-5px); }
+        .audio-figur { width: 100%; height: auto; border-radius: 10px 10px 0 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: block; }
+        .audio-caption { position: relative; font-size: 0.85em; padding: 5px 5px; color: var(--primary-color); font-weight: bold; background-color: #f8f8f8; border-radius: 0 0 10px 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); width: 100%; text-align: center; line-height: 1.2; overflow-wrap: break-word; box-sizing: border-box; min-height: 3em; display: flex; align-items: center; justify-content: center; }
+        .soundwave-container { position: absolute; top: 0; left: 0; width: 100%; height: calc(var(--audio-button-width) * 0.7); pointer-events: none; }
+        .soundwave {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            font-size: 1.5em;
-            color: var(--text-color);
-            cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.2s ease;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: calc(100% + 10px);
+            height: calc(100% + 10px);
+            border-radius: 50%;
+            /* Dickere, orange Border */
+            border: 4px solid var(--accent-color);
+            opacity: 0; /* Start unsichtbar */
+            z-index: 5;
         }
-        .audio-modal .close-btn:hover {
-            opacity: 1;
+        @keyframes soundwave-pulse {
+            0% {
+                width: 100%;
+                height: 100%;
+                opacity: 0.85; /* Sichtbar am Start */
+                border-width: 4px; /* Start dick */
+            }
+            100% {
+                width: 250%; /* Weiter */
+                height: 250%;
+                opacity: 0;
+                border-width: 2px; /* Endet noch leicht dick */
+            }
         }
-        #gmtw-audio-player-container {
-            margin-top: 20px;
-            display: none; /* Wird bei Play angezeigt */
-        }
-        #gmtw-audio-player {
-             width: 100%;
-        }
+        /* Animation via Klasse .animating (gesteuert per JS) */
+        .soundwave-1.animating { animation: soundwave-pulse 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) 0ms forwards; }
+        .soundwave-2.animating { animation: soundwave-pulse 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) 200ms forwards; }
+        .soundwave-3.animating { animation: soundwave-pulse 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) 400ms forwards; }
 
-        /* --- Restliche Styles --- */
-        /* Zeitplan Section */
+        /* --- Audio-Modal Styles --- */
+        .audio-modal-backdrop { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 1040; }
+        .audio-modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: var(--card-bg); padding: 30px; border-radius: var(--border-radius); box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1050; text-align: center; min-width: 300px; max-width: 90%; }
+        .audio-modal p { margin-bottom: 20px; font-size: 1.1em; }
+        .audio-modal .button-group { display: flex; justify-content: center; gap: 15px; margin-bottom: 15px; }
+        .audio-modal .close-btn { position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.5em; color: var(--text-color); cursor: pointer; opacity: 0.7; transition: opacity 0.2s ease; }
+        .audio-modal .close-btn:hover { opacity: 1; }
+        #gmtw-audio-player-container { margin-top: 20px; display: none; }
+        #gmtw-audio-player { width: 100%; }
+
+        /* --- Restliche Styles (Zeitplan, Location, Packliste etc. - unverändert) --- */
         #event-uebersicht { padding: 30px 20px; background-color: transparent; box-shadow: none; text-align: center; border-top: 2px dashed var(--secondary-color); margin-top: 30px; margin-bottom: 30px; }
         #event-uebersicht h2 { margin-bottom: 25px; }
         #overview-container { position: relative; width: 90%; max-width: 800px; margin: 40px auto 30px auto; height: 80px; }
@@ -181,7 +138,7 @@
         #daily-highlights-display li::before { content: '\f005'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--accent-color); }
         #play-animation { margin-top: 20px; }
         #daily-detail-content { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); display: none; }
-        #daily-detail-content.visible { display: block; } /* Korrekte Sichtbarkeit */
+        #daily-detail-content.visible { display: block; }
         #daily-detail-content h2 { text-align: center; margin-bottom: 25px; color: var(--primary-color); }
         .timeline { position: relative; padding-left: 40px; border-left: 4px solid var(--secondary-color); }
         .timeline-item { margin-bottom: 30px; position: relative; }
@@ -200,8 +157,6 @@
         .content-tile p:last-child, .content-tile ul:last-child { margin-bottom: 0; }
         .content-tile em { font-style: italic; color: var(--text-color); opacity: 0.9; font-size: 0.95em; display: block; margin-top: 5px; }
         .content-tile strong { color: var(--primary-color); }
-
-        /* Location & Orga Section */
         .orga-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .orga-card { background-color: var(--bg-color); padding: 20px; border-radius: var(--border-radius); border-left: 5px solid var(--secondary-color); display: flex; flex-direction: column; }
         .orga-card h3 { margin-top: 0; color: var(--secondary-color); display: flex; align-items: center; gap: 10px; font-size: 1.2em; }
@@ -215,8 +170,6 @@
          .orga-card figure.location-image a:hover { transform: scale(1.03); }
          .orga-card figure.location-image img { max-width: 100%; height: 150px; object-fit: cover; display: block; }
          .orga-card figure.location-image figcaption { font-size: 0.8em; color: #666; margin-top: 5px; }
-
-        /* Wichtige Hinweise Section (Startet GESCHLOSSEN) */
         #wichtige-hinweise .info-container { display: flex; flex-wrap: wrap; gap: 15px; }
         #wichtige-hinweise details { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--border-radius); margin-bottom: 10px; box-shadow: var(--shadow); flex: 1 1 45%; min-width: 300px; transition: box-shadow 0.3s ease; border-left: 5px solid transparent; }
         #wichtige-hinweise details:hover { box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); }
@@ -227,8 +180,6 @@
         #wichtige-hinweise details[open] summary::after { transform: rotate(90deg); }
         #wichtige-hinweise .details-content { padding: 0 15px 15px 45px; border-top: 1px solid #eee; margin-top: 10px; }
         #wichtige-hinweise .details-content ul { list-style: disc; padding-left: 20px; margin: 0; }
-
-        /* Event Impressionen Section */
         .impressionen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .impressionen-card { background-color: var(--bg-color); border-radius: var(--border-radius); overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow); }
         .impressionen-card a.image-link { display: block; }
@@ -243,8 +194,6 @@
         .impressionen-card .card-content .small-icon { font-size: 0.7em; vertical-align: super; }
         .impressionen-card .mascot-container { display: flex; justify-content: space-around; align-items: center; margin-top: 15px; padding-top: 10px; border-top: 1px dashed var(--border-color); }
         .impressionen-card .mascot-container img { height: 70px; width: auto; object-fit: contain; border-radius: 0; }
-
-        /* Packliste Checkliste */
         #packliste-checklist { border: 2px solid var(--border-color); padding: 25px; border-radius: var(--border-radius); transition: border-color 0.5s ease; }
         #packliste-checklist h2 { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
         #packliste-checklist h2 span { flex-grow: 1; text-align: left; display: flex; align-items: center; gap: 10px; }
@@ -270,211 +219,33 @@
         .check-item label { cursor: pointer; flex-grow: 1; transition: color 0.3s ease; }
         .check-item input[type="checkbox"] { cursor: pointer; width: 1.3em; height: 1.3em; accent-color: var(--secondary-color); flex-shrink: 0; }
         .check-item input[type="checkbox"]:checked + label { color: var(--checked-item-color); text-decoration: line-through; }
-
-          /* Neue Styles für Galerie-Funktionalität */
-        .gallery-preview {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Behält 2 Spalten */
-            gap: 5px;
-            margin-top: 15px;
-        }
-
-        .gallery-preview a {
-            position: relative;
-            display: block;
-            height: 80px; /* Höhe beibehalten */
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            transition: transform 0.2s ease;
-        }
-
-        .gallery-preview a:hover {
-            transform: scale(1.05);
-        }
-
-        .gallery-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 0;
-        }
-
-        .more-photos {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            background-color: rgba(0,0,0,0.7);
-            color: white;
-            font-size: 0.7em;
-            padding: 2px 5px;
-            border-radius: 4px 0 0 0;
-        }
-
-        /* Overlay Gallery */
-        .gallery-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .gallery-overlay.active {
-            display: flex;
-        }
-
-        .gallery-container {
-            position: relative;
-            width: 90%;
-            max-width: 1000px;
-            height: 75vh;
-            margin-bottom: 15px;
-        }
-
-        .gallery-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .gallery-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255,255,255,0.2);
-            color: white;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.5em;
-            transition: background-color 0.3s ease;
-        }
-
-        .gallery-nav:hover {
-            background-color: rgba(255,255,255,0.4);
-        }
-
-        .gallery-prev {
-            left: 10px;
-        }
-
-        .gallery-next {
-            right: 10px;
-        }
-
-        .gallery-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background-color: rgba(255,255,255,0.2);
-            color: white;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.5em;
-            transition: background-color 0.3s ease;
-        }
-
-        .gallery-close:hover {
-            background-color: rgba(255,255,255,0.4);
-        }
-
-        .gallery-counter {
-            color: white;
-            font-size: 0.9em;
-            margin-top: 10px;
-        }
-
-        .gallery-thumbs {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-            overflow-x: auto;
-            max-width: 90%;
-            padding: 5px 0;
-        }
-
-        .gallery-thumb {
-            width: 60px;
-            height: 60px;
-            border: 2px solid transparent;
-            border-radius: 4px;
-            cursor: pointer;
-            object-fit: cover;
-            transition: border-color 0.3s ease;
-        }
-
-        .gallery-thumb.active {
-            border-color: var(--accent-color);
-        }
-
-        /* Responsive Anpassungen */
-        @media (max-width: 768px) {
-            /* .gallery-preview behält 2 Spalten, Anpassung nicht nötig */
-            .gallery-container { height: 60vh; }
-            .gallery-nav { width: 35px; height: 35px; }
-            /* --- NEU: Responsive Anpassung für Audio-Figur --- */
-            .audio-figur { float: none; display: block; margin: 10px auto 15px auto; width: 88px; }
-            .intro-text { text-align: center; } /* Zentriert Text wenn Figur oben/unten ist */
-             /* --- ENDE NEU --- */
-        }
-        @media (max-width: 480px) {
-            .gallery-thumbs { display: none; }
-            .gallery-container { height: 50vh; }
-            /* --- NEU: Responsive Anpassung für Audio-Figur (klein) --- */
-             .audio-figur { width: 77px; }
-            /* --- ENDE NEU --- */
-        }
-
-        /* Footer */
+        .gallery-preview { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; margin-top: 15px; }
+        .gallery-preview a { position: relative; display: block; height: 80px; overflow: hidden; border: 1px solid var(--border-color); border-radius: 4px; transition: transform 0.2s ease; }
+        .gallery-preview a:hover { transform: scale(1.05); }
+        .gallery-preview img { width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
+        .more-photos { position: absolute; bottom: 0; right: 0; background-color: rgba(0,0,0,0.7); color: white; font-size: 0.7em; padding: 2px 5px; border-radius: 4px 0 0 0; }
+        .gallery-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center; flex-direction: column; }
+        .gallery-overlay.active { display: flex; }
+        .gallery-container { position: relative; width: 90%; max-width: 1000px; height: 75vh; margin-bottom: 15px; }
+        .gallery-image { width: 100%; height: 100%; object-fit: contain; }
+        .gallery-nav { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.5em; transition: background-color 0.3s ease; }
+        .gallery-nav:hover { background-color: rgba(255,255,255,0.4); }
+        .gallery-prev { left: 10px; }
+        .gallery-next { right: 10px; }
+        .gallery-close { position: absolute; top: 15px; right: 20px; background-color: rgba(255,255,255,0.2); color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.5em; transition: background-color 0.3s ease; }
+        .gallery-close:hover { background-color: rgba(255,255,255,0.4); }
+        .gallery-counter { color: white; font-size: 0.9em; margin-top: 10px; }
+        .gallery-thumbs { display: flex; gap: 10px; margin-top: 10px; overflow-x: auto; max-width: 90%; padding: 5px 0; }
+        .gallery-thumb { width: 60px; height: 60px; border: 2px solid transparent; border-radius: 4px; cursor: pointer; object-fit: cover; transition: border-color 0.3s ease; }
+        .gallery-thumb.active { border-color: var(--accent-color); }
         footer { background-color: var(--text-color); color: #ccc; text-align: center; padding: 20px; margin-top: 40px; font-size: 0.9em; }
 
-        /* Responsiveness (Fortsetzung) */
-        @media (max-width: 768px) {
-            nav.main-nav { justify-content: flex-start; } nav.main-nav a { padding: 10px 12px; font-size: 0.85em;}
-            .main-header { padding: 25px 15px; } .main-header h1 { font-size: 2em; } .main-header h2 { font-size: 1.2em; }
-            /* .intro-section { flex-direction: column; } */ /* Wird nicht mehr gebraucht, da Figur innen ist */
-            /* .intro-text { text-align: center; } */ /* Oben bereits angepasst */
-            #wichtige-hinweise details { flex-basis: 100%; }
-            .impressionen-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-            .impressionen-card img.card-image { height: 180px; }
-            #overview-container { width: 95%; height: auto; padding-bottom: 30px; } .day-marker { width: 35px; height: 35px; top: 22px; }
-            #unicyclist-icon { top: 5px; height: 50px; } .day-marker span { bottom: 115%; } #daily-highlights-display { width: 95%; margin-top: 100px; }
-            .timeline { padding-left: 20px; border-left-width: 3px; } .timeline-item::before { left: -29px; width: 12px; height: 12px; top: 5px; }
-            .time-tag { position: static; left: auto; top: auto; width: auto; text-align: left; margin-bottom: 8px; background: none; padding: 0; border: none; font-weight: bold; font-size: 1em; color: var(--primary-color); }
-            .content-tile { margin-left: 0; } .checklist-items-grid { grid-template-columns: 1fr; } .orga-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 480px) {
-             nav.main-nav a { padding: 10px 8px; gap: 10px; font-size: 0.8em; } .impressionen-grid { grid-template-columns: 1fr; }
-             .main-header { padding: 15px 10px; } .main-header h1 { font-size: 1.8em; } .main-header h2 { font-size: 1.1em; }
-             body { font-size: 15px; } .container { padding: 0 15px; } section { padding: 20px; }
-            .button { padding: 8px 15px; font-size: 0.9em; } .content-tile { padding: 15px 20px; } .day-marker span { width: 100px; margin-left: -50px; }
-        }
-
+        /* Responsive Styles */
+        @media (max-width: 768px) { :root { --audio-button-width: 100px; } nav.main-nav { justify-content: flex-start; } nav.main-nav a { padding: 10px 12px; font-size: 0.85em;} .main-header { padding: 25px 15px; } .main-header h1 { font-size: 2em; } .main-header h2 { font-size: 1.2em; } .intro-text { text-align: center; } #wichtige-hinweise details { flex-basis: 100%; } .impressionen-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); } .impressionen-card img.card-image { height: 180px; } #overview-container { width: 95%; height: auto; padding-bottom: 30px; } .day-marker { width: 35px; height: 35px; top: 22px; } #unicyclist-icon { top: 5px; height: 50px; } .day-marker span { bottom: 115%; } #daily-highlights-display { width: 95%; margin-top: 100px; } .timeline { padding-left: 20px; border-left-width: 3px; } .timeline-item::before { left: -29px; width: 12px; height: 12px; top: 5px; } .time-tag { position: static; left: auto; top: auto; width: auto; text-align: left; margin-bottom: 8px; background: none; padding: 0; border: none; font-weight: bold; font-size: 1em; color: var(--primary-color); } .content-tile { margin-left: 0; } .checklist-items-grid { grid-template-columns: 1fr; } .orga-grid { grid-template-columns: 1fr; } .gallery-container { height: 60vh; } .gallery-nav { width: 35px; height: 35px; } }
+        @media (max-width: 480px) { :root { --audio-button-width: 90px; } nav.main-nav a { padding: 10px 8px; gap: 10px; font-size: 0.8em; } .impressionen-grid { grid-template-columns: 1fr; } .main-header { padding: 15px 10px; } .main-header h1 { font-size: 1.8em; } .main-header h2 { font-size: 1.1em; } body { font-size: 15px; } .container { padding: 0 15px; } section { padding: 20px; } .button { padding: 8px 15px; font-size: 0.9em; } .content-tile { padding: 15px 20px; } .day-marker span { width: 100px; margin-left: -50px; } .gallery-thumbs { display: none; } .gallery-container { height: 50vh; } }
     </style>
 </head>
 <body>
-    <!-- Placeholder für Language Switcher -->
-    <!-- <div class="language-switcher" style="position: fixed; top: 60px; right: 10px; z-index: 1001;">
-        <button onclick="switchLanguage('de')">DE</button>
-        <button onclick="switchLanguage('en')">EN</button>
-        <button onclick="switchLanguage('nl')">NL</button>
-    </div> -->
 
     <nav class="main-nav">
         <ul>
@@ -497,44 +268,53 @@
         </div>
     </header>
 
-    <div class="container">
-        <section id="intro" class="intro-section">
-            <div class="intro-text">
-                <!-- === NEUE AUDIO-FIGUR === -->
-                <img src="https://raw.githubusercontent.com/ErSieCode/1Rad/main/GMTW25_Audio_grafik.png"
-                     alt="Klicke hier für Audio-Optionen"
-                     class="audio-figur"
-                     id="audio-figur-trigger"
-                     title="Audio anhören oder herunterladen">
-                <!-- === ENDE AUDIO-FIGUR === -->
+   <div class="container"> <!-- Hauptcontainer für die erste Sektion -->
+    <section id="intro" class="intro-section">
+        <div class="intro-text">
+            <!-- Audio Button -->
+            <div class="audio-center-container">
+                <div class="audio-button-wrapper" id="audio-wrapper"> <!-- Hover/Touch Listener hier -->
+                    <div class="soundwave-container">
+                        <div class="soundwave soundwave-1"></div>
+                        <div class="soundwave soundwave-2"></div>
+                        <div class="soundwave soundwave-3"></div>
+                    </div>
+                    <div class="audio-button" id="audio-figur-trigger" title="Audio anhören oder herunterladen"> <!-- Click Listener hier -->
+                         <img src="https://raw.githubusercontent.com/ErSieCode/1Rad/main/GMTW25_Audio_grafik.png"
+                              alt="Klicke hier für Audio-Optionen"
+                              class="audio-figur">
+                         <div class="audio-caption">Audio Zusammenfassung</div>
+                    </div>
+                 </div>
+            </div>
 
-                <h2 style="text-align: left;"><i class="fas fa-info-circle" style="color: var(--accent-color);"></i> Die Seele des GMTW</h2>
-                <p>Das German Muni and Trial Weekend (GMTW) wurde <strong>seit 2003</strong> von leidenschaftlichen Einrad-Pionieren ins Leben gerufen. Ihr Ziel: die Begeisterung für <strong>Mountain Unicycling (Muni)</strong> und <strong>Trial</strong> in der Natur zu entfachen und die Gemeinschaft zu stärken.</p>
-                <p>Heute ist das GMTW das Herzstück der Szene. Jedes Jahr treffen sich über 60 Fahrer\*innen aus Deutschland und darüber hinaus – <strong>Anfänger bis Profis, Groß und Klein</strong> – vereint durch die Liebe zum Einradsport.</p>
-                <p>Der Ort wechselt, die Gemeinschaft bleibt. Tagsüber geht es um Training, Trails und das Testen von Grenzen. Abends prägen <strong>Lagerfeuer, Geschichten und Gemeinschaft</strong> die einzigartige Atmosphäre. Auch wenn Wettbewerbselemente hinzugekommen sind: Das GMTW ist <strong>kein Wettkampf</strong>, sondern ein Treffen Gleichgesinnter zum Lernen, Austauschen und Spaßhaben.</p>
-                <p><strong>Komm vorbei und erlebe die einzigartige Gemeinschaft des GMTW!</strong></p>
-            </div>
-        </section>
-
-        <!-- === NEUES AUDIO-MODAL & BACKDROP (kann irgendwo im body stehen, Ende ist gut) === -->
-        <div class="audio-modal-backdrop" id="audio-modal-backdrop"></div>
-        <div class="audio-modal" id="audio-options-modal">
-            <button class="close-btn" id="close-audio-modal-btn" title="Schließen">&times;</button>
-            <p>Möchtest du die Audio-Infos anhören oder lieber herunterladen?</p>
-            <div class="button-group">
-                <button class="button" id="play-gmtw-audio-btn"><i class="fas fa-play"></i> Anhören</button>
-                <button class="button button-secondary" id="download-gmtw-audio-btn"><i class="fas fa-download"></i> Herunterladen</button>
-            </div>
-            <div id="gmtw-audio-player-container">
-                <audio id="gmtw-audio-player" controls>
-                    Dein Browser unterstützt das Audio-Element nicht.
-                    <source src="https://raw.githubusercontent.com/ErSieCode/1Rad/main/GMTW25_LineUP_Audio.mp3" type="audio/mpeg">
-                </audio>
-            </div>
+            <h2><i class="fas fa-info-circle" style="color: var(--accent-color);"></i> Die Seele des GMTW</h2>
+            <p>Das German Muni and Trial Weekend (GMTW) wurde <strong>seit 2003</strong> von leidenschaftlichen Einrad-Pionieren ins Leben gerufen. Ihr Ziel: die Begeisterung für <strong>Mountain Unicycling (Muni)</strong> und <strong>Trial</strong> in der Natur zu entfachen und die Gemeinschaft zu stärken.</p>
+            <p>Heute ist das GMTW das Herzstück der Szene. Jedes Jahr treffen sich über 60 Fahrer\*innen aus Deutschland und darüber hinaus – <strong>Anfänger bis Profis, Groß und Klein</strong> – vereint durch die Liebe zum Einradsport.</p>
+            <p>Der Ort wechselt, die Gemeinschaft bleibt. Tagsüber geht es um Training, Trails und das Testen von Grenzen. Abends prägen <strong>Lagerfeuer, Geschichten und Gemeinschaft</strong> die einzigartige Atmosphäre. Auch wenn Wettbewerbselemente hinzugekommen sind: Das GMTW ist <strong>kein Wettkampf</strong>, sondern ein Treffen Gleichgesinnter zum Lernen, Austauschen und Spaßhaben.</p>
+            <p><strong>Komm vorbei und erlebe die einzigartige Gemeinschaft des GMTW!</strong></p>
         </div>
-        <!-- === ENDE AUDIO-MODAL === -->
+    </section>
+    </div> <!-- Ende Hauptcontainer nach Intro -->
 
+    <!-- Audio Modal -->
+    <div class="audio-modal-backdrop" id="audio-modal-backdrop"></div>
+    <div class="audio-modal" id="audio-options-modal">
+        <button class="close-btn" id="close-audio-modal-btn" title="Schließen">×</button>
+        <p>Möchtest du die Audio-Infos anhören oder lieber herunterladen?</p>
+        <div class="button-group">
+            <button class="button" id="play-gmtw-audio-btn"><i class="fas fa-play"></i> Anhören</button>
+            <button class="button button-secondary" id="download-gmtw-audio-btn"><i class="fas fa-download"></i> Herunterladen</button>
+        </div>
+        <div id="gmtw-audio-player-container">
+            <audio id="gmtw-audio-player" controls>
+                Dein Browser unterstützt das Audio-Element nicht.
+                <source src="https://raw.githubusercontent.com/ErSieCode/1Rad/main/GMTW25_LineUP_Audio.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
 
+    <div class="container"> <!-- Container für die restlichen Sektionen -->
         <section id="event-uebersicht">
              <h2>Der Zeitplan: 5 Tage voller Action!</h2>
              <p>Wähle einen Tag auf der Timeline oder starte die Animation, um die Highlights zu sehen und den detaillierten Plan zu laden.</p>
@@ -574,7 +354,7 @@
          <section id="event-impressionen">
              <h2>Einblicke & Atmosphäre</h2>
              <div class="impressionen-grid">
-                 <!-- Bestehende Kachel: Muni -->
+                 <!-- Muni -->
                  <div class="impressionen-card">
                      <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" target="_blank" class="image-link" title="Muni Impression (vergrößern)">
                          <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" alt="Einrad im Wald" class="card-image">
@@ -585,8 +365,7 @@
                          <p>Erkunde die wunderschönen Trails rund um den Hengsteysee. Für alle Könnensstufen ist etwas dabei – perfekt zum Üben und gemeinsamen Lernen.</p>
                      </div>
                  </div>
-
-                 <!-- KOMBINIERTE KACHEL: Trial stuff (vormals Trial + Trial-Ausstattung) -->
+                 <!-- Trial -->
                  <div class="impressionen-card">
                      <a href="javascript:openGallery('trial-gallery')" class="image-link" title="Trial Ansehen">
                          <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff3.jpg" alt="Trial-Ausstattung" class="card-image">
@@ -594,20 +373,13 @@
                      <div class="card-content">
                          <h3>Trial stuff</h3>
                          <p>Zeige deine Geschicklichkeit! Unsere vielfältigen Trial-Aufbauten und Hindernisse im Camp und im nahen Steinbruch garantieren Spaß und Herausforderung für jedes Können.</p>
-
                          <div class="gallery-preview">
-                             <a href="javascript:openGallery('trial-gallery', 0)">
-                                 <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff.jpg" alt="Trial Aufbau 1">
-                             </a>
-                             <a href="javascript:openGallery('trial-gallery', 1)">
-                                 <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff2.jpg" alt="Trial Aufbau 2">
-                                 <span class="more-photos">+3</span>
-                             </a>
+                             <a href="javascript:openGallery('trial-gallery', 0)"><img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff.jpg" alt="Trial Aufbau 1"></a>
+                             <a href="javascript:openGallery('trial-gallery', 1)"><img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff2.jpg" alt="Trial Aufbau 2"><span class="more-photos">+3</span></a>
                          </div>
                      </div>
                  </div>
-
-                 <!-- Bestehende Kachel: Camp-Leben -->
+                 <!-- Camp -->
                  <div class="impressionen-card">
                      <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" target="_blank" class="image-link" title="Camp Impression (vergrößern)">
                          <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" alt="Zelte" class="card-image">
@@ -617,8 +389,7 @@
                          <p>Unsere Basis: Die "Touristenplätze" auf dem Campingplatz (<a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" target="_blank" title="Detailansicht (vergrößern)">siehe Detail <i class="fas fa-external-link-alt small-icon"></i></a>). Hier schlagen wir unsere Zelte auf, kochen gemeinsam und genießen die Abende.</p>
                      </div>
                  </div>
-
-                 <!-- Bestehende Kachel: Gemeinschaft & Spaß -->
+                 <!-- Gemeinschaft -->
                  <div class="impressionen-card">
                      <div class="card-content">
                          <h3>Gemeinschaft & Spaß</h3>
@@ -629,8 +400,7 @@
                          </div>
                      </div>
                  </div>
-
-                 <!-- Geländebilder Galerie -->
+                 <!-- Gelände -->
                  <div class="impressionen-card">
                      <a href="javascript:openGallery('location-gallery')" class="image-link" title="Geländebilder ansehen">
                          <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Im_Wald.jpg" alt="Geländebilder" class="card-image">
@@ -638,20 +408,13 @@
                      <div class="card-content">
                          <h3>Unsere Geländeansichten</h3>
                          <p>Entdecke das herrliche Gelände, in dem wir unser diesjähriges GMTW veranstalten. Perfekte Bedingungen für Muni & Trial!</p>
-
                          <div class="gallery-preview">
-                             <a href="javascript:openGallery('location-gallery', 0)">
-                                 <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Gelaendesicht.jpg" alt="Geländeansicht">
-                             </a>
-                             <a href="javascript:openGallery('location-gallery', 1)">
-                                 <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Im_Wald.jpg" alt="Im Wald">
-                                 <span class="more-photos">+2</span>
-                             </a>
+                             <a href="javascript:openGallery('location-gallery', 0)"><img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Gelaendesicht.jpg" alt="Geländeansicht"></a>
+                             <a href="javascript:openGallery('location-gallery', 1)"><img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Im_Wald.jpg" alt="Im Wald"><span class="more-photos">+2</span></a>
                          </div>
                      </div>
                  </div>
-
-                 <!-- === AKTUALISIERTE T-Shirt Galerie Kachel === -->
+                 <!-- T-Shirt -->
                  <div class="impressionen-card">
                      <a href="javascript:openGallery('tshirt-gallery', 4)" class="image-link" title="Event T-Shirts ansehen">
                          <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude_left.jpg" alt="Event T-Shirts" class="card-image">
@@ -659,27 +422,18 @@
                      <div class="card-content">
                          <h3>GMTW 2025 T-Shirts</h3>
                          <p>Sichere dir ein Erinnerungsstück! Unsere Event-Shirts sind bis zum 01.04.2025 bestellbar. Verschiedene Ausführungen und Größen verfügbar.</p>
-
                          <div class="gallery-preview">
-                             <a href="javascript:openGallery('tshirt-gallery', 4)">
-                                 <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front4.jpg" alt="T-Shirt Seitenansicht Vorschau">
-                             </a>
-                             <a href="javascript:openGallery('tshirt-gallery', 3)">
-                                 <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front.jpg" alt="T-Shirt Person Vorderansicht Vorschau">
-                                 <span class="more-photos">+6</span> <!-- Aktualisiert: 8 Bilder total - 2 in Vorschau = 6 -->
-                             </a>
+                             <a href="javascript:openGallery('tshirt-gallery', 4)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front4.jpg" alt="T-Shirt Seitenansicht Vorschau"></a>
+                             <a href="javascript:openGallery('tshirt-gallery', 3)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front.jpg" alt="T-Shirt Person Vorderansicht Vorschau"><span class="more-photos">+6</span></a>
                          </div>
                      </div>
                  </div>
-                 <!-- === ENDE AKTUALISIERTE T-Shirt Kachel === -->
-
              </div>
          </section>
 
          <section id="packliste-checklist">
              <h2>
                  <span>
-                     <!-- Icon wird durch JS ersetzt oder bleibt als Fallback -->
                      <i class="fas fa-clipboard-list" style="color: var(--accent-color);" id="checklist-title-icon-placeholder"></i>
                      Deine Pack-Checkliste
                  </span>
@@ -692,10 +446,7 @@
                  <div id="checklist-progress-bar-container"><div id="checklist-progress-bar"></div></div>
                  <span id="checklist-progress-text">0 von X gepackt</span>
              </div>
-             <div id="checklist-categories-container">
-                 <!-- Inhalt per JS -->
-             </div>
-
+             <div id="checklist-categories-container"> <!-- Inhalt per JS --> </div>
              <div style="text-align: center; margin-top: 20px;">
                  <button id="game-button" class="button button-secondary" style="display: none;"> <!-- Initial versteckt -->
                      <i class="fas fa-gamepad"></i> Einradspiel Laden
@@ -704,209 +455,39 @@
          </section>
 
          <div id="gallery-overlay" class="gallery-overlay">
-         <div id="gallery-close" class="gallery-close"><i class="fas fa-times"></i></div>
-         <div class="gallery-container">
-             <img id="gallery-current-image" class="gallery-image" src="" alt="Galeriebild">
-             <div id="gallery-prev" class="gallery-nav gallery-prev"><i class="fas fa-chevron-left"></i></div>
-             <div id="gallery-next" class="gallery-nav gallery-next"><i class="fas fa-chevron-right"></i></div>
+             <div id="gallery-close" class="gallery-close"><i class="fas fa-times"></i></div>
+             <div class="gallery-container">
+                 <img id="gallery-current-image" class="gallery-image" src="" alt="Galeriebild">
+                 <div id="gallery-prev" class="gallery-nav gallery-prev"><i class="fas fa-chevron-left"></i></div>
+                 <div id="gallery-next" class="gallery-nav gallery-next"><i class="fas fa-chevron-right"></i></div>
+             </div>
+             <div id="gallery-counter" class="gallery-counter">Bild 1 von X</div>
+             <div id="gallery-thumbs" class="gallery-thumbs"> <!-- Thumbnails per JS --> </div>
          </div>
-         <div id="gallery-counter" class="gallery-counter">Bild 1 von X</div>
-         <div id="gallery-thumbs" class="gallery-thumbs">
-             <!-- Thumbnails werden per JS eingefügt -->
-         </div>
-     </div>
 
-     </div> <!-- Ende .container -->
+     </div> <!-- Ende Container für restliche Sektionen -->
 
      <footer>
          <p>© 2024 GMTW Orga-Team | Dein Einrad-Abenteuer am Hengsteysee</p>
      </footer>
 
      <script>
-         // WICHTIG: Globale Definitionen für die Galerie vor DOMContentLoaded
-         // Gallerie-Definitionen
+         // Globale Galerie-Definitionen und Funktionen (unverändert)
          const galleries = {
-             'location-gallery': [
-                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Gelaendesicht.jpg', alt: 'Geländeansicht' },
-                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Im_Wald.jpg', alt: 'Im Wald' },
-                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Kueche.jpg', alt: 'Küche' },
-                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial%2BZeltplatz.jpg', alt: 'Trial und Zeltplatz' }
-             ],
-             'trial-gallery': [
-                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff.jpg', alt: 'Trial Ausstattung 1' },
-                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff2.jpg', alt: 'Trial Ausstattung 2' },
-                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff3.jpg', alt: 'Trial Ausstattung 3' },
-                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff4.jpg', alt: 'Trial Ausstattung 4' },
-                 { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trialbaum.jpg', alt: 'Trialbaum' }
-             ],
-             // === AKTUALISIERTE T-Shirt Galerie Daten ===
-             'tshirt-gallery': [
-                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front1.jpg', alt: 'T-Shirt Vorderseite 1' },
-                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front4.jpg', alt: 'T-Shirt Vorderseite 4' },
-                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front.jpg', alt: 'T-Shirt Person Vorderansicht' },
-                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front1.jpg', alt: 'T-Shirt Person Vorderansicht 2' },
-                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude_left.jpg', alt: 'T-Shirt Person Seitenansicht' },
-                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front2.jpg', alt: 'T-Shirt Vorderseite 2' },
-                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front3.jpg', alt: 'T-Shirt Vorderseite 3' },
-                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front5.jpg', alt: 'T-Shirt Vorderseite 5' }
-             ]
-             // === ENDE AKTUALISIERTE T-Shirt Galerie Daten ===
+             'location-gallery': [ { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Gelaendesicht.jpg', alt: 'Geländeansicht' }, { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Im_Wald.jpg', alt: 'Im Wald' }, { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Kueche.jpg', alt: 'Küche' }, { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial%2BZeltplatz.jpg', alt: 'Trial und Zeltplatz' } ],
+             'trial-gallery': [ { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff.jpg', alt: 'Trial Ausstattung 1' }, { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff2.jpg', alt: 'Trial Ausstattung 2' }, { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff3.jpg', alt: 'Trial Ausstattung 3' }, { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff4.jpg', alt: 'Trial Ausstattung 4' }, { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trialbaum.jpg', alt: 'Trialbaum' } ],
+             'tshirt-gallery': [ { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front1.jpg', alt: 'T-Shirt Vorderseite 1' }, { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front4.jpg', alt: 'T-Shirt Vorderseite 4' }, { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front.jpg', alt: 'T-Shirt Person Vorderansicht' }, { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front1.jpg', alt: 'T-Shirt Person Vorderansicht 2' }, { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude_left.jpg', alt: 'T-Shirt Person Seitenansicht' }, { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front2.jpg', alt: 'T-Shirt Vorderseite 2' }, { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front3.jpg', alt: 'T-Shirt Vorderseite 3' }, { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front5.jpg', alt: 'T-Shirt Vorderseite 5' } ]
          };
-
          let currentGallery = '';
          let currentIndex = 0;
+         function openGallery(galleryId, startIndex = 0) { const overlay = document.getElementById('gallery-overlay'); const currentImage = document.getElementById('gallery-current-image'); const counter = document.getElementById('gallery-counter'); const thumbsContainer = document.getElementById('gallery-thumbs'); if (!galleries[galleryId] || !galleries[galleryId].length) { console.error(`Galerie "${galleryId}" nicht gefunden oder leer.`); return; } const galleryData = galleries[galleryId]; const numImages = galleryData.length; if (startIndex < 0 || startIndex >= numImages) { console.warn(`Ungültiger startIndex ${startIndex} für Galerie "${galleryId}". Setze auf 0.`); startIndex = 0; } currentGallery = galleryId; currentIndex = startIndex; if (currentImage) { currentImage.src = galleryData[startIndex].src; currentImage.alt = galleryData[startIndex].alt; } else { console.error("Element 'gallery-current-image' nicht gefunden."); } if (counter) { counter.textContent = `Bild ${startIndex + 1} von ${numImages}`; } else { console.error("Element 'gallery-counter' nicht gefunden."); } if (thumbsContainer) { thumbsContainer.innerHTML = ''; galleryData.forEach((img, idx) => { const thumb = document.createElement('img'); thumb.src = img.src; thumb.alt = `Thumbnail ${idx + 1}`; thumb.classList.add('gallery-thumb'); if (idx === startIndex) thumb.classList.add('active'); thumb.addEventListener('click', function() { currentIndex = idx; updateGalleryView(); thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }); }); thumbsContainer.appendChild(thumb); }); const activeThumb = thumbsContainer.querySelector('.gallery-thumb.active'); if (activeThumb) { activeThumb.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'center' }); } } else { console.error("Element 'gallery-thumbs' nicht gefunden."); } if (overlay) { overlay.classList.add('active'); document.body.style.overflow = 'hidden'; } else { console.error("Element 'gallery-overlay' nicht gefunden."); } }
+         function closeGallery() { const overlay = document.getElementById('gallery-overlay'); if (overlay) overlay.classList.remove('active'); document.body.style.overflow = ''; }
+         function prevImage() { if (!currentGallery || !galleries[currentGallery]) return; currentIndex--; if (currentIndex < 0) currentIndex = galleries[currentGallery].length - 1; updateGalleryView(); }
+         function nextImage() { if (!currentGallery || !galleries[currentGallery]) return; currentIndex++; if (currentIndex >= galleries[currentGallery].length) currentIndex = 0; updateGalleryView(); }
+         function updateGalleryView() { if (!currentGallery || !galleries[currentGallery]) return; const galleryData = galleries[currentGallery]; const numImages = galleryData.length; const currentImage = document.getElementById('gallery-current-image'); const counter = document.getElementById('gallery-counter'); const thumbs = document.querySelectorAll(`#gallery-thumbs .gallery-thumb`); if (currentIndex < 0 || currentIndex >= numImages) { console.error("Ungültiger currentIndex in updateGalleryView:", currentIndex); currentIndex = 0; } if (currentImage) { currentImage.src = galleryData[currentIndex].src; currentImage.alt = galleryData[currentIndex].alt; } else { console.error("Element 'gallery-current-image' nicht gefunden in updateGalleryView."); } if (counter) { counter.textContent = `Bild ${currentIndex + 1} von ${numImages}`; } else { console.error("Element 'gallery-counter' nicht gefunden in updateGalleryView."); } if (thumbs && thumbs.length > 0) { let activeThumbElement = null; thumbs.forEach((thumb, idx) => { const isActive = idx === currentIndex; thumb.classList.toggle('active', isActive); if (isActive) { activeThumbElement = thumb; } }); if (activeThumbElement) { activeThumbElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }); } } else if (thumbs === null) { console.error("Element 'gallery-thumbs' nicht gefunden für Thumb-Updates."); } }
+         function initGalleries() { const overlay = document.getElementById('gallery-overlay'); const closeBtn = document.getElementById('gallery-close'); const prevBtn = document.getElementById('gallery-prev'); const nextBtn = document.getElementById('gallery-next'); if (closeBtn) closeBtn.addEventListener('click', closeGallery); else console.error("Galerie Schließen-Button nicht gefunden."); if (prevBtn) prevBtn.addEventListener('click', prevImage); else console.error("Galerie Zurück-Button nicht gefunden."); if (nextBtn) nextBtn.addEventListener('click', nextImage); else console.error("Galerie Weiter-Button nicht gefunden."); document.addEventListener('keydown', function(e) { const galleryOverlay = document.getElementById('gallery-overlay'); if (!galleryOverlay || !galleryOverlay.classList.contains('active')) return; if (e.key === 'Escape' || e.key === 'Esc') closeGallery(); if (e.key === 'ArrowLeft') prevImage(); if (e.key === 'ArrowRight') nextImage(); }); }
 
-         // Diese Funktionen müssen im globalen Scope sein, damit sie über javascript:Funktionsname() aufgerufen werden können
-         function openGallery(galleryId, startIndex = 0) {
-             const overlay = document.getElementById('gallery-overlay');
-             const currentImage = document.getElementById('gallery-current-image');
-             const counter = document.getElementById('gallery-counter');
-             const thumbsContainer = document.getElementById('gallery-thumbs');
-
-             if (!galleries[galleryId] || !galleries[galleryId].length) {
-                 console.error(`Galerie "${galleryId}" nicht gefunden oder leer.`);
-                 return;
-             }
-
-             const galleryData = galleries[galleryId];
-             const numImages = galleryData.length;
-
-             // Sicherstellen, dass der startIndex gültig ist
-             if (startIndex < 0 || startIndex >= numImages) {
-                 console.warn(`Ungültiger startIndex ${startIndex} für Galerie "${galleryId}". Setze auf 0.`);
-                 startIndex = 0;
-             }
-
-             currentGallery = galleryId;
-             currentIndex = startIndex;
-
-             if (currentImage) {
-                 currentImage.src = galleryData[startIndex].src;
-                 currentImage.alt = galleryData[startIndex].alt;
-             } else { console.error("Element 'gallery-current-image' nicht gefunden."); }
-
-             if (counter) {
-                 counter.textContent = `Bild ${startIndex + 1} von ${numImages}`;
-             } else { console.error("Element 'gallery-counter' nicht gefunden."); }
-
-             if (thumbsContainer) {
-                 thumbsContainer.innerHTML = ''; // Alte Thumbnails entfernen
-                 galleryData.forEach((img, idx) => {
-                     const thumb = document.createElement('img');
-                     thumb.src = img.src;
-                     thumb.alt = `Thumbnail ${idx + 1}`;
-                     thumb.classList.add('gallery-thumb');
-                     if (idx === startIndex) thumb.classList.add('active');
-
-                     thumb.addEventListener('click', function() {
-                         currentIndex = idx;
-                         updateGalleryView();
-                         // Optional: Scrollt aktiven Thumb in die Mitte (wenn viele Thumbs da sind)
-                         thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                     });
-
-                     thumbsContainer.appendChild(thumb);
-                 });
-                 // Zum Start-Thumbnail scrollen
-                 const activeThumb = thumbsContainer.querySelector('.gallery-thumb.active');
-                 if (activeThumb) {
-                     activeThumb.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'center' });
-                 }
-             } else { console.error("Element 'gallery-thumbs' nicht gefunden."); }
-
-             if (overlay) {
-                 overlay.classList.add('active');
-                 document.body.style.overflow = 'hidden'; // Scrollen verhindern
-             } else { console.error("Element 'gallery-overlay' nicht gefunden."); }
-         }
-
-
-         function closeGallery() {
-             const overlay = document.getElementById('gallery-overlay');
-             if (overlay) overlay.classList.remove('active');
-             document.body.style.overflow = ''; // Scrollen wieder erlauben
-         }
-
-         function prevImage() {
-             if (!currentGallery || !galleries[currentGallery]) return;
-             currentIndex--;
-             if (currentIndex < 0) currentIndex = galleries[currentGallery].length - 1;
-             updateGalleryView();
-         }
-
-         function nextImage() {
-             if (!currentGallery || !galleries[currentGallery]) return;
-             currentIndex++;
-             if (currentIndex >= galleries[currentGallery].length) currentIndex = 0;
-             updateGalleryView();
-         }
-
-         function updateGalleryView() {
-             if (!currentGallery || !galleries[currentGallery]) return;
-
-             const galleryData = galleries[currentGallery];
-             const numImages = galleryData.length;
-             const currentImage = document.getElementById('gallery-current-image');
-             const counter = document.getElementById('gallery-counter');
-             const thumbs = document.querySelectorAll(`#gallery-thumbs .gallery-thumb`); // Genauer selektieren
-
-             // Sicherstellen, dass currentIndex im gültigen Bereich ist
-             if (currentIndex < 0 || currentIndex >= numImages) {
-                console.error("Ungültiger currentIndex in updateGalleryView:", currentIndex);
-                currentIndex = 0; // Zurücksetzen auf 0 als Fallback
-             }
-
-
-             if (currentImage) {
-                 currentImage.src = galleryData[currentIndex].src;
-                 currentImage.alt = galleryData[currentIndex].alt;
-             } else { console.error("Element 'gallery-current-image' nicht gefunden in updateGalleryView."); }
-
-             if (counter) {
-                 counter.textContent = `Bild ${currentIndex + 1} von ${numImages}`;
-             } else { console.error("Element 'gallery-counter' nicht gefunden in updateGalleryView."); }
-
-             if (thumbs && thumbs.length > 0) {
-                 let activeThumbElement = null;
-                 thumbs.forEach((thumb, idx) => {
-                     const isActive = idx === currentIndex;
-                     thumb.classList.toggle('active', isActive);
-                     if (isActive) {
-                         activeThumbElement = thumb;
-                     }
-                 });
-                 // Scroll active thumb into view if needed
-                 if (activeThumbElement) {
-                     activeThumbElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                 }
-             } else if (thumbs === null) {
-                 console.error("Element 'gallery-thumbs' nicht gefunden für Thumb-Updates.");
-             }
-             // Wenn keine Thumbs da sind (z.B. auf Mobile), ist das okay.
-         }
-
-         function initGalleries() {
-             const overlay = document.getElementById('gallery-overlay');
-             const closeBtn = document.getElementById('gallery-close');
-             const prevBtn = document.getElementById('gallery-prev');
-             const nextBtn = document.getElementById('gallery-next');
-
-             if (closeBtn) closeBtn.addEventListener('click', closeGallery); else console.error("Galerie Schließen-Button nicht gefunden.");
-             if (prevBtn) prevBtn.addEventListener('click', prevImage); else console.error("Galerie Zurück-Button nicht gefunden.");
-             if (nextBtn) nextBtn.addEventListener('click', nextImage); else console.error("Galerie Weiter-Button nicht gefunden.");
-
-             // Tastatursteuerung
-             document.addEventListener('keydown', function(e) {
-                 const galleryOverlay = document.getElementById('gallery-overlay'); // Neu abfragen
-                 if (!galleryOverlay || !galleryOverlay.classList.contains('active')) return;
-
-                 if (e.key === 'Escape' || e.key === 'Esc') closeGallery(); // Esc = Escape
-                 if (e.key === 'ArrowLeft') prevImage();
-                 if (e.key === 'ArrowRight') nextImage();
-             });
-         }
-
-         // Konstanten und Variablen globaler machen für einfachen Zugriff
+         // Globale Variablen
          const { jsPDF } = window.jspdf;
          let lastUnicyclistPosPercent = 0;
          let isJsPDFReady = false;
@@ -917,16 +498,14 @@
          let animationTimeout;
          const unicycleImgRight = "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/waschbär_einrad.png";
          const unicycleImgLeft = "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Waschbär_einrad_L.png";
-
-         // Datenobjekte für Zeitplan und Packliste
          const daysData = [ { day: 'Do', name: 'Donnerstag, 17. April', title: 'Ankunft & Erste Trails', highlights: ['Ankunft & Camp Aufbau', 'Willkommens-Briefing', 'Erste Workshops & Lagerfeuer'], schedule: [ { time: '14:00 - 17:00', icon: 'fa-campground', title: 'Anreise & Dein Platz im Camp', content: `<ul><li><strong>Check-in:</strong> Info-Punkt (Bändchen & Infos).</li><li><strong>Platzwahl:</strong> Bei Registration selbst zuweisen.</li><li><strong>Camp aufbauen:</strong> Zelt aufschlagen, einrichten, Leute treffen.</li></ul>`, highlight: false }, { time: '17:00 - 18:00', icon: 'fa-bullhorn', title: 'Offizieller Startschuss – Willkommens-Kreis & Briefing', content: `<ul><li>Offizielle Begrüßung.</li><li>Programmübersicht, Highlights.</li><li>Wichtige Sicherheitshinweise (Helmpflicht!), Camp-Regeln.</li><li>Infrastruktur-Infos (WC, Duschen...), Notfallplan, Fragen.</li></ul>`, highlight: true }, { time: '18:00 - 19:00', icon: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.png', isImageIcon: true, title: 'Erste Fahr-Action – Spaß-Workshops & Freies Fahren', content: `<p><strong>Workshop 1 „Sicher im Gelände":</strong> Für MUNI-Einsteiger (Balance, kleine Hindernisse...).</p><p><strong>Workshop 2 „Hopfen & Malz" (Hopp & Drop):</strong> Für erste Sprünge & Kanten.</p><p><strong>Freies Fahren:</strong> Übungsgelände nutzen.</p>`, highlight: true }, { time: 'Ab 19:00', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung!)', content: `<p>Campingkocher raus! Eigenes Essen, Geschirr etc. mitbringen. Kocht/esst gemeinsam.</p>`, highlight: false }, { time: 'Ab 20:30', icon: 'fa-fire', title: 'Lagerfeuer-Magie – Der erste Abend', content: `<p>Gemütlicher Ausklang am zentralen Lagerfeuer (wetterabhängig). Kennenlernen, Austausch.</p>`, highlight: true } ] }, { day: 'Fr', name: 'Freitag, 18. April', title: 'MUNI-Touren & Technik-Feinschliff', highlights: ['MUNI-Touren starten', 'Technik-Workshops im Camp', 'Trial-Park Aufbau'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück & Startklar (Selbstversorgung)', content: `<p>Energie für den Tag.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-running', title: 'Morgenspiel „Schwänzchen Fangen"', content: `<p>Spielerisches Warm-Up auf abgesteckter Fläche.</p>`, highlight: false }, { time: '09:45 - 10:15', icon: 'fa-users', title: 'MUNI-Touren-Treffpunkt & Gruppeneinteilung', content: `<p>Vorstellung der Touren (Level, Länge...). Gruppenfindung nach Können/Wunsch.</p>`, highlight: true }, { time: 'Ab 10:15', icon: 'fa-mountain', title: 'Start der MUNI-Touren', content: `<p>Abenteuer rund um den Hengsteysee. Rückkehr meist zur Mittagszeit (ca. 13:00).</p>`, highlight: true }, { time: '10:15 - 16:00', icon: 'fa-cogs', title: 'Workshops & Freies Training im Camp (Parallel)', content: `<p><strong>Balance ist alles:</strong> Fahrtechnik im Gelände.</p><p><strong>Werkstatt:</strong> Reifen, Bremsen, Pflege.</p><p><strong>Sprungtechniken F.:</strong> Höher, weiter, präziser.</p>`, highlight: true }, { time: 'Ab 15:00', icon: 'fa-tools', title: 'Aufbau Trial-Park (Teil 1)', content: `<p>Gemeinsam Sektionen bauen (Paletten etc.). Helfer willkommen!</p>`, highlight: true }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Abendessen (Selbstversorgung) & Ausklang', content: `<p>Kochen, essen, Erlebnisse teilen.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-fire', title: 'Lagerfeuer & Fachsimpeln', content: `<p>Tag Revue passieren lassen.</p>`, highlight: false } ] }, { day: 'Sa', name: 'Samstag, 19. April', title: 'Trial-Tag: Geschicklichkeit & Balance', highlights: ['Trial-Challenge (2 Wellen)', 'Freies Trial-Fahren & Spot-Workshops', 'Gemeinsames Bauen'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück (Selbstversorgung)', content: `<p>Power für den Parcours!</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-puzzle-piece', title: 'Morgenspiel „Mini-Fun-Parcours"', content: `<p>Warm-Up für Koordination & Balance.</p>`, highlight: false }, { time: '09:30 - 10:30', icon: 'fa-check-double', title: 'Finale Vorbereitungen Trial-Park & Safety Check', content: `<p>Gemeinsam fertigstellen. Sicherheitscheck durch Orga/Erfahrene.</p>`, highlight: true }, { time: '10:30 - 11:00', icon: 'fa-shoe-prints', title: 'Warm-Up im Trial-Park', content: `<p>Sektionen checken, Linien testen, kennenlernen.</p>`, highlight: false }, { time: '11:30 - 12:00', icon: 'fa-stopwatch', title: 'Trial-Challenge – Welle 1 (Freiwillig)', content: `<p>30 Min. Spaß-Durchlauf (Easy/Med/Hard). Möglichst viele Lines schaffen. Helfer zum Schiedsen willkommen!</p><p><em>Nur 1 Teilnahme (Welle 1 ODER 2).</em></p>`, highlight: true }, { time: '12:00 - 13:00', icon: 'fa-pause-circle', title: 'Mittagspause & Energietanken', content: `<p>Stärkung (Selbstvers.) & Austausch.</p>`, highlight: false }, { time: '13:00 - 13:30', icon: 'fa-stopwatch', title: 'Trial-Challenge – Welle 2 (Freiwillig)', content: `<p>Gleicher Ablauf wie Welle 1. Helfer willkommen!</p>`, highlight: true }, { time: '13:30 - 16:30', icon: 'fa-cubes', title: 'Freies Trial-Fahren & Spot-Workshops', content: `<p>Park offen für alle! Spontane Mini-Workshops an Sektionen (Sprünge, Balance, Drops).</p>`, highlight: true }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung)', content: `<p>Trial-Helden-Dinner: Erfolge feiern.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-fire', title: 'Lagerfeuer & Geschichten', content: `<p>Gemütlicher Ausklang.</p>`, highlight: false } ] }, { day: 'So', name: 'Sonntag, 20. April', title: 'Großer MUNI-Tag & Downhill-Spaß', highlights: ['Gemeinsamer MUNI-Start', 'MUNI-Spezialabfahrt (Downhill)', 'Großer Abschlussabend'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück (Selbstversorgung)', content: `<p>Basis für den Berg! Snack einpacken.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-train', title: 'Morgenspiel „Einrad-Polonaise"', content: `<p>Gemeinsam hintereinander fahren, Aufgaben lösen.</p>`, highlight: false }, { time: '09:45 - 10:15', icon: 'fa-map-signs', title: 'MUNI-Treffpunkt & Tagesplanung', content: `<p>Routen-Vorstellung (evtl. länger/technischer). Gruppenfindung.</p>`, highlight: true }, { time: '10:15', icon: 'fa-users-cog', title: 'MUNI-Play – Der gemeinsame Start', content: `<p>Alle Gruppen starten gemeinsam/kurz nacheinander.</p>`, highlight: true }, { time: '11:30', icon: 'fa-angle-double-down', title: 'MUNI-Spezialabfahrt (Downhill)', content: `<p>Jeder fährt Strecke einzeln (1 Min. Abstand). Anfeuern!</p>`, highlight: true }, { time: '13:00 - 13:30', icon: 'fa-apple-alt', title: 'Mittagspause (im Grünen/Camp)', content: `<p>Picknick (selbstvers.) oder im Camp.</p>`, highlight: false }, { time: '14:00', icon: 'fa-redo-alt', title: 'Weitere Abfahrten (Downhill)', content: `<p>Fortsetzung bis alle durch sind.</p>`, highlight: true }, { time: '16:30', icon: 'fa-directions', title: 'Freie Sessions & Trails', content: `<ul><li>Weitere Trails mit Gruppe.</li><li>Downhill weiter?</li><li>Bekannte Trails auf eigene Faust (Absprache!).</li></ul>`, highlight: false }, { time: '18:30', icon: 'fa-shower', title: 'Ausrollen & Entspannen im Camp', content: `<p>Lockeres Fahren, Materialpflege, Duschen.</p>`, highlight: false }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung)', content: `<p>Letzte gemeinsame Camp-Mahlzeit.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-glass-cheers', title: 'Großer Abschlussabend am Lagerfeuer', content: `<p>GMTW ausklingen lassen! Momente teilen, Geschichten erzählen.</p>`, highlight: true } ] }, { day: 'Mo', name: 'Montag, 21. April', title: 'Spiele, Ehrungen & Abschied', highlights: ['Morgenspiel: Langsamfahren & Kreisel', 'Gemeinsames Aufräumen & Abbau', 'Abschlusskreis & Ehrungen'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-box-open', title: 'Gemütliches Frühstück & Pack-Start (Selbst.)', content: `<p>Letzte gemeinsame Mahlzeit, langsam packen beginnen.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-gamepad', title: 'Gemeinsames Morgenspiel für ALLE', content: `<p><strong>"Langsamfahr-Rennen & Kreisel-Spaß":</strong> Wer fährt am langsamsten? Wer dreht sich am längsten?</p>`, highlight: true }, { time: '09:30 - 10:30', icon: 'fa-broom', title: 'Gemeinsames Aufräumen & Abbau', content: `<p><strong>Teamwork: Alle packen mit an!</strong> Trial-Park abbauen, Müll sammeln, Platz sauber hinterlassen (Leave No Trace).</p>`, highlight: true }, { time: '10:30 - 11:30', icon: 'fa-trophy', title: 'Spaß-Olympiade & Kleine Einrad-Spiele', content: `<p>Lockerer Ausklang mit Spiel-Stationen (Einrad-Limbo, Parcours, Pendel-Challenge etc.). Spaß im Vordergrund.</p>`, highlight: false }, { time: '11:30 - 12:00', icon: 'fa-users', title: 'Abschlusskreis & Ehrungen "Helden des WE"', content: `<p>Letztes Mal zusammen. Dank an Helfer/Teilnehmer. Kleine, humorvolle Anerkennungen (jüngste/r, Kampfgeist etc.).</p>`, highlight: true }, { time: '12:00 - 14:00', icon: 'fa-car-side', title: 'Letztes Packen & individuelle Abreise', content: `<p>Abschied von Freunden, Kontakte tauschen, letzte Sachen verladen.</p>`, highlight: false }, { time: 'Ab 14:00', icon: 'fa-door-open', title: 'Offizielles Ende des GMTW 2025', content: `<p>Bis zum nächsten Mal!</p>`, highlight: false } ] } ];
          const packlistData = { "Einrad & Schutz": { icon: "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.png", isImage: true, items: ["Dein/e Einrad/räder (MUNI, Trial – gut gewartet!)", "Helm (ABSOLUTE PFLICHT!)", "Knieschoner (dringend empfohlen)", "Ellbogenschoner (empfohlen)", "Fahrradhandschuhe (Langfinger empfohlen)", "Feste Schuhe (gute Sohle!)", "Kleiner Touren-Rucksack", "Trinkflasche(n) / Trinkblase"] }, "Werkzeug & Ersatzteile": { icon: "fa-tools", items: ["Passende Inbusschlüssel", "Reifenheber", "Luftpumpe", "Flickzeug", "Ersatzschlauch(schläuche)", "Optional: Multitool", "Optional: Kettenöl", "Optional: Mini-Erste-Hilfe"] }, "Campingausrüstung": { icon: "fa-campground", items: ["Zelt (wetterfest!)", "Schlafsack (April-tauglich!)", "Isomatte / Luftmatratze", "Stirn-/Taschenlampe (+ Batterien)", "Campingstuhl (sehr gemütlich!)", "Kulturbeutel & Hygieneartikel"] }, "Kleidung": { icon: "fa-tshirt", items: ["Funktionelle Sportkleidung (mehrere Sets)", "Regenjacke (wasserdicht!)", "Regenhose", "Winddichte Jacke/Weste", "Warme Kleidung (Abend/Nacht)", "Ausreichend Socken", "Unterwäsche", "Bequeme Camp-Kleidung", "Badesachen (Dusche)"] }, "Verpflegung (Selbst!)": { icon: "fa-utensils", items: ["Campingkocher & Brennstoff/Gas", "Topf/Pfanne", "Essgeschirr (Teller, Becher)", "Besteck", "Scharfes Messer", "Schneidebrettchen", "Spülmittel, Schwamm, Tuch", "Müllsäcke", "Lebensmittel für 5 Tage", "Getränke (Grundstock)"] }, "Sonstiges": { icon: "fa-ellipsis-h", items: ["Personalausweis", "Krankenversicherungskarte", "Bargeld", "Handy & Powerbank", "Sonnenschutz (Creme, Brille, Kappe)", "Insektenschutzmittel", "Persönliche Medikamente", "Ohropax", "Spiele für's Camp", "Gute Laune & Offenheit!"] } };
 
          document.addEventListener('DOMContentLoaded', () => {
-             // Galerie gleich initialisieren
+             // Galerie initialisieren
              initGalleries();
 
-             // Element-Referenzen holen
+             // --- Element-Referenzen holen ---
              const pdfButton = document.getElementById('pdf-download-button');
              const overviewContainer = document.getElementById('overview-container');
              const track = document.getElementById('overview-track');
@@ -936,15 +515,17 @@
              const highlightList = document.getElementById('highlight-list');
              const playButton = document.getElementById('play-animation');
              const dailyDetailContainer = document.getElementById('daily-detail-content');
-             const checklistContainer = document.getElementById('packliste-checklist'); // Referenz zum Section-Element
+             const checklistContainer = document.getElementById('packliste-checklist');
              const checklistCategoriesContainer = document.getElementById('checklist-categories-container');
              const progressBar = document.getElementById('checklist-progress-bar');
              const progressText = document.getElementById('checklist-progress-text');
              const checklistTitleIconPlaceholder = document.getElementById('checklist-title-icon-placeholder');
              const gameButton = document.getElementById('game-button');
 
-             // --- NEU: Referenzen für Audio-Modal ---
-             const audioFigurTrigger = document.getElementById('audio-figur-trigger');
+             // Audio Elemente
+             const audioFigurTrigger = document.getElementById('audio-figur-trigger'); // Für Modal-Klick
+             const audioWrapper = document.getElementById('audio-wrapper');           // Für Hover/Touch-Effekt
+             const soundwaves = document.querySelectorAll('.soundwave');               // Alle Wellen
              const audioModal = document.getElementById('audio-options-modal');
              const audioBackdrop = document.getElementById('audio-modal-backdrop');
              const closeAudioModalBtn = document.getElementById('close-audio-modal-btn');
@@ -953,696 +534,128 @@
              const audioPlayerContainer = document.getElementById('gmtw-audio-player-container');
              const audioPlayer = document.getElementById('gmtw-audio-player');
              const gmtwAudioUrl = 'https://raw.githubusercontent.com/ErSieCode/1Rad/main/GMTW25_LineUP_Audio.mp3';
-             // --- ENDE NEU ---
 
-             isJsPDFReady = typeof jsPDF !== 'undefined'; // Prüfen ob jsPDF geladen ist
+             isJsPDFReady = typeof jsPDF !== 'undefined';
 
-             // --- FUNKTIONEN ---
+             // --- START: Soundwave Animation (Doppelpuls bei jedem Hover/Touch) ---
+             let isSequenceRunning = false; // Verhindert Überlappung der *gesamten* Sequenz
+             const pulseAnimationDuration = 1200; // Dauer einer CSS-Animation (1.2s)
+             const delayBetweenPulses = 150;      // Kurze Pause zwischen den Pulsen (in ms)
+             // Gesamtdauer der Sequenz grob berechnen (2 Pulse + Pause + Puffer)
+             const totalSequenceDuration = (pulseAnimationDuration * 2) + delayBetweenPulses + 500;
 
-             // PDF Button Zustand setzen
-             function initializePdfButtonState() {
-                 if (pdfButton) {
-                     if (isJsPDFReady) {
-                         pdfButton.disabled = false;
-                         pdfButton.innerHTML = '<i class="fas fa-file-pdf"></i> Alle Infos als PDF';
-                         if (!pdfButton.hasAttribute('data-listener-added')) {
-                             pdfButton.addEventListener('click', generateAndDownloadPDF);
-                             pdfButton.setAttribute('data-listener-added', 'true');
-                         }
-                     } else {
-                         pdfButton.disabled = true;
-                         pdfButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Lade PDF Lib...';
-                         // Optional: Timeout oder Interval um erneut zu prüfen
+             // Funktion, um EINEN Puls auszuführen
+             function runSinglePulse() {
+                 if (!soundwaves || soundwaves.length === 0) return;
+                 // console.log("Running single pulse..."); // Debug
+
+                 // 1. Reset: Klassen entfernen
+                 soundwaves.forEach(wave => wave.classList.remove('animating'));
+
+                 // 2. Animation starten (nach kurzem Warten via rAF)
+                 requestAnimationFrame(() => {
+                    requestAnimationFrame(() => { // Doppeltes rAF für Robustheit
+                        soundwaves.forEach(wave => wave.classList.add('animating'));
+                    });
+                 });
+             }
+
+             // Funktion, die die gesamte Sequenz (2 Pulse) startet
+             function startDoublePulseSequence() {
+                 // Nur starten, wenn gerade keine Sequenz läuft
+                 if (isSequenceRunning || !soundwaves || soundwaves.length === 0) return;
+
+                 isSequenceRunning = true; // Blockieren für die Dauer der Sequenz
+                 // console.log("Starting double pulse sequence..."); // Debug
+
+                 // --- Erster Puls ---
+                 runSinglePulse();
+
+                 // --- Zweiter Puls (verzögert) ---
+                 setTimeout(() => {
+                     runSinglePulse(); // Startet den zweiten Puls
+                     // console.log("Starting second pulse..."); // Debug
+                 }, pulseAnimationDuration + delayBetweenPulses); // Wartezeit = Dauer des 1. Pulses + Pause
+
+                 // --- Sequenz abschließen (Flag zurücksetzen) ---
+                 setTimeout(() => {
+                     isSequenceRunning = false; // Freigeben nach gesamter Sequenz
+                     // Optional: Klassen final entfernen (oft nicht nötig, da Reset in runSinglePulse)
+                     // soundwaves.forEach(wave => wave.classList.remove('animating'));
+                     // console.log("Double pulse sequence finished."); // Debug
+                 }, totalSequenceDuration);
+             }
+
+             // Event Listener für Hover und Touch auf dem WRAPPER
+             if (audioWrapper) {
+                 // Startet die Sequenz bei jedem Hover, wenn sie nicht gerade läuft
+                 audioWrapper.addEventListener('mouseenter', startDoublePulseSequence);
+                 audioWrapper.addEventListener('touchstart', (e) => {
+                    // Verhindert Standard-Touch-Verhalten nur, WENN die Animation tatsächlich gestartet wird
+                     if (!isSequenceRunning) {
+                         e.preventDefault();
+                         startDoublePulseSequence();
                      }
-                 }
+                 }, { passive: false }); // passive: false für preventDefault
+             } else {
+                 console.error("Audio-Wrapper Element (ID: audio-wrapper) nicht gefunden!");
              }
-
-              // Timeline: Marker für Tage erstellen
-              function createDayMarkers() {
-                  if (!track) return;
-                  const trackWidth = track.offsetWidth;
-                  if (trackWidth === 0) { setTimeout(createDayMarkers, 100); return; } // Warten bis Breite verfügbar
-
-                  track.innerHTML = ''; // Alte Marker entfernen
-                  dayMarkers = []; // Array leeren
-                  daysData.forEach((day, index) => {
-                      const marker = document.createElement('div');
-                      marker.classList.add('day-marker');
-                      marker.dataset.index = index;
-                      marker.textContent = day.day;
-
-                      const tooltip = document.createElement('span');
-                      tooltip.textContent = day.name;
-                      marker.appendChild(tooltip);
-
-                      // Position berechnen (10% bis 90% des Tracks)
-                      const positionPercent = 10 + (daysData.length > 1 ? (index * (80 / (daysData.length - 1))) : 40); // Single day at 50%? Let's keep it centered if only one.
-                      marker.style.left = `${positionPercent}%`;
-
-                      marker.addEventListener('click', () => {
-                          clearTimeout(animationTimeout); // Evtl. laufende Animation stoppen
-                          stopAnimationVisuals();
-                          navigateToDay(index);
-                      });
-                      track.appendChild(marker);
-                      dayMarkers.push(marker);
-                  });
-              }
-
-              // Timeline: Highlights für einen Tag anzeigen
-              function showHighlights(dayIndex) {
-                 if (!highlightDay || !highlightList) return;
-                  if (dayIndex < 0 || dayIndex >= daysData.length) {
-                      // Standardtext anzeigen
-                      highlightDay.textContent = "Tag wählen";
-                      highlightList.innerHTML = '<li>Klicke auf einen Tag oder starte die Animation!</li>';
-                      if (dayMarkers) dayMarkers.forEach(marker => marker.classList.remove('active')); // Alle deselektieren
-                  } else {
-                      const day = daysData[dayIndex];
-                      highlightDay.textContent = `Highlights ${day.name}`;
-                      highlightList.innerHTML = day.highlights.map(item => `<li>${item}</li>`).join('');
-                      if (dayMarkers) dayMarkers.forEach((marker, index) => marker.classList.toggle('active', index === dayIndex)); // Aktiven hervorheben
-                  }
-                  currentDayIndex = dayIndex; // Aktuellen Index speichern
-              }
-
-              // Timeline: Detaillierten Zeitplan für einen Tag anzeigen
-              function displayDayDetails(dayIndex) {
-                  if (!dailyDetailContainer) return;
-                  dailyDetailContainer.innerHTML = ''; // Alten Inhalt leeren
-                  dailyDetailContainer.classList.remove('visible'); // Sichtbarkeit entfernen
-
-                  if (dayIndex < 0 || dayIndex >= daysData.length) return; // Nichts anzeigen
-
-                  const day = daysData[dayIndex];
-                  const header = document.createElement('h2');
-                  header.innerHTML = `<i class="fas fa-calendar-day"></i> ${day.name}: ${day.title}`;
-                  dailyDetailContainer.appendChild(header);
-
-                  const timelineDiv = document.createElement('div');
-                  timelineDiv.classList.add('timeline');
-
-                  day.schedule.forEach(item => {
-                      const itemDiv = document.createElement('div');
-                      itemDiv.classList.add('timeline-item');
-                      if (item.highlight) {
-                          itemDiv.classList.add('highlight');
-                      }
-
-                      const timeTag = document.createElement('div');
-                      timeTag.classList.add('time-tag');
-                      timeTag.textContent = item.time;
-                      itemDiv.appendChild(timeTag);
-
-                      const contentTile = document.createElement('div');
-                      contentTile.classList.add('content-tile');
-
-                      const itemHeader = document.createElement('h3');
-                      if (item.isImageIcon) {
-                          const imgIcon = document.createElement('img');
-                          imgIcon.src = item.icon;
-                          imgIcon.alt = `${item.title} Icon`;
-                          imgIcon.classList.add('timeline-icon-img');
-                          itemHeader.appendChild(imgIcon);
-                          itemHeader.append(` ${item.title}`); // Text nach dem Bild
-                      } else {
-                         const iconClass = item.icon ? item.icon : 'fa-info-circle'; // Default icon
-                          itemHeader.innerHTML = `<i class="fas ${iconClass}"></i> ${item.title}`;
-                      }
-                      contentTile.appendChild(itemHeader);
-
-                      const itemContent = document.createElement('div');
-                      itemContent.innerHTML = item.content; // Erlaubt HTML im Content
-                      contentTile.appendChild(itemContent);
-
-                      itemDiv.appendChild(contentTile);
-                      timelineDiv.appendChild(itemDiv);
-                  });
-
-                  dailyDetailContainer.appendChild(timelineDiv);
-
-                  // Sichtbarkeit hinzufügen, nachdem das Element im DOM ist (für CSS Transition)
-                  requestAnimationFrame(() => {
-                     dailyDetailContainer.classList.add('visible');
-                  });
-              }
-
-              // Timeline: Einrad-Icon bewegen
-              function moveUnicyclist(dayIndex) {
-                 if (!unicyclist) return;
-                  // Zielposition vom Marker holen oder Standardposition
-                  let targetPercent = 5; // Startposition
-                  if (dayIndex >= 0 && dayIndex < daysData.length && dayMarkers && dayMarkers.length > 0) {
-                      targetPercent = parseFloat(dayMarkers[dayIndex].style.left);
-                  }
-
-                  // Bildrichtung anpassen
-                  if (targetPercent > lastUnicyclistPosPercent && unicyclist.src !== unicycleImgRight) {
-                      unicyclist.src = unicycleImgRight;
-                  } else if (targetPercent < lastUnicyclistPosPercent && unicyclist.src !== unicycleImgLeft) {
-                      unicyclist.src = unicycleImgLeft;
-                  } else if (dayIndex < 0 && unicyclist.src !== unicycleImgRight) { // Zurück zum Start
-                     unicyclist.src = unicycleImgRight;
-                  }
-
-
-                  // Position via CSS animieren lassen
-                  requestAnimationFrame(() => { // Für smoother Animation
-                     unicyclist.style.left = `${targetPercent}%`;
-                  });
-                  lastUnicyclistPosPercent = targetPercent; // Aktuelle Position merken
-                   if(dayIndex < 0) lastUnicyclistPosPercent = 0; // Reset for next animation start
-              }
-
-              // Timeline: Zu einem Tag navigieren (Icon bewegen, Highlights, Details)
-              function navigateToDay(dayIndex) {
-                  moveUnicyclist(dayIndex);
-                  showHighlights(dayIndex);
-                  // Details leicht verzögert laden, damit Icon-Bewegung startet
-                  setTimeout(() => {
-                     displayDayDetails(dayIndex);
-                  }, 150); // Kleine Verzögerung
-              }
-
-             // Timeline: Visuelle Effekte der Animation stoppen (Button reaktivieren)
-             function stopAnimationVisuals() {
-                 if (!playButton) return;
-                 playButton.disabled = false;
-                 playButton.innerHTML = '<i class="fas fa-play"></i> Animations-Tour starten';
-             }
-
-              // Timeline: Animations-Tour starten
-              function startAnimation() {
-                  if (!playButton || playButton.disabled) return; // Verhindern von Mehrfachstarts
-                  playButton.disabled = true;
-                  playButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Tour läuft...';
-                  let currentStep = 0;
-
-                  function nextStep() {
-                      if (currentStep >= daysData.length) {
-                          // Animation beendet, zurücksetzen
-                          animationTimeout = setTimeout(() => {
-                             navigateToDay(-1); // Zurück zum Startzustand
-                             stopAnimationVisuals();
-                          }, 2500); // Wartezeit nach dem letzten Tag
-                          return;
-                      }
-                      navigateToDay(currentStep);
-                      currentStep++;
-                      animationTimeout = setTimeout(nextStep, 3500); // Zeit pro Tag
-                  }
-                  navigateToDay(-1); // Start vom Anfang
-                  animationTimeout = setTimeout(nextStep, 500); // Kurze Pause vor dem ersten Tag
-              }
-
-             // Checklist: HTML für die Checkliste generieren
-             function generateChecklistHTML() {
-                 if (!checklistCategoriesContainer || !checklistTitleIconPlaceholder) return;
-                 checklistCategoriesContainer.innerHTML = ''; // Alten Inhalt leeren
-                 totalItems = 0; // Zähler zurücksetzen
-                 let uniqueIdCounter = 0;
-                 const titleIconParent = checklistTitleIconPlaceholder.parentNode;
-                 let titleIconReplaced = false;
-
-                 for (const categoryName in packlistData) {
-                     const categoryData = packlistData[categoryName];
-                     const detailsElement = document.createElement('details');
-                     detailsElement.classList.add('checklist-category-details');
-                     // Optional: Erste Kategorie offen starten
-                     // if (Object.keys(packlistData).indexOf(categoryName) === 0) {
-                     //     detailsElement.open = true;
-                     // }
-
-                     const summaryElement = document.createElement('summary');
-                     let iconElement;
-
-                     if (categoryData.isImage) {
-                         iconElement = document.createElement('img');
-                         iconElement.src = categoryData.icon;
-                         iconElement.alt = `${categoryName} Icon`;
-                         iconElement.classList.add('category-icon-img');
-                         summaryElement.appendChild(iconElement);
-                         summaryElement.append(` ${categoryName}`); // Text nach dem Bild
-
-                         // Spezielles Titel-Icon ersetzen, wenn Kategorie passt UND noch nicht ersetzt
-                         if (categoryName === "Einrad & Schutz" && titleIconParent && !titleIconReplaced) {
-                             const titleIconClone = iconElement.cloneNode(); // Klonen, um Original nicht zu ändern
-                             titleIconClone.classList.add('title-icon-img'); // Ggf. andere Klasse für Titel
-                             titleIconParent.replaceChild(titleIconClone, checklistTitleIconPlaceholder);
-                             titleIconReplaced = true; // Merken, dass ersetzt wurde
-                         }
-                     } else {
-                         iconElement = document.createElement('i');
-                         iconElement.className = `fas ${categoryData.icon}`;
-                         summaryElement.appendChild(iconElement);
-                         summaryElement.append(` ${categoryName}`); // Text nach dem Icon
-                     }
-
-                     detailsElement.appendChild(summaryElement);
-
-                     const itemsGrid = document.createElement('div');
-                     itemsGrid.classList.add('checklist-items-grid');
-
-                     categoryData.items.forEach(itemText => {
-                         totalItems++; // Gesamtzahl erhöhen
-                         uniqueIdCounter++;
-                         const checkItemDiv = document.createElement('div');
-                         checkItemDiv.classList.add('check-item');
-
-                         const checkbox = document.createElement('input');
-                         checkbox.type = 'checkbox';
-                         const checkboxId = `check-item-${uniqueIdCounter}`;
-                         checkbox.id = checkboxId;
-                         // Eindeutiger Schlüssel für DB generieren (aus Text, klein, ohne Sonderzeichen)
-                         checkbox.dataset.itemkey = itemText.toLowerCase().replace(/[^a-z0-9]/g, '-').substring(0, 50);
-
-                         const label = document.createElement('label');
-                         label.htmlFor = checkboxId;
-                         label.textContent = itemText;
-
-                         checkItemDiv.appendChild(checkbox);
-                         checkItemDiv.appendChild(label);
-                         itemsGrid.appendChild(checkItemDiv);
-
-                         // Event Listener direkt hier hinzufügen
-                         checkbox.addEventListener('change', handleCheckboxChange);
-                     });
-
-                     detailsElement.appendChild(itemsGrid);
-                     checklistCategoriesContainer.appendChild(detailsElement);
-                 }
-                  // Falls das spezielle Icon nicht gefunden/ersetzt wurde, Standard-Icon sicherstellen
-                  if (!titleIconReplaced && titleIconParent && checklistTitleIconPlaceholder) {
-                      const defaultIcon = document.createElement("i");
-                      defaultIcon.className = "fas fa-clipboard-list";
-                      defaultIcon.style.color = "var(--accent-color)";
-                      try { // Sicherstellen, dass Placeholder noch existiert
-                         titleIconParent.replaceChild(defaultIcon, checklistTitleIconPlaceholder);
-                      } catch (e) { console.warn("Could not replace title icon placeholder.");}
-                  }
-                  // Nach dem Aufbau der Liste den Status aktualisieren
-                  updateChecklistProgress();
-             }
-
-             // Checklist: IndexedDB initialisieren
-             function initChecklistDB() {
-                 const request = indexedDB.open("gmtwChecklistDB", 1);
-
-                 request.onerror = (event) => {
-                     console.error("IndexedDB error:", event.target.errorCode);
-                 };
-
-                 request.onupgradeneeded = (event) => {
-                     checklistDB = event.target.result;
-                     if (!checklistDB.objectStoreNames.contains("checklistItems")) {
-                         checklistDB.createObjectStore("checklistItems", { keyPath: "id" });
-                         console.log("Checklist DB object store created.");
-                     }
-                 };
-
-                 request.onsuccess = (event) => {
-                     checklistDB = event.target.result;
-                     console.log("Checklist DB initialized successfully.");
-                     // Jetzt die Checkliste generieren und den gespeicherten Zustand laden
-                     generateChecklistHTML(); // Generiert HTML und zählt totalItems
-                     loadChecklistState();   // Lädt Haken und ruft updateProgress auf
-                     initializePdfButtonState(); // PDF Button aktivieren (falls jsPDF bereit)
-                 };
-             }
-
-             // Checklist: Zustand einer Checkbox speichern
-             function saveChecklistState(itemId, isChecked) {
-                 if (!checklistDB) return;
-                 const transaction = checklistDB.transaction(["checklistItems"], "readwrite");
-                 const store = transaction.objectStore("checklistItems");
-                 store.put({ id: itemId, checked: isChecked });
-
-                 transaction.oncomplete = () => {
-                     //console.log(`Item ${itemId} state saved: ${isChecked}`);
-                     updateChecklistProgress(); // Fortschritt aktualisieren NACH erfolgreichem Speichern
-                 };
-                 transaction.onerror = (event) => {
-                     console.error("Save transaction error:", event.target.error);
-                 };
-             }
-
-             // Checklist: Gespeicherten Zustand laden und Checkboxen setzen
-             function loadChecklistState() {
-                 if (!checklistDB || totalItems === 0) {
-                     // Wenn DB nicht bereit oder Liste leer, nur Fortschritt aktualisieren
-                     updateChecklistProgress();
-                     return;
-                  }
-
-                 const transaction = checklistDB.transaction(["checklistItems"], "readonly");
-                 const store = transaction.objectStore("checklistItems");
-                 const getAllRequest = store.getAll();
-
-                 getAllRequest.onsuccess = (event) => {
-                     const savedStates = {};
-                     event.target.result.forEach(item => {
-                         savedStates[item.id] = item.checked;
-                     });
-
-                     // Alle Checkboxen im DOM durchgehen
-                     const allCheckboxes = checklistCategoriesContainer.querySelectorAll('input[type="checkbox"]');
-                     allCheckboxes.forEach(checkbox => {
-                         const itemKey = checkbox.dataset.itemkey;
-                         // Haken setzen, falls im Speicherstand vorhanden, sonst false
-                         checkbox.checked = savedStates[itemKey] !== undefined ? savedStates[itemKey] : false;
-                     });
-                     // Nach dem Laden den Fortschrittsbalken aktualisieren
-                     updateChecklistProgress();
-                 };
-
-                 getAllRequest.onerror = (event) => {
-                     console.error("Load transaction error:", event.target.error);
-                     updateChecklistProgress(); // Auch bei Fehler Fortschritt initialisieren
-                 };
-             }
-
-             // Checklist: Event Handler für Checkbox-Änderungen
-             function handleCheckboxChange(event) {
-                 const checkbox = event.target;
-                 const itemId = checkbox.dataset.itemkey;
-                 saveChecklistState(itemId, checkbox.checked);
-             }
-
-             // Checklist: Fortschrittsanzeige aktualisieren und Spiel-Button ein-/ausblenden
-              function updateChecklistProgress() {
-                  // Sicherstellen, dass die Elemente vorhanden sind
-                  if (!checklistCategoriesContainer || !progressBar || !progressText) {
-                      console.warn("Checklist progress elements not found.");
-                      return;
-                  }
-
-                  // Wenn totalItems noch 0 ist (Liste nicht geladen), Standard anzeigen
-                  if (totalItems === 0) {
-                      progressBar.style.width = '0%';
-                      progressText.textContent = "Packliste wird geladen...";
-                      if (gameButton) gameButton.style.display = 'none'; // Spiel-Button ausblenden
-                      return;
-                  }
-
-                  const checkedItems = checklistCategoriesContainer.querySelectorAll('input[type="checkbox"]:checked').length;
-                  const percentage = (checkedItems / totalItems) * 100;
-
-                  progressBar.style.width = `${percentage}%`;
-                  progressText.textContent = `${checkedItems} von ${totalItems} gepackt`;
-
-                  // Visuelles Feedback für abgeschlossene Liste
-                  if (checklistContainer) { // Prüfen ob Section-Element existiert
-                      if (checkedItems === totalItems && totalItems > 0) { // Check hinzugefügt, dass totalItems > 0
-                          checklistContainer.classList.add("checklist-complete");
-                          progressText.textContent += " - Fertig!";
-                      } else {
-                          checklistContainer.classList.remove("checklist-complete");
-                      }
-                  }
-
-                  // !!! Logik für den Spiel-Button !!!
-                  if (gameButton) { // Prüfen ob Button-Element existiert
-                      if (checkedItems === totalItems && totalItems > 0) {
-                          gameButton.style.display = 'inline-block'; // Button anzeigen
-                          if(progressText) progressText.textContent = `${checkedItems} von ${totalItems} gepackt - Spiel bereit!`; // Optional Text anpassen
-                      } else {
-                          gameButton.style.display = 'none'; // Button verstecken
-                      }
-                  }
-              }
-
-
-             // PDF Generierung
-             async function generateAndDownloadPDF() {
-                 if (!isJsPDFReady) return alert("PDF-Bibliothek ist noch nicht bereit.");
-                 if (!pdfButton) return;
-
-                 pdfButton.disabled = true;
-                 pdfButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generiere PDF...';
-
-                 try {
-                     const doc = new jsPDF({ orientation: "p", unit: "mm", format: "a4" });
-                     const pageHeight = doc.internal.pageSize.height;
-                     const pageWidth = doc.internal.pageSize.width;
-                     const margin = 15;
-                     let currentY = margin;
-                     const headlineHeight = 7;
-                     const textHeight = 4.5;
-                     const checkSize = textHeight * 0.8;
-
-                     // Hilfsfunktion für Seitenumbruch
-                     function checkAddPage(neededHeight = headlineHeight * 2) {
-                         if (currentY + neededHeight > pageHeight - margin) {
-                             doc.addPage();
-                             currentY = margin;
-                         }
-                     }
-
-                     // --- Titelseite ---
-                     doc.setFontSize(18); doc.setFont("helvetica", "bold");
-                     doc.text("GMTW 2025 - German Muni and Trial Weekend", pageWidth / 2, currentY, { align: "center" });
-                     currentY += headlineHeight * 1.5;
-                     doc.setFontSize(12); doc.setFont("helvetica", "italic");
-                     doc.text("Dein ultimatives Einrad-Abenteuer!", pageWidth / 2, currentY, { align: "center" });
-                     currentY += headlineHeight;
-                     doc.text("17. - 21. April 2025 | Camping Hohensyburg", pageWidth / 2, currentY, { align: "center" });
-                     currentY += headlineHeight * 2;
-
-                     // --- Intro ---
-                     checkAddPage();
-                     doc.setFontSize(14); doc.setFont("helvetica", "bold");
-                     doc.text("Was ist das GMTW?", margin, currentY);
-                     currentY += headlineHeight * 1.5;
-                     doc.setFontSize(10); doc.setFont("helvetica", "normal");
-                     const introText = "Das German Muni and Trial Weekend (seit 2003) ist DER Treffpunkt für Einrad-Begeisterte. Ziel: Muni & Trial fördern, Gemeinschaft stärken. Über 60 Fahrer*innen (Anfänger bis Profis) treffen sich jährlich an wechselnden Orten. Tagsüber Training & Trails, abends Lagerfeuer & Austausch. Kein Wettkampf, sondern Lernen, Spaß & Gemeinschaft."; // >60 geändert
-                     const introLines = doc.splitTextToSize(introText, pageWidth - 2 * margin);
-                     doc.text(introLines, margin, currentY);
-                     currentY += introLines.length * textHeight + headlineHeight;
-
-                     // --- Location & Orga ---
-                     checkAddPage();
-                     doc.setFontSize(14); doc.setFont("helvetica", "bold");
-                     doc.text("Location & Organisation 2025", margin, currentY);
-                     currentY += headlineHeight * 1.5;
-                     doc.setFontSize(9); doc.setFont("helvetica", "normal");
-                     const orgaDetails = [
-                         "Ort: Campingplatz Hohensyburg, Syburger Dorfstraße 69, 44265 Dortmund",
-                         "Web: www.camping-hohensyburg.de",
-                         "Wichtig: 'Touristenplätze' (grüne Fläche) für Zelte buchen!",
-                         "Anmeldung Camper/WoMo bis 15.03.25",
-                         "T-Shirt Bestellung bis 01.04.25 (Anfrage: Sven via WhatsApp 01797318615)",
-                         "Übernachtung: Zelten, Bauwagen, Fass (siehe Website)",
-                         "Verpflegung: Selbstversorgung! Kiosk/Restaurant vor Ort. Lidl ca. 4km.",
-                         "Sanitär: 8 warme Duschen.",
-                         "Aktivitäten: Muni (ab 200m frei), Trial (ab 3 Hops), Workshops."
-                     ];
-                     orgaDetails.forEach(line => {
-                         checkAddPage(textHeight);
-                         doc.text(`• ${line}`, margin + 5, currentY);
-                         currentY += textHeight;
-                     });
-                     currentY += headlineHeight;
-
-                     // --- Wichtige Hinweise ---
-                     checkAddPage();
-                     doc.setFontSize(14); doc.setFont("helvetica", "bold");
-                     doc.text("Wichtige Hinweise", margin, currentY);
-                     currentY += headlineHeight * 1.5;
-                     doc.setFontSize(9); doc.setFont("helvetica", "normal");
-                     const safetyDetails = [
-                         "Helmpflicht! IMMER beim Fahren.",
-                         "Weitere Schutzausrüstung (Knie etc.) dringend empfohlen.",
-                         "Fahre im Rahmen deiner Fähigkeiten, nimm Rücksicht.",
-                         "Beachte Orga-Anweisungen & Camp-Regeln.",
-                         "Selbstverpflegung: Bring Essen & Kochzeug mit!",
-                         "Werkzeug/Ersatzschlauch mitbringen.",
-                         "Halte den Platz sauber! (Leave No Trace)",
-                         "April-Wetter: Auf alles vorbereitet sein!",
-                         "Bring dich ein - Gemeinschaft lebt vom Mitmachen!"
-                     ];
-                     safetyDetails.forEach(line => {
-                         checkAddPage(textHeight);
-                         doc.text(`• ${line}`, margin + 5, currentY);
-                         currentY += textHeight;
-                     });
-                     currentY += headlineHeight;
-
-                     // --- Packliste ---
-                     checkAddPage(headlineHeight * 3); // Extra Platz vor der Liste
-                     doc.setFontSize(14); doc.setFont("helvetica", "bold");
-                     doc.text("Packliste", margin, currentY);
-                     currentY += headlineHeight * 1.5;
-                     doc.setFontSize(9); doc.setFont("helvetica", "normal");
-                     let itemIdCounter = 0;
-                     for (const categoryName in packlistData) {
-                         checkAddPage(headlineHeight); // Platz für Kategorie-Überschrift
-                         doc.setFont("helvetica", "bold");
-                         doc.text(categoryName, margin, currentY);
-                         currentY += textHeight;
-                         doc.setFont("helvetica", "normal");
-                         packlistData[categoryName].items.forEach(itemText => {
-                              itemIdCounter++;
-                              // Eindeutigen Schlüssel generieren, um Checkbox im DOM zu finden
-                              const itemKey = itemText.toLowerCase().replace(/[^a-z0-9]/g, '-').substring(0, 50);
-                              // Checkbox im DOM suchen über data-itemkey
-                              const checkboxElement = document.querySelector(`input[type="checkbox"][data-itemkey="${itemKey}"]`);
-                              const isChecked = checkboxElement ? checkboxElement.checked : false;
-                              const checkMark = isChecked ? "\u2611" : "\u2610"; // Checked / Unchecked Box unicode
-
-                              checkAddPage(textHeight);
-                              doc.text(`${checkMark} ${itemText}`, margin + 5, currentY);
-                              currentY += textHeight;
-                         });
-                         currentY += textHeight * 0.4; // Kleiner Abstand nach Kategorie
-                     }
-                     currentY += headlineHeight; // Größerer Abstand nach der Liste
-
-                     // --- Zeitplan ---
-                     doc.setFontSize(14); doc.setFont("helvetica", "bold");
-                     checkAddPage(headlineHeight * 2);
-                     doc.text("Zeitplan", margin, currentY);
-                     currentY += headlineHeight * 1.5;
-
-                     daysData.forEach(day => {
-                         checkAddPage(headlineHeight * 2); // Platz für Tagesüberschrift
-                         doc.setFontSize(11); doc.setFont("helvetica", "bold");
-                         doc.text(`${day.name}: ${day.title}`, margin, currentY);
-                         currentY += textHeight * 1.2;
-
-                         doc.setFontSize(8.5); doc.setFont("helvetica", "normal");
-                         day.schedule.forEach(item => {
-                             checkAddPage(textHeight * 1.5); // Mindesthöhe für Zeit+Titel
-                             doc.setFont("helvetica", "bold");
-                             doc.text(`${item.time}: ${item.title}`, margin + 5, currentY);
-                             currentY += textHeight * 0.9;
-
-                             doc.setFont("helvetica", "normal");
-                              // Content extrahieren und vereinfachen (HTML entfernen)
-                              const tempDiv = document.createElement("div");
-                              tempDiv.innerHTML = item.content;
-                              let plainText = tempDiv.textContent || tempDiv.innerText || "";
-                              plainText = plainText.replace(/•/g, '-').replace(/\s+/g, ' ').trim().substring(0, 250); // Mehr Text zulassen
-                              const contentLines = doc.splitTextToSize(plainText, pageWidth - 2*margin - 15); // Textumbruch
-
-                             checkAddPage(contentLines.length * textHeight * 0.9); // Platz für den Content
-                             doc.setFont("helvetica", "italic"); // Kursiv für Beschreibung
-                             doc.text(contentLines, margin + 10, currentY);
-                             currentY += contentLines.length * textHeight * 0.9;
-                             doc.setFont("helvetica", "normal"); // Zurück zu normal
-
-                             currentY += textHeight * 0.3; // Kleiner Abstand zwischen Items
-                         });
-                         currentY += headlineHeight; // Abstand zwischen Tagen
-                     });
-
-                     // --- PDF Speichern ---
-                     doc.save('gmtw2025-infos.pdf');
-                     console.log("PDF generation finished.");
-
-                 } catch (error) {
-                     console.error("Fehler bei PDF-Generierung:", error);
-                     alert("PDF konnte nicht erstellt werden.");
-                 } finally {
-                      initializePdfButtonState(); // Button Zustand wiederherstellen
-                 }
-             }
-
-             // --- NEU: Funktionen für das Audio-Modal ---
-             function openAudioModal() {
-                if (audioModal) audioModal.style.display = 'block';
-                if (audioBackdrop) audioBackdrop.style.display = 'block';
-                if (audioPlayerContainer) audioPlayerContainer.style.display = 'none'; // Player beim Öffnen ausblenden
-                if (audioPlayer) {
-                    audioPlayer.pause(); // Audio anhalten, falls es lief
-                    audioPlayer.currentTime = 0; // Zurück zum Anfang
-                }
-             }
-
-             function closeAudioModal() {
-                if (audioModal) audioModal.style.display = 'none';
-                if (audioBackdrop) audioBackdrop.style.display = 'none';
-                if (audioPlayer) {
-                    audioPlayer.pause(); // Audio stoppen beim Schließen
-                }
-             }
-             // --- ENDE NEU ---
+             // --- ENDE: Soundwave Animation ---
+
+
+             // --- FUNKTIONEN (Restliche: PDF, Timeline, Checklist, Modal etc.) ---
+             function initializePdfButtonState() { if (pdfButton) { if (isJsPDFReady) { pdfButton.disabled = false; pdfButton.innerHTML = '<i class="fas fa-file-pdf"></i> Alle Infos als PDF'; if (!pdfButton.hasAttribute('data-listener-added')) { pdfButton.addEventListener('click', generateAndDownloadPDF); pdfButton.setAttribute('data-listener-added', 'true'); } } else { pdfButton.disabled = true; pdfButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Lade PDF Lib...'; } } }
+             function createDayMarkers() { if (!track) return; const trackWidth = track.offsetWidth; if (trackWidth === 0) { setTimeout(createDayMarkers, 100); return; } track.innerHTML = ''; dayMarkers = []; daysData.forEach((day, index) => { const marker = document.createElement('div'); marker.classList.add('day-marker'); marker.dataset.index = index; marker.textContent = day.day; const tooltip = document.createElement('span'); tooltip.textContent = day.name; marker.appendChild(tooltip); const positionPercent = 10 + (daysData.length > 1 ? (index * (80 / (daysData.length - 1))) : 40); marker.style.left = `${positionPercent}%`; marker.addEventListener('click', () => { clearTimeout(animationTimeout); stopAnimationVisuals(); navigateToDay(index); }); track.appendChild(marker); dayMarkers.push(marker); }); }
+             function showHighlights(dayIndex) { if (!highlightDay || !highlightList) return; if (dayIndex < 0 || dayIndex >= daysData.length) { highlightDay.textContent = "Tag wählen"; highlightList.innerHTML = '<li>Klicke auf einen Tag oder starte die Animation!</li>'; if (dayMarkers) dayMarkers.forEach(marker => marker.classList.remove('active')); } else { const day = daysData[dayIndex]; highlightDay.textContent = `Highlights ${day.name}`; highlightList.innerHTML = day.highlights.map(item => `<li>${item}</li>`).join(''); if (dayMarkers) dayMarkers.forEach((marker, index) => marker.classList.toggle('active', index === dayIndex)); } currentDayIndex = dayIndex; }
+             function displayDayDetails(dayIndex) { if (!dailyDetailContainer) return; dailyDetailContainer.innerHTML = ''; dailyDetailContainer.classList.remove('visible'); if (dayIndex < 0 || dayIndex >= daysData.length) return; const day = daysData[dayIndex]; const header = document.createElement('h2'); header.innerHTML = `<i class="fas fa-calendar-day"></i> ${day.name}: ${day.title}`; dailyDetailContainer.appendChild(header); const timelineDiv = document.createElement('div'); timelineDiv.classList.add('timeline'); day.schedule.forEach(item => { const itemDiv = document.createElement('div'); itemDiv.classList.add('timeline-item'); if (item.highlight) { itemDiv.classList.add('highlight'); } const timeTag = document.createElement('div'); timeTag.classList.add('time-tag'); timeTag.textContent = item.time; itemDiv.appendChild(timeTag); const contentTile = document.createElement('div'); contentTile.classList.add('content-tile'); const itemHeader = document.createElement('h3'); if (item.isImageIcon) { const imgIcon = document.createElement('img'); imgIcon.src = item.icon; imgIcon.alt = `${item.title} Icon`; imgIcon.classList.add('timeline-icon-img'); itemHeader.appendChild(imgIcon); itemHeader.append(` ${item.title}`); } else { const iconClass = item.icon ? item.icon : 'fa-info-circle'; itemHeader.innerHTML = `<i class="fas ${iconClass}"></i> ${item.title}`; } contentTile.appendChild(itemHeader); const itemContent = document.createElement('div'); itemContent.innerHTML = item.content; contentTile.appendChild(itemContent); itemDiv.appendChild(contentTile); timelineDiv.appendChild(itemDiv); }); dailyDetailContainer.appendChild(timelineDiv); requestAnimationFrame(() => { dailyDetailContainer.classList.add('visible'); }); }
+             function moveUnicyclist(dayIndex) { if (!unicyclist) return; let targetPercent = 5; if (dayIndex >= 0 && dayIndex < daysData.length && dayMarkers && dayMarkers.length > 0) { targetPercent = parseFloat(dayMarkers[dayIndex].style.left); } if (targetPercent > lastUnicyclistPosPercent && unicyclist.src !== unicycleImgRight) { unicyclist.src = unicycleImgRight; } else if (targetPercent < lastUnicyclistPosPercent && unicyclist.src !== unicycleImgLeft) { unicyclist.src = unicycleImgLeft; } else if (dayIndex < 0 && unicyclist.src !== unicycleImgRight) { unicyclist.src = unicycleImgRight; } requestAnimationFrame(() => { unicyclist.style.left = `${targetPercent}%`; }); lastUnicyclistPosPercent = targetPercent; if(dayIndex < 0) lastUnicyclistPosPercent = 0; }
+             function navigateToDay(dayIndex) { moveUnicyclist(dayIndex); showHighlights(dayIndex); setTimeout(() => { displayDayDetails(dayIndex); }, 150); }
+             function stopAnimationVisuals() { if (!playButton) return; playButton.disabled = false; playButton.innerHTML = '<i class="fas fa-play"></i> Animations-Tour starten'; }
+             function startAnimation() { if (!playButton || playButton.disabled) return; playButton.disabled = true; playButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Tour läuft...'; let currentStep = 0; function nextStep() { if (currentStep >= daysData.length) { animationTimeout = setTimeout(() => { navigateToDay(-1); stopAnimationVisuals(); }, 2500); return; } navigateToDay(currentStep); currentStep++; animationTimeout = setTimeout(nextStep, 3500); } navigateToDay(-1); animationTimeout = setTimeout(nextStep, 500); }
+             function generateChecklistHTML() { if (!checklistCategoriesContainer || !checklistTitleIconPlaceholder) return; checklistCategoriesContainer.innerHTML = ''; totalItems = 0; let uniqueIdCounter = 0; const titleIconParent = checklistTitleIconPlaceholder.parentNode; let titleIconReplaced = false; for (const categoryName in packlistData) { const categoryData = packlistData[categoryName]; const detailsElement = document.createElement('details'); detailsElement.classList.add('checklist-category-details'); const summaryElement = document.createElement('summary'); let iconElement; if (categoryData.isImage) { iconElement = document.createElement('img'); iconElement.src = categoryData.icon; iconElement.alt = `${categoryName} Icon`; iconElement.classList.add('category-icon-img'); summaryElement.appendChild(iconElement); summaryElement.append(` ${categoryName}`); if (categoryName === "Einrad & Schutz" && titleIconParent && !titleIconReplaced) { const titleIconClone = iconElement.cloneNode(); titleIconClone.classList.add('title-icon-img'); titleIconParent.replaceChild(titleIconClone, checklistTitleIconPlaceholder); titleIconReplaced = true; } } else { iconElement = document.createElement('i'); iconElement.className = `fas ${categoryData.icon}`; summaryElement.appendChild(iconElement); summaryElement.append(` ${categoryName}`); } detailsElement.appendChild(summaryElement); const itemsGrid = document.createElement('div'); itemsGrid.classList.add('checklist-items-grid'); categoryData.items.forEach(itemText => { totalItems++; uniqueIdCounter++; const checkItemDiv = document.createElement('div'); checkItemDiv.classList.add('check-item'); const checkbox = document.createElement('input'); checkbox.type = 'checkbox'; const checkboxId = `check-item-${uniqueIdCounter}`; checkbox.id = checkboxId; checkbox.dataset.itemkey = itemText.toLowerCase().replace(/[^a-z0-9]/g, '-').substring(0, 50); const label = document.createElement('label'); label.htmlFor = checkboxId; label.textContent = itemText; checkItemDiv.appendChild(checkbox); checkItemDiv.appendChild(label); itemsGrid.appendChild(checkItemDiv); checkbox.addEventListener('change', handleCheckboxChange); }); detailsElement.appendChild(itemsGrid); checklistCategoriesContainer.appendChild(detailsElement); } if (!titleIconReplaced && titleIconParent && checklistTitleIconPlaceholder) { const defaultIcon = document.createElement("i"); defaultIcon.className = "fas fa-clipboard-list"; defaultIcon.style.color = "var(--accent-color)"; try { titleIconParent.replaceChild(defaultIcon, checklistTitleIconPlaceholder); } catch (e) { console.warn("Could not replace title icon placeholder.");} } updateChecklistProgress(); }
+             function initChecklistDB() { const request = indexedDB.open("gmtwChecklistDB", 1); request.onerror = (event) => { console.error("IndexedDB error:", event.target.errorCode); }; request.onupgradeneeded = (event) => { checklistDB = event.target.result; if (!checklistDB.objectStoreNames.contains("checklistItems")) { checklistDB.createObjectStore("checklistItems", { keyPath: "id" }); console.log("Checklist DB object store created."); } }; request.onsuccess = (event) => { checklistDB = event.target.result; console.log("Checklist DB initialized successfully."); generateChecklistHTML(); loadChecklistState(); initializePdfButtonState(); }; }
+             function saveChecklistState(itemId, isChecked) { if (!checklistDB) return; const transaction = checklistDB.transaction(["checklistItems"], "readwrite"); const store = transaction.objectStore("checklistItems"); store.put({ id: itemId, checked: isChecked }); transaction.oncomplete = () => { updateChecklistProgress(); }; transaction.onerror = (event) => { console.error("Save transaction error:", event.target.error); }; }
+             function loadChecklistState() { if (!checklistDB || totalItems === 0) { updateChecklistProgress(); return; } const transaction = checklistDB.transaction(["checklistItems"], "readonly"); const store = transaction.objectStore("checklistItems"); const getAllRequest = store.getAll(); getAllRequest.onsuccess = (event) => { const savedStates = {}; event.target.result.forEach(item => { savedStates[item.id] = item.checked; }); const allCheckboxes = checklistCategoriesContainer.querySelectorAll('input[type="checkbox"]'); allCheckboxes.forEach(checkbox => { const itemKey = checkbox.dataset.itemkey; checkbox.checked = savedStates[itemKey] !== undefined ? savedStates[itemKey] : false; }); updateChecklistProgress(); }; getAllRequest.onerror = (event) => { console.error("Load transaction error:", event.target.error); updateChecklistProgress(); }; }
+             function handleCheckboxChange(event) { const checkbox = event.target; const itemId = checkbox.dataset.itemkey; saveChecklistState(itemId, checkbox.checked); }
+             function updateChecklistProgress() { if (!checklistCategoriesContainer || !progressBar || !progressText) { console.warn("Checklist progress elements not found."); return; } if (totalItems === 0) { progressBar.style.width = '0%'; progressText.textContent = "Packliste wird geladen..."; if (gameButton) gameButton.style.display = 'none'; return; } const checkedItems = checklistCategoriesContainer.querySelectorAll('input[type="checkbox"]:checked').length; const percentage = (checkedItems / totalItems) * 100; progressBar.style.width = `${percentage}%`; progressText.textContent = `${checkedItems} von ${totalItems} gepackt`; if (checklistContainer) { if (checkedItems === totalItems && totalItems > 0) { checklistContainer.classList.add("checklist-complete"); progressText.textContent += " - Fertig!"; } else { checklistContainer.classList.remove("checklist-complete"); } } if (gameButton) { if (checkedItems === totalItems && totalItems > 0) { gameButton.style.display = 'inline-block'; if(progressText) progressText.textContent = `${checkedItems} von ${totalItems} gepackt - Spiel bereit!`; } else { gameButton.style.display = 'none'; } } }
+             async function generateAndDownloadPDF() { if (!isJsPDFReady) return alert("PDF-Bibliothek ist noch nicht bereit."); if (!pdfButton) return; pdfButton.disabled = true; pdfButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generiere PDF...'; try { const doc = new jsPDF({ orientation: "p", unit: "mm", format: "a4" }); const pageHeight = doc.internal.pageSize.height; const pageWidth = doc.internal.pageSize.width; const margin = 15; let currentY = margin; const headlineHeight = 7; const textHeight = 4.5; const checkSize = textHeight * 0.8; function checkAddPage(neededHeight = headlineHeight * 2) { if (currentY + neededHeight > pageHeight - margin) { doc.addPage(); currentY = margin; } } doc.setFontSize(18); doc.setFont("helvetica", "bold"); doc.text("GMTW 2025 - German Muni and Trial Weekend", pageWidth / 2, currentY, { align: "center" }); currentY += headlineHeight * 1.5; doc.setFontSize(12); doc.setFont("helvetica", "italic"); doc.text("Dein ultimatives Einrad-Abenteuer!", pageWidth / 2, currentY, { align: "center" }); currentY += headlineHeight; doc.text("17. - 21. April 2025 | Camping Hohensyburg", pageWidth / 2, currentY, { align: "center" }); currentY += headlineHeight * 2; checkAddPage(); doc.setFontSize(14); doc.setFont("helvetica", "bold"); doc.text("Was ist das GMTW?", margin, currentY); currentY += headlineHeight * 1.5; doc.setFontSize(10); doc.setFont("helvetica", "normal"); const introText = "Das German Muni and Trial Weekend (seit 2003) ist DER Treffpunkt für Einrad-Begeisterte. Ziel: Muni & Trial fördern, Gemeinschaft stärken. Über 60 Fahrer*innen (Anfänger bis Profis) treffen sich jährlich an wechselnden Orten. Tagsüber Training & Trails, abends Lagerfeuer & Austausch. Kein Wettkampf, sondern Lernen, Spaß & Gemeinschaft."; const introLines = doc.splitTextToSize(introText, pageWidth - 2 * margin); doc.text(introLines, margin, currentY); currentY += introLines.length * textHeight + headlineHeight; checkAddPage(); doc.setFontSize(14); doc.setFont("helvetica", "bold"); doc.text("Location & Organisation 2025", margin, currentY); currentY += headlineHeight * 1.5; doc.setFontSize(9); doc.setFont("helvetica", "normal"); const orgaDetails = [ "Ort: Campingplatz Hohensyburg, Syburger Dorfstraße 69, 44265 Dortmund", "Web: www.camping-hohensyburg.de", "Wichtig: 'Touristenplätze' (grüne Fläche) für Zelte buchen!", "Anmeldung Camper/WoMo bis 15.03.25", "T-Shirt Bestellung bis 01.04.25 (Anfrage: Sven via WhatsApp 01797318615)", "Übernachtung: Zelten, Bauwagen, Fass (siehe Website)", "Verpflegung: Selbstversorgung! Kiosk/Restaurant vor Ort. Lidl ca. 4km.", "Sanitär: 8 warme Duschen.", "Aktivitäten: Muni (ab 200m frei), Trial (ab 3 Hops), Workshops." ]; orgaDetails.forEach(line => { checkAddPage(textHeight); doc.text(`• ${line}`, margin + 5, currentY); currentY += textHeight; }); currentY += headlineHeight; checkAddPage(); doc.setFontSize(14); doc.setFont("helvetica", "bold"); doc.text("Wichtige Hinweise", margin, currentY); currentY += headlineHeight * 1.5; doc.setFontSize(9); doc.setFont("helvetica", "normal"); const safetyDetails = [ "Helmpflicht! IMMER beim Fahren.", "Weitere Schutzausrüstung (Knie etc.) dringend empfohlen.", "Fahre im Rahmen deiner Fähigkeiten, nimm Rücksicht.", "Beachte Orga-Anweisungen & Camp-Regeln.", "Selbstverpflegung: Bring Essen & Kochzeug mit!", "Werkzeug/Ersatzschlauch mitbringen.", "Halte den Platz sauber! (Leave No Trace)", "April-Wetter: Auf alles vorbereitet sein!", "Bring dich ein - Gemeinschaft lebt vom Mitmachen!" ]; safetyDetails.forEach(line => { checkAddPage(textHeight); doc.text(`• ${line}`, margin + 5, currentY); currentY += textHeight; }); currentY += headlineHeight; checkAddPage(headlineHeight * 3); doc.setFontSize(14); doc.setFont("helvetica", "bold"); doc.text("Packliste", margin, currentY); currentY += headlineHeight * 1.5; doc.setFontSize(9); doc.setFont("helvetica", "normal"); let itemIdCounter = 0; for (const categoryName in packlistData) { checkAddPage(headlineHeight); doc.setFont("helvetica", "bold"); doc.text(categoryName, margin, currentY); currentY += textHeight; doc.setFont("helvetica", "normal"); packlistData[categoryName].items.forEach(itemText => { itemIdCounter++; const itemKey = itemText.toLowerCase().replace(/[^a-z0-9]/g, '-').substring(0, 50); const checkboxElement = document.querySelector(`input[type="checkbox"][data-itemkey="${itemKey}"]`); const isChecked = checkboxElement ? checkboxElement.checked : false; const checkMark = isChecked ? "\u2611" : "\u2610"; checkAddPage(textHeight); doc.text(`${checkMark} ${itemText}`, margin + 5, currentY); currentY += textHeight; }); currentY += textHeight * 0.4; } currentY += headlineHeight; doc.setFontSize(14); doc.setFont("helvetica", "bold"); checkAddPage(headlineHeight * 2); doc.text("Zeitplan", margin, currentY); currentY += headlineHeight * 1.5; daysData.forEach(day => { checkAddPage(headlineHeight * 2); doc.setFontSize(11); doc.setFont("helvetica", "bold"); doc.text(`${day.name}: ${day.title}`, margin, currentY); currentY += textHeight * 1.2; doc.setFontSize(8.5); doc.setFont("helvetica", "normal"); day.schedule.forEach(item => { checkAddPage(textHeight * 1.5); doc.setFont("helvetica", "bold"); doc.text(`${item.time}: ${item.title}`, margin + 5, currentY); currentY += textHeight * 0.9; doc.setFont("helvetica", "normal"); const tempDiv = document.createElement("div"); tempDiv.innerHTML = item.content; let plainText = tempDiv.textContent || tempDiv.innerText || ""; plainText = plainText.replace(/•/g, '-').replace(/\s+/g, ' ').trim().substring(0, 250); const contentLines = doc.splitTextToSize(plainText, pageWidth - 2*margin - 15); checkAddPage(contentLines.length * textHeight * 0.9); doc.setFont("helvetica", "italic"); doc.text(contentLines, margin + 10, currentY); currentY += contentLines.length * textHeight * 0.9; doc.setFont("helvetica", "normal"); currentY += textHeight * 0.3; }); currentY += headlineHeight; }); doc.save('gmtw2025-infos.pdf'); console.log("PDF generation finished."); } catch (error) { console.error("Fehler bei PDF-Generierung:", error); alert("PDF konnte nicht erstellt werden."); } finally { initializePdfButtonState(); } }
+             function openAudioModal() { if (audioModal) audioModal.style.display = 'block'; if (audioBackdrop) audioBackdrop.style.display = 'block'; if (audioPlayerContainer) audioPlayerContainer.style.display = 'none'; if (audioPlayer) { audioPlayer.pause(); audioPlayer.currentTime = 0; } }
+             function closeAudioModal() { if (audioModal) audioModal.style.display = 'none'; if (audioBackdrop) audioBackdrop.style.display = 'none'; if (audioPlayer) { audioPlayer.pause(); } }
 
 
              // --- INITIALISIERUNGSAUFRUFE ---
+             initChecklistDB(); // Startet DB -> Generiert HTML -> Lädt Status -> Ruft updateProgress -> Init PDF Button
+             initGalleries();   // Initialisiert Klick-Events für Galerie
 
-             initChecklistDB(); // Startet DB, generiert Liste, lädt Status -> ruft updateProgress auf
-
-             // Timeline initialisieren (wenn vorhanden)
+             // Timeline initialisieren
              if (overviewContainer) {
                  createDayMarkers();
-                 showHighlights(-1); // Startzustand ohne Auswahl
-                 displayDayDetails(-1); // Startzustand ohne Details
-                 if (playButton) {
-                     playButton.addEventListener('click', () => {
-                         clearTimeout(animationTimeout); // Alte Animation stoppen
-                         startAnimation();
-                     });
-                 }
-                 // Bei Fenstergrößenänderung Marker neu positionieren
+                 showHighlights(-1);
+                 displayDayDetails(-1);
+                 if (playButton) { playButton.addEventListener('click', () => { clearTimeout(animationTimeout); startAnimation(); }); }
                  let resizeTimer;
-                 window.addEventListener('resize', () => {
-                     clearTimeout(resizeTimer);
-                     resizeTimer = setTimeout(() => {
-                         createDayMarkers(); // Marker neu erstellen (berechnet Positionen neu)
-                         // Icon auf aktuellen Tag positionieren (falls einer gewählt war)
-                         if (currentDayIndex !== -1) {
-                             moveUnicyclist(currentDayIndex);
-                             showHighlights(currentDayIndex); // Aktiven Marker neu setzen
-                         } else {
-                              moveUnicyclist(-1); // Zurück zur Startposition
-                         }
-                     }, 250); // Kurze Verzögerung um Dauer-Resizing zu vermeiden
-                 });
+                 window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { createDayMarkers(); if (currentDayIndex !== -1) { moveUnicyclist(currentDayIndex); showHighlights(currentDayIndex); } else { moveUnicyclist(-1); } }, 250); });
              } else {
-                 // Wenn keine Timeline da ist, PDF Button trotzdem initialisieren
-                 initializePdfButtonState();
+                 // Falls keine Timeline, PDF Button trotzdem initialisieren (passiert aber schon in initChecklistDB)
+                 // initializePdfButtonState();
              }
 
-             // --- NEU: Event Listener für Audio-Modal ---
-             if (audioFigurTrigger) {
-                audioFigurTrigger.addEventListener('click', openAudioModal);
-             }
-             if (closeAudioModalBtn) {
-                closeAudioModalBtn.addEventListener('click', closeAudioModal);
-             }
-             if (audioBackdrop) {
-                audioBackdrop.addEventListener('click', closeAudioModal); // Klick auf Hintergrund schließt auch
-             }
-             if (playAudioBtn && audioPlayer && audioPlayerContainer) {
-                playAudioBtn.addEventListener('click', () => {
-                    audioPlayer.src = gmtwAudioUrl; // Sicherstellen, dass Quelle gesetzt ist
-                    audioPlayerContainer.style.display = 'block'; // Player anzeigen
-                    audioPlayer.play();
-                    // Optional: Buttons nach Klick ausblenden oder Text ändern
-                });
-             }
-             if (downloadAudioBtn) {
-                downloadAudioBtn.addEventListener('click', () => {
-                    const link = document.createElement('a');
-                    link.href = gmtwAudioUrl;
-                    link.download = 'GMTW25_LineUP_Audio.mp3'; // Gewünschter Dateiname
-                    document.body.appendChild(link); // Notwendig für Firefox
-                    link.click();
-                    document.body.removeChild(link);
-                    closeAudioModal(); // Modal nach Download schließen
-                });
-             }
-             // --- ENDE NEU ---
+             // Event Listener für Audio Modal
+             if (audioFigurTrigger) { audioFigurTrigger.addEventListener('click', openAudioModal); } else { console.error("Audio-Trigger Element (ID: audio-figur-trigger) nicht gefunden!"); }
+             if (closeAudioModalBtn) { closeAudioModalBtn.addEventListener('click', closeAudioModal); }
+             if (audioBackdrop) { audioBackdrop.addEventListener('click', closeAudioModal); }
+             if (playAudioBtn && audioPlayer && audioPlayerContainer) { playAudioBtn.addEventListener('click', () => { audioPlayer.src = gmtwAudioUrl; audioPlayerContainer.style.display = 'block'; audioPlayer.play().catch(e => console.error("Audio play failed:", e)); }); } // Added catch for play()
+             if (downloadAudioBtn) { downloadAudioBtn.addEventListener('click', () => { const link = document.createElement('a'); link.href = gmtwAudioUrl; link.download = 'GMTW25_LineUP_Audio.mp3'; document.body.appendChild(link); link.click(); document.body.removeChild(link); closeAudioModal(); }); }
 
+             // Spiel-Button
+             if (gameButton) { gameButton.addEventListener('click', () => { const gameUrl = 'https://raw.githack.com/ErSieCode/1Rad/main/Einrad_mini_game.html'; console.log("Öffne Spiel:", gameUrl); window.open(gameUrl, '_blank'); }); }
 
-             // Event Listener für den Spiel-Button
-             if (gameButton) {
-                  gameButton.addEventListener('click', () => {
-                      const gameUrl = 'https://raw.githack.com/ErSieCode/1Rad/main/Einrad_mini_game.html'; // raw.githack ist oft besser für HTML-Preview
-                      console.log("Öffne Spiel:", gameUrl);
-                      window.open(gameUrl, '_blank');
-                  });
-              }
+             // --- NEU: Trigger Animation einmalig nach dem Laden ---
+             // Kleiner Timeout stellt sicher, dass die Seite "bereit" ist
+             setTimeout(() => {
+                  console.log("Triggering initial soundwave sequence on load..."); // Debug
+                  startDoublePulseSequence();
+             }, 150); // Kurze Verzögerung nach DOMContentLoaded
 
          }); // Ende DOMContentLoaded
      </script>
