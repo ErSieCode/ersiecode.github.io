@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GMTW 2025 – German Muni and Trial Weekend</title>
-    <!-- Favicon -->
+    <!-- Favicon: KEIN .webp Link in der Liste -> bleibt .png -->
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/favicon.png">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -60,7 +60,8 @@
         .container { max-width: 1000px; margin: 20px auto; padding: 0 20px; }
         section { background-color: var(--card-bg); padding: 25px; margin-bottom: 25px; border-radius: var(--border-radius); box-shadow: var(--shadow); }
         section h2 { margin-top: 0; text-align: center; margin-bottom: 25px; }
-        .main-header { padding: 40px 20px; text-align: center; background-image: url('https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Banner.png'); background-size: cover; background-position: center 33%; position: relative; color: var(--header-text-color); box-shadow: var(--shadow); }
+        /* *** CORRECTED: Use Banner.webp from list *** */
+        .main-header { padding: 40px 20px; text-align: center; background-image: url('https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Banner.webp'); background-size: cover; background-position: center 33%; position: relative; color: var(--header-text-color); box-shadow: var(--shadow); }
         .header-content { position: relative; z-index: 2; }
         .main-header h1, .main-header h2, .main-header .subtitle { color: var(--header-text-color); font-weight: bold; text-shadow: var(--header-text-shadow); }
         .main-header h1 { margin: 10px 0 5px 0; font-size: 2.5em; }
@@ -120,7 +121,7 @@
         #gmtw-audio-player-container { margin-top: 20px; display: none; }
         #gmtw-audio-player { width: 100%; }
 
-        /* --- Restliche Styles (Zeitplan, Location, Packliste etc. - unverändert) --- */
+        /* --- Restliche Styles --- */
         #event-uebersicht { padding: 30px 20px; background-color: transparent; box-shadow: none; text-align: center; border-top: 2px dashed var(--secondary-color); margin-top: 30px; margin-bottom: 30px; }
         #event-uebersicht h2 { margin-bottom: 25px; }
         #overview-container { position: relative; width: 90%; max-width: 800px; margin: 40px auto 30px auto; height: 80px; }
@@ -280,7 +281,8 @@
                         <div class="soundwave soundwave-3"></div>
                     </div>
                     <div class="audio-button" id="audio-figur-trigger" title="Audio anhören oder herunterladen"> <!-- Click Listener hier -->
-                         <img src="https://raw.githubusercontent.com/ErSieCode/1Rad/main/GMTW25_Audio_grafik.png"
+                         <!-- *** CORRECTED: Use GMTW25_Audio_grafik.webp from list *** -->
+                         <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/GMTW25_Audio_grafik.webp"
                               alt="Klicke hier für Audio-Optionen"
                               class="audio-figur">
                          <div class="audio-caption">Audio Zusammenfassung</div>
@@ -320,7 +322,8 @@
              <p>Wähle einen Tag auf der Timeline oder starte die Animation, um die Highlights zu sehen und den detaillierten Plan zu laden.</p>
              <div id="overview-container">
                  <div id="overview-track"></div>
-                 <img id="unicyclist-icon" src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/waschbär_einrad.png" alt="Einradfahrender Waschbär Animation">
+                 <!-- *** CORRECTED: Use waschbaer_einrad.webp from list (default right-facing) *** -->
+                 <img id="unicyclist-icon" src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/waschbaer_einrad.webp" alt="Einradfahrender Waschbär Animation">
              </div>
              <div id="daily-highlights-display">
                  <h3 id="highlight-day">Tag wählen</h3>
@@ -333,7 +336,7 @@
          <section id="location-orga">
              <h2>Location & Organisation 2025</h2>
              <div class="orga-grid">
-                 <div class="orga-card"> <h3><i class="fas fa-map-marker-alt"></i> Veranstaltungsort</h3> <ul> <li><i class="fas fa-campground"></i><strong>Campingplatz Hohensyburg</strong></li> <li><i class="fas fa-road"></i>Adresse: Syburger Dorfstraße 69, 44265 Dortmund</li> <li><i class="fas fa-link"></i>Webseite: <a href="http://www.camping-hohensyburg.de" target="_blank" rel="noopener noreferrer">www.camping-hohensyburg.de</a></li> </ul> <figure class="location-image"> <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" target="_blank" title="Touristenplätze (vergrößern)"> <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" alt="Touristenplätze"> </a> <figcaption><i class="fas fa-info-circle"></i> Wichtig: Bei Buchung <strong>"Touristenplätze"</strong> wählen!</figcaption> </figure> </div>
+                 <div class="orga-card"> <h3><i class="fas fa-map-marker-alt"></i> Veranstaltungsort</h3> <ul> <li><i class="fas fa-campground"></i><strong>Campingplatz Hohensyburg</strong></li> <li><i class="fas fa-road"></i>Adresse: Syburger Dorfstraße 69, 44265 Dortmund</li> <li><i class="fas fa-link"></i>Webseite: <a href="http://www.camping-hohensyburg.de" target="_blank" rel="noopener noreferrer">www.camping-hohensyburg.de</a></li> </ul> <figure class="location-image"> <!-- *** UNCHANGED: Turi_platz.webp NOT in list -> bleibt .jpg *** --> <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" target="_blank" title="Touristenplätze (vergrößern)"> <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" alt="Touristenplätze"> </a> <figcaption><i class="fas fa-info-circle"></i> Wichtig: Bei Buchung <strong>"Touristenplätze"</strong> wählen!</figcaption> </figure> </div>
                  <div class="orga-card"> <h3><i class="fas fa-calendar-check"></i> Anmeldung & Fristen</h3> <ul> <li><i class="fas fa-caravan"></i><strong>Camper/WoMo:</strong> Anmeldeschluss <strong>15.03.2025</strong></li> <li><i class="fas fa-tshirt"></i><strong>T-Shirt Bestellung:</strong> bis <strong>01.04.2025</strong></li> <li><i class="fab fa-whatsapp"></i><strong>T-Shirt Anfrage:</strong> Sven via WhatsApp: <a href="https://wa.me/491797318615" target="_blank">0179 7318615</a></li> </ul> </div>
                  <div class="orga-card"> <h3><i class="fas fa-bed"></i> Übernachtung</h3> <ul> <li><i class="fas fa-tent"></i><strong>Zelten:</strong> Auf den "Touristenplätzen".</li> <li><i class="fas fa-home"></i><strong>Alternativen:</strong> Bauwagen oder Campingfass.</li> <li><i class="fas fa-euro-sign"></i><strong>Preise:</strong> <a href="http://www.camping-hohensyburg.de/preise/" target="_blank" rel="noopener noreferrer">Preisübersicht Campingplatz</a>.</li> </ul> </div>
                  <div class="orga-card"> <h3><i class="fas fa-utensils"></i> Verpflegung</h3> <ul> <li><i class="fas fa-exclamation-circle"></i><strong>Prinzip: Selbstversorgung!</strong></li> <li><i class="fas fa-fire"></i>Gemeinsames Kochen/Essen möglich.</li> <li><i class="fas fa-store-alt"></i>Kiosk & Restaurant vor Ort.</li> <li><i class="fas fa-shopping-cart"></i>Lidl (ca. 4 km): <a href="https://www.google.com/maps/dir/Campingplatz+Hohensyburg,+Syburger+Dorfstraße+69,+44265+Dortmund/Lidl+Dortmund+Hacheney,+Hacheneyer+Str.+160/" target="_blank" rel="noopener noreferrer">Route</a></li> <li><i class="fas fa-motorcycle"></i>Lieferdienste verfügbar.</li> </ul> </div>
@@ -356,11 +359,13 @@
              <div class="impressionen-grid">
                  <!-- Muni -->
                  <div class="impressionen-card">
+                     <!-- *** UNCHANGED: image2.webp NOT in list -> bleibt .jpg *** -->
                      <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" target="_blank" class="image-link" title="Muni Impression (vergrößern)">
                          <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/image2.jpg" alt="Einrad im Wald" class="card-image">
                      </a>
                      <div class="card-content">
-                         <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.png" alt="Muni Logo" class="logo-image">
+                         <!-- *** CORRECTED: Use Muni_logo.webp from list *** -->
+                         <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.webp" alt="Muni Logo" class="logo-image">
                          <h3>Mountain Unicycling (Muni)</h3>
                          <p>Erkunde die wunderschönen Trails rund um den Hengsteysee. Für alle Könnensstufen ist etwas dabei – perfekt zum Üben und gemeinsamen Lernen.</p>
                      </div>
@@ -368,24 +373,28 @@
                  <!-- Trial -->
                  <div class="impressionen-card">
                      <a href="javascript:openGallery('trial-gallery')" class="image-link" title="Trial Ansehen">
-                         <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff3.jpg" alt="Trial-Ausstattung" class="card-image">
+                         <!-- *** CORRECTED: Use Trial_stuff3.webp from list (via JS galleries) *** -->
+                         <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Trial_stuff/Trial_stuff3.webp" alt="Trial-Ausstattung" class="card-image">
                      </a>
                      <div class="card-content">
                          <h3>Trial stuff</h3>
                          <p>Zeige deine Geschicklichkeit! Unsere vielfältigen Trial-Aufbauten und Hindernisse im Camp und im nahen Steinbruch garantieren Spaß und Herausforderung für jedes Können.</p>
                          <div class="gallery-preview">
-                             <a href="javascript:openGallery('trial-gallery', 0)"><img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff.jpg" alt="Trial Aufbau 1"></a>
-                             <a href="javascript:openGallery('trial-gallery', 1)"><img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff2.jpg" alt="Trial Aufbau 2"><span class="more-photos">+3</span></a>
+                             <!-- *** CORRECTED: Use .webp from list (via JS galleries) *** -->
+                             <a href="javascript:openGallery('trial-gallery', 0)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Trial_stuff/Trial_stuff.webp" alt="Trial Aufbau 1"></a>
+                             <a href="javascript:openGallery('trial-gallery', 1)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Trial_stuff/Trial_stuff2.webp" alt="Trial Aufbau 2"><span class="more-photos">+3</span></a>
                          </div>
                      </div>
                  </div>
                  <!-- Camp -->
                  <div class="impressionen-card">
+                      <!-- *** UNCHANGED: zeltplatz.webp NOT in list -> bleibt .jpg *** -->
                      <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" target="_blank" class="image-link" title="Camp Impression (vergrößern)">
                          <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/zeltplatz.jpg" alt="Zelte" class="card-image">
                      </a>
                      <div class="card-content">
                          <h3>Das Camp-Leben</h3>
+                          <!-- *** UNCHANGED: Turi_platz.webp NOT in list -> bleibt .jpg *** -->
                          <p>Unsere Basis: Die "Touristenplätze" auf dem Campingplatz (<a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Turi_platz.jpg" target="_blank" title="Detailansicht (vergrößern)">siehe Detail <i class="fas fa-external-link-alt small-icon"></i></a>). Hier schlagen wir unsere Zelte auf, kochen gemeinsam und genießen die Abende.</p>
                      </div>
                  </div>
@@ -395,36 +404,41 @@
                          <h3>Gemeinschaft & Spaß</h3>
                          <p>Das GMTW lebt vom Miteinander! Egal ob Anfänger oder Profi, hier sind alle willkommen. Lerne neue Leute kennen, tausche dich aus und hab Spaß.</p>
                          <div class="mascot-container">
-                             <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/waschbär_einrad.png" target="_blank" title="GMTW Waschbär (vergrößern)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Waschbär.png" alt="Waschbär"></a>
-                             <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Fuchs_einrad.png" target="_blank" title="GMTW Fuchs (vergrößern)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Fuchs.png" alt="Fuchs"></a>
+                             <!-- *** CORRECTED: Use .webp links from list *** -->
+                             <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/waschbaer_einrad.webp" target="_blank" title="GMTW Waschbär (vergrößern)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Waschbaer.webp" alt="Waschbär"></a>
+                             <a href="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Fuchs_einrad.webp" target="_blank" title="GMTW Fuchs (vergrößern)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Fuchs.webp" alt="Fuchs"></a>
                          </div>
                      </div>
                  </div>
                  <!-- Gelände -->
                  <div class="impressionen-card">
                      <a href="javascript:openGallery('location-gallery')" class="image-link" title="Geländebilder ansehen">
-                         <img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Im_Wald.jpg" alt="Geländebilder" class="card-image">
+                         <!-- *** CORRECTED: Use Im_Wald.webp from list (via JS galleries) *** -->
+                         <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Im_Wald.webp" alt="Geländebilder" class="card-image">
                      </a>
                      <div class="card-content">
                          <h3>Unsere Geländeansichten</h3>
                          <p>Entdecke das herrliche Gelände, in dem wir unser diesjähriges GMTW veranstalten. Perfekte Bedingungen für Muni & Trial!</p>
                          <div class="gallery-preview">
-                             <a href="javascript:openGallery('location-gallery', 0)"><img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Gelaendesicht.jpg" alt="Geländeansicht"></a>
-                             <a href="javascript:openGallery('location-gallery', 1)"><img src="https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Im_Wald.jpg" alt="Im Wald"><span class="more-photos">+2</span></a>
+                            <!-- *** CORRECTED: Use .webp links from list (via JS galleries) *** -->
+                             <a href="javascript:openGallery('location-gallery', 0)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Gelaendesicht.webp" alt="Geländeansicht"></a>
+                             <a href="javascript:openGallery('location-gallery', 1)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Im_Wald.webp" alt="Im Wald"><span class="more-photos">+2</span></a>
                          </div>
                      </div>
                  </div>
                  <!-- T-Shirt -->
                  <div class="impressionen-card">
                      <a href="javascript:openGallery('tshirt-gallery', 4)" class="image-link" title="Event T-Shirts ansehen">
-                         <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude_left.jpg" alt="Event T-Shirts" class="card-image">
+                          <!-- *** CORRECTED: Use shirt_dude_left.webp from list (via JS galleries) *** -->
+                         <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude_left.webp" alt="Event T-Shirts" class="card-image">
                      </a>
                      <div class="card-content">
                          <h3>GMTW 2025 T-Shirts</h3>
                          <p>Sichere dir ein Erinnerungsstück! Unsere Event-Shirts sind bis zum 01.04.2025 bestellbar. Verschiedene Ausführungen und Größen verfügbar.</p>
                          <div class="gallery-preview">
-                             <a href="javascript:openGallery('tshirt-gallery', 4)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front4.jpg" alt="T-Shirt Seitenansicht Vorschau"></a>
-                             <a href="javascript:openGallery('tshirt-gallery', 3)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front.jpg" alt="T-Shirt Person Vorderansicht Vorschau"><span class="more-photos">+6</span></a>
+                             <!-- *** CORRECTED: Use .webp links from list (via JS galleries) *** -->
+                             <a href="javascript:openGallery('tshirt-gallery', 4)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front4.webp" alt="T-Shirt Seitenansicht Vorschau"></a>
+                             <a href="javascript:openGallery('tshirt-gallery', 3)"><img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front.webp" alt="T-Shirt Person Vorderansicht Vorschau"><span class="more-photos">+6</span></a>
                          </div>
                      </div>
                  </div>
@@ -434,6 +448,7 @@
          <section id="packliste-checklist">
              <h2>
                  <span>
+                     <!-- Placeholder icon will be replaced by JS -->
                      <i class="fas fa-clipboard-list" style="color: var(--accent-color);" id="checklist-title-icon-placeholder"></i>
                      Deine Pack-Checkliste
                  </span>
@@ -472,20 +487,42 @@
      </footer>
 
      <script>
-         // Globale Galerie-Definitionen und Funktionen (unverändert)
+         // *** CORRECTED: Updated all gallery image URLs to .webp using the provided list ***
          const galleries = {
-             'location-gallery': [ { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Gelaendesicht.jpg', alt: 'Geländeansicht' }, { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Im_Wald.jpg', alt: 'Im Wald' }, { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Kueche.jpg', alt: 'Küche' }, { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial%2BZeltplatz.jpg', alt: 'Trial und Zeltplatz' } ],
-             'trial-gallery': [ { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff.jpg', alt: 'Trial Ausstattung 1' }, { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff2.jpg', alt: 'Trial Ausstattung 2' }, { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff3.jpg', alt: 'Trial Ausstattung 3' }, { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trial_stuff4.jpg', alt: 'Trial Ausstattung 4' }, { src: 'https://github.com/ErSieCode/ersiecode.github.io/raw/main/Location_IMG/Trial_stuff/Trialbaum.jpg', alt: 'Trialbaum' } ],
-             'tshirt-gallery': [ { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front1.jpg', alt: 'T-Shirt Vorderseite 1' }, { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front4.jpg', alt: 'T-Shirt Vorderseite 4' }, { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front.jpg', alt: 'T-Shirt Person Vorderansicht' }, { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front1.jpg', alt: 'T-Shirt Person Vorderansicht 2' }, { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude_left.jpg', alt: 'T-Shirt Person Seitenansicht' }, { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front2.jpg', alt: 'T-Shirt Vorderseite 2' }, { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front3.jpg', alt: 'T-Shirt Vorderseite 3' }, { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front5.jpg', alt: 'T-Shirt Vorderseite 5' } ]
+             'location-gallery': [
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Gelaendesicht.webp', alt: 'Geländeansicht' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Im_Wald.webp', alt: 'Im Wald' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Kueche.webp', alt: 'Küche' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Trial+Zeltplatz.webp', alt: 'Trial und Zeltplatz' } // Corrected path name
+             ],
+             'trial-gallery': [
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Trial_stuff/Trial_stuff.webp', alt: 'Trial Ausstattung 1' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Trial_stuff/Trial_stuff2.webp', alt: 'Trial Ausstattung 2' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Trial_stuff/Trial_stuff3.webp', alt: 'Trial Ausstattung 3' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Trial_stuff/Trial_stuff4.webp', alt: 'Trial Ausstattung 4' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Trial_stuff/Trialbaum.webp', alt: 'Trialbaum' }
+             ],
+             'tshirt-gallery': [
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front1.webp', alt: 'T-Shirt Vorderseite 1' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/Shirt_front4.webp', alt: 'T-Shirt Vorderseite 4' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front.webp', alt: 'T-Shirt Person Vorderansicht' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude__front1.webp', alt: 'T-Shirt Person Vorderansicht 2' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_dude_left.webp', alt: 'T-Shirt Person Seitenansicht' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front2.webp', alt: 'T-Shirt Vorderseite 2' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front3.webp', alt: 'T-Shirt Vorderseite 3' },
+                 { src: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/Location_IMG/Shirt/shirt_front5.webp', alt: 'T-Shirt Vorderseite 5' }
+             ]
          };
          let currentGallery = '';
          let currentIndex = 0;
+         // Gallery functions remain the same
          function openGallery(galleryId, startIndex = 0) { const overlay = document.getElementById('gallery-overlay'); const currentImage = document.getElementById('gallery-current-image'); const counter = document.getElementById('gallery-counter'); const thumbsContainer = document.getElementById('gallery-thumbs'); if (!galleries[galleryId] || !galleries[galleryId].length) { console.error(`Galerie "${galleryId}" nicht gefunden oder leer.`); return; } const galleryData = galleries[galleryId]; const numImages = galleryData.length; if (startIndex < 0 || startIndex >= numImages) { console.warn(`Ungültiger startIndex ${startIndex} für Galerie "${galleryId}". Setze auf 0.`); startIndex = 0; } currentGallery = galleryId; currentIndex = startIndex; if (currentImage) { currentImage.src = galleryData[startIndex].src; currentImage.alt = galleryData[startIndex].alt; } else { console.error("Element 'gallery-current-image' nicht gefunden."); } if (counter) { counter.textContent = `Bild ${startIndex + 1} von ${numImages}`; } else { console.error("Element 'gallery-counter' nicht gefunden."); } if (thumbsContainer) { thumbsContainer.innerHTML = ''; galleryData.forEach((img, idx) => { const thumb = document.createElement('img'); thumb.src = img.src; thumb.alt = `Thumbnail ${idx + 1}`; thumb.classList.add('gallery-thumb'); if (idx === startIndex) thumb.classList.add('active'); thumb.addEventListener('click', function() { currentIndex = idx; updateGalleryView(); thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }); }); thumbsContainer.appendChild(thumb); }); const activeThumb = thumbsContainer.querySelector('.gallery-thumb.active'); if (activeThumb) { activeThumb.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'center' }); } } else { console.error("Element 'gallery-thumbs' nicht gefunden."); } if (overlay) { overlay.classList.add('active'); document.body.style.overflow = 'hidden'; } else { console.error("Element 'gallery-overlay' nicht gefunden."); } }
          function closeGallery() { const overlay = document.getElementById('gallery-overlay'); if (overlay) overlay.classList.remove('active'); document.body.style.overflow = ''; }
          function prevImage() { if (!currentGallery || !galleries[currentGallery]) return; currentIndex--; if (currentIndex < 0) currentIndex = galleries[currentGallery].length - 1; updateGalleryView(); }
          function nextImage() { if (!currentGallery || !galleries[currentGallery]) return; currentIndex++; if (currentIndex >= galleries[currentGallery].length) currentIndex = 0; updateGalleryView(); }
          function updateGalleryView() { if (!currentGallery || !galleries[currentGallery]) return; const galleryData = galleries[currentGallery]; const numImages = galleryData.length; const currentImage = document.getElementById('gallery-current-image'); const counter = document.getElementById('gallery-counter'); const thumbs = document.querySelectorAll(`#gallery-thumbs .gallery-thumb`); if (currentIndex < 0 || currentIndex >= numImages) { console.error("Ungültiger currentIndex in updateGalleryView:", currentIndex); currentIndex = 0; } if (currentImage) { currentImage.src = galleryData[currentIndex].src; currentImage.alt = galleryData[currentIndex].alt; } else { console.error("Element 'gallery-current-image' nicht gefunden in updateGalleryView."); } if (counter) { counter.textContent = `Bild ${currentIndex + 1} von ${numImages}`; } else { console.error("Element 'gallery-counter' nicht gefunden in updateGalleryView."); } if (thumbs && thumbs.length > 0) { let activeThumbElement = null; thumbs.forEach((thumb, idx) => { const isActive = idx === currentIndex; thumb.classList.toggle('active', isActive); if (isActive) { activeThumbElement = thumb; } }); if (activeThumbElement) { activeThumbElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }); } } else if (thumbs === null) { console.error("Element 'gallery-thumbs' nicht gefunden für Thumb-Updates."); } }
          function initGalleries() { const overlay = document.getElementById('gallery-overlay'); const closeBtn = document.getElementById('gallery-close'); const prevBtn = document.getElementById('gallery-prev'); const nextBtn = document.getElementById('gallery-next'); if (closeBtn) closeBtn.addEventListener('click', closeGallery); else console.error("Galerie Schließen-Button nicht gefunden."); if (prevBtn) prevBtn.addEventListener('click', prevImage); else console.error("Galerie Zurück-Button nicht gefunden."); if (nextBtn) nextBtn.addEventListener('click', nextImage); else console.error("Galerie Weiter-Button nicht gefunden."); document.addEventListener('keydown', function(e) { const galleryOverlay = document.getElementById('gallery-overlay'); if (!galleryOverlay || !galleryOverlay.classList.contains('active')) return; if (e.key === 'Escape' || e.key === 'Esc') closeGallery(); if (e.key === 'ArrowLeft') prevImage(); if (e.key === 'ArrowRight') nextImage(); }); }
+
 
          // Globale Variablen
          const { jsPDF } = window.jspdf;
@@ -496,13 +533,35 @@
          let dayMarkers = [];
          let currentDayIndex = -1;
          let animationTimeout;
-         const unicycleImgRight = "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/waschbär_einrad.png";
-         const unicycleImgLeft = "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Waschbär_einrad_L.png";
-         const daysData = [ { day: 'Do', name: 'Donnerstag, 17. April', title: 'Ankunft & Erste Trails', highlights: ['Ankunft & Camp Aufbau', 'Willkommens-Briefing', 'Erste Workshops & Lagerfeuer'], schedule: [ { time: '14:00 - 17:00', icon: 'fa-campground', title: 'Anreise & Dein Platz im Camp', content: `<ul><li><strong>Check-in:</strong> Info-Punkt (Bändchen & Infos).</li><li><strong>Platzwahl:</strong> Bei Registration selbst zuweisen.</li><li><strong>Camp aufbauen:</strong> Zelt aufschlagen, einrichten, Leute treffen.</li></ul>`, highlight: false }, { time: '17:00 - 18:00', icon: 'fa-bullhorn', title: 'Offizieller Startschuss – Willkommens-Kreis & Briefing', content: `<ul><li>Offizielle Begrüßung.</li><li>Programmübersicht, Highlights.</li><li>Wichtige Sicherheitshinweise (Helmpflicht!), Camp-Regeln.</li><li>Infrastruktur-Infos (WC, Duschen...), Notfallplan, Fragen.</li></ul>`, highlight: true }, { time: '18:00 - 19:00', icon: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.png', isImageIcon: true, title: 'Erste Fahr-Action – Spaß-Workshops & Freies Fahren', content: `<p><strong>Workshop 1 „Sicher im Gelände":</strong> Für MUNI-Einsteiger (Balance, kleine Hindernisse...).</p><p><strong>Workshop 2 „Hopfen & Malz" (Hopp & Drop):</strong> Für erste Sprünge & Kanten.</p><p><strong>Freies Fahren:</strong> Übungsgelände nutzen.</p>`, highlight: true }, { time: 'Ab 19:00', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung!)', content: `<p>Campingkocher raus! Eigenes Essen, Geschirr etc. mitbringen. Kocht/esst gemeinsam.</p>`, highlight: false }, { time: 'Ab 20:30', icon: 'fa-fire', title: 'Lagerfeuer-Magie – Der erste Abend', content: `<p>Gemütlicher Ausklang am zentralen Lagerfeuer (wetterabhängig). Kennenlernen, Austausch.</p>`, highlight: true } ] }, { day: 'Fr', name: 'Freitag, 18. April', title: 'MUNI-Touren & Technik-Feinschliff', highlights: ['MUNI-Touren starten', 'Technik-Workshops im Camp', 'Trial-Park Aufbau'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück & Startklar (Selbstversorgung)', content: `<p>Energie für den Tag.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-running', title: 'Morgenspiel „Schwänzchen Fangen"', content: `<p>Spielerisches Warm-Up auf abgesteckter Fläche.</p>`, highlight: false }, { time: '09:45 - 10:15', icon: 'fa-users', title: 'MUNI-Touren-Treffpunkt & Gruppeneinteilung', content: `<p>Vorstellung der Touren (Level, Länge...). Gruppenfindung nach Können/Wunsch.</p>`, highlight: true }, { time: 'Ab 10:15', icon: 'fa-mountain', title: 'Start der MUNI-Touren', content: `<p>Abenteuer rund um den Hengsteysee. Rückkehr meist zur Mittagszeit (ca. 13:00).</p>`, highlight: true }, { time: '10:15 - 16:00', icon: 'fa-cogs', title: 'Workshops & Freies Training im Camp (Parallel)', content: `<p><strong>Balance ist alles:</strong> Fahrtechnik im Gelände.</p><p><strong>Werkstatt:</strong> Reifen, Bremsen, Pflege.</p><p><strong>Sprungtechniken F.:</strong> Höher, weiter, präziser.</p>`, highlight: true }, { time: 'Ab 15:00', icon: 'fa-tools', title: 'Aufbau Trial-Park (Teil 1)', content: `<p>Gemeinsam Sektionen bauen (Paletten etc.). Helfer willkommen!</p>`, highlight: true }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Abendessen (Selbstversorgung) & Ausklang', content: `<p>Kochen, essen, Erlebnisse teilen.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-fire', title: 'Lagerfeuer & Fachsimpeln', content: `<p>Tag Revue passieren lassen.</p>`, highlight: false } ] }, { day: 'Sa', name: 'Samstag, 19. April', title: 'Trial-Tag: Geschicklichkeit & Balance', highlights: ['Trial-Challenge (2 Wellen)', 'Freies Trial-Fahren & Spot-Workshops', 'Gemeinsames Bauen'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück (Selbstversorgung)', content: `<p>Power für den Parcours!</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-puzzle-piece', title: 'Morgenspiel „Mini-Fun-Parcours"', content: `<p>Warm-Up für Koordination & Balance.</p>`, highlight: false }, { time: '09:30 - 10:30', icon: 'fa-check-double', title: 'Finale Vorbereitungen Trial-Park & Safety Check', content: `<p>Gemeinsam fertigstellen. Sicherheitscheck durch Orga/Erfahrene.</p>`, highlight: true }, { time: '10:30 - 11:00', icon: 'fa-shoe-prints', title: 'Warm-Up im Trial-Park', content: `<p>Sektionen checken, Linien testen, kennenlernen.</p>`, highlight: false }, { time: '11:30 - 12:00', icon: 'fa-stopwatch', title: 'Trial-Challenge – Welle 1 (Freiwillig)', content: `<p>30 Min. Spaß-Durchlauf (Easy/Med/Hard). Möglichst viele Lines schaffen. Helfer zum Schiedsen willkommen!</p><p><em>Nur 1 Teilnahme (Welle 1 ODER 2).</em></p>`, highlight: true }, { time: '12:00 - 13:00', icon: 'fa-pause-circle', title: 'Mittagspause & Energietanken', content: `<p>Stärkung (Selbstvers.) & Austausch.</p>`, highlight: false }, { time: '13:00 - 13:30', icon: 'fa-stopwatch', title: 'Trial-Challenge – Welle 2 (Freiwillig)', content: `<p>Gleicher Ablauf wie Welle 1. Helfer willkommen!</p>`, highlight: true }, { time: '13:30 - 16:30', icon: 'fa-cubes', title: 'Freies Trial-Fahren & Spot-Workshops', content: `<p>Park offen für alle! Spontane Mini-Workshops an Sektionen (Sprünge, Balance, Drops).</p>`, highlight: true }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung)', content: `<p>Trial-Helden-Dinner: Erfolge feiern.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-fire', title: 'Lagerfeuer & Geschichten', content: `<p>Gemütlicher Ausklang.</p>`, highlight: false } ] }, { day: 'So', name: 'Sonntag, 20. April', title: 'Großer MUNI-Tag & Downhill-Spaß', highlights: ['Gemeinsamer MUNI-Start', 'MUNI-Spezialabfahrt (Downhill)', 'Großer Abschlussabend'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück (Selbstversorgung)', content: `<p>Basis für den Berg! Snack einpacken.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-train', title: 'Morgenspiel „Einrad-Polonaise"', content: `<p>Gemeinsam hintereinander fahren, Aufgaben lösen.</p>`, highlight: false }, { time: '09:45 - 10:15', icon: 'fa-map-signs', title: 'MUNI-Treffpunkt & Tagesplanung', content: `<p>Routen-Vorstellung (evtl. länger/technischer). Gruppenfindung.</p>`, highlight: true }, { time: '10:15', icon: 'fa-users-cog', title: 'MUNI-Play – Der gemeinsame Start', content: `<p>Alle Gruppen starten gemeinsam/kurz nacheinander.</p>`, highlight: true }, { time: '11:30', icon: 'fa-angle-double-down', title: 'MUNI-Spezialabfahrt (Downhill)', content: `<p>Jeder fährt Strecke einzeln (1 Min. Abstand). Anfeuern!</p>`, highlight: true }, { time: '13:00 - 13:30', icon: 'fa-apple-alt', title: 'Mittagspause (im Grünen/Camp)', content: `<p>Picknick (selbstvers.) oder im Camp.</p>`, highlight: false }, { time: '14:00', icon: 'fa-redo-alt', title: 'Weitere Abfahrten (Downhill)', content: `<p>Fortsetzung bis alle durch sind.</p>`, highlight: true }, { time: '16:30', icon: 'fa-directions', title: 'Freie Sessions & Trails', content: `<ul><li>Weitere Trails mit Gruppe.</li><li>Downhill weiter?</li><li>Bekannte Trails auf eigene Faust (Absprache!).</li></ul>`, highlight: false }, { time: '18:30', icon: 'fa-shower', title: 'Ausrollen & Entspannen im Camp', content: `<p>Lockeres Fahren, Materialpflege, Duschen.</p>`, highlight: false }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung)', content: `<p>Letzte gemeinsame Camp-Mahlzeit.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-glass-cheers', title: 'Großer Abschlussabend am Lagerfeuer', content: `<p>GMTW ausklingen lassen! Momente teilen, Geschichten erzählen.</p>`, highlight: true } ] }, { day: 'Mo', name: 'Montag, 21. April', title: 'Spiele, Ehrungen & Abschied', highlights: ['Morgenspiel: Langsamfahren & Kreisel', 'Gemeinsames Aufräumen & Abbau', 'Abschlusskreis & Ehrungen'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-box-open', title: 'Gemütliches Frühstück & Pack-Start (Selbst.)', content: `<p>Letzte gemeinsame Mahlzeit, langsam packen beginnen.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-gamepad', title: 'Gemeinsames Morgenspiel für ALLE', content: `<p><strong>"Langsamfahr-Rennen & Kreisel-Spaß":</strong> Wer fährt am langsamsten? Wer dreht sich am längsten?</p>`, highlight: true }, { time: '09:30 - 10:30', icon: 'fa-broom', title: 'Gemeinsames Aufräumen & Abbau', content: `<p><strong>Teamwork: Alle packen mit an!</strong> Trial-Park abbauen, Müll sammeln, Platz sauber hinterlassen (Leave No Trace).</p>`, highlight: true }, { time: '10:30 - 11:30', icon: 'fa-trophy', title: 'Spaß-Olympiade & Kleine Einrad-Spiele', content: `<p>Lockerer Ausklang mit Spiel-Stationen (Einrad-Limbo, Parcours, Pendel-Challenge etc.). Spaß im Vordergrund.</p>`, highlight: false }, { time: '11:30 - 12:00', icon: 'fa-users', title: 'Abschlusskreis & Ehrungen "Helden des WE"', content: `<p>Letztes Mal zusammen. Dank an Helfer/Teilnehmer. Kleine, humorvolle Anerkennungen (jüngste/r, Kampfgeist etc.).</p>`, highlight: true }, { time: '12:00 - 14:00', icon: 'fa-car-side', title: 'Letztes Packen & individuelle Abreise', content: `<p>Abschied von Freunden, Kontakte tauschen, letzte Sachen verladen.</p>`, highlight: false }, { time: 'Ab 14:00', icon: 'fa-door-open', title: 'Offizielles Ende des GMTW 2025', content: `<p>Bis zum nächsten Mal!</p>`, highlight: false } ] } ];
-         const packlistData = { "Einrad & Schutz": { icon: "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.png", isImage: true, items: ["Dein/e Einrad/räder (MUNI, Trial – gut gewartet!)", "Helm (ABSOLUTE PFLICHT!)", "Knieschoner (dringend empfohlen)", "Ellbogenschoner (empfohlen)", "Fahrradhandschuhe (Langfinger empfohlen)", "Feste Schuhe (gute Sohle!)", "Kleiner Touren-Rucksack", "Trinkflasche(n) / Trinkblase"] }, "Werkzeug & Ersatzteile": { icon: "fa-tools", items: ["Passende Inbusschlüssel", "Reifenheber", "Luftpumpe", "Flickzeug", "Ersatzschlauch(schläuche)", "Optional: Multitool", "Optional: Kettenöl", "Optional: Mini-Erste-Hilfe"] }, "Campingausrüstung": { icon: "fa-campground", items: ["Zelt (wetterfest!)", "Schlafsack (April-tauglich!)", "Isomatte / Luftmatratze", "Stirn-/Taschenlampe (+ Batterien)", "Campingstuhl (sehr gemütlich!)", "Kulturbeutel & Hygieneartikel"] }, "Kleidung": { icon: "fa-tshirt", items: ["Funktionelle Sportkleidung (mehrere Sets)", "Regenjacke (wasserdicht!)", "Regenhose", "Winddichte Jacke/Weste", "Warme Kleidung (Abend/Nacht)", "Ausreichend Socken", "Unterwäsche", "Bequeme Camp-Kleidung", "Badesachen (Dusche)"] }, "Verpflegung (Selbst!)": { icon: "fa-utensils", items: ["Campingkocher & Brennstoff/Gas", "Topf/Pfanne", "Essgeschirr (Teller, Becher)", "Besteck", "Scharfes Messer", "Schneidebrettchen", "Spülmittel, Schwamm, Tuch", "Müllsäcke", "Lebensmittel für 5 Tage", "Getränke (Grundstock)"] }, "Sonstiges": { icon: "fa-ellipsis-h", items: ["Personalausweis", "Krankenversicherungskarte", "Bargeld", "Handy & Powerbank", "Sonnenschutz (Creme, Brille, Kappe)", "Insektenschutzmittel", "Persönliche Medikamente", "Ohropax", "Spiele für's Camp", "Gute Laune & Offenheit!"] } };
+         // *** CORRECTED: Use .webp URLs from list for unicycle images ***
+         const unicycleImgRight = "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/waschbaer_einrad.webp";
+         const unicycleImgLeft = "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Waschbaer_einrad_L.webp";
+         const daysData = [
+             { day: 'Do', name: 'Donnerstag, 17. April', title: 'Ankunft & Erste Trails', highlights: ['Ankunft & Camp Aufbau', 'Willkommens-Briefing', 'Erste Workshops & Lagerfeuer'], schedule: [
+                 { time: '14:00 - 17:00', icon: 'fa-campground', title: 'Anreise & Dein Platz im Camp', content: `<ul><li><strong>Check-in:</strong> Info-Punkt (Bändchen & Infos).</li><li><strong>Platzwahl:</strong> Bei Registration selbst zuweisen.</li><li><strong>Camp aufbauen:</strong> Zelt aufschlagen, einrichten, Leute treffen.</li></ul>`, highlight: false },
+                 { time: '17:00 - 18:00', icon: 'fa-bullhorn', title: 'Offizieller Startschuss – Willkommens-Kreis & Briefing', content: `<ul><li>Offizielle Begrüßung.</li><li>Programmübersicht, Highlights.</li><li>Wichtige Sicherheitshinweise (Helmpflicht!), Camp-Regeln.</li><li>Infrastruktur-Infos (WC, Duschen...), Notfallplan, Fragen.</li></ul>`, highlight: true },
+                 // *** CORRECTED: Use Muni_logo.webp from list ***
+                 { time: '18:00 - 19:00', icon: 'https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.webp', isImageIcon: true, title: 'Erste Fahr-Action – Spaß-Workshops & Freies Fahren', content: `<p><strong>Workshop 1 „Sicher im Gelände":</strong> Für MUNI-Einsteiger (Balance, kleine Hindernisse...).</p><p><strong>Workshop 2 „Hopfen & Malz" (Hopp & Drop):</strong> Für erste Sprünge & Kanten.</p><p><strong>Freies Fahren:</strong> Übungsgelände nutzen.</p>`, highlight: true },
+                 { time: 'Ab 19:00', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung!)', content: `<p>Campingkocher raus! Eigenes Essen, Geschirr etc. mitbringen. Kocht/esst gemeinsam.</p>`, highlight: false },
+                 { time: 'Ab 20:30', icon: 'fa-fire', title: 'Lagerfeuer-Magie – Der erste Abend', content: `<p>Gemütlicher Ausklang am zentralen Lagerfeuer (wetterabhängig). Kennenlernen, Austausch.</p>`, highlight: true }
+             ] },
+             // ... (rest of daysData structure is correct, only icon needed changing) ...
+             { day: 'Fr', name: 'Freitag, 18. April', title: 'MUNI-Touren & Technik-Feinschliff', highlights: ['MUNI-Touren starten', 'Technik-Workshops im Camp', 'Trial-Park Aufbau'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück & Startklar (Selbstversorgung)', content: `<p>Energie für den Tag.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-running', title: 'Morgenspiel „Schwänzchen Fangen"', content: `<p>Spielerisches Warm-Up auf abgesteckter Fläche.</p>`, highlight: false }, { time: '09:45 - 10:15', icon: 'fa-users', title: 'MUNI-Touren-Treffpunkt & Gruppeneinteilung', content: `<p>Vorstellung der Touren (Level, Länge...). Gruppenfindung nach Können/Wunsch.</p>`, highlight: true }, { time: 'Ab 10:15', icon: 'fa-mountain', title: 'Start der MUNI-Touren', content: `<p>Abenteuer rund um den Hengsteysee. Rückkehr meist zur Mittagszeit (ca. 13:00).</p>`, highlight: true }, { time: '10:15 - 16:00', icon: 'fa-cogs', title: 'Workshops & Freies Training im Camp (Parallel)', content: `<p><strong>Balance ist alles:</strong> Fahrtechnik im Gelände.</p><p><strong>Werkstatt:</strong> Reifen, Bremsen, Pflege.</p><p><strong>Sprungtechniken F.:</strong> Höher, weiter, präziser.</p>`, highlight: true }, { time: 'Ab 15:00', icon: 'fa-tools', title: 'Aufbau Trial-Park (Teil 1)', content: `<p>Gemeinsam Sektionen bauen (Paletten etc.). Helfer willkommen!</p>`, highlight: true }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Abendessen (Selbstversorgung) & Ausklang', content: `<p>Kochen, essen, Erlebnisse teilen.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-fire', title: 'Lagerfeuer & Fachsimpeln', content: `<p>Tag Revue passieren lassen.</p>`, highlight: false } ] },
+             { day: 'Sa', name: 'Samstag, 19. April', title: 'Trial-Tag: Geschicklichkeit & Balance', highlights: ['Trial-Challenge (2 Wellen)', 'Freies Trial-Fahren & Spot-Workshops', 'Gemeinsames Bauen'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück (Selbstversorgung)', content: `<p>Power für den Parcours!</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-puzzle-piece', title: 'Morgenspiel „Mini-Fun-Parcours"', content: `<p>Warm-Up für Koordination & Balance.</p>`, highlight: false }, { time: '09:30 - 10:30', icon: 'fa-check-double', title: 'Finale Vorbereitungen Trial-Park & Safety Check', content: `<p>Gemeinsam fertigstellen. Sicherheitscheck durch Orga/Erfahrene.</p>`, highlight: true }, { time: '10:30 - 11:00', icon: 'fa-shoe-prints', title: 'Warm-Up im Trial-Park', content: `<p>Sektionen checken, Linien testen, kennenlernen.</p>`, highlight: false }, { time: '11:30 - 12:00', icon: 'fa-stopwatch', title: 'Trial-Challenge – Welle 1 (Freiwillig)', content: `<p>30 Min. Spaß-Durchlauf (Easy/Med/Hard). Möglichst viele Lines schaffen. Helfer zum Schiedsen willkommen!</p><p><em>Nur 1 Teilnahme (Welle 1 ODER 2).</em></p>`, highlight: true }, { time: '12:00 - 13:00', icon: 'fa-pause-circle', title: 'Mittagspause & Energietanken', content: `<p>Stärkung (Selbstvers.) & Austausch.</p>`, highlight: false }, { time: '13:00 - 13:30', icon: 'fa-stopwatch', title: 'Trial-Challenge – Welle 2 (Freiwillig)', content: `<p>Gleicher Ablauf wie Welle 1. Helfer willkommen!</p>`, highlight: true }, { time: '13:30 - 16:30', icon: 'fa-cubes', title: 'Freies Trial-Fahren & Spot-Workshops', content: `<p>Park offen für alle! Spontane Mini-Workshops an Sektionen (Sprünge, Balance, Drops).</p>`, highlight: true }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung)', content: `<p>Trial-Helden-Dinner: Erfolge feiern.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-fire', title: 'Lagerfeuer & Geschichten', content: `<p>Gemütlicher Ausklang.</p>`, highlight: false } ] },
+             { day: 'So', name: 'Sonntag, 20. April', title: 'Großer MUNI-Tag & Downhill-Spaß', highlights: ['Gemeinsamer MUNI-Start', 'MUNI-Spezialabfahrt (Downhill)', 'Großer Abschlussabend'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-coffee', title: 'Frühstück (Selbstversorgung)', content: `<p>Basis für den Berg! Snack einpacken.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-train', title: 'Morgenspiel „Einrad-Polonaise"', content: `<p>Gemeinsam hintereinander fahren, Aufgaben lösen.</p>`, highlight: false }, { time: '09:45 - 10:15', icon: 'fa-map-signs', title: 'MUNI-Treffpunkt & Tagesplanung', content: `<p>Routen-Vorstellung (evtl. länger/technischer). Gruppenfindung.</p>`, highlight: true }, { time: '10:15', icon: 'fa-users-cog', title: 'MUNI-Play – Der gemeinsame Start', content: `<p>Alle Gruppen starten gemeinsam/kurz nacheinander.</p>`, highlight: true }, { time: '11:30', icon: 'fa-angle-double-down', title: 'MUNI-Spezialabfahrt (Downhill)', content: `<p>Jeder fährt Strecke einzeln (1 Min. Abstand). Anfeuern!</p>`, highlight: true }, { time: '13:00 - 13:30', icon: 'fa-apple-alt', title: 'Mittagspause (im Grünen/Camp)', content: `<p>Picknick (selbstvers.) oder im Camp.</p>`, highlight: false }, { time: '14:00', icon: 'fa-redo-alt', title: 'Weitere Abfahrten (Downhill)', content: `<p>Fortsetzung bis alle durch sind.</p>`, highlight: true }, { time: '16:30', icon: 'fa-directions', title: 'Freie Sessions & Trails', content: `<ul><li>Weitere Trails mit Gruppe.</li><li>Downhill weiter?</li><li>Bekannte Trails auf eigene Faust (Absprache!).</li></ul>`, highlight: false }, { time: '18:30', icon: 'fa-shower', title: 'Ausrollen & Entspannen im Camp', content: `<p>Lockeres Fahren, Materialpflege, Duschen.</p>`, highlight: false }, { time: 'Ab 18:30', icon: 'fa-utensils', title: 'Gemeinsames Abendessen (Selbstversorgung)', content: `<p>Letzte gemeinsame Camp-Mahlzeit.</p>`, highlight: false }, { time: 'Ab 20:00', icon: 'fa-glass-cheers', title: 'Großer Abschlussabend am Lagerfeuer', content: `<p>GMTW ausklingen lassen! Momente teilen, Geschichten erzählen.</p>`, highlight: true } ] },
+             { day: 'Mo', name: 'Montag, 21. April', title: 'Spiele, Ehrungen & Abschied', highlights: ['Morgenspiel: Langsamfahren & Kreisel', 'Gemeinsames Aufräumen & Abbau', 'Abschlusskreis & Ehrungen'], schedule: [ { time: '08:00 - 09:00', icon: 'fa-box-open', title: 'Gemütliches Frühstück & Pack-Start (Selbst.)', content: `<p>Letzte gemeinsame Mahlzeit, langsam packen beginnen.</p>`, highlight: false }, { time: '09:00 - 09:30', icon: 'fa-gamepad', title: 'Gemeinsames Morgenspiel für ALLE', content: `<p><strong>"Langsamfahr-Rennen & Kreisel-Spaß":</strong> Wer fährt am langsamsten? Wer dreht sich am längsten?</p>`, highlight: true }, { time: '09:30 - 10:30', icon: 'fa-broom', title: 'Gemeinsames Aufräumen & Abbau', content: `<p><strong>Teamwork: Alle packen mit an!</strong> Trial-Park abbauen, Müll sammeln, Platz sauber hinterlassen (Leave No Trace).</p>`, highlight: true }, { time: '10:30 - 11:30', icon: 'fa-trophy', title: 'Spaß-Olympiade & Kleine Einrad-Spiele', content: `<p>Lockerer Ausklang mit Spiel-Stationen (Einrad-Limbo, Parcours, Pendel-Challenge etc.). Spaß im Vordergrund.</p>`, highlight: false }, { time: '11:30 - 12:00', icon: 'fa-users', title: 'Abschlusskreis & Ehrungen "Helden des WE"', content: `<p>Letztes Mal zusammen. Dank an Helfer/Teilnehmer. Kleine, humorvolle Anerkennungen (jüngste/r, Kampfgeist etc.).</p>`, highlight: true }, { time: '12:00 - 14:00', icon: 'fa-car-side', title: 'Letztes Packen & individuelle Abreise', content: `<p>Abschied von Freunden, Kontakte tauschen, letzte Sachen verladen.</p>`, highlight: false }, { time: 'Ab 14:00', icon: 'fa-door-open', title: 'Offizielles Ende des GMTW 2025', content: `<p>Bis zum nächsten Mal!</p>`, highlight: false } ] }
+         ];
+         const packlistData = {
+             // *** CORRECTED: Use Muni_logo.webp from list ***
+             "Einrad & Schutz": { icon: "https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/main/images/Muni_logo.webp", isImage: true, items: ["Dein/e Einrad/räder (MUNI, Trial – gut gewartet!)", "Helm (ABSOLUTE PFLICHT!)", "Knieschoner (dringend empfohlen)", "Ellbogenschoner (empfohlen)", "Fahrradhandschuhe (Langfinger empfohlen)", "Feste Schuhe (gute Sohle!)", "Kleiner Touren-Rucksack", "Trinkflasche(n) / Trinkblase"] },
+             "Werkzeug & Ersatzteile": { icon: "fa-tools", items: ["Passende Inbusschlüssel", "Reifenheber", "Luftpumpe", "Flickzeug", "Ersatzschlauch(schläuche)", "Optional: Multitool", "Optional: Kettenöl", "Optional: Mini-Erste-Hilfe"] },
+             "Campingausrüstung": { icon: "fa-campground", items: ["Zelt (wetterfest!)", "Schlafsack (April-tauglich!)", "Isomatte / Luftmatratze", "Stirn-/Taschenlampe (+ Batterien)", "Campingstuhl (sehr gemütlich!)", "Kulturbeutel & Hygieneartikel"] },
+             "Kleidung": { icon: "fa-tshirt", items: ["Funktionelle Sportkleidung (mehrere Sets)", "Regenjacke (wasserdicht!)", "Regenhose", "Winddichte Jacke/Weste", "Warme Kleidung (Abend/Nacht)", "Ausreichend Socken", "Unterwäsche", "Bequeme Camp-Kleidung", "Badesachen (Dusche)"] },
+             "Verpflegung (Selbst!)": { icon: "fa-utensils", items: ["Campingkocher & Brennstoff/Gas", "Topf/Pfanne", "Essgeschirr (Teller, Becher)", "Besteck", "Scharfes Messer", "Schneidebrettchen", "Spülmittel, Schwamm, Tuch", "Müllsäcke", "Lebensmittel für 5 Tage", "Getränke (Grundstock)"] },
+             "Sonstiges": { icon: "fa-ellipsis-h", items: ["Personalausweis", "Krankenversicherungskarte", "Bargeld", "Handy & Powerbank", "Sonnenschutz (Creme, Brille, Kappe)", "Insektenschutzmittel", "Persönliche Medikamente", "Ohropax", "Spiele für's Camp", "Gute Laune & Offenheit!"] }
+         };
 
          document.addEventListener('DOMContentLoaded', () => {
-             // Galerie initialisieren
              initGalleries();
 
              // --- Element-Referenzen holen ---
@@ -521,11 +580,9 @@
              const progressText = document.getElementById('checklist-progress-text');
              const checklistTitleIconPlaceholder = document.getElementById('checklist-title-icon-placeholder');
              const gameButton = document.getElementById('game-button');
-
-             // Audio Elemente
-             const audioFigurTrigger = document.getElementById('audio-figur-trigger'); // Für Modal-Klick
-             const audioWrapper = document.getElementById('audio-wrapper');           // Für Hover/Touch-Effekt
-             const soundwaves = document.querySelectorAll('.soundwave');               // Alle Wellen
+             const audioFigurTrigger = document.getElementById('audio-figur-trigger');
+             const audioWrapper = document.getElementById('audio-wrapper');
+             const soundwaves = document.querySelectorAll('.soundwave');
              const audioModal = document.getElementById('audio-options-modal');
              const audioBackdrop = document.getElementById('audio-modal-backdrop');
              const closeAudioModalBtn = document.getElementById('close-audio-modal-btn');
@@ -537,73 +594,16 @@
 
              isJsPDFReady = typeof jsPDF !== 'undefined';
 
-             // --- START: Soundwave Animation (Doppelpuls bei jedem Hover/Touch) ---
-             let isSequenceRunning = false; // Verhindert Überlappung der *gesamten* Sequenz
-             const pulseAnimationDuration = 1200; // Dauer einer CSS-Animation (1.2s)
-             const delayBetweenPulses = 150;      // Kurze Pause zwischen den Pulsen (in ms)
-             // Gesamtdauer der Sequenz grob berechnen (2 Pulse + Pause + Puffer)
+             // --- Soundwave Animation --- (Code unchanged, relies on DOM elements)
+             let isSequenceRunning = false;
+             const pulseAnimationDuration = 1200;
+             const delayBetweenPulses = 150;
              const totalSequenceDuration = (pulseAnimationDuration * 2) + delayBetweenPulses + 500;
+             function runSinglePulse() { if (!soundwaves || soundwaves.length === 0) return; soundwaves.forEach(wave => wave.classList.remove('animating')); requestAnimationFrame(() => { requestAnimationFrame(() => { soundwaves.forEach(wave => wave.classList.add('animating')); }); }); }
+             function startDoublePulseSequence() { if (isSequenceRunning || !soundwaves || soundwaves.length === 0) return; isSequenceRunning = true; runSinglePulse(); setTimeout(() => { runSinglePulse(); }, pulseAnimationDuration + delayBetweenPulses); setTimeout(() => { isSequenceRunning = false; }, totalSequenceDuration); }
+             if (audioWrapper) { audioWrapper.addEventListener('mouseenter', startDoublePulseSequence); audioWrapper.addEventListener('touchstart', (e) => { if (!isSequenceRunning) { e.preventDefault(); startDoublePulseSequence(); } }, { passive: false }); } else { console.error("Audio-Wrapper Element (ID: audio-wrapper) nicht gefunden!"); }
 
-             // Funktion, um EINEN Puls auszuführen
-             function runSinglePulse() {
-                 if (!soundwaves || soundwaves.length === 0) return;
-                 // console.log("Running single pulse..."); // Debug
-
-                 // 1. Reset: Klassen entfernen
-                 soundwaves.forEach(wave => wave.classList.remove('animating'));
-
-                 // 2. Animation starten (nach kurzem Warten via rAF)
-                 requestAnimationFrame(() => {
-                    requestAnimationFrame(() => { // Doppeltes rAF für Robustheit
-                        soundwaves.forEach(wave => wave.classList.add('animating'));
-                    });
-                 });
-             }
-
-             // Funktion, die die gesamte Sequenz (2 Pulse) startet
-             function startDoublePulseSequence() {
-                 // Nur starten, wenn gerade keine Sequenz läuft
-                 if (isSequenceRunning || !soundwaves || soundwaves.length === 0) return;
-
-                 isSequenceRunning = true; // Blockieren für die Dauer der Sequenz
-                 // console.log("Starting double pulse sequence..."); // Debug
-
-                 // --- Erster Puls ---
-                 runSinglePulse();
-
-                 // --- Zweiter Puls (verzögert) ---
-                 setTimeout(() => {
-                     runSinglePulse(); // Startet den zweiten Puls
-                     // console.log("Starting second pulse..."); // Debug
-                 }, pulseAnimationDuration + delayBetweenPulses); // Wartezeit = Dauer des 1. Pulses + Pause
-
-                 // --- Sequenz abschließen (Flag zurücksetzen) ---
-                 setTimeout(() => {
-                     isSequenceRunning = false; // Freigeben nach gesamter Sequenz
-                     // Optional: Klassen final entfernen (oft nicht nötig, da Reset in runSinglePulse)
-                     // soundwaves.forEach(wave => wave.classList.remove('animating'));
-                     // console.log("Double pulse sequence finished."); // Debug
-                 }, totalSequenceDuration);
-             }
-
-             // Event Listener für Hover und Touch auf dem WRAPPER
-             if (audioWrapper) {
-                 // Startet die Sequenz bei jedem Hover, wenn sie nicht gerade läuft
-                 audioWrapper.addEventListener('mouseenter', startDoublePulseSequence);
-                 audioWrapper.addEventListener('touchstart', (e) => {
-                    // Verhindert Standard-Touch-Verhalten nur, WENN die Animation tatsächlich gestartet wird
-                     if (!isSequenceRunning) {
-                         e.preventDefault();
-                         startDoublePulseSequence();
-                     }
-                 }, { passive: false }); // passive: false für preventDefault
-             } else {
-                 console.error("Audio-Wrapper Element (ID: audio-wrapper) nicht gefunden!");
-             }
-             // --- ENDE: Soundwave Animation ---
-
-
-             // --- FUNKTIONEN (Restliche: PDF, Timeline, Checklist, Modal etc.) ---
+             // --- FUNKTIONEN (Restliche: PDF, Timeline, Checklist, Modal etc. - Code unchanged) ---
              function initializePdfButtonState() { if (pdfButton) { if (isJsPDFReady) { pdfButton.disabled = false; pdfButton.innerHTML = '<i class="fas fa-file-pdf"></i> Alle Infos als PDF'; if (!pdfButton.hasAttribute('data-listener-added')) { pdfButton.addEventListener('click', generateAndDownloadPDF); pdfButton.setAttribute('data-listener-added', 'true'); } } else { pdfButton.disabled = true; pdfButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Lade PDF Lib...'; } } }
              function createDayMarkers() { if (!track) return; const trackWidth = track.offsetWidth; if (trackWidth === 0) { setTimeout(createDayMarkers, 100); return; } track.innerHTML = ''; dayMarkers = []; daysData.forEach((day, index) => { const marker = document.createElement('div'); marker.classList.add('day-marker'); marker.dataset.index = index; marker.textContent = day.day; const tooltip = document.createElement('span'); tooltip.textContent = day.name; marker.appendChild(tooltip); const positionPercent = 10 + (daysData.length > 1 ? (index * (80 / (daysData.length - 1))) : 40); marker.style.left = `${positionPercent}%`; marker.addEventListener('click', () => { clearTimeout(animationTimeout); stopAnimationVisuals(); navigateToDay(index); }); track.appendChild(marker); dayMarkers.push(marker); }); }
              function showHighlights(dayIndex) { if (!highlightDay || !highlightList) return; if (dayIndex < 0 || dayIndex >= daysData.length) { highlightDay.textContent = "Tag wählen"; highlightList.innerHTML = '<li>Klicke auf einen Tag oder starte die Animation!</li>'; if (dayMarkers) dayMarkers.forEach(marker => marker.classList.remove('active')); } else { const day = daysData[dayIndex]; highlightDay.textContent = `Highlights ${day.name}`; highlightList.innerHTML = day.highlights.map(item => `<li>${item}</li>`).join(''); if (dayMarkers) dayMarkers.forEach((marker, index) => marker.classList.toggle('active', index === dayIndex)); } currentDayIndex = dayIndex; }
@@ -635,27 +635,20 @@
                  if (playButton) { playButton.addEventListener('click', () => { clearTimeout(animationTimeout); startAnimation(); }); }
                  let resizeTimer;
                  window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { createDayMarkers(); if (currentDayIndex !== -1) { moveUnicyclist(currentDayIndex); showHighlights(currentDayIndex); } else { moveUnicyclist(-1); } }, 250); });
-             } else {
-                 // Falls keine Timeline, PDF Button trotzdem initialisieren (passiert aber schon in initChecklistDB)
-                 // initializePdfButtonState();
              }
 
              // Event Listener für Audio Modal
              if (audioFigurTrigger) { audioFigurTrigger.addEventListener('click', openAudioModal); } else { console.error("Audio-Trigger Element (ID: audio-figur-trigger) nicht gefunden!"); }
              if (closeAudioModalBtn) { closeAudioModalBtn.addEventListener('click', closeAudioModal); }
              if (audioBackdrop) { audioBackdrop.addEventListener('click', closeAudioModal); }
-             if (playAudioBtn && audioPlayer && audioPlayerContainer) { playAudioBtn.addEventListener('click', () => { audioPlayer.src = gmtwAudioUrl; audioPlayerContainer.style.display = 'block'; audioPlayer.play().catch(e => console.error("Audio play failed:", e)); }); } // Added catch for play()
+             if (playAudioBtn && audioPlayer && audioPlayerContainer) { playAudioBtn.addEventListener('click', () => { audioPlayer.src = gmtwAudioUrl; audioPlayerContainer.style.display = 'block'; audioPlayer.play().catch(e => console.error("Audio play failed:", e)); }); }
              if (downloadAudioBtn) { downloadAudioBtn.addEventListener('click', () => { const link = document.createElement('a'); link.href = gmtwAudioUrl; link.download = 'GMTW25_LineUP_Audio.mp3'; document.body.appendChild(link); link.click(); document.body.removeChild(link); closeAudioModal(); }); }
 
              // Spiel-Button
              if (gameButton) { gameButton.addEventListener('click', () => { const gameUrl = 'https://raw.githack.com/ErSieCode/1Rad/main/Einrad_mini_game.html'; console.log("Öffne Spiel:", gameUrl); window.open(gameUrl, '_blank'); }); }
 
-             // --- NEU: Trigger Animation einmalig nach dem Laden ---
-             // Kleiner Timeout stellt sicher, dass die Seite "bereit" ist
-             setTimeout(() => {
-                  console.log("Triggering initial soundwave sequence on load..."); // Debug
-                  startDoublePulseSequence();
-             }, 150); // Kurze Verzögerung nach DOMContentLoaded
+             // --- Trigger Animation einmalig nach dem Laden ---
+             setTimeout(() => { startDoublePulseSequence(); }, 150);
 
          }); // Ende DOMContentLoaded
      </script>
