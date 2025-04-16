@@ -67,18 +67,15 @@
         }
         
         .raccoon {
-            position: absolute;
-            width: 200px;
-            top: 100px;
-            right: 20px;
-            z-index: 10;
-            transform: rotate(5deg);
+            display: block;
+            width: 180px;
+            margin: 0 auto;
             filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
             transition: transform 0.3s ease;
         }
         
         .raccoon:hover {
-            transform: rotate(0deg) scale(1.05);
+            transform: rotate(5deg) scale(1.05);
         }
         
         .schedule {
@@ -168,8 +165,6 @@
             
             .raccoon {
                 width: 150px;
-                top: 80px;
-                right: 10px;
             }
             
             .time-block {
@@ -188,12 +183,10 @@
             
             h1 {
                 font-size: 1.8rem;
-                margin-top: 60px;
             }
             
             .raccoon {
                 width: 120px;
-                top: 60px;
             }
         }
     </style>
@@ -204,9 +197,9 @@
     </header>
     
     <div class="container">
-        <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/refs/heads/main/images/Waschbaer_einrad_L.webp" alt="Waschbär auf Einrad" class="raccoon">
-        
         <h1>Tagesplan: Donnerstag, 17. April</h1>
+        
+        <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/refs/heads/main/images/Waschbaer_einrad_L.webp" alt="Waschbär auf Einrad" class="raccoon">
         
         <div class="schedule">
             <div class="time-block">
