@@ -1,1 +1,263 @@
-
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUNI Camp - Tagesplan</title>
+    <style>
+        :root {
+            --primary-color: #1e4d2b;
+            --secondary-color: #2ecc71;
+            --accent-color: #7ed56f;
+            --light-color: #ecf0f1;
+            --dark-color: #0e3e1e;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f9f0;
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .banner {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        
+        h1 {
+            color: var(--dark-color);
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2.5rem;
+            position: relative;
+        }
+        
+        h1::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .raccoon {
+            position: absolute;
+            width: 200px;
+            top: 100px;
+            right: 20px;
+            z-index: 10;
+            transform: rotate(5deg);
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+            transition: transform 0.3s ease;
+        }
+        
+        .raccoon:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+        
+        .schedule {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .time-block {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .time-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .time-block::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: var(--secondary-color);
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .time {
+            color: var(--secondary-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .time::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: #e0e0e0;
+            margin-left: 15px;
+        }
+        
+        .activity {
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        
+        .detail-item {
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .detail-item::before {
+            content: '•';
+            position: absolute;
+            left: 8px;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .raccoon {
+                width: 150px;
+                top: 80px;
+                right: 10px;
+            }
+            
+            .time-block {
+                padding: 20px;
+            }
+            
+            .activity {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                height: 120px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+                margin-top: 60px;
+            }
+            
+            .raccoon {
+                width: 120px;
+                top: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/refs/heads/main/images/Banner.webp" alt="Camp Banner" class="banner">
+    </header>
+    
+    <div class="container">
+        <img src="https://raw.githubusercontent.com/ErSieCode/ersiecode.github.io/refs/heads/main/images/Waschbaer_einrad_L.webp" alt="Waschbär auf Einrad" class="raccoon">
+        
+        <h1>Tagesplan: Donnerstag, 17. April</h1>
+        
+        <div class="schedule">
+            <div class="time-block">
+                <div class="time">14:00 - 17:00</div>
+                <div class="activity">Anreise & Dein Platz im Camp</div>
+                <div class="details">
+                    <div class="detail-item">Check-in: Info-Punkt (Bändchen & Infos)</div>
+                    <div class="detail-item">Platzwahl: Bei Registration selbst zuweisen</div>
+                    <div class="detail-item">Camp aufbauen: Zelt aufschlagen, einrichten, Leute treffen</div>
+                </div>
+            </div>
+            
+            <div class="time-block">
+                <div class="time">17:00 - 18:00</div>
+                <div class="activity">Offizieller Startschuss – Willkommens-Kreis & Briefing</div>
+                <div class="details">
+                    <div class="detail-item">Offizielle Begrüßung</div>
+                    <div class="detail-item">Programmübersicht, Highlights</div>
+                    <div class="detail-item">Wichtige Sicherheitshinweise (Helmpflicht!), Camp-Regeln</div>
+                    <div class="detail-item">Infrastruktur-Infos (WC, Duschen...), Notfallplan, Fragen</div>
+                </div>
+            </div>
+            
+            <div class="time-block">
+                <div class="time">18:00 - 19:00</div>
+                <div class="activity">Erste Fahr-Action – Spaß-Workshops & Freies Fahren</div>
+                <div class="details">
+                    <div class="detail-item">Workshop 1 „Sicher im Gelände": Für MUNI-Einsteiger (Balance, kleine Hindernisse...)</div>
+                    <div class="detail-item">Workshop 2 „Hopfen & Malz" (Hopp & Drop): Für erste Sprünge & Kanten</div>
+                    <div class="detail-item">Freies Fahren: Übungsgelände nutzen</div>
+                </div>
+            </div>
+            
+            <div class="time-block">
+                <div class="time">Ab 19:00</div>
+                <div class="activity">Gemeinsames Abendessen (Selbstversorgung!)</div>
+                <div class="details">
+                    <div class="detail-item">Campingkocher raus! Eigenes Essen, Geschirr etc. mitbringen</div>
+                    <div class="detail-item">Kocht/esst gemeinsam</div>
+                </div>
+            </div>
+            
+            <div class="time-block">
+                <div class="time">Ab 20:30</div>
+                <div class="activity">Lagerfeuer-Magie – Der erste Abend</div>
+                <div class="details">
+                    <div class="detail-item">Gemütlicher Ausklang am zentralen Lagerfeuer (wetterabhängig)</div>
+                    <div class="detail-item">Kennenlernen, Austausch</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
