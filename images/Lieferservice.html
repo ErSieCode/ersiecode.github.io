@@ -1,1 +1,267 @@
-
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Lieferservices in der Nähe</title>
+    <style>
+        :root {
+            --primary-color: #2ecc71;
+            --secondary-color: #27ae60;
+            --background-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .pizza-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .pizza-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .pizza-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-image {
+            height: 200px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .pizza-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .pizza-location {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .pizza-location::before {
+            content: '📍';
+            margin-right: 0.5rem;
+        }
+        
+        .features {
+            margin-bottom: 1rem;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-icon {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .pizza-link {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .pizza-link:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .delivery-time {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        footer {
+            background-color: var(--text-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .pizza-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Pizza Lieferservices in der Nähe</h1>
+            <p>Die besten Pizzerien mit Lieferservice in Ihrer Umgebung</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="pizza-grid">
+            <div class="pizza-card">
+                <div class="card-image">
+                    <img src="/api/placeholder/400/200" alt="Pizza Blitz Dortmund">
+                </div>
+                <div class="card-content">
+                    <h2 class="pizza-name">Pizza Blitz</h2>
+                    <p class="pizza-location">Dortmund</p>
+                    <div class="features">
+                        <div class="feature">
+                            <span class="feature-icon">🍕</span>
+                            <span>Italienische & Deutsche Spezialitäten</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">⏰</span>
+                            <span>Schnelle Lieferung</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">💰</span>
+                            <span>Faire Preise</span>
+                        </div>
+                    </div>
+                    <span class="delivery-time">30-45 min Lieferzeit</span>
+                    <div>
+                        <a href="https://www.pizzablitz-dortmund.de/" class="pizza-link" target="_blank">Zur Website</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pizza-card">
+                <div class="card-image">
+                    <img src="/api/placeholder/400/200" alt="Pizzeria Romantica Hagen">
+                </div>
+                <div class="card-content">
+                    <h2 class="pizza-name">Pizzeria Romantica</h2>
+                    <p class="pizza-location">Hagen</p>
+                    <div class="features">
+                        <div class="feature">
+                            <span class="feature-icon">🍕</span>
+                            <span>Authentische italienische Pizza</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🍝</span>
+                            <span>Pasta & Antipasti</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🚚</span>
+                            <span>Kostenlose Lieferung ab 15€</span>
+                        </div>
+                    </div>
+                    <span class="delivery-time">25-40 min Lieferzeit</span>
+                    <div>
+                        <a href="https://www.pizzeria-romantica-hagen.com/" class="pizza-link" target="_blank">Zur Website</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pizza-card">
+                <div class="card-image">
+                    <img src="/api/placeholder/400/200" alt="Pizza Service">
+                </div>
+                <div class="card-content">
+                    <h2 class="pizza-name">Fügen Sie hier weitere Pizzerien hinzu</h2>
+                    <p class="pizza-location">Ihre Stadt</p>
+                    <div class="features">
+                        <div class="feature">
+                            <span class="feature-icon">➕</span>
+                            <span>Ergänzen Sie weitere Pizzerien</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🌟</span>
+                            <span>Fügen Sie Bewertungen hinzu</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🍴</span>
+                            <span>Spezialisierungen & Angebote</span>
+                        </div>
+                    </div>
+                    <span class="delivery-time">Lieferzeit hinzufügen</span>
+                    <div>
+                        <a href="#" class="pizza-link">Website hinzufügen</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pizza Lieferservices Übersicht</p>
+        </div>
+    </footer>
+</body>
+</html>
